@@ -55,6 +55,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="xaml_window\Doctor\DoctorHome.xaml.cs">
+      <DependentUpon>DoctorHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\LoginDoctor.xaml.cs">
+      <DependentUpon>LoginDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\LoginManager.xaml.cs">
+      <DependentUpon>LoginManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\ManagerHome.xaml.cs">
+      <DependentUpon>ManagerHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Patient\LoginPatient.xaml.cs">
+      <DependentUpon>LoginPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Patient\PatientHome.xaml.cs">
+      <DependentUpon>PatientHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Secretary\LoginSecretary.xaml.cs">
+      <DependentUpon>LoginSecretary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Secretary\SecretaryHome.xaml.cs">
+      <DependentUpon>SecretaryHome.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,8 +91,56 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="xaml_window\Doctor\DoctorHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\LoginDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\LoginManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\ManagerHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Patient\LoginPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Patient\PatientHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Secretary\LoginSecretary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Secretary\SecretaryHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Examination.cs" />
+    <Compile Include="Model\ExaminationFileStorage.cs" />
+    <Compile Include="Model\ExaminationType.cs" />
+    <Compile Include="Model\Gender.cs" />
+    <Compile Include="Model\Manager.cs" />
+    <Compile Include="Model\MedicalRecord.cs" />
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\PatientFileStorage.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\RoomFileStorage.cs" />
+    <Compile Include="Model\RoomType.cs" />
+    <Compile Include="Model\Secretary.cs" />
+    <Compile Include="Model\TypeOfSpetialization.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,5 +166,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
