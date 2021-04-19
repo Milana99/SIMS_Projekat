@@ -55,8 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="xaml_window\Doctor\CreateExaminatio.xaml.cs">
+      <DependentUpon>CreateExaminatio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Doctor\DoctorHome.xaml.cs">
       <DependentUpon>DoctorHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\ExaminationUpdate.xaml.cs">
+      <DependentUpon>ExaminationUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Doctor\LoginDoctor.xaml.cs">
       <DependentUpon>LoginDoctor.xaml</DependentUpon>
@@ -91,7 +97,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="xaml_window\Doctor\CreateExaminatio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Doctor\DoctorHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\ExaminationUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +180,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="xaml_window\Doctor\Slike\Slika.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_window\Doctor\Slike\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_window\Doctor\Slike\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_window\Doctor\Slike\srce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Doktor.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Doctor.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

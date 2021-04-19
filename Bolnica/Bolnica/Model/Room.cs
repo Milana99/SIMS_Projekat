@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Bolnica.Model
 {
    public class Room
@@ -22,6 +23,7 @@ namespace Bolnica.Model
             RoomType = newRoomType;
             deleted = false;
         }
+        
         public void SaveRoom(int roomId, int description, int floor, int area, int roomType)
       {
          // TODO: implement
@@ -61,43 +63,19 @@ namespace Bolnica.Model
 
       public void AddExamination(Examination newExamination)
       {
-         if (newExamination == null)
-            return;
-         if (this.examinations == null)
-            this.examinations = new List<Examination>();
-         if (!this.examinations.Contains(newExamination))
-         {
-            this.examinations.Add(newExamination);
-            newExamination.SetRoom(this);      
-         }
+         
       }
       
 
       public void RemoveExamination(Examination oldExamination)
       {
-         if (oldExamination == null)
-            return;
-         if (this.examinations != null)
-            if (this.examinations.Contains(oldExamination))
-            {
-               this.examinations.Remove(oldExamination);
-               oldExamination.SetRoom((Room)null);
-            }
+         
       }
       
 
       public void RemoveAllExamination()
       {
-         if (examinations != null)
-         {
-            System.Collections.ArrayList tmpExamination = new System.Collections.ArrayList();
-            foreach (Examination oldExamination in examinations)
-               tmpExamination.Add(oldExamination);
-            examinations.Clear();
-            foreach (Examination oldExamination in tmpExamination)
-               oldExamination.SetRoom((Room)null);
-            tmpExamination.Clear();
-         }
+         
       }
    
    }

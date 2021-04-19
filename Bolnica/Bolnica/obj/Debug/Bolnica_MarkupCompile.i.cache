@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\App.xaml
-9320514304
+11754758764
 
-30-173613917
+3221208185
 13-1505183044
-MainWindow.xaml;xaml_window\Doctor\DoctorHome.xaml;xaml_window\Doctor\LoginDoctor.xaml;xaml_window\Manager\LoginManager.xaml;xaml_window\Manager\ManagerHome.xaml;xaml_window\Patient\LoginPatient.xaml;xaml_window\Patient\PatientHome.xaml;xaml_window\Secretary\LoginSecretary.xaml;xaml_window\Secretary\SecretaryHome.xaml;
+MainWindow.xaml;xaml_window\Doctor\CreateExaminatio.xaml;xaml_window\Doctor\DoctorHome.xaml;xaml_window\Doctor\ExaminationUpdate.xaml;xaml_window\Doctor\LoginDoctor.xaml;xaml_window\Manager\LoginManager.xaml;xaml_window\Manager\ManagerHome.xaml;xaml_window\Patient\LoginPatient.xaml;xaml_window\Patient\PatientHome.xaml;xaml_window\Secretary\LoginSecretary.xaml;xaml_window\Secretary\SecretaryHome.xaml;
 
-True
+False
 

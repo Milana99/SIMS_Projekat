@@ -10,11 +10,17 @@ namespace Bolnica.Model
         private int Lbo { get; set; }
         private int Bzk { get; set; }
 
+
+        public Patient(String newUsername)
+        {
+            User = new User(newUsername);
+        }
+
         public List<Examination> GetAllExaminations()
-      {
-         // TODO: implement
-         return null;
-      }
+        {
+             // TODO: implement
+             return null;
+        }
   
       public List<Examination> GetExaminations()
       {
@@ -33,41 +39,17 @@ namespace Bolnica.Model
 
       public void AddExaminations(Examination newExamination)
       {
-         if (newExamination == null)
-            return;
-         if (this.examinations == null)
-            this.examinations = new List<Examination>();
-         if (!this.examinations.Contains(newExamination))
-         {
-            this.examinations.Add(newExamination);
-            newExamination.SetPatient(this);      
-         }
+         
       }
       
       public void RemoveExaminations(Examination oldExamination)
       {
-         if (oldExamination == null)
-            return;
-         if (this.examinations != null)
-            if (this.examinations.Contains(oldExamination))
-            {
-               this.examinations.Remove(oldExamination);
-               oldExamination.SetPatient((Patient)null);
-            }
+         
       }
       
       public void RemoveAllExaminations()
       {
-         if (examinations != null)
-         {
-            System.Collections.ArrayList tmpExaminations = new System.Collections.ArrayList();
-            foreach (Examination oldExamination in examinations)
-               tmpExaminations.Add(oldExamination);
-            examinations.Clear();
-            foreach (Examination oldExamination in tmpExaminations)
-               oldExamination.SetPatient((Patient)null);
-            tmpExaminations.Clear();
-         }
+         
       }
      
    
