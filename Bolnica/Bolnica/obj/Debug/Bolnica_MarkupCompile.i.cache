@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\
+C:\Users\Radovan\Desktop\Bolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\
 Bolnica
 none
 false
 DEBUG;TRACE
-C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\App.xaml
-9320514304
+C:\Users\Radovan\Desktop\Bolnica\SIMS_Projekat\Bolnica\Bolnica\App.xaml
+12-1925826149
 
-30-173613917
+331451130975
 13-1505183044
-MainWindow.xaml;xaml_window\Doctor\DoctorHome.xaml;xaml_window\Doctor\LoginDoctor.xaml;xaml_window\Manager\LoginManager.xaml;xaml_window\Manager\ManagerHome.xaml;xaml_window\Patient\LoginPatient.xaml;xaml_window\Patient\PatientHome.xaml;xaml_window\Secretary\LoginSecretary.xaml;xaml_window\Secretary\SecretaryHome.xaml;
+MainWindow.xaml;xaml_window\Doctor\DoctorHome.xaml;xaml_window\Doctor\LoginDoctor.xaml;xaml_window\Manager\CreateRoom.xaml;xaml_window\Manager\LoginManager.xaml;xaml_window\Manager\ManagerHome.xaml;xaml_window\Manager\RoomList.xaml;xaml_window\Manager\UpdateRoom.xaml;xaml_window\Patient\LoginPatient.xaml;xaml_window\Patient\PatientHome.xaml;xaml_window\Secretary\LoginSecretary.xaml;xaml_window\Secretary\SecretaryHome.xaml;
 
 True
 

@@ -6,12 +6,12 @@ namespace Bolnica.Model
    public class Room
    {
         public List<Examination> examinations;
-        private int RoomId;
-        private String Description;
-        private double Floor;
-        private double Area;
-        private RoomType RoomType;
-        public bool deleted;
+        public int RoomId { get; set; }
+        public String Description { get; set; }
+        public double Floor { get; set; }
+        public double Area { get; set; }
+        public RoomType RoomType { get; set; }
+        public bool deleted { get; set; }
 
         public Room(int newRoomId, String newDescription, double newFloor, double newArea, RoomType newRoomType)
         {
@@ -29,7 +29,7 @@ namespace Bolnica.Model
       
       public void DeleteRoom()
       {
-         // TODO: implement
+            deleted = true;
       }
       
       public void UpdateRoom(int description, int area, int roomType)
