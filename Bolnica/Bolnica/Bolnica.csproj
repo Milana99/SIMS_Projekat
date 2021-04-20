@@ -67,11 +67,23 @@
     <Compile Include="xaml_window\Doctor\LoginDoctor.xaml.cs">
       <DependentUpon>LoginDoctor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Doctor\MedicalRecordDoctor.xaml.cs">
+      <DependentUpon>MedicalRecordDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\CreateRoom.xaml.cs">
+      <DependentUpon>CreateRoom.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Manager\LoginManager.xaml.cs">
       <DependentUpon>LoginManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Manager\ManagerHome.xaml.cs">
       <DependentUpon>ManagerHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\RoomList.xaml.cs">
+      <DependentUpon>RoomList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\UpdateRoom.xaml.cs">
+      <DependentUpon>UpdateRoom.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Patient\LoginPatient.xaml.cs">
       <DependentUpon>LoginPatient.xaml</DependentUpon>
@@ -113,11 +125,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Doctor\MedicalRecordDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\CreateRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Manager\LoginManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml_window\Manager\ManagerHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\RoomList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\UpdateRoom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,6 +227,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Doctor.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="xaml_window\Manager\Slike\edit.png" />
+    <Resource Include="xaml_window\Manager\Slike\Slika.png" />
+    <Resource Include="xaml_window\Manager\Slike\srce.png" />
+    <Resource Include="xaml_window\Manager\Slike\User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

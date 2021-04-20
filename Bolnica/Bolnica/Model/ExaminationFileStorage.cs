@@ -31,7 +31,7 @@ namespace Bolnica.Model
                 if(ex.deleted == false)
                 {
                     line = ex.ExaminationId.ToString() + "," + ex.StartTime.ToString() + "," + ex.EndTime.ToString() +
-                       "," + ex.doctor.User.Username + "," + ex.patient.User.Username + "," + ex.room;
+                       "," + ex.doctor.User.Username + "," + ex.patient.User.Username + "," + ex.room.RoomId;
                     lines.Add(line);
                 }
             }

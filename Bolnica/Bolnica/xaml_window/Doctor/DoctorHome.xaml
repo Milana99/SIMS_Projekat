@@ -63,7 +63,7 @@
                         <GridViewColumn Header="Početak termina" DisplayMemberBinding="{Binding StartTime}" Width="125"></GridViewColumn>
                         <GridViewColumn Header="Kraj termina" DisplayMemberBinding="{Binding EndTime}" Width="125"></GridViewColumn>
                         <GridViewColumn Header="Pacijent" DisplayMemberBinding="{Binding patient.User.Username}" Width="70"/>
-                        <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding room}" Width="30"/>
+                        <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding room.RoomId}" Width="30"/>
                     </GridView>
                 </ListView.View>
                 <ListView.ItemTemplate>

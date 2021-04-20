@@ -19,9 +19,25 @@ namespace Bolnica.xaml_window.Manager
     /// </summary>
     public partial class ManagerHome : Window
     {
+        public RoomList rl;
+        MainWindow mw;
         public ManagerHome()
         {
             InitializeComponent();
+        }
+
+        private void Logout_Manager(object sender, RoutedEventArgs e)
+        {
+            mw = new MainWindow();
+            mw.Show();
+            this.Close();
+        }
+
+        private void Btn_Room_List(object sender, RoutedEventArgs e)
+        {
+            rl = new RoomList();
+            rl.Show();
+            this.Close();
         }
     }
 }

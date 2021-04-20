@@ -9,11 +9,11 @@ namespace Bolnica.Model
         public ExaminationType ExaminationType { get; set; }
         public Patient patient { get; set; }
         public Doctor doctor { get; set; }
-        public int room { get; set; }
+        public Room room { get; set; }
         public int ExaminationId { get; set; }
         public bool deleted { get; set; }
         
-        public Examination(int newExaminationId, DateTime newStartTime, DateTime newEndTime, string newDoctor, string newPatient, int newRoom)
+        public Examination(int newExaminationId, DateTime newStartTime, DateTime newEndTime, string newDoctor, string newPatient, int newRoomId)
         {
             
             ExaminationId = newExaminationId;
@@ -22,7 +22,7 @@ namespace Bolnica.Model
             doctor = new Doctor(newDoctor);
             
             patient = new Patient(newPatient);
-            room = newRoom;
+            room = new Room(newRoomId);
             deleted = false;
 
         }
@@ -59,10 +59,63 @@ namespace Bolnica.Model
       }
 
       
-      public int GetRoom()
+      public Room GetRoom()
       {
          return room;
       }
 
-   }
+        public void SetDoctor(Doctor newDoctor)
+        {
+            if (this.doctor != newDoctor)
+            {
+                if (this.doctor != null)
+                {
+                    Doctor oldDoctor = this.doctor;
+                    this.doctor = null;
+                    oldDoctor.RemoveExamination(this.ExaminationId);
+                }
+                if (newDoctor != null)
+                {
+                    this.doctor = newDoctor;
+                    this.doctor.AddExaminations(this);
+                }
+            }
+        }
+
+        public void SetPatient(Patient newPatient)
+        {
+            if (this.patient != newPatient)
+            {
+                if (this.patient != null)
+                {
+                    Patient oldPatient = this.patient;
+                    this.patient = null;
+                    oldPatient.RemoveExaminations(this);
+                }
+                if (newPatient != null)
+                {
+                    this.patient = newPatient;
+                    this.patient.AddExaminations(this);
+                }
+            }
+        }
+
+        public void SetRoom(Room newRoom)
+        {
+            if (this.room != newRoom)
+            {
+                if (this.room != null)
+                {
+                    Room oldRoom = this.room;
+                    this.room = null;
+                    oldRoom.RemoveExamination(this);
+                }
+                if (newRoom != null)
+                {
+                    this.room = newRoom;
+                    this.room.AddExamination(this);
+                }
+            }
+        }
+    }
 }
