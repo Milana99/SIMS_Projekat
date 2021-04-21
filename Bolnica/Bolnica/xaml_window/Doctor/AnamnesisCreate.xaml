@@ -1,0 +1,59 @@
+﻿<Window x:Class="Bolnica.xaml_window.Doctor.AnamnesisCreate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
+        mc:Ignorable="d"
+        Title="AnamnesisCreate" Height="400" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Izveštaj o pregledu</Label>
+        </Border>
+        <Label Grid.Row="1" Margin="20,10,0,0" FontWeight="Bold">Vrsta pregleda:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Width="150" Height="25"  Name="tbTypeAnamnesis" Margin="5"/>
+        <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold">Pacijent se žali na:</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25"  Name="tbDescriptionAnamnesis" Margin="5"/>
+        <Label Grid.Row="3" Margin="20,10,0,0" FontWeight="Bold">Zaključak i mišljenje:</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="25"  Name="tbOpinionForAnamnesis" Margin="5"/>
+        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold">Terapija</Label>
+        <Button Grid.Row="4" Grid.Column="1" Width="100" Height="30" Margin="50,0,0,0" Click="Button_Click_Therapy">Dodaj terapiju</Button>
+
+
+        <ListView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="20,0,20,0" Name="lvDataBindingAnamnesis">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ime leka"  DisplayMemberBinding="{Binding drug.DrugName}"
+                                    Width="60"/>
+                    <GridViewColumn Header="Opis recepta" DisplayMemberBinding="{Binding DescriptionPrescription}"
+                                    Width="80"/>
+                    <GridViewColumn Header="Doza" DisplayMemberBinding="{Binding QuantityPrescription}" 
+                                    Width="40"/>
+                    <GridViewColumn Header="Datum početka"  DisplayMemberBinding="{Binding StartDatePrescription}"
+                                    Width="90"/>
+                    <GridViewColumn Header="Datum kraja" DisplayMemberBinding="{Binding EndDatePrescription}"
+                                    Width="70"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Izadji</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="20, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Kreiraj</Button>
+    </Grid>
+</Window>

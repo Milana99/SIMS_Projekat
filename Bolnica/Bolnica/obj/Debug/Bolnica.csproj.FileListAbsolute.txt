@@ -59,3 +59,13 @@ C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\ob
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\StaticEquipmentCreate.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\StaticEquipmentRelocation.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\StaticEquipmentUpdate.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisCreate.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisOpen.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisTherapy.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisTherapyAdd.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisUpdate.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisCreate.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisOpen.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisTherapy.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisTherapyAdd.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisUpdate.baml

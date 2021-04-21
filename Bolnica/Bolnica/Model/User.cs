@@ -30,6 +30,20 @@ namespace Bolnica.Model
             DateOfBirth = newDateOfBirth;
             Address = newAddress;
         }
+        public User(String newName, String newSurname, String newUsername, String newPhoneNumber, String newEmail,
+            Gender newGender, long newJmbg, DateTime newDateOfBirth, String newAddress)
+        {
+            Name = newName;
+            Surname = newSurname;
+            Username = newUsername;
+            Password = "1234";
+            PhoneNumber = newPhoneNumber;
+            Email = newEmail;
+            Gender = newGender;
+            Jmbg = newJmbg;
+            DateOfBirth = newDateOfBirth;
+            Address = newAddress;
+        }
         public User(String newUsername)
         {
             Username = newUsername;

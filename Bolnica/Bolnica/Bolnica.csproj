@@ -110,6 +110,21 @@
     <Compile Include="Service\SecretaryService.cs" />
     <Compile Include="Service\StaticEquipmentService.cs" />
     <Compile Include="Service\TherapyService.cs" />
+    <Compile Include="xaml_window\Doctor\AnamnesisCreate.xaml.cs">
+      <DependentUpon>AnamnesisCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\AnamnesisOpen.xaml.cs">
+      <DependentUpon>AnamnesisOpen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\AnamnesisTherapy.xaml.cs">
+      <DependentUpon>AnamnesisTherapy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\AnamnesisTherapyAdd.xaml.cs">
+      <DependentUpon>AnamnesisTherapyAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\AnamnesisUpdate.xaml.cs">
+      <DependentUpon>AnamnesisUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Doctor\CreateExaminatio.xaml.cs">
       <DependentUpon>CreateExaminatio.xaml</DependentUpon>
     </Compile>
@@ -191,6 +206,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="xaml_window\Doctor\AnamnesisCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\AnamnesisOpen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\AnamnesisTherapy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\AnamnesisTherapyAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\AnamnesisUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Doctor\CreateExaminatio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

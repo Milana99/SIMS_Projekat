@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\App.xaml
-24-1257939724
+29-1060685009
 
-99407261197
+104-173374338
 13-1505183044
-MainWindow.xaml;xaml_window\Doctor\CreateExaminatio.xaml;xaml_window\Doctor\DoctorHome.xaml;xaml_window\Doctor\ExaminationUpdate.xaml;xaml_window\Doctor\LoginDoctor.xaml;xaml_window\Doctor\MedicalRecordDoctor.xaml;xaml_window\Manager\CreateRoom.xaml;xaml_window\Manager\DynamicEquipment.xaml;xaml_window\Manager\DynamicEquipmentCreate.xaml;xaml_window\Manager\DynamicEquipmentDecrease.xaml;xaml_window\Manager\DynamicEquipmentIncrease.xaml;xaml_window\Manager\ListEquipment.xaml;xaml_window\Manager\LoginManager.xaml;xaml_window\Manager\ManagerHome.xaml;xaml_window\Manager\RoomList.xaml;xaml_window\Manager\StaticEquipment.xaml;xaml_window\Manager\StaticEquipmentCreate.xaml;xaml_window\Manager\StaticEquipmentRelocation.xaml;xaml_window\Manager\StaticEquipmentUpdate.xaml;xaml_window\Manager\UpdateRoom.xaml;xaml_window\Patient\LoginPatient.xaml;xaml_window\Patient\PatientHome.xaml;xaml_window\Secretary\LoginSecretary.xaml;xaml_window\Secretary\SecretaryHome.xaml;
+MainWindow.xaml;xaml_window\Doctor\AnamnesisCreate.xaml;xaml_window\Doctor\AnamnesisOpen.xaml;xaml_window\Doctor\AnamnesisTherapy.xaml;xaml_window\Doctor\AnamnesisTherapyAdd.xaml;xaml_window\Doctor\AnamnesisUpdate.xaml;xaml_window\Doctor\CreateExaminatio.xaml;xaml_window\Doctor\DoctorHome.xaml;xaml_window\Doctor\ExaminationUpdate.xaml;xaml_window\Doctor\LoginDoctor.xaml;xaml_window\Doctor\MedicalRecordDoctor.xaml;xaml_window\Manager\CreateRoom.xaml;xaml_window\Manager\DynamicEquipment.xaml;xaml_window\Manager\DynamicEquipmentCreate.xaml;xaml_window\Manager\DynamicEquipmentDecrease.xaml;xaml_window\Manager\DynamicEquipmentIncrease.xaml;xaml_window\Manager\ListEquipment.xaml;xaml_window\Manager\LoginManager.xaml;xaml_window\Manager\ManagerHome.xaml;xaml_window\Manager\RoomList.xaml;xaml_window\Manager\StaticEquipment.xaml;xaml_window\Manager\StaticEquipmentCreate.xaml;xaml_window\Manager\StaticEquipmentRelocation.xaml;xaml_window\Manager\StaticEquipmentUpdate.xaml;xaml_window\Manager\UpdateRoom.xaml;xaml_window\Patient\LoginPatient.xaml;xaml_window\Patient\PatientHome.xaml;xaml_window\Secretary\LoginSecretary.xaml;xaml_window\Secretary\SecretaryHome.xaml;
 
 False
 

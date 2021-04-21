@@ -19,6 +19,9 @@ namespace Bolnica.xaml_window.Doctor
     /// </summary>
     public partial class MedicalRecordDoctor : Window
     {
+        AnamnesisOpen ao;
+        AnamnesisCreate ac;
+        AnamnesisUpdate au;
         public MedicalRecordDoctor()
         {
             InitializeComponent();
@@ -26,7 +29,25 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Close(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
 
+        private void Button_Click_Open_Anamnesis(object sender, RoutedEventArgs e)
+        {
+            ao = new AnamnesisOpen();
+            ao.Show();
+        }
+
+        private void Button_Click_Update_Anamnesis(object sender, RoutedEventArgs e)
+        {
+            au = new AnamnesisUpdate();
+            au.Show();
+        }
+
+        private void Button_Click_Create_Anamnesis(object sender, RoutedEventArgs e)
+        {
+            ac = new AnamnesisCreate();
+            ac.Show();
         }
     }
 }

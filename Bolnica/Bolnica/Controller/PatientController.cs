@@ -6,16 +6,19 @@ namespace Bolnica.Controller
    public class PatientController
    {
         public Bolnica.Service.PatientService patientService;
+
+        public PatientController()
+        {
+            patientService = new Service.PatientService();
+        }
         public List<Model.Patient> GetAllPatients()
       {
-         // TODO: implement
-         return null;
+            return patientService.GetAllPatients();
       }
       
       public Model.Patient GetOnePatient(String username)
       {
-         // TODO: implement
-         return null;
+            return patientService.GetOnePatient(username);
       }
       
       public void CreatePatient(String name, String surname, String username, String password, String phoneNumber, String email, Model.Gender gender, long jmbg, DateTime dateOfBirth, String address, int lbo, int bzk)

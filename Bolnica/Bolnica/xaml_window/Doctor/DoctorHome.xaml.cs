@@ -22,6 +22,7 @@ namespace Bolnica.xaml_window.Doctor
        public MainWindow mw;
         ExaminationUpdate eu;
         CreateExaminatio ce;
+        MedicalRecordDoctor mrd;
 
         public Model.Doctor doc;
         public Controller.ExaminationController control;
@@ -81,7 +82,23 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Patient(object sender, RoutedEventArgs e)
         {
+            Controller.PatientController pc = new Controller.PatientController();
+            Model.Examination selected = (Model.Examination)lvDataBinding.SelectedItems[0];
+            Model.Patient pat = pc.GetOnePatient(selected.patient.User.Username);
+
+            mrd = new MedicalRecordDoctor();
+
+            mrd.lbAddressPatient.Content = pat.User.Address;
+            mrd.lbuUsernamePatient.Content = pat.User.Username;
+            mrd.lbuJMBG.Content = pat.User.Jmbg;
+            mrd.lbNamePatient.Content = pat.User.Name;
+            mrd.lbGender.Content = pat.User.Gender;
+            mrd.lbDateOfBirthPatient.Content = pat.User.DateOfBirth;
+            mrd.lbSurnamePatient.Content = pat.User.Surname;
+            mrd.lbNumberPatient.Content = pat.User.PhoneNumber;
+            mrd.Show();
 
         }
+
     }
 }

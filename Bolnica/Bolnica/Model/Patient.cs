@@ -15,6 +15,13 @@ namespace Bolnica.Model
         {
             User = new User(newUsername);
         }
+        public Patient(String UserName, String name, String surname, String mail, DateTime dob, Gender gend, long jmbg, String address,
+            String tel, int lbo, int bzk)
+        {
+            User = new User(name, surname, UserName, "123", tel, mail, gend, jmbg, dob, address);
+            Lbo = lbo;
+            Bzk = bzk;
+        }
 
         public List<Examination> GetAllExaminations()
         {
