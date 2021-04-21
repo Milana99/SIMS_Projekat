@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
         mc:Ignorable="d"
-        Title="CreateExaminatio" Height="400" Width="400">
+        Title="CreateExaminatio" Height="500" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -13,6 +13,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -33,11 +35,19 @@
         <TextBox Grid.Row="4" Grid.Column="1" Height="25" Width="150"  Name="tbEndTime" Margin="5"/>
         <Label Grid.Row="5" Margin="20,10,0,0" FontWeight="Bold">Izaberite pacijenta:</Label>
         <StackPanel Grid.Row="5" Grid.Column="1">
-            <ComboBox Name="cbPatient" Width="150" Grid.Row="4" Grid.Column="1" Margin="0,10,0,0"></ComboBox>
+            <ComboBox Name="cbPatient" Width="150" Grid.Row="5" Grid.Column="1" Margin="0,10,0,0"></ComboBox>
+        </StackPanel>
+        <Label Grid.Row="6" Margin="20,10,0,0" FontWeight="Bold">Izaberite tip termina:</Label>
+        <StackPanel Grid.Row="6" Grid.Column="1">
+            <ComboBox Name="cbExaminationType" Width="150" Grid.Row="6" Grid.Column="1" Margin="0,10,0,0"></ComboBox>
+        </StackPanel>
+        <Label Grid.Row="7" Margin="20,10,0,0" FontWeight="Bold">Izaberite sobu:</Label>
+        <StackPanel Grid.Row="7" Grid.Column="1">
+            <ComboBox Name="cbRoom" Width="150" Grid.Row="6" Grid.Column="1" Margin="0,10,0,0"></ComboBox>
         </StackPanel>
 
-        <Button Grid.Column="1" Grid.Row="6" Width="60" Background="#FFE83E3E" Height="30" Margin="100, 0, 0, 0" Click="btnDialogCancel_Click" Foreground="White">Izađi</Button>
-        <Button Grid.Column="1" Grid.Row="6" Width="60" Background="#FFE83E3E"  Height="30" Margin="20, 0, 90, 0" Click="btnDialogOk_Click" Foreground="Snow">Potvrdi</Button>
+        <Button Grid.Column="1" Grid.Row="8" Width="60" Background="#FFE83E3E" Height="30" Margin="100, 0, 0, 0" Click="btnDialogCancel_Click" Foreground="White">Izađi</Button>
+        <Button Grid.Column="1" Grid.Row="8" Width="60" Background="#FFE83E3E"  Height="30" Margin="20, 0, 90, 0" Click="btnDialogOk_Click" Foreground="Snow">Potvrdi</Button>
 
     </Grid>
 </Window>

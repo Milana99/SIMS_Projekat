@@ -23,13 +23,13 @@ namespace Bolnica.xaml_window.Manager
         public CreateRoom cr;
         public UpdateRoom ur;
         public MainWindow mw;
-        public Model.Manager manager;
+        public Controller.RoomController control;
         public List<Model.Room> rooms;
         public RoomList()
         {
             InitializeComponent();
-            manager = new Model.Manager("Radovan");
             rooms = new List<Model.Room>();
+            control = new Controller.RoomController();
             Load();
         }
 
@@ -50,8 +50,8 @@ namespace Bolnica.xaml_window.Manager
         public void Load()
         {
             lvDataBinding.Items.Clear();
-            manager.Load();
-            rooms = manager.GetAllRooms();
+
+            rooms = control.GetAllRooms();
 
             foreach (Model.Room r in rooms)
             {
@@ -64,7 +64,7 @@ namespace Bolnica.xaml_window.Manager
 
         private void Update_room(object sender, RoutedEventArgs e)
         {
-            ur = new UpdateRoom(manager, this);
+            ur = new UpdateRoom(this);
             ur.Show();
             Model.Room selected = (Model.Room)lvDataBinding.SelectedItems[0];
             ur.lbuID.Content = selected.RoomId.ToString();
@@ -78,7 +78,7 @@ namespace Bolnica.xaml_window.Manager
         private void Delete_room(object sender, RoutedEventArgs e)
         {
             Model.Room selected = (Model.Room)lvDataBinding.SelectedItems[0];
-            manager.RemoveRoom(selected.RoomId);
+            control.DeleteRoom(selected.RoomId);
             Load();
         }
 

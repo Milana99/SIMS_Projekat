@@ -20,13 +20,12 @@ namespace Bolnica.xaml_window.Doctor
     public partial class ExaminationUpdate : Window
     {
         DoctorHome dh;
-        Model.Doctor doctor;
+        
 
-        public ExaminationUpdate(Model.Doctor doc, DoctorHome doh)
+        public ExaminationUpdate(DoctorHome doh)
         {
             InitializeComponent();
             dh = doh;
-            doctor = doc;
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
@@ -40,7 +39,7 @@ namespace Bolnica.xaml_window.Doctor
             int exId = int.Parse(lbuID.Content.ToString());
             DateTime start = DateTime.Parse(tbuStartTime.Text);
             DateTime end = DateTime.Parse(tbuEndTime.Text);
-            Boolean b = doctor.Update(exId, start, end);
+            Boolean b = dh.control.UpdateExamination(exId, start, end);
             
             if(b == true)
             {

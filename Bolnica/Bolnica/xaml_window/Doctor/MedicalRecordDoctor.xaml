@@ -5,8 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
         mc:Ignorable="d"
-        Title="MedicalRecordDoctor" Height="400" Width="400">
+        Title="MedicalRecordDoctor" Height="500" Width="600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+  
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" Name="lbuJMBG">JMBG</Label>
+        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" FontWeight="Bold" Name="lbuMedicalRecord">Br.Kartona</Label>
+        <Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" FontWeight="Bold" Name="lbuBZK">BZK</Label>
+
+       
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Zdravstevni karton</Label>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="0,0,0,3" Width="350">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Bottom" Name="lbuUsernamePatient">Korisnicko ime</Label>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10,0,60,0" Background="White" >
+            <Label HorizontalAlignment="Center">Lični podaci</Label>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="7" Margin="10, 10,60,0" BorderThickness="1,1,1,1" BorderBrush="Black" >
+        </Border>
+        <Label Grid.Row="4" Grid.Column="0" Margin="20,0,0,0">Ime:</Label>
+        <Label Name="lbNamePatient" Grid.Row="4" Grid.Column="1" Margin="40,0,0,0">Im</Label>
+        <Label  Grid.Row="5" Grid.Column="0" Margin="20,0,0,0">Prezime:</Label>
+        <Label Name="lbSurnamePatient" Grid.Row="5" Grid.Column="1" Margin="40,0,0,0">Prezime:</Label>
+        <Label  Grid.Row="6" Grid.Column="0" Margin="20,0,0,0">Datum rodjenja:</Label>
+        <Label Name="lbDateOfBirthPatient" Grid.Row="6" Grid.Column="1" Margin="40,0,0,0">Datum rodjenja:</Label>
+        <Label Grid.Row="7" Grid.Column="0" Margin="20,0,0,0">Adresa stanovanja:</Label>
+        <Label Name="lbAddressPatient" Grid.Row="7" Grid.Column="1" Margin="40,0,0,0">Adresa stanovanja:</Label>
+        <Label Grid.Row="8" Grid.Column="0" Margin="20,0,0,0">Broj telefona:</Label>
+        <Label Name="lbNumberPatient" Grid.Row="8" Grid.Column="1" Margin="40,0,0,0">Broj telefona:</Label>
+        <Label Grid.Row="9" Grid.Column="0" Margin="20,0,0,0">Pol:</Label>
+        <Label Name="lbGender" Grid.Row="9" Grid.Column="1" Margin="40,0,0,0">Pol:</Label>
+
+        <Button Grid.Column="4" Grid.Row="13" Width="90" Click="Button_Click_Close" Height="30">Izadji</Button>
     </Grid>
 </Window>

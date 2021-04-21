@@ -23,5 +23,10 @@ namespace Bolnica.xaml_window.Doctor
         {
             InitializeComponent();
         }
+
+        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

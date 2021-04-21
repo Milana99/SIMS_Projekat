@@ -17,49 +17,10 @@ namespace Bolnica.Model
 
         public void Load()
         {
-            rfs = new RoomFileStorage();
-            Room = rfs.Load(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Upravnik.txt");
+           
         }
 
-        public void Update(int roomId, String newDescription, double newArea, RoomType newRoomType)
-        {
-            foreach (Room r in Room)
-            {
-                if (r.RoomId == roomId)
-                {
-                    r.Description = newDescription;
-                    r.Area = newArea;
-                    r.RoomType = newRoomType;
-                    r.RoomType = newRoomType;
-                    rfs.Save(Room);
-                    Room = rfs.Load(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Upravnik.txt");
-                    return;
-                }
-            }
-
-        }
-
-        public void AddRoom(Room newRoom)
-        {
-            Room.Add(newRoom);
-            rfs.Save(Room);
-            Room = rfs.Load(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Upravnik.txt");
-        }
-
-        public void RemoveRoom(int roId)
-        {
-            foreach (Room r in Room)
-            {
-                if (r.RoomId == roId)
-                {
-                    r.DeleteRoom();
-                    rfs.Save(Room);
-                    Room = rfs.Load(@"C:\Users\Radovan\Downloads\Upravnik\Upravnik.txt");
-                    return;
-                }
-            }
-
-        }
+        
 
         public List<Room> GetAllRooms()
         {

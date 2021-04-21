@@ -72,12 +72,10 @@ namespace Bolnica.Model
                 {
                     Doctor oldDoctor = this.doctor;
                     this.doctor = null;
-                    oldDoctor.RemoveExamination(this.ExaminationId);
                 }
                 if (newDoctor != null)
                 {
                     this.doctor = newDoctor;
-                    this.doctor.AddExaminations(this);
                 }
             }
         }

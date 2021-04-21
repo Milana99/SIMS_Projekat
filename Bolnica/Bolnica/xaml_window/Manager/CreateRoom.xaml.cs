@@ -28,7 +28,7 @@ namespace Bolnica.xaml_window.Manager
             cbRoomType.Items.Add("OperationRoom");
             cbRoomType.Text = "Ordination";
             roomList = rl;
-            lbID.Content = roomList.manager.rfs.next_roomID.ToString();
+            lbID.Content = roomList.control.roomService.roomRepository.next_roomID.ToString();
 
         }
 
@@ -39,11 +39,11 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-            Model.Room room = new Model.Room(roomList.manager.rfs.next_roomID, tbDescription.Text,
+            Model.Room room = new Model.Room(roomList.control.roomService.roomRepository.next_roomID, tbDescription.Text,
                 int.Parse(tbFloor.Text), double.Parse(tbArea.Text),
                 (Model.RoomType)Enum.Parse(typeof(Model.RoomType), cbRoomType.Text));
-            roomList.manager.rfs.next_roomID++;
-            roomList.manager.AddRoom(room);
+            roomList.control.roomService.roomRepository.next_roomID++;
+            roomList.control.CreateRoom(room.RoomId, room.Description, room.Floor, room.Area, room.RoomType);
             roomList.Load();
             this.Close();
         }

@@ -24,11 +24,12 @@ namespace Bolnica.xaml_window.Doctor
         CreateExaminatio ce;
 
         public Model.Doctor doc;
+        public Controller.ExaminationController control;
         public List<Model.Examination> examinations;
         public DoctorHome()
         {
             InitializeComponent();
-            doc = new Model.Doctor("Milana123");
+            control = new Controller.ExaminationController();
             LoadAll();
             
         }
@@ -36,8 +37,8 @@ namespace Bolnica.xaml_window.Doctor
         public void LoadAll()
         {
             lvDataBinding.Items.Clear();
-            doc.Load();
-            examinations = doc.GetAllExaminations();
+
+            examinations = control.GetAllExaminations();
 
             foreach (Model.Examination ex in examinations)
             {
@@ -48,21 +49,21 @@ namespace Bolnica.xaml_window.Doctor
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
             Model.Examination selected = (Model.Examination)lvDataBinding.SelectedItems[0];
-            doc.RemoveExamination(selected.ExaminationId);
+            control.DeleteExamination(selected.ExaminationId);
             LoadAll();
             MessageBox.Show("Uspešno ste izbrisali termin", "Uspešno!");
         }
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
-            ce = new CreateExaminatio(doc, this);
+            ce = new CreateExaminatio(this);
             ce.Show();
             
         }
 
         private void Button_Click_Update(object sender, RoutedEventArgs e)
         {
-            eu = new ExaminationUpdate(doc, this);
+            eu = new ExaminationUpdate(this);
             eu.Show();
             Model.Examination selected = (Model.Examination)lvDataBinding.SelectedItems[0];
             eu.lbuID.Content = (selected.ExaminationId.ToString());
@@ -76,6 +77,11 @@ namespace Bolnica.xaml_window.Doctor
             mw = new MainWindow();
             mw.Show();
             this.Close();
+        }
+
+        private void Button_Click_Patient(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

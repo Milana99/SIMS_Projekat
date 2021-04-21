@@ -20,11 +20,9 @@ namespace Bolnica.xaml_window.Manager
     public partial class UpdateRoom : Window
     {
         RoomList roomList;
-        Model.Manager manager;
-        public UpdateRoom(Model.Manager man, RoomList rl)
+        public UpdateRoom(RoomList rl)
         {
             InitializeComponent();
-            manager = man;
             roomList = rl;
             cbRoomType.Items.Add("Ordination");
             cbRoomType.Items.Add("HospitalRoom");
@@ -42,7 +40,7 @@ namespace Bolnica.xaml_window.Manager
             double area = double.Parse(tbuArea.Text);
             String description = tbuDescription.Text;
             Model.RoomType rt = (Model.RoomType)Enum.Parse(typeof(Model.RoomType), cbRoomType.Text);
-            manager.Update(rID, description, area, rt);
+            roomList.control.UpdateRoom(rID, description, area, rt);
             roomList.Load();
             this.Close();
         }

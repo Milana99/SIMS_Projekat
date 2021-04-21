@@ -55,6 +55,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\AnamnesisController.cs" />
+    <Compile Include="Controller\DoctorController.cs" />
+    <Compile Include="Controller\DrugController.cs" />
+    <Compile Include="Controller\DynamicEquipmentController.cs" />
+    <Compile Include="Controller\ExaminationController.cs" />
+    <Compile Include="Controller\ManagerController.cs" />
+    <Compile Include="Controller\MedicalRecordController.cs" />
+    <Compile Include="Controller\NotificationController.cs" />
+    <Compile Include="Controller\PatientController.cs" />
+    <Compile Include="Controller\PrescriptionController.cs" />
+    <Compile Include="Controller\RelocationController.cs" />
+    <Compile Include="Controller\RoomController.cs" />
+    <Compile Include="Controller\SecretaryController.cs" />
+    <Compile Include="Controller\StaticEquipmentController.cs" />
+    <Compile Include="Controller\TherapyController.cs" />
+    <Compile Include="Model\Anamnesis.cs" />
+    <Compile Include="Model\Drug.cs" />
+    <Compile Include="Model\DynamicEquipment.cs" />
+    <Compile Include="Model\GuestUser.cs" />
+    <Compile Include="Model\Notification.cs" />
+    <Compile Include="Model\Prescription.cs" />
+    <Compile Include="Model\Relocation.cs" />
+    <Compile Include="Model\StaticEquipment.cs" />
+    <Compile Include="Model\Therapy.cs" />
+    <Compile Include="Repository\AnamnesisRepository.cs" />
+    <Compile Include="Repository\DoctorRepository.cs" />
+    <Compile Include="Repository\DrugRepository.cs" />
+    <Compile Include="Repository\DynamicEquipmentRepository.cs" />
+    <Compile Include="Repository\ExaminationRepository.cs" />
+    <Compile Include="Repository\GuestUserRepository.cs" />
+    <Compile Include="Repository\ManagerRepository.cs" />
+    <Compile Include="Repository\MedicalRecordRepository.cs" />
+    <Compile Include="Repository\NotificationRepository.cs" />
+    <Compile Include="Repository\PatientRepository.cs" />
+    <Compile Include="Repository\PrescriptionRepository.cs" />
+    <Compile Include="Repository\RelocationRepository.cs" />
+    <Compile Include="Repository\RoomRepository.cs" />
+    <Compile Include="Repository\SecretaryRepository.cs" />
+    <Compile Include="Repository\StaticEquipmentRepository.cs" />
+    <Compile Include="Repository\TherapyRepository.cs" />
+    <Compile Include="Service\AnamnesisService.cs" />
+    <Compile Include="Service\DoctorService.cs" />
+    <Compile Include="Service\DrugService.cs" />
+    <Compile Include="Service\DynamicEquipmentService.cs" />
+    <Compile Include="Service\ExaminationService.cs" />
+    <Compile Include="Service\ManagerService.cs" />
+    <Compile Include="Service\MedicalRecordService.cs" />
+    <Compile Include="Service\NotificationService.cs" />
+    <Compile Include="Service\PatientService.cs" />
+    <Compile Include="Service\PrescriptionService.cs" />
+    <Compile Include="Service\RelocationService.cs" />
+    <Compile Include="Service\RoomService.cs" />
+    <Compile Include="Service\SecretaryService.cs" />
+    <Compile Include="Service\StaticEquipmentService.cs" />
+    <Compile Include="Service\TherapyService.cs" />
     <Compile Include="xaml_window\Doctor\CreateExaminatio.xaml.cs">
       <DependentUpon>CreateExaminatio.xaml</DependentUpon>
     </Compile>

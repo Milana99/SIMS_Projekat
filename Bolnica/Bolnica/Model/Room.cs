@@ -9,12 +9,12 @@ namespace Bolnica.Model
         public List<Examination> examinations;
         public int RoomId { get; set; }
         public String Description{ get; set; }
-        public double Floor { get; set; }
+        public int Floor { get; set; }
         public double Area { get; set; }
         public RoomType RoomType { get; set; }
         public bool deleted { get; set; }
 
-        public Room(int newRoomId, String newDescription, double newFloor, double newArea, RoomType newRoomType)
+        public Room(int newRoomId, String newDescription, int newFloor, double newArea, RoomType newRoomType)
         {
             RoomId = newRoomId;
             Description = newDescription;
