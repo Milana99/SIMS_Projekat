@@ -128,6 +128,21 @@
     <Compile Include="xaml_window\Manager\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Manager\DynamicEquipment.xaml.cs">
+      <DependentUpon>DynamicEquipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\DynamicEquipmentCreate.xaml.cs">
+      <DependentUpon>DynamicEquipmentCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\DynamicEquipmentDecrease.xaml.cs">
+      <DependentUpon>DynamicEquipmentDecrease.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\DynamicEquipmentIncrease.xaml.cs">
+      <DependentUpon>DynamicEquipmentIncrease.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\ListEquipment.xaml.cs">
+      <DependentUpon>ListEquipment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Manager\LoginManager.xaml.cs">
       <DependentUpon>LoginManager.xaml</DependentUpon>
     </Compile>
@@ -136,6 +151,18 @@
     </Compile>
     <Compile Include="xaml_window\Manager\RoomList.xaml.cs">
       <DependentUpon>RoomList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\StaticEquipment.xaml.cs">
+      <DependentUpon>StaticEquipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\StaticEquipmentCreate.xaml.cs">
+      <DependentUpon>StaticEquipmentCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\StaticEquipmentRelocation.xaml.cs">
+      <DependentUpon>StaticEquipmentRelocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\StaticEquipmentUpdate.xaml.cs">
+      <DependentUpon>StaticEquipmentUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Manager\UpdateRoom.xaml.cs">
       <DependentUpon>UpdateRoom.xaml</DependentUpon>
@@ -188,6 +215,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Manager\DynamicEquipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\DynamicEquipmentCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\DynamicEquipmentDecrease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\DynamicEquipmentIncrease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\ListEquipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Manager\LoginManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,6 +244,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml_window\Manager\RoomList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\StaticEquipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\StaticEquipmentCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\StaticEquipmentRelocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\StaticEquipmentUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

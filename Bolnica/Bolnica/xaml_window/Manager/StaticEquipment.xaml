@@ -1,0 +1,47 @@
+﻿<Window x:Class="Bolnica.xaml_window.Manager.StaticEquipment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
+        mc:Ignorable="d"
+        Title="StaticEquipment" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="500" BorderThickness="0,0,0,3" Height="100" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Nepotrošan inventar</Label>
+        </Border>
+        <Button FontSize="15" Width="90" Height="40" Click="Button_Click_Back">Nazad</Button>
+
+        <ListView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"  Margin="70,10,70,0" Name="lvDataBindingStaticEq">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID inventara" 
+                                    Width="100" DisplayMemberBinding="{Binding StaticEquipmentId}"/>
+                    <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding NameStaticEquipment}"
+                                    Width="100"/>
+                    <GridViewColumn Header="Opis" DisplayMemberBinding="{Binding DescriptionStaticEquipment}" 
+                                    Width="140"/>
+
+                    <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding roomStaticEquipment.RoomId}" 
+                                    Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Grid.Column="1" Grid.Row="2" Width="100" Height="40" Margin="0,0,70,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Create">Kreiraj</Button>
+        <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Width="100" Height="40" Margin="0,0,140,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Delete">Obriši</Button>
+        <Button Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="2" Width="100" Height="40" Margin="140,0,0,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Update">Izmeni</Button>
+        <Button Grid.Column="2" Grid.Row="2" Width="100" Height="40" Margin="70,0,0,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Relocation">Premesti</Button>
+    </Grid>
+</Window>

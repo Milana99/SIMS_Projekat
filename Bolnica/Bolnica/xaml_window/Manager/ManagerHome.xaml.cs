@@ -21,6 +21,7 @@ namespace Bolnica.xaml_window.Manager
     {
         public RoomList rl;
         MainWindow mw;
+        ListEquipment le;
         public ManagerHome()
         {
             InitializeComponent();
@@ -37,6 +38,13 @@ namespace Bolnica.xaml_window.Manager
         {
             rl = new RoomList();
             rl.Show();
+            this.Close();
+        }
+
+        private void Button_Click_List_Equipment(object sender, RoutedEventArgs e)
+        {
+            le = new ListEquipment();
+            le.Show();
             this.Close();
         }
     }

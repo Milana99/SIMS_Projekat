@@ -6,37 +6,40 @@ namespace Bolnica.Controller
    public class StaticEquipmentController
    {
         public Bolnica.Service.StaticEquipmentService staticEquipmentService;
+
+        public StaticEquipmentController()
+        {
+            staticEquipmentService = new Service.StaticEquipmentService();
+        }
         public List<Model.StaticEquipment> GetAllEquipment()
       {
-         // TODO: implement
-         return null;
+
+            return staticEquipmentService.GetAllEquipment();
       }
       
       public Model.StaticEquipment GetOneStaticEquipment(int staticEquipmentId)
       {
-         // TODO: implement
-         return null;
+            return staticEquipmentService.GetOneStaticEquipment(staticEquipmentId);
       }
       
-      public void CreateStaticEquipment(int staticEquipmentId, int quantity, String description, String type, String name)
+      public void CreateStaticEquipment(int staticEquipmentId, String description, int roomId, String name)
       {
-         // TODO: implement
+            staticEquipmentService.CreateStaticEquipment(staticEquipmentId, description, roomId, name);
       }
       
       public void DeleteStaticEquipment(int staticEquipmentId)
       {
-         // TODO: implement
+            staticEquipmentService.DeleteStaticEquipment(staticEquipmentId);
       }
       
-      public void UpdateStaticEquipment(int staticEquipmentId, int quantity, int description, int name)
+      public void UpdateStaticEquipment(int staticEquipmentId, String description, String name)
       {
-         // TODO: implement
+            staticEquipmentService.UpdateStaticEquipment(staticEquipmentId, description, name);
       }
       
       public List<Model.StaticEquipment> GetAllStaticEquipmentForRoom(int roomId)
       {
-         // TODO: implement
-         return null;
+            return staticEquipmentService.GetAllEquipmentForRoom(roomId);
       }
    
     
