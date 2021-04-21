@@ -7,31 +7,34 @@ namespace Bolnica.Controller
    {
         public Bolnica.Service.DynamicEquipmentService dynamicEquipmentService;
 
+        public DynamicEquipmentController()
+        {
+            dynamicEquipmentService = new Service.DynamicEquipmentService();
+        }
+
         public List<Model.DynamicEquipment> GetAllDynamicEquipments()
       {
-         // TODO: implement
-         return null;
+            return dynamicEquipmentService.GetAllDynamicEquipments();
       }
       
       public Model.DynamicEquipment GetOneDynamicEquipment(int dinamicEquipmentId)
       {
-         // TODO: implement
-         return null;
+            return dynamicEquipmentService.GetOneDynamicEquipment(dinamicEquipmentId);
       }
       
       public void CreateDynamicEquipment(int dynamicEquipmentId, int quantity, String name)
       {
-         // TODO: implement
+            dynamicEquipmentService.CreateDynamicEquipment(dynamicEquipmentId, quantity, name);
       }
       
       public void UpdateDynamicEquipment(int dynamicEquipmentId, int quantity, String name)
       {
-         // TODO: implement
+            dynamicEquipmentService.UpdateDynamicEquipment(dynamicEquipmentId, quantity, name);
       }
       
       public void DeleteDynamicEquipment(int dynamicEquipmentId)
       {
-         // TODO: implement
+            dynamicEquipmentService.DeleteDynamicEquipment(dynamicEquipmentId);
       }
    
 

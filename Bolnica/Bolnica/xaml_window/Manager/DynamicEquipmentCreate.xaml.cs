@@ -19,9 +19,13 @@ namespace Bolnica.xaml_window.Manager
     /// </summary>
     public partial class DynamicEquipmentCreate : Window
     {
-        public DynamicEquipmentCreate()
+
+        public DynamicEquipment de;
+        public DynamicEquipmentCreate(DynamicEquipment d)
         {
             InitializeComponent();
+            de = d;
+            lbIDDynamicEq.Content = de.control.dynamicEquipmentService.dynamicEquipmentRepository.next_id.ToString();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
@@ -31,7 +35,9 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-
+            de.control.CreateDynamicEquipment(int.Parse(lbIDDynamicEq.Content.ToString()), int.Parse(tbQuantityDynamicEq.Text), tbNameDynamicEq.Text);
+            de.Load();
+            this.Close();
         }
     }
 }

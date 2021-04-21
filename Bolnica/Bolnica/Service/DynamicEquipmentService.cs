@@ -7,32 +7,67 @@ namespace Bolnica.Service
    {
 
         public Bolnica.Repository.DynamicEquipmentRepository dynamicEquipmentRepository;
+
+        public DynamicEquipmentService()
+        {
+            dynamicEquipmentRepository = new Repository.DynamicEquipmentRepository(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Dynamic.txt");
+        }
         public List<Model.DynamicEquipment> GetAllDynamicEquipments()
       {
-         // TODO: implement
-         return null;
+            return dynamicEquipmentRepository.LoadDynamicEquipment();
       }
       
       public Model.DynamicEquipment GetOneDynamicEquipment(int dinamicEquipmentId)
       {
-         // TODO: implement
-         return null;
+            List<Model.DynamicEquipment> equipments = GetAllDynamicEquipments();
+            foreach(Model.DynamicEquipment de in equipments)
+            {
+                if(de.DynamicEquipmentId==dinamicEquipmentId)
+                {
+                    return de;
+                }
+            }
+            return null;
       }
       
       public void CreateDynamicEquipment(int dynamicEquipmentId, int quantity, String name)
       {
-         // TODO: implement
+            List<Model.DynamicEquipment> equipments = GetAllDynamicEquipments();
+            Model.DynamicEquipment newEquipment = new Model.DynamicEquipment(dynamicEquipmentId, 
+                quantity, name);
+            equipments.Add(newEquipment);
+            dynamicEquipmentRepository.SaveDynamicEquipment(equipments);
+
       }
       
       public void UpdateDynamicEquipment(int dynamicEquipmentId, int quantity, String name)
       {
-         // TODO: implement
+            List<Model.DynamicEquipment> equipments = GetAllDynamicEquipments();
+            foreach(Model.DynamicEquipment de in equipments)
+            {
+                if(de.DynamicEquipmentId == dynamicEquipmentId)
+                {
+                    de.DynamicEquipmentQuantity = quantity;
+                    de.DynamicEquipmentName = name;
+                    dynamicEquipmentRepository.SaveDynamicEquipment(equipments);
+                    return;
+                }
+            }
+           
       }
       
       public void DeleteDynamicEquipment(int dynamicEquipmentId)
       {
-         // TODO: implement
-      }
+            List<Model.DynamicEquipment> equipments = GetAllDynamicEquipments();
+            foreach (Model.DynamicEquipment de in equipments)
+            {
+                if (de.DynamicEquipmentId == dynamicEquipmentId)
+                {
+                    de.Delete();
+                    dynamicEquipmentRepository.SaveDynamicEquipment(equipments);
+                }
+            }
+        }
    
    
    }

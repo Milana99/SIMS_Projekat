@@ -23,11 +23,29 @@ namespace Bolnica.xaml_window.Manager
         DynamicEquipmentCreate dec;
         DynamicEquipmentDecrease ded;
         DynamicEquipmentIncrease dei;
+
+        public List<Model.DynamicEquipment> equipments;
+        public Controller.DynamicEquipmentController control;
         public DynamicEquipment()
         {
             InitializeComponent();
+            control = new Controller.DynamicEquipmentController();
+            equipments = new List<Model.DynamicEquipment>();
+            Load();
         }
 
+        public void Load()
+        {
+            lvDataBindingDynamicEq.Items.Clear();
+
+            equipments = control.GetAllDynamicEquipments();
+
+            foreach (Model.DynamicEquipment de in equipments)
+            {
+                
+                lvDataBindingDynamicEq.Items.Add(de);
+            }
+        }
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             le = new ListEquipment();
@@ -37,7 +55,7 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
-            dec = new DynamicEquipmentCreate();
+            dec = new DynamicEquipmentCreate(this);
             dec.Show();
         }
 
@@ -51,12 +69,21 @@ namespace Bolnica.xaml_window.Manager
         private void Button_Click_Increase(object sender, RoutedEventArgs e)
         {
             dei = new DynamicEquipmentIncrease();
+            Model.DynamicEquipment selected =
+                (Model.DynamicEquipment)lvDataBindingDynamicEq.SelectedItems[0];
+            dei.lbiIDDynamicEq.Content = selected.DynamicEquipmentId.ToString();
+            dei.lbiNameDynamicEq.Content = selected.DynamicEquipmentName;
+
             dei.Show();
+            
+
         }
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
-
+            Model.DynamicEquipment selected = (Model.DynamicEquipment)lvDataBindingDynamicEq.SelectedItems[0];
+            control.DeleteDynamicEquipment(selected.DynamicEquipmentId);
+            Load();
         }
     }
 }
