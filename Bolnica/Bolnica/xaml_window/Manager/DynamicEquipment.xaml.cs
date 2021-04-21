@@ -61,16 +61,18 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Decrease(object sender, RoutedEventArgs e)
         {
-            ded = new DynamicEquipmentDecrease();
+            Model.DynamicEquipment selected = (Model.DynamicEquipment)lvDataBindingDynamicEq.SelectedItems[0];
+            ded = new DynamicEquipmentDecrease(this, selected.DynamicEquipmentQuantity);
+            ded.lbdIDDynamicEq.Content = selected.DynamicEquipmentId;
+            ded.lbdNameDynamicEq.Content = selected.DynamicEquipmentName;
             ded.Show();
             
         }
 
         private void Button_Click_Increase(object sender, RoutedEventArgs e)
         {
-            dei = new DynamicEquipmentIncrease();
-            Model.DynamicEquipment selected =
-                (Model.DynamicEquipment)lvDataBindingDynamicEq.SelectedItems[0];
+            Model.DynamicEquipment selected = (Model.DynamicEquipment)lvDataBindingDynamicEq.SelectedItems[0];
+            dei = new DynamicEquipmentIncrease(this, selected.DynamicEquipmentQuantity);          
             dei.lbiIDDynamicEq.Content = selected.DynamicEquipmentId.ToString();
             dei.lbiNameDynamicEq.Content = selected.DynamicEquipmentName;
 

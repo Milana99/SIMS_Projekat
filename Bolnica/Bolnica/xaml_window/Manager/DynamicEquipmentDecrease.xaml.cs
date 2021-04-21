@@ -19,9 +19,13 @@ namespace Bolnica.xaml_window.Manager
     /// </summary>
     public partial class DynamicEquipmentDecrease : Window
     {
-        public DynamicEquipmentDecrease()
+        public DynamicEquipment de;
+        public int Quantity;
+        public DynamicEquipmentDecrease(DynamicEquipment d, int oldQuantity)
         {
             InitializeComponent();
+            Quantity = oldQuantity;
+            de = d;
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
@@ -31,7 +35,19 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
+            if (int.Parse(tbdQuantityDynamicEq.Text) > Quantity)
+            {
+                MessageBox.Show("Uneta količina je veća od raspoložive");
 
+            }
+            else
+            {
+                Quantity -= int.Parse(tbdQuantityDynamicEq.Text);
+                de.control.UpdateDynamicEquipment(int.Parse(lbdIDDynamicEq.Content.ToString()), Quantity, lbdNameDynamicEq.Content.ToString());
+
+                de.Load();
+                this.Close();
+            }
         }
     }
 }

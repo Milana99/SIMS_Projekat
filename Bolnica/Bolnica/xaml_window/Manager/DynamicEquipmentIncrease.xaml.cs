@@ -17,11 +17,18 @@ namespace Bolnica.xaml_window.Manager
     /// <summary>
     /// Interaction logic for DynamicEquipmentIncrease.xaml
     /// </summary>
+    /// 
+    
     public partial class DynamicEquipmentIncrease : Window
     {
-        public DynamicEquipmentIncrease()
+
+        public DynamicEquipment de;
+        public int Quantity;
+        public DynamicEquipmentIncrease(DynamicEquipment d, int oldQuantity)
         {
             InitializeComponent();
+            de = d;
+            Quantity = oldQuantity;
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
@@ -31,7 +38,10 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-
+            Quantity += int.Parse(tbiQuantityDynamicEq.Text);
+            de.control.UpdateDynamicEquipment(int.Parse(lbiIDDynamicEq.Content.ToString()), Quantity, lbiNameDynamicEq.Content.ToString());
+            de.Load();
+            this.Close();
         }
     }
 }
