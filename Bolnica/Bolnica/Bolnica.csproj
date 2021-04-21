@@ -140,11 +140,23 @@
     <Compile Include="xaml_window\Manager\UpdateRoom.xaml.cs">
       <DependentUpon>UpdateRoom.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Patient\CreateExamination.xaml.cs">
+      <DependentUpon>CreateExamination.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Patient\ExaminationDoctor.xaml.cs">
+      <DependentUpon>ExaminationDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Patient\ExaminationTime.xaml.cs">
+      <DependentUpon>ExaminationTime.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Patient\LoginPatient.xaml.cs">
       <DependentUpon>LoginPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Patient\PatientHome.xaml.cs">
       <DependentUpon>PatientHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Patient\UpdateExamination.xaml.cs">
+      <DependentUpon>UpdateExamination.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Secretary\LoginSecretary.xaml.cs">
       <DependentUpon>LoginSecretary.xaml</DependentUpon>
@@ -204,11 +216,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Patient\CreateExamination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Patient\ExaminationDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Patient\ExaminationTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Patient\LoginPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml_window\Patient\PatientHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Patient\UpdateExamination.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,7 +311,9 @@
   <ItemGroup>
     <Resource Include="Doctor.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Patient.txt" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="xaml_window\Manager\Slike\edit.png" />
     <Resource Include="xaml_window\Manager\Slike\Slika.png" />

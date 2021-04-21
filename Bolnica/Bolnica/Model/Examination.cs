@@ -1,11 +1,15 @@
 using System;
+using System.Collections.Generic;
 
 namespace Bolnica.Model
 {
    public class Examination
    {
+        public DateTime Date { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+        public int Month { get; set; }
+        public int Day { get; set; }
         public ExaminationType ExaminationType { get; set; }
         public Patient patient { get; set; }
         public Doctor doctor { get; set; }
@@ -13,6 +17,8 @@ namespace Bolnica.Model
         public int ExaminationId { get; set; }
         public bool deleted { get; set; }
         
+        public List<Examination> examinations { get; set; }
+
         public Examination(int newExaminationId, DateTime newStartTime, DateTime newEndTime, string newDoctor, string newPatient, int newRoomId)
         {
             
@@ -37,11 +43,47 @@ namespace Bolnica.Model
             deleted = true;
       }
       
-      public void UpdateExamination(DateTime newStartTime, DateTime newEndTime)
+      /*public void UpdateExamination(DateTime newStartTime, DateTime newEndTime)
       {
             StartTime = newStartTime;
             EndTime = newEndTime;
-      }
+      }*/
+
+      public void UpdateExamination(int newId, DateTime newDate, DateTime newStartTime, DateTime newEndTime, int newMonth, int newDay)
+        {
+            foreach (var ex in examinations)
+            {
+                int todayM = 4;
+                int todayD = 21;
+
+                if(ExaminationId == newId)
+                {
+                    ExaminationId = newId;
+
+                    if((todayM - ex.Month) == 0)
+                    {
+                        if(todayD - ex.Day > 2)
+                        {
+                            System.Windows.MessageBox.Show("Greška! Pomeranje termina može biti najkasnije 2 dana.");
+                        }
+                        else
+                        {
+                            ex.Month = newMonth;
+                            ex.Day = newDay;
+                            ex.StartTime = newStartTime;
+                            ex.EndTime = newEndTime;
+                        }
+                    }
+                }
+                else
+                {
+                    ex.Month = newMonth;
+                    ex.Day = newDay;
+                    ex.StartTime = newStartTime;
+                    ex.EndTime = newEndTime;
+                }
+            }
+        }
       
       public Examination GetExamination()
       {
@@ -84,12 +126,7 @@ namespace Bolnica.Model
         {
             if (this.patient != newPatient)
             {
-                if (this.patient != null)
-                {
-                    Patient oldPatient = this.patient;
-                    this.patient = null;
-                    oldPatient.RemoveExaminations(this);
-                }
+                
                 if (newPatient != null)
                 {
                     this.patient = newPatient;

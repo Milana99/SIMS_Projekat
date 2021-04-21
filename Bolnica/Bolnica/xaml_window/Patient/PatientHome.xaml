@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Patient"
         mc:Ignorable="d"
-        Title="PatientHome" Height="450" Width="800">
+        Title="PatientHome" Height="750" Width="430">
     <Grid>
-        
+        <Image HorizontalAlignment="Left" Height="60" Margin="300,10,0,0" VerticalAlignment="Top" Width="72" RenderTransformOrigin="4.585,0.507"/>
+        <Label Content="Ime i prezime" HorizontalAlignment="Left" Height="60" Margin="27,10,0,0" VerticalAlignment="Top" Width="233" FontSize="36" Background="#FFFCFCFC" Foreground="#FFFA0D0D"/>
+        <Label Content="Zakazani pregledi" HorizontalAlignment="Left" Margin="27,75,0,0" VerticalAlignment="Top" Height="61" Width="252" FontSize="28" FontWeight="Bold"/>
+        <ListView Name ="lvDataBinding" HorizontalAlignment="Left" Height="218" Margin="27,136,0,0" VerticalAlignment="Top" Width="367">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="22" DisplayMemberBinding="{Binding ExaminationId}"></GridViewColumn>
+                    <GridViewColumn Header="Početak termina" DisplayMemberBinding="{Binding StartTime}" Width="105"></GridViewColumn>
+                    <GridViewColumn Header="Kraj termina" DisplayMemberBinding="{Binding EndTime}" Width="105"></GridViewColumn>
+                    <GridViewColumn Header="Doktor" DisplayMemberBinding="{Binding doctor.User.Username}" Width="65"/>
+                    <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding room}" Width="30"/>
+
+                </GridView>
+            </ListView.View>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <ListViewItem>
+                            <TextBlock Text="{Binding ExaminationId}" FontWeight="Bold" />
+                        </ListViewItem>
+                        <TextBlock Text="{Binding StartTime}" FontWeight="Bold" />
+
+                        <TextBlock Text="{Binding EndTime}" FontWeight="Bold" />
+
+                        <TextBlock Text="{Binding doctor.User.Username}" FontWeight="Bold" />
+
+                        <TextBlock Text="{Binding patient.User.Username}" FontWeight="Bold" />
+
+                        <TextBlock Text="{Binding room}" FontWeight="Bold" />
+
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Content="Zakaži pregled" HorizontalAlignment="Left" Margin="81,378,0,0" VerticalAlignment="Top" Width="263" FontSize="28" Background="#FFFA0D0D" Foreground="White" Click="Button_Click_Create"/>
+        <Button Content="Izmeni pregled" HorizontalAlignment="Left" Margin="81,518,0,0" VerticalAlignment="Top" Width="263" FontSize="28" Background="#FFFA0D0D" Foreground="White" Click="Button_Click_Update"/>
+        <Button Content="Otkaži pregled" HorizontalAlignment="Left" Margin="81,451,0,0" VerticalAlignment="Top" Width="263" FontSize="28" Background="#FFFA0D0D" Foreground="White" Click="Button_Click_Delete"/>
+        <Button Content="Anketa" HorizontalAlignment="Left" Margin="81,586,0,0" VerticalAlignment="Top" Width="263" FontSize="28" Background="#FFFA0D0D" Foreground="White"/>
+        <Button Content="Propisana terapija" HorizontalAlignment="Left" Margin="81,652,0,0" VerticalAlignment="Top" Width="263" FontSize="28" Background="#FFFA0D0D" Foreground="White"/>
+
+
+
     </Grid>
 </Window>

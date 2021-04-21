@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Bolnica.Model
 {
@@ -37,6 +38,8 @@ namespace Bolnica.Model
             this.notification = new System.Collections.ArrayList();
          if (!this.notification.Contains(newNotification))
             this.notification.Add(newNotification);
+
+ 
       }
       
       /// <pdGenerated>default Remove</pdGenerated>
@@ -82,6 +85,27 @@ namespace Bolnica.Model
             }
          }
       }
+
+        public void GetPrescription(List<Prescription> listPrescription)
+        {
+            foreach(Prescription p in listPrescription)
+            {
+                int pr = DateTime.Compare(p.StartDatePrescription.AddHours(-3), DateTime.UtcNow);
+
+                if(pr>0)
+                {
+                    if((p.StartDatePrescription.Month == DateTime.UtcNow.Month) && (p.StartDatePrescription.Day == DateTime.UtcNow.Day) && (p.StartDatePrescription.Hour == DateTime.UtcNow.Hour))
+                    {
+                       
+
+                    }
+
+                }
+            }
+
+        }
+
+
    
   
    

@@ -1,18 +1,22 @@
 ﻿
 
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\MainWindow.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DoctorHome.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\LoginDoctor.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\LoginManager.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\ManagerHome.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Patient\LoginPatient.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Patient\PatientHome.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Secretary\LoginSecretary.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Secretary\SecretaryHome.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\ExaminationUpdate.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\CreateExaminatio.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\MedicalRecordDoctor.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\CreateRoom.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\RoomList.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\UpdateRoom.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\MainWindow.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\CreateExaminatio.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DoctorHome.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\ExaminationUpdate.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\LoginDoctor.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\MedicalRecordDoctor.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\CreateRoom.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\LoginManager.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\ManagerHome.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\RoomList.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\UpdateRoom.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Patient\LoginPatient.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Patient\PatientHome.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Secretary\LoginSecretary.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Secretary\SecretaryHome.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Patient\CreateExamination.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Patient\ExaminationDoctor.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Patient\ExaminationTime.xaml;;
+FC:\Users\Jelena\Desktop\GITBOLNICA\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Patient\UpdateExamination.xaml;;
 
