@@ -65,6 +65,20 @@ namespace Bolnica.Service
                 }
             }
         }
+
+        public void ChangeRoom(int staticEquipmentId, int roomId)
+        {
+            List<Model.StaticEquipment> equipments = GetAllEquipment();
+            foreach (Model.StaticEquipment ste in equipments)
+            {
+                if(ste.StaticEquipmentId == staticEquipmentId)
+                {
+                    ste.roomStaticEquipment.RoomId = roomId;
+                    staticEquipmentRepository.SaveStaticEquipment(equipments);
+                    return;
+                }
+            }
+        }
       
       public List<Model.StaticEquipment> GetAllEquipmentForRoom(int roomId)
       {

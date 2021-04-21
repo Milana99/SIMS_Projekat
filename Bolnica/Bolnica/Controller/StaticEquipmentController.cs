@@ -36,8 +36,12 @@ namespace Bolnica.Controller
       {
             staticEquipmentService.UpdateStaticEquipment(staticEquipmentId, description, name);
       }
-      
-      public List<Model.StaticEquipment> GetAllStaticEquipmentForRoom(int roomId)
+      public void ChangeRoom(int staticEquipmentId, int roomId)
+      {
+            staticEquipmentService.ChangeRoom(staticEquipmentId, roomId);
+      }
+
+        public List<Model.StaticEquipment> GetAllStaticEquipmentForRoom(int roomId)
       {
             return staticEquipmentService.GetAllEquipmentForRoom(roomId);
       }

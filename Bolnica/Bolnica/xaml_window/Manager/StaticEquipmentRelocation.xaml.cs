@@ -19,9 +19,11 @@ namespace Bolnica.xaml_window.Manager
     /// </summary>
     public partial class StaticEquipmentRelocation : Window
     {
-        public StaticEquipmentRelocation()
+        public StaticEquipment se;
+        public StaticEquipmentRelocation(StaticEquipment s)
         {
             InitializeComponent();
+            se = s;
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
@@ -31,7 +33,9 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-
+            se.control.ChangeRoom(int.Parse(lbuIDStaticEq.Content.ToString()), int.Parse(cbuRoomStatic.Text));
+            se.Load();
+            this.Close();
         }
     }
 }

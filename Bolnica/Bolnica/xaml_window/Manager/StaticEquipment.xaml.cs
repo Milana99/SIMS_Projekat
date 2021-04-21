@@ -80,7 +80,21 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Relocation(object sender, RoutedEventArgs e)
         {
-            ser = new StaticEquipmentRelocation();
+            Model.StaticEquipment selected = (Model.StaticEquipment)lvDataBindingStaticEq.SelectedItems[0];
+            
+            Controller.RoomController rc = new Controller.RoomController();
+            ser = new StaticEquipmentRelocation(this);
+
+            List<Model.Room> rooms = rc.GetAllRooms();
+            foreach (Model.Room r in rooms)
+            {
+                ser.cbuRoomStatic.Items.Add(r.RoomId);
+            }
+            
+            ser.lbuIDStaticEq.Content = selected.StaticEquipmentId;
+            ser.lbuStaticDescription.Content = selected.DescriptionStaticEquipment;
+            ser.lbuName.Content = selected.NameStaticEquipment;
+            ser.cbuRoomStatic.Text = selected.roomStaticEquipment.RoomId.ToString();
             ser.Show();
         }
     }
