@@ -25,17 +25,19 @@
         <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="350">
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Terapija</Label>
         </Border>
-        <ListView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Margin="20,0,20,0" Name="lvDataBindingTherapy">
+        <ListView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Margin="20,0,20,10" Name="lvDataBindingAnamnesis">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ime leka"  DisplayMemberBinding="{Binding drug.DrugName}"
-                                    Width="80" />
-                    <GridViewColumn Header="Opis leka" DisplayMemberBinding="{Binding DescriptionDrug}"
+                                    Width="60"/>
+                    <GridViewColumn Header="Opis recepta" DisplayMemberBinding="{Binding DescriptionPrescription}"
+                                    Width="80"/>
+                    <GridViewColumn Header="Doza" DisplayMemberBinding="{Binding QuantityPrescription}" 
+                                    Width="40"/>
+                    <GridViewColumn Header="Datum početka"  DisplayMemberBinding="{Binding StartDatePrescription}"
                                     Width="90"/>
-                    <GridViewColumn Header="Količina leka" DisplayMemberBinding="{Binding QuantityDrug}" 
-                                    Width="90"/>
-                    <GridViewColumn Header="Gramaža"  DisplayMemberBinding="{Binding WeightDrug}"
-                                    Width="90"/>
+                    <GridViewColumn Header="Datum kraja" DisplayMemberBinding="{Binding EndDatePrescription}"
+                                    Width="70"/>
                 </GridView>
             </ListView.View>
 

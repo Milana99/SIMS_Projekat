@@ -10,5 +10,10 @@ namespace Bolnica.Model
         public int QuantityDrug { get; set; }
         public double WeightDrug { get; set; }
 
+        public Drug(String Name)
+        {
+            DrugName = Name;
+        }
+
     }
 }

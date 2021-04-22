@@ -93,8 +93,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+           
         </StackPanel>
 
+        <Button Grid.Column="1" Grid.Row="11" Click="Button_Click_Therapy" Height="30" Margin="0.333,0.333,0.333,0" Grid.RowSpan="2" VerticalAlignment="Top">Otvori recepte</Button>
         <Button Grid.Column="2" Grid.ColumnSpan="2"  Grid.Row="11" Width="80" Height="30" Click="Button_Click_Create_Anamnesis">Napiši</Button>
         <Button Grid.Column="4" Grid.Row="11" Width="80" Height="30" Click="Button_Click_Update_Anamnesis">Ažuriraj</Button>
         <Button Grid.Column="3" Grid.ColumnSpan="2" Margin="0,0,60,0" Grid.Row="11" Width="80" Height="30" Click="Button_Click_Open_Anamnesis">Otvori</Button>

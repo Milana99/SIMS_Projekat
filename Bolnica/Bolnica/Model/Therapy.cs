@@ -10,7 +10,20 @@ namespace Bolnica.Model
         public int TherapyId { get; set; }
         public String Description { get; set; }
 
+        public bool deleted { get; set; }
+
         /// <pdGenerated>default getter</pdGenerated>
+        /// 
+        public Therapy(int anamId, int TheId, String description)
+        {
+            anamnesis = new Anamnesis(anamId);
+            TherapyId = TheId;
+            Description = description;
+        }
+        public Therapy(int thId)
+        {
+            TherapyId = thId;
+        }
         public System.Collections.ArrayList GetPrescription()
       {
          if (prescription == null)
@@ -35,8 +48,7 @@ namespace Bolnica.Model
             this.prescription = new System.Collections.ArrayList();
          if (!this.prescription.Contains(newPrescription))
          {
-            this.prescription.Add(newPrescription);
-            newPrescription.SetTherapy(this);      
+            this.prescription.Add(newPrescription);    
          }
       }
       
@@ -49,7 +61,6 @@ namespace Bolnica.Model
             if (this.prescription.Contains(oldPrescription))
             {
                this.prescription.Remove(oldPrescription);
-               oldPrescription.SetTherapy((Therapy)null);
             }
       }
       
@@ -63,7 +74,6 @@ namespace Bolnica.Model
                tmpPrescription.Add(oldPrescription);
             prescription.Clear();
             foreach (Prescription oldPrescription in tmpPrescription)
-               oldPrescription.SetTherapy((Therapy)null);
             tmpPrescription.Clear();
          }
       }

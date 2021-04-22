@@ -19,7 +19,7 @@ namespace Bolnica.xaml_window.Doctor
     /// </summary>
     public partial class AnamnesisCreate : Window
     {
-        AnamnesisTherapy ata;
+        AnamnesisTherapyAdd ata;
         public AnamnesisCreate()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Therapy(object sender, RoutedEventArgs e)
         {
-            ata = new AnamnesisTherapy();
+            ata = new AnamnesisTherapyAdd();
             ata.Show();
             this.Close();
         }

@@ -4,13 +4,28 @@ namespace Bolnica.Model
 {
    public class Prescription
    {
+        public Anamnesis Anamnesis { get; set; }
         public int PrescriptionId { get; set; }
         public DateTime StartDatePrescription { get; set; }
         public DateTime EndDatePrescription { get; set; }
         public String DescriptionPrescription { get; set; }
         public int QuantityPrescription { get; set; }
         public Drug drug { get; set; }
+        public bool deleted;
+
         public System.Collections.ArrayList notification;
+
+        public Prescription(int AnamId, int PresId, DateTime Start, DateTime End, String Description, int Quantity, String dr)
+        {
+            Anamnesis = new Anamnesis(AnamId);
+            PrescriptionId = PresId;
+            StartDatePrescription = Start;
+            EndDatePrescription = End;
+            DescriptionPrescription = Description;
+            QuantityPrescription = Quantity;
+            drug = new Drug(dr);
+            deleted = false;
+        }
       
       /// <pdGenerated>default getter</pdGenerated>
       public System.Collections.ArrayList GetNotification()
@@ -55,33 +70,14 @@ namespace Bolnica.Model
          if (notification != null)
             notification.Clear();
       }
-      public Therapy therapy;
+      
       
       /// <pdGenerated>default parent getter</pdGenerated>
-      public Therapy GetTherapy()
-      {
-         return therapy;
-      }
+      
       
       /// <pdGenerated>default parent setter</pdGenerated>
       /// <param>newTherapy</param>
-      public void SetTherapy(Therapy newTherapy)
-      {
-         if (this.therapy != newTherapy)
-         {
-            if (this.therapy != null)
-            {
-               Therapy oldTherapy = this.therapy;
-               this.therapy = null;
-               oldTherapy.RemovePrescription(this);
-            }
-            if (newTherapy != null)
-            {
-               this.therapy = newTherapy;
-               this.therapy.AddPrescription(this);
-            }
-         }
-      }
+      
    
   
    

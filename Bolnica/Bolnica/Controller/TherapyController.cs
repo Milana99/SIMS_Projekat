@@ -6,37 +6,40 @@ namespace Bolnica.Controller
    public class TherapyController
    {
         public Bolnica.Service.TherapyService therapyService;
+
+
+        public TherapyController()
+        {
+            therapyService = new Service.TherapyService();
+        }
         public List<Model.Therapy> GetAllTherapy()
       {
-         // TODO: implement
-         return null;
+            return therapyService.GetAllTherapy();
       }
       
       public Model.Therapy GetOneTherapy(int therapyId)
       {
-         // TODO: implement
-         return null;
+            return therapyService.GetOneTherapy(therapyId);
       }
       
-      public void CreateTherapy(int therapyId, List<Model.Prescription> listPerceptions, String description)
+      public void CreateTherapy(int anamnesisId, int therapyId, String Description)
       {
-         // TODO: implement
+            therapyService.CreateTherapy(anamnesisId, therapyId, Description);
       }
       
-      public void UpdateTherapy(int therapyId, List<Model.Prescription> listPerceptions, String description)
+      public void UpdateTherapy(int therapyId, String Description)
       {
-         // TODO: implement
+            therapyService.UpdateTherapy(therapyId, Description);
       }
       
       public void DeleteTherapy(int therapyId)
       {
-         // TODO: implement
+            therapyService.DeleteTherapy(therapyId);
       }
       
-      public List<Model.Therapy> GetAllTherapyPatient(String patientUsername)
+      public List<Model.Therapy> GetAllTherapyAnamnesis(int anamnesisId)
       {
-         // TODO: implement
-         return null;
+            return therapyService.GetAllTherapyAnamnesis(anamnesisId);
       }
    
       

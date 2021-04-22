@@ -6,37 +6,39 @@ namespace Bolnica.Controller
    public class AnamnesisController
    {
         public Bolnica.Service.AnamnesisService anamnesisService;
+
+        public AnamnesisController()
+        {
+            anamnesisService = new Service.AnamnesisService();
+        }
         public List<Model.Anamnesis> GetAllAnamnesis()
       {
-         // TODO: implement
-         return null;
+            return anamnesisService.GetAllAnamnesis();
       }
       
-      public AnamnesisController GetOneAnamnesis(int anamnesisId)
+      public Model.Anamnesis GetOneAnamnesis(int anamnesisId)
       {
-         // TODO: implement
-         return null;
+            return anamnesisService.GetOneAnamnesis(anamnesisId);
       }
       
       public List<Model.Anamnesis> GetAllAnamnesisPatient(String patientUsername)
       {
-         // TODO: implement
-         return null;
+            return anamnesisService.GetAllAnamnesisPatient(patientUsername);
       }
       
-      public void CreateAnamnesis(int anamnesisId, string type, string name, string description, string opinion, int patientUsername, Model.Therapy therapy)
+      public void CreateAnamnesis(String patientUserName, int AnamnesisId, String Type, String Description, String Opinion)
       {
-         // TODO: implement
+            anamnesisService.CreateAnamnesis(patientUserName, AnamnesisId, Type, Description, Opinion);
       }
       
-      public void UpdateAnamnesis(int anamnesisId, String type, String name, String description, String opinion, Model.Therapy therapy)
+      public void UpdateAnamnesis(int anamnesisId, String type,  String description, String opinion)
       {
-         // TODO: implement
+            anamnesisService.UpdateAnamnesis(anamnesisId, type, description, opinion);
       }
       
       public void DeleteAnamnesis(int anamnesisId)
       {
-         // TODO: implement
+            anamnesisService.DeleteAnamnesis(anamnesisId);
       }
    
       

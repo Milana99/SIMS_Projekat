@@ -22,9 +22,14 @@ namespace Bolnica.xaml_window.Doctor
         AnamnesisOpen ao;
         AnamnesisCreate ac;
         AnamnesisUpdate au;
+        AnamnesisTherapy at;
+
+        public Controller.AnamnesisController anamControl;
         public MedicalRecordDoctor()
         {
             InitializeComponent();
+            
+
         }
 
         private void Button_Click_Close(object sender, RoutedEventArgs e)
@@ -34,7 +39,16 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Open_Anamnesis(object sender, RoutedEventArgs e)
         {
+            Controller.PrescriptionController pc = new Controller.PrescriptionController();
+            Model.Anamnesis selected = (Model.Anamnesis)lvDataBinding.SelectedItems[0];
             ao = new AnamnesisOpen();
+            Console.WriteLine(selected.AnamnesisId);
+            List<Model.Prescription> prescriptions = pc.GetAllPrescriptionAnamnesis(selected.AnamnesisId);
+            foreach(Model.Prescription pr in prescriptions)
+            {
+                ao.lvDataBindingAnamnesis.Items.Add(pr);
+                Console.WriteLine(pr.PrescriptionId);
+            }
             ao.Show();
         }
 
@@ -48,6 +62,14 @@ namespace Bolnica.xaml_window.Doctor
         {
             ac = new AnamnesisCreate();
             ac.Show();
+        }
+
+        private void Button_Click_Therapy(object sender, RoutedEventArgs e)
+        {
+            at = new AnamnesisTherapy();
+
+            at.Show();
+            
         }
     }
 }

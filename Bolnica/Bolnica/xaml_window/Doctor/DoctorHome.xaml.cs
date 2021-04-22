@@ -96,7 +96,18 @@ namespace Bolnica.xaml_window.Doctor
             mrd.lbDateOfBirthPatient.Content = pat.User.DateOfBirth;
             mrd.lbSurnamePatient.Content = pat.User.Surname;
             mrd.lbNumberPatient.Content = pat.User.PhoneNumber;
+
+            Controller.AnamnesisController anamControl = new Controller.AnamnesisController();
+            List<Model.Anamnesis> anamneses = anamControl.GetAllAnamnesisPatient(pat.User.Username);
+            
+            foreach (Model.Anamnesis an in anamneses)
+            {
+                mrd.lvDataBinding.Items.Add(an);
+                Console.WriteLine(an.DescriptionAnamnesis);
+            }
+
             mrd.Show();
+
 
         }
 
