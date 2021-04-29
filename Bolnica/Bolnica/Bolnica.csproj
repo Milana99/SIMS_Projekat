@@ -164,6 +164,15 @@
     <Compile Include="xaml_window\Manager\ManagerHome.xaml.cs">
       <DependentUpon>ManagerHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Manager\RenovationAdd.xaml.cs">
+      <DependentUpon>RenovationAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\RenovationGeneral.xaml.cs">
+      <DependentUpon>RenovationGeneral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\RenovationList.xaml.cs">
+      <DependentUpon>RenovationList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Manager\RoomList.xaml.cs">
       <DependentUpon>RoomList.xaml</DependentUpon>
     </Compile>
@@ -275,6 +284,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml_window\Manager\ManagerHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\RenovationAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\RenovationGeneral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\RenovationList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

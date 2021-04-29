@@ -63,15 +63,14 @@ namespace Bolnica.Repository
             {
                 if (pr.deleted == false)
                 {
-                    line = pr.Anamnesis.AnamnesisId + "," + pr.PrescriptionId + "," + pr.StartDatePrescription.ToString() + "," +
+                    line = pr.Anamnesis.AnamnesisId.ToString() + "," + pr.PrescriptionId.ToString() + "," + pr.StartDatePrescription.ToString() + "," +
                         pr.EndDatePrescription.ToString() + "," + pr.DescriptionPrescription + "," + pr.QuantityPrescription.ToString() + "," +
                         pr.drug.DrugName;
+                    lines.Add(line);
                 }
             }
             File.WriteAllLines(FileLocation, lines);
         }
-
-
 
 
         public void DeletePrescriptions()

@@ -20,9 +20,11 @@ namespace Bolnica.xaml_window.Doctor
     public partial class AnamnesisCreate : Window
     {
         AnamnesisTherapyAdd ata;
-        public AnamnesisCreate()
+        MedicalRecordDoctor mrd;
+        public AnamnesisCreate(MedicalRecordDoctor m)
         {
             InitializeComponent();
+            mrd = m;
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
@@ -32,14 +34,26 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-
+            int id = mrd.anamControl.anamnesisService.anamnesisRepository.next_id;
+            mrd.anamControl.anamnesisService.anamnesisRepository.next_id++;
+            mrd.anamControl.CreateAnamnesis(mrd.lbuUsernamePatient.Content.ToString(), id,
+                tbTypeAnamnesis.Text, tbDescriptionAnamnesis.Text, tbOpinionForAnamnesis.Text);
+            
+            for(int i =0; i<lvDataBindingAnamnesis.Items.Count;i++)
+            {
+                Model.Prescription prescription = (Model.Prescription)(lvDataBindingAnamnesis.Items[i]);
+                mrd.pc.CreatePrescription(id, mrd.pc.prescriptionService.prescriptionRepository.next_id,
+                    prescription.StartDatePrescription, prescription.EndDatePrescription, prescription.DescriptionPrescription,
+                    prescription.QuantityPrescription, prescription.drug.DrugName);
+            }
+            mrd.Load();
+            this.Close();
         }
 
         private void Button_Click_Therapy(object sender, RoutedEventArgs e)
         {
-            ata = new AnamnesisTherapyAdd();
+            ata = new AnamnesisTherapyAdd(mrd, this);
             ata.Show();
-            this.Close();
         }
     }
 }

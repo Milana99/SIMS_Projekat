@@ -1,0 +1,44 @@
+﻿<Window x:Class="Bolnica.xaml_window.Manager.RenovationGeneral"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
+        mc:Ignorable="d"
+        Title="RenovationGeneral" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+       
+        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="500" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Osnovno renoviranje</Label>
+        </Border>
+
+        <Label Grid.Row="1" HorizontalAlignment="Right" Margin="20,10,0,0" Width="100" Height="25" VerticalAlignment="Top" FontWeight="Bold">Izaberite salu:</Label>
+        <ComboBox Name="cbRoomType" HorizontalAlignment="Left" Width="150" Margin="20,10,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" />
+
+        <Label Grid.Row="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,20" FontWeight="Bold" >Izaberite datum početka:</Label>
+        <DatePicker Name="cbDateRenovationStart" HorizontalAlignment="Left" Width="150" Margin="20,0,0,20" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1"></DatePicker>
+        <Label Grid.Row="1" Grid.Column="1"  FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Grid.ColumnSpan="2" >Izaberite vreme:</Label>
+        <TextBox  HorizontalAlignment="Right" Width="150" Margin="0,0,40,20" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="2" Name="tbStartTime" />
+        <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,0,20" FontWeight="Bold" >Izaberite datum kraja:</Label>
+        <DatePicker Name="cbDateRenovationEnd" HorizontalAlignment="Left" Width="150" Margin="20,10,0,20" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1"></DatePicker>
+        <Label Grid.Row="2" Grid.Column="1"  FontWeight="Bold" HorizontalAlignment="Center" Margin="0,5,0,20" VerticalAlignment="Top" Grid.ColumnSpan="2" >Izaberite vreme:</Label>
+        <TextBox  HorizontalAlignment="Right" Width="150" Margin="0,10,40,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" Name="tbEndTime"  />
+        <Label Grid.Row="2" Margin="20,10,0,20" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Bottom">Napišite opis renoviranja:</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="150" Margin="20,0,0,20" HorizontalAlignment="Left"  VerticalAlignment="Bottom"  Name="tbDescriptionRenovation" />
+
+        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Background="#FFE23838" Foreground="White" Click="Button_Click_OK">Zakaži</Button>
+        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" Background="#FFE23838" Click="Button_Click_Cancel" Foreground="White">Otkaži</Button>
+    </Grid>
+</Window>

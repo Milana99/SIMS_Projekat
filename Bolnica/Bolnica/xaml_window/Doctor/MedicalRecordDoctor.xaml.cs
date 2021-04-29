@@ -25,11 +25,40 @@ namespace Bolnica.xaml_window.Doctor
         AnamnesisTherapy at;
 
         public Controller.AnamnesisController anamControl;
-        public MedicalRecordDoctor()
+        public Controller.PrescriptionController pc;
+        public DoctorHome dh;
+        public MedicalRecordDoctor(DoctorHome d)
         {
             InitializeComponent();
+            pc = new Controller.PrescriptionController();
+            dh = d;
+            anamControl = new Controller.AnamnesisController();
             
+            Load();
+        }
+        public void Load()
+        {
+            
+            Controller.PatientController pc = new Controller.PatientController();
+            Model.Examination selected = (Model.Examination)dh.lvDataBinding.SelectedItems[0];
+            Model.Patient pat = pc.GetOnePatient(selected.patient.User.Username);
+            lbAddressPatient.Content = pat.User.Address;
+            lbuUsernamePatient.Content = pat.User.Username;
+            lbuJMBG.Content = pat.User.Jmbg;
+            lbNamePatient.Content = pat.User.Name;
+            lbGender.Content = pat.User.Gender;
+            lbDateOfBirthPatient.Content = pat.User.DateOfBirth;
+            lbSurnamePatient.Content = pat.User.Surname;
+            lbNumberPatient.Content = pat.User.PhoneNumber;
 
+            
+            List<Model.Anamnesis> anamneses = anamControl.GetAllAnamnesisPatient(pat.User.Username);
+            lvDataBinding.Items.Clear();
+            foreach (Model.Anamnesis an in anamneses)
+            {
+                lvDataBinding.Items.Add(an);
+                Console.WriteLine(an.DescriptionAnamnesis);
+            }
         }
 
         private void Button_Click_Close(object sender, RoutedEventArgs e)
@@ -39,7 +68,7 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Open_Anamnesis(object sender, RoutedEventArgs e)
         {
-            Controller.PrescriptionController pc = new Controller.PrescriptionController();
+            
             Model.Anamnesis selected = (Model.Anamnesis)lvDataBinding.SelectedItems[0];
             ao = new AnamnesisOpen();
             Console.WriteLine(selected.AnamnesisId);
@@ -49,27 +78,41 @@ namespace Bolnica.xaml_window.Doctor
                 ao.lvDataBindingAnamnesis.Items.Add(pr);
                 Console.WriteLine(pr.PrescriptionId);
             }
+            ao.lbDescriptionAnamnesis.Content = selected.DescriptionAnamnesis;
+            ao.lbOpinionForAnamnesis.Content = selected.OpinionForAnamnesis;
+            ao.lbTypeAnamnesis.Content = selected.TypeAnamnesis;
+            
             ao.Show();
         }
-
+        public void full_uodate()
+        {
+            au.lvDataBindingAnamnesis.Items.Clear();
+            Model.Anamnesis selected = (Model.Anamnesis)lvDataBinding.SelectedItems[0];
+            Console.WriteLine(selected.AnamnesisId);
+            List<Model.Prescription> prescriptions = pc.GetAllPrescriptionAnamnesis(selected.AnamnesisId);
+            foreach (Model.Prescription pr in prescriptions)
+            {
+                au.lvDataBindingAnamnesis.Items.Add(pr);
+                Console.WriteLine(pr.PrescriptionId);
+            }
+            au.tbDescriptionAnamnesis.Text = selected.DescriptionAnamnesis;
+            au.tbOpinionForAnamnesis.Text = selected.OpinionForAnamnesis;
+            au.tbTypeAnamnesis.Text = selected.TypeAnamnesis;
+        }
         private void Button_Click_Update_Anamnesis(object sender, RoutedEventArgs e)
         {
-            au = new AnamnesisUpdate();
+            au = new AnamnesisUpdate(this);
+            full_uodate();
             au.Show();
         }
 
         private void Button_Click_Create_Anamnesis(object sender, RoutedEventArgs e)
         {
-            ac = new AnamnesisCreate();
+            ac = new AnamnesisCreate(this);
+
             ac.Show();
         }
 
-        private void Button_Click_Therapy(object sender, RoutedEventArgs e)
-        {
-            at = new AnamnesisTherapy();
 
-            at.Show();
-            
-        }
     }
 }

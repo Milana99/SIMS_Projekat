@@ -32,6 +32,8 @@ namespace Bolnica.xaml_window.Manager
             control = new Controller.DynamicEquipmentController();
             equipments = new List<Model.DynamicEquipment>();
             Load();
+
+            
         }
 
         public void Load()

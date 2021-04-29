@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
         mc:Ignorable="d"
-        Title="MedicalRecordDoctor" Height="500" Width="600">
+        Title="MedicalRecordDoctor" Height="550" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="80"/>
+
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -22,7 +23,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-  
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -38,32 +39,31 @@
 
        
             <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Zdravstevni karton</Label>
-        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="0,0,0,3" Width="350">
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="0,0,0,3" Width="500">
             <Label HorizontalAlignment="Center" VerticalAlignment="Bottom" Name="lbuUsernamePatient">Korisnicko ime</Label>
         </Border>
-        <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10,0,60,0" Background="White" >
-            <Label HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15">Lični podaci</Label>
+        <Label HorizontalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Bottom" FontSize="15" FontWeight="Bold">Lični podaci</Label>
+     
+        <Border Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="7" Margin="10, 10,0,0" BorderThickness="1,1,1,1" BorderBrush="Black" >
         </Border>
-        <Border Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="7" Margin="10, 10,60,0" BorderThickness="1,1,1,1" BorderBrush="Black" >
-        </Border>
-        <Label Grid.Row="4" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Ime:</Label>
-        <Label Name="lbNamePatient" Grid.Row="4" Grid.Column="1" Margin="40,0,0,0">Im</Label>
-        <Label  Grid.Row="5" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Prezime:</Label>
-        <Label Name="lbSurnamePatient" Grid.Row="5" Grid.Column="1" Margin="40,0,0,0">Prezime:</Label>
-        <Label  Grid.Row="6" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Datum rodjenja:</Label>
-        <Label Name="lbDateOfBirthPatient" Grid.Row="6" Grid.Column="1" Margin="40,0,0,0">Datum rodjenja:</Label>
-        <Label Grid.Row="7" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Adresa stanovanja:</Label>
-        <Label Name="lbAddressPatient" Grid.Row="7" Grid.Column="1" Margin="40,0,0,0">Adresa stanovanja:</Label>
-        <Label Grid.Row="8" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Broj telefona:</Label>
-        <Label Name="lbNumberPatient" Grid.Row="8" Grid.Column="1" Margin="40,0,0,0">Broj telefona:</Label>
-        <Label Grid.Row="9" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Pol:</Label>
-        <Label Name="lbGender" Grid.Row="9" Grid.Column="1" Margin="40,0,0,0">Pol:</Label>
+        <Label Grid.Row="5" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Ime:</Label>
+        <Label Name="lbNamePatient" Grid.Row="5" Grid.Column="1" Margin="10,0,0,0">Im</Label>
+        <Label  Grid.Row="6" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Prezime:</Label>
+        <Label Name="lbSurnamePatient" Grid.Row="6" Grid.Column="1" Margin="10,0,0,0">Prezime:</Label>
+        <Label  Grid.Row="7" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Datum rodjenja:</Label>
+        <Label Name="lbDateOfBirthPatient" Grid.Row="7" Grid.Column="1" Margin="10,0,0,0">Datum rodjenja:</Label>
+        <Label Grid.Row="8" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Adresa stanovanja:</Label>
+        <Label Name="lbAddressPatient" Grid.Row="8" Grid.Column="1" Margin="10,0,0,0">Adresa stanovanja:</Label>
+        <Label Grid.Row="9" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Broj telefona:</Label>
+        <Label Name="lbNumberPatient" Grid.Row="9" Grid.Column="1" Margin="10,0,0,0">Broj telefona:</Label>
+        <Label Grid.Row="10" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Pol:</Label>
+        <Label Name="lbGender" Grid.Row="10" Grid.Column="1" Margin="10,0,0,0">Pol:</Label>
 
-        <Border Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3" Margin="10,0,60,0" Background="White" >
-            <Label HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15">Istorija pregleda</Label>
+        <Border Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="3" Margin="10,0,90,0" Background="White" >
+            <Label HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15" FontWeight="Bold" >Istorija pregleda</Label>
         </Border>
-        <StackPanel Grid.Row="3" Grid.RowSpan="7" Grid.Column="2" Grid.ColumnSpan="3" Margin="70,10,10,0">
-            <ListView Name="lvDataBinding" Margin ="0, 0, 0, 0" Height="200">
+        <StackPanel Grid.Row="4" Grid.RowSpan="7" Grid.Column="2" Grid.ColumnSpan="3" Margin="40,10,10,0">
+            <ListView Name="lvDataBinding" Margin ="0, 0, 0, 0" Height="210">
                 <ListView.View>
                     <GridView>
 
@@ -97,11 +97,11 @@
            
         </StackPanel>
 
-        <Button Grid.Column="1" Grid.Row="11" Click="Button_Click_Therapy" Height="30" Margin="0.333,0.333,0.333,0" Grid.RowSpan="2" VerticalAlignment="Top">Otvori recepte</Button>
-        <Button Grid.Column="2" Grid.ColumnSpan="2"  Grid.Row="11" Width="80" Height="30" Click="Button_Click_Create_Anamnesis">Napiši</Button>
-        <Button Grid.Column="4" Grid.Row="11" Width="80" Height="30" Click="Button_Click_Update_Anamnesis">Ažuriraj</Button>
-        <Button Grid.Column="3" Grid.ColumnSpan="2" Margin="0,0,60,0" Grid.Row="11" Width="80" Height="30" Click="Button_Click_Open_Anamnesis">Otvori</Button>
+        
+        <Button Grid.Column="2" Grid.ColumnSpan="2"  Grid.Row="11" Grid.RowSpan="2" Width="80" Height="30" Click="Button_Click_Create_Anamnesis">Napiši</Button>
+        <Button Grid.Column="4" Grid.Row="11" Grid.RowSpan="2" Width="80" Height="30" Click="Button_Click_Update_Anamnesis">Ažuriraj</Button>
+        <Button Grid.Column="3" Grid.ColumnSpan="2" Margin="0,0,60,0" Grid.Row="11" Grid.RowSpan="2" Width="80" Height="30" Click="Button_Click_Open_Anamnesis">Otvori</Button>
 
-        <Button Grid.Column="4" Grid.Row="13" Width="90" Click="Button_Click_Close" Height="30">Izadji</Button>
+        <Button Grid.Column="4" Grid.Row="13" Width="90" Click="Button_Click_Close"  Height="30" Background="#FFFB5858" Foreground="White">Izadji</Button>
     </Grid>
 </Window>

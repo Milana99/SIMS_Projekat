@@ -82,33 +82,8 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Patient(object sender, RoutedEventArgs e)
         {
-            Controller.PatientController pc = new Controller.PatientController();
-            Model.Examination selected = (Model.Examination)lvDataBinding.SelectedItems[0];
-            Model.Patient pat = pc.GetOnePatient(selected.patient.User.Username);
-
-            mrd = new MedicalRecordDoctor();
-
-            mrd.lbAddressPatient.Content = pat.User.Address;
-            mrd.lbuUsernamePatient.Content = pat.User.Username;
-            mrd.lbuJMBG.Content = pat.User.Jmbg;
-            mrd.lbNamePatient.Content = pat.User.Name;
-            mrd.lbGender.Content = pat.User.Gender;
-            mrd.lbDateOfBirthPatient.Content = pat.User.DateOfBirth;
-            mrd.lbSurnamePatient.Content = pat.User.Surname;
-            mrd.lbNumberPatient.Content = pat.User.PhoneNumber;
-
-            Controller.AnamnesisController anamControl = new Controller.AnamnesisController();
-            List<Model.Anamnesis> anamneses = anamControl.GetAllAnamnesisPatient(pat.User.Username);
-            
-            foreach (Model.Anamnesis an in anamneses)
-            {
-                mrd.lvDataBinding.Items.Add(an);
-                Console.WriteLine(an.DescriptionAnamnesis);
-            }
-
+            mrd = new MedicalRecordDoctor(this);
             mrd.Show();
-
-
         }
 
     }

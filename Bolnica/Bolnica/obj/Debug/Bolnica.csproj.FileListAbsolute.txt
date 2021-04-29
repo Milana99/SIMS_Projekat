@@ -69,3 +69,9 @@ C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\ob
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisTherapy.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisTherapyAdd.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\AnamnesisUpdate.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\RenovationAdd.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\RenovationGeneral.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\RenovationList.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\RenovationAdd.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\RenovationGeneral.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\RenovationList.baml

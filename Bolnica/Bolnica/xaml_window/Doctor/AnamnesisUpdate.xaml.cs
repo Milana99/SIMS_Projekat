@@ -20,20 +20,26 @@ namespace Bolnica.xaml_window.Doctor
     public partial class AnamnesisUpdate : Window
     {
         AnamnesisTherapyAdd at;
-        public AnamnesisUpdate()
+        MedicalRecordDoctor mrd;
+        public AnamnesisUpdate(MedicalRecordDoctor m)
         {
             InitializeComponent();
+            mrd = m;
+            
         }
 
         private void Button_Click_Therapy(object sender, RoutedEventArgs e)
         {
-            at = new AnamnesisTherapyAdd();
+            at = new AnamnesisTherapyAdd(mrd);
             at.Show();
         }
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-
+            Model.Anamnesis selected = (Model.Anamnesis)mrd.lvDataBinding.SelectedItems[0];
+            mrd.anamControl.UpdateAnamnesis(selected.AnamnesisId, tbTypeAnamnesis.Text, tbDescriptionAnamnesis.Text, tbOpinionForAnamnesis.Text);
+            mrd.Load();
+            this.Close();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)

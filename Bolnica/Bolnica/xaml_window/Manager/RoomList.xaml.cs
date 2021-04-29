@@ -25,6 +25,7 @@ namespace Bolnica.xaml_window.Manager
         public MainWindow mw;
         public Controller.RoomController control;
         public List<Model.Room> rooms;
+        RenovationList rl;
         public RoomList()
         {
             InitializeComponent();
@@ -86,6 +87,13 @@ namespace Bolnica.xaml_window.Manager
         {
             cr = new CreateRoom(this);
             cr.Show();
+        }
+
+        private void Button_Click_Renovation(object sender, RoutedEventArgs e)
+        {
+            rl = new RenovationList();
+            rl.Show();
+            this.Close();
         }
     }
 }

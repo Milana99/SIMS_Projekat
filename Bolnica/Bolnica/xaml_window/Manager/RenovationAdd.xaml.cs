@@ -12,33 +12,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Bolnica.xaml_window.Doctor
+namespace Bolnica.xaml_window.Manager
 {
     /// <summary>
-    /// Interaction logic for AnamnesisTherapy.xaml
+    /// Interaction logic for RenovationAdd.xaml
     /// </summary>
-    public partial class AnamnesisTherapy : Window
+    public partial class RenovationAdd : Window
     {
-        AnamnesisTherapyAdd ata;
-        public AnamnesisTherapy()
+        RenovationList rl;
+        RenovationGeneral rg;
+        public RenovationAdd()
         {
             InitializeComponent();
         }
 
-        private void Button_Click_Cancel(object sender, RoutedEventArgs e)
+        private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
+            rl = new RenovationList();
+            rl.Show();
             this.Close();
         }
 
-        private void Button_Click_Ok(object sender, RoutedEventArgs e)
+        private void Button_Click_General(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Button_Click_Add(object sender, RoutedEventArgs e)
-        {
-            //ata = new AnamnesisTherapyAdd();
-            //ata.Show();
+            rg = new RenovationGeneral();
+            rg.Show();
+            this.Close();
         }
     }
 }

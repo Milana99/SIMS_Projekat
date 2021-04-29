@@ -14,6 +14,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
@@ -22,8 +23,8 @@
             <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Potrošan inventar</Label>
         </Border>
         <Button FontSize="15" Width="90" Height="40" Click="Button_Click_Back">Nazad</Button>
-
-        <ListView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"  Margin="70,10,70,0" Name="lvDataBindingDynamicEq">
+        <TextBox Grid.Row="1" Grid.Column="1" Width="200" Height="30" Name="tbSearch" TextSearch.Text="SearchRenovation" TextAlignment="Left" Padding="5" Foreground="Gray"  >Pretraga inventara...</TextBox>
+        <ListView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Margin="70,10,70,10" Name="lvDataBindingDynamicEq">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID inventara" 
@@ -36,9 +37,9 @@
             </ListView.View>
         </ListView>
 
-        <Button Grid.Column="1" Grid.Row="2" Width="100" Height="40" Margin="0,0,70,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Create">Kreiraj</Button>
-        <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Width="100" Height="40" Margin="0,0,140,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Delete">Obriši</Button>
-        <Button Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="2" Width="100" Height="40" Margin="140,0,0,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Increase">Dodaj</Button>
-        <Button Grid.Column="2" Grid.Row="2" Width="100" Height="40" Margin="70,0,0,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Decrease">Oduzmi</Button>
+        <Button Grid.Column="1" Grid.Row="3" Width="100" Height="40" Margin="0,0,70,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Create">Kreiraj</Button>
+        <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Width="100" Height="40" Margin="0,0,140,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Delete">Obriši</Button>
+        <Button Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="3" Width="100" Height="40" Margin="140,0,0,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Increase">Dodaj</Button>
+        <Button Grid.Column="2" Grid.Row="3" Width="100" Height="40" Margin="70,0,0,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Decrease">Oduzmi</Button>
     </Grid>
 </Window>
