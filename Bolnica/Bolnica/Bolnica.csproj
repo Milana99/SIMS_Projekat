@@ -66,8 +66,10 @@
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PrescriptionController.cs" />
     <Compile Include="Controller\RelocationController.cs" />
+    <Compile Include="Controller\RenovationController.cs" />
     <Compile Include="Controller\RoomController.cs" />
     <Compile Include="Controller\SecretaryController.cs" />
+    <Compile Include="Controller\SpecialisticExaminationController.cs" />
     <Compile Include="Controller\StaticEquipmentController.cs" />
     <Compile Include="Controller\TherapyController.cs" />
     <Compile Include="Model\Anamnesis.cs" />
@@ -77,6 +79,8 @@
     <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\Relocation.cs" />
+    <Compile Include="Model\Renovation.cs" />
+    <Compile Include="Model\SpecialistExamination.cs" />
     <Compile Include="Model\StaticEquipment.cs" />
     <Compile Include="Model\Therapy.cs" />
     <Compile Include="Repository\AnamnesisRepository.cs" />
@@ -91,8 +95,10 @@
     <Compile Include="Repository\PatientRepository.cs" />
     <Compile Include="Repository\PrescriptionRepository.cs" />
     <Compile Include="Repository\RelocationRepository.cs" />
+    <Compile Include="Repository\RenovationRepository.cs" />
     <Compile Include="Repository\RoomRepository.cs" />
     <Compile Include="Repository\SecretaryRepository.cs" />
+    <Compile Include="Repository\SpecialisticExaminationRepository.cs" />
     <Compile Include="Repository\StaticEquipmentRepository.cs" />
     <Compile Include="Repository\TherapyRepository.cs" />
     <Compile Include="Service\AnamnesisService.cs" />
@@ -106,8 +112,10 @@
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Service\PrescriptionService.cs" />
     <Compile Include="Service\RelocationService.cs" />
+    <Compile Include="Service\RenovationService.cs" />
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\SecretaryService.cs" />
+    <Compile Include="Service\SpecialisticExaminationService.cs" />
     <Compile Include="Service\StaticEquipmentService.cs" />
     <Compile Include="Service\TherapyService.cs" />
     <Compile Include="xaml_window\Doctor\AnamnesisCreate.xaml.cs">
@@ -127,6 +135,9 @@
     </Compile>
     <Compile Include="xaml_window\Doctor\CreateExaminatio.xaml.cs">
       <DependentUpon>CreateExaminatio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\CreateExaminationInventary.xaml.cs">
+      <DependentUpon>CreateExaminationInventary.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Doctor\DoctorHome.xaml.cs">
       <DependentUpon>DoctorHome.xaml</DependentUpon>
@@ -236,6 +247,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml_window\Doctor\CreateExaminatio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\CreateExaminationInventary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

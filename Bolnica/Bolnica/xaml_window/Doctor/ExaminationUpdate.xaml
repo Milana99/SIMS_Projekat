@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
         mc:Ignorable="d"
-        Title="ExaminationUpdate" Height="400" Width="400">
+        Title="Zdravo" Height="400" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -13,28 +13,39 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="350">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Izmena pregleda</Label>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,0,0,3" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="0,0,130,0" HorizontalAlignment="Center" FontSize="35" Foreground="Black" >Izmena</Label>
         </Border>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="130,0,0,0" HorizontalAlignment="Center" FontSize="35" Foreground="Black">pregleda</Label>
         <Label Grid.Row="1" Margin="20,10,0,0" FontWeight="Bold" >ID:</Label>
         <Label Grid.Row="1" Grid.Column="1" Height="25" Width="150" Name="lbuID"/>
-        <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold">Unesite vreme početka:</Label>
-        <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25"  Name="tbuStartTime" Margin="5"/>
-        <Label Grid.Row="3" Margin="20,10,0,0"  FontWeight="Bold">Unesite vreme kraja:</Label>
-        <TextBox Grid.Row="3" Grid.Column="1" Height="25" Width="150"  Name="tbuEndTime" Margin="5"/>
-        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold">Izabrani pacijent:</Label>
-        <Label Name="lbuPatient" Grid.Row="4" Height="25" Width="150" Grid.Column="1">
+        <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold">Izabrani pacijent:</Label>
+        <Label Name="lbuPatient" Grid.Row="2" Height="25" Width="150" Grid.Column="1">
         </Label>
+        <Label Grid.Row="3" Margin="20,10,0,0" FontWeight="Bold">Izmenite datum:</Label>
+        <DatePicker Name="DatePick" HorizontalAlignment="Center" Grid.ColumnSpan="2" Width="160" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="3"/>
+        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold">Izmenite vreme:</Label>
+        <Label Grid.Row="4" Grid.Column="1" Margin="20,10,0,0" FontWeight="Bold">Od:</Label>
+        <TextBox Grid.Row="4" Grid.Column="1" Width="50" Height="25"  Name="tbuStartTime" Margin="0,0,50,0"/>
+        <Label Grid.Row="4" Margin="100,10,0,0" Grid.Column="1"  FontWeight="Bold">Do:</Label>
+        <TextBox Grid.Row="4" Grid.Column="1" Height="25" Width="50"  Name="tbuEndTime" Margin="110,0,0,0"/>
+        <Label Grid.Row="5" Margin="20,10,0,0" FontWeight="Bold">Izmenite sobu:</Label>
+        <Button Grid.Column="1" Grid.Row="5" Height="20" Width="60" Margin="100,0,0,0" Grid.ColumnSpan="2" Click="Button_Click_Inventary">Inventar</Button>
 
-        <Button Grid.Column="1" Grid.Row="6" Width="60" Background="#FFE83E3E" Height="30" Margin="100, 0, 0, 0" Click="Button_Click_Cancel" Foreground="White">Izađi</Button>
-        <Button Grid.Column="1" Grid.Row="6" Width="60" Background="#FFE83E3E"  Height="30" Margin="20, 0, 90, 0" Click="Button_Click_OK" Foreground="Snow">Potvrdi</Button>
+        <ComboBox Name="cbRoom" Width="60" Grid.Row="5" Height="20" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,100,0" ></ComboBox>
+
+
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF939191" BorderThickness="0,1,0,0" Width="350">
+        </Border>
+        <Button Grid.Column="1" Grid.Row="6" Width="60" Background="Gray" Height="30" Margin="100, 0, 0, 0" Click="Button_Click_Cancel" Foreground="White">Izađi</Button>
+        <Button Grid.Column="1" Grid.Row="6" Width="60" Background="Gray"  Height="30" Margin="20, 0, 90, 0" Click="Button_Click_OK" Foreground="Snow">Potvrdi</Button>
         
     </Grid>
 </Window>

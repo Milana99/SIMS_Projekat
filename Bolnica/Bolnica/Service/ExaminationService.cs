@@ -60,13 +60,11 @@ namespace Bolnica.Service
             return true;
       }
 
-      public Boolean CreateExamination(int examinationId, DateTime startTime, DateTime endTime, Model.ExaminationType examinationType, String doctorUsername, String patientUsername, int room)
+      public Boolean CreateExamination(Model.Examination newExamination)
       {
             List<Model.Examination> examinations = GetAllExaminations();
-            Examination newExamination = new Examination(examinationId, startTime, endTime, doctorUsername, patientUsername, room);
-            Boolean a = CompareTime(startTime, endTime, examinationId);
             
-            if (a == true)
+            if (CompareTime(newExamination.StartTime, newExamination.EndTime, newExamination.ExaminationId))
             {
                 examinations.Add(newExamination);
                 examinationRepository.SaveExamination(examinations);
@@ -98,10 +96,7 @@ namespace Bolnica.Service
             {
                 if (ex.ExaminationId == examinationId && ex.deleted == false)
                 {
-
-                    Boolean cmp = CompareTime(startTime, endTime, examinationId);
-
-                    if (cmp == true)
+                    if (CompareTime(startTime, endTime, examinationId))
                     {
                         ex.StartTime = startTime;
                         ex.EndTime = endTime;

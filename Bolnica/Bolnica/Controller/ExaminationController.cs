@@ -22,9 +22,9 @@ namespace Bolnica.Controller
             return examinationService.GetOneExamination(examinationId);
       }
       
-      public Boolean CreateExamination(int examinationId, DateTime startTime, DateTime endTime, Model.ExaminationType examinationType, String doctorUsername, String patientUsername, int room)
+      public Boolean CreateExamination(Model.Examination NewExamination)
       {
-            return examinationService.CreateExamination(examinationId, startTime, endTime, examinationType, doctorUsername, patientUsername, room);
+            return examinationService.CreateExamination(NewExamination);
       }
       
       public void DeleteExamination(int examinationId)

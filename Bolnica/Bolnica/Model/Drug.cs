@@ -9,6 +9,8 @@ namespace Bolnica.Model
         public String DescriptionDrug { get; set; }
         public int QuantityDrug { get; set; }
         public double WeightDrug { get; set; }
+        private String ComponentsDrug;
+        private bool ApprovedDrug;
 
         public Drug(String Name)
         {

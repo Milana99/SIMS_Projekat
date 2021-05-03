@@ -39,20 +39,20 @@ namespace Bolnica.xaml_window.Doctor
         public void Load()
         {
             
-            Controller.PatientController pc = new Controller.PatientController();
-            Model.Examination selected = (Model.Examination)dh.lvDataBinding.SelectedItems[0];
-            Model.Patient pat = pc.GetOnePatient(selected.patient.User.Username);
-            lbAddressPatient.Content = pat.User.Address;
-            lbuUsernamePatient.Content = pat.User.Username;
-            lbuJMBG.Content = pat.User.Jmbg;
-            lbNamePatient.Content = pat.User.Name;
-            lbGender.Content = pat.User.Gender;
-            lbDateOfBirthPatient.Content = pat.User.DateOfBirth;
-            lbSurnamePatient.Content = pat.User.Surname;
-            lbNumberPatient.Content = pat.User.PhoneNumber;
+            Controller.PatientController PatientController = new Controller.PatientController();
+            Model.Examination selectedExamination = (Model.Examination)dh.lvDataBinding.SelectedItems[0];
+            Model.Patient selectedPatient = PatientController.GetOnePatient(selectedExamination.patient.User.Username);
+            lbAddressPatient.Content = selectedPatient.User.Address;
+            lbuUsernamePatient.Content = selectedPatient.User.Username;
+            lbuJMBG.Content = selectedPatient.User.Jmbg;
+            lbNamePatient.Content = selectedPatient.User.Name;
+            lbGender.Content = selectedPatient.User.Gender;
+            lbDateOfBirthPatient.Content = selectedPatient.User.DateOfBirth;
+            lbSurnamePatient.Content = selectedPatient.User.Surname;
+            lbNumberPatient.Content = selectedPatient.User.PhoneNumber;
 
             
-            List<Model.Anamnesis> anamneses = anamControl.GetAllAnamnesisPatient(pat.User.Username);
+            List<Model.Anamnesis> anamneses = anamControl.GetAllAnamnesisPatient(selectedPatient.User.Username);
             lvDataBinding.Items.Clear();
             foreach (Model.Anamnesis an in anamneses)
             {
