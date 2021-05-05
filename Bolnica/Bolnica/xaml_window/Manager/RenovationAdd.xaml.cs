@@ -19,25 +19,28 @@ namespace Bolnica.xaml_window.Manager
     /// </summary>
     public partial class RenovationAdd : Window
     {
-        RenovationList rl;
+        public RenovationList RenovationList;
         RenovationGeneral rg;
-        public RenovationAdd()
+        public Controller.RenovationController renovationController;
+        public RenovationAdd(RenovationList renovationList)
         {
             InitializeComponent();
+            this.RenovationList = renovationList;
+            renovationController = RenovationList.renovationController;
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            rl = new RenovationList();
-            rl.Show();
+            
+            RenovationList.Show();
             this.Close();
         }
 
         private void Button_Click_General(object sender, RoutedEventArgs e)
         {
-            rg = new RenovationGeneral();
+            rg = new RenovationGeneral(this);
             rg.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

@@ -19,24 +19,54 @@ namespace Bolnica.xaml_window.Manager
     /// </summary>
     public partial class RenovationGeneral : Window
     {
-        RenovationAdd ra;
-        public RenovationGeneral()
+        RenovationAdd addRenovation;
+        public Controller.RoomController roomController;
+        public Controller.RenovationController renovationController;
+        public RenovationGeneral(RenovationAdd renovationAdd)
         {
             InitializeComponent();
+            roomController = new Controller.RoomController();
+            
+            addRenovation = renovationAdd;
+            renovationController = addRenovation.renovationController;
+            LoadRooms();
         }
-
+        public void LoadRooms()
+        {
+            List<Model.Room> rooms = roomController.GetAllRooms();
+            foreach(Model.Room room in rooms)
+            {
+                cbRooms.Items.Add(room.RoomId) ;
+            }
+        }
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            ra = new RenovationAdd();
-            ra.Show();
+            addRenovation.Show();
             this.Close();
         }
 
+        private Model.Renovation CreateRenovation()
+        {
+            Model.Renovation renovation = new Model.Renovation(renovationController.renovationService.renovationRepository.getNextRenovationId(),
+                int.Parse(cbRooms.Text), DateTime.Parse(dpDateRenovationStart.Text + " " + tbStartTime.Text), DateTime.Parse(dpDateRenovationEnd.Text + " " + tbEndTime.Text),
+                tbDescriptionRenovation.Text);
+            return renovation;
+        }
         private void Button_Click_OK(object sender, RoutedEventArgs e)
         {
-            ra = new RenovationAdd();
-            ra.Show();
-            this.Close();
+            Model.Renovation renovation = CreateRenovation();
+            if(renovationController.renovationService.IsRoomFree(renovation.StartTime, renovation.EndTime, renovation.room.RoomId))
+            {
+                renovationController.CreateRenovation(renovation);
+                addRenovation.Show();
+                addRenovation.RenovationList.LoadAllRenovations();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Soba nije slobodna u izabranom terminu");
+            }
+            
         }
     }
 }

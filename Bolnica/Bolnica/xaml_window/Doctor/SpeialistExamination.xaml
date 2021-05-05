@@ -1,0 +1,46 @@
+﻿<Window x:Class="Bolnica.xaml_window.Doctor.SpeialistExamination"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
+        mc:Ignorable="d"
+        Title="SpeialistExamination" Height="400" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191"  BorderThickness="0,0,0,3" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="35" Foreground="Black" >Uput za doktora</Label>
+        </Border>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="35" Foreground="Black" >specijalistu</Label>
+
+        <Label Grid.Row="2" Margin="20,0,0,0" FontWeight="Bold">Upućuje se:</Label>
+        <Label Grid.Row="2" Grid.Column="1" Margin="0,5,5,5" Width="150" Name="lblPatientsName">Ime Pac</Label>
+        <Label Grid.Row="3" Margin="20,0,0,0" FontWeight="Bold">Upućuje ga:</Label>
+        <Label Grid.Row="3" Grid.Column="1" Margin="0,5,5,5" Width="150" Name="lblDoctorsName">Milana</Label>
+        <Label Grid.Row="4" Margin="20,0,0,0" FontWeight="Bold">Kod doktora specijaliste:</Label>
+        <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,5,5,5" Width="150"></ComboBox>
+        <Label Grid.Row="5" Margin="20,0,0,0" FontWeight="Bold">Upućuje se na specijalistički</Label>
+        <Label Grid.Row="5" Margin="20,10,0,0" FontWeight="Bold">pregled zbog:</Label>
+        <RichTextBox Grid.Row="5" Grid.Column="1" Grid.RowSpan="2" Margin="0,5,5,15" Width="150"></RichTextBox>
+        
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF939191" BorderThickness="0,1,0,0" Width="350">
+        </Border>
+        <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" Width="60" Background="#FF929292" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="150, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel" >Pošalji</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF929292" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel" >Izadji</Button>
+
+    </Grid>
+</Window>

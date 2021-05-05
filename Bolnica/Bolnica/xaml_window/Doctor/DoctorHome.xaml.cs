@@ -75,6 +75,8 @@ namespace Bolnica.xaml_window.Doctor
             ExaminationUpdate.tbuStartTime.Text = StartDateTime[1];
             ExaminationUpdate.tbuEndTime.Text = EndDateTime[1];
             ExaminationUpdate.DatePick.Text = StartDateTime[0];
+            ExaminationUpdate.cbRoom.Items.Add(selected.room.RoomId);
+            ExaminationUpdate.cbRoom.SelectedItem = selected.room.RoomId;
         }
 
         private void Doctor_Logout(object sender, RoutedEventArgs e)
@@ -90,5 +92,11 @@ namespace Bolnica.xaml_window.Doctor
             MedicalRecordDoctor.Show();
         }
 
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            var dl = new DrugList();
+            dl.Show();
+            this.Close();
+        }
     }
 }

@@ -24,6 +24,7 @@
         </Border>
         <Button FontSize="15" Width="90" Height="40" Click="Button_Click_Back">Nazad</Button>
         <TextBox Grid.Row="1" Grid.Column="1" Width="200" Height="30" Name="tbSearch" TextSearch.Text="SearchRenovation" TextAlignment="Left" Padding="5" Foreground="Gray"  >Pretraga inventara...</TextBox>
+        <Button Grid.Column="1" Grid.Row="1" Width="60" Height="30" HorizontalAlignment="Right"> Pretraga</Button> 
         <ListView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Margin="70,10,70,10" Name="lvDataBindingDynamicEq">
             <ListView.View>
                 <GridView>

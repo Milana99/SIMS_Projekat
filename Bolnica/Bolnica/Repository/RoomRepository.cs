@@ -14,7 +14,7 @@ namespace Bolnica.Repository
             FileLocation = newFileLocation;
         }
         public List<Model.Room> LoadRoom()
-      { 
+        {
             List<Model.Room> rooms = new List<Model.Room>();
             try
             {
@@ -23,7 +23,7 @@ namespace Bolnica.Repository
 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    
+
                     string[] words = line.Split(',');
 
                     Model.Room ro = new Model.Room(int.Parse(words[0]), words[1], int.Parse(words[2]),

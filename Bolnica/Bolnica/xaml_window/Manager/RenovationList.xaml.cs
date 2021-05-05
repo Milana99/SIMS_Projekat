@@ -21,9 +21,23 @@ namespace Bolnica.xaml_window.Manager
     {
         RoomList rl;
         RenovationAdd ra;
+        public Controller.RenovationController renovationController;
         public RenovationList()
         {
             InitializeComponent();
+            renovationController = new Controller.RenovationController();
+            LoadAllRenovations();
+        }
+
+        public void LoadAllRenovations()
+        {
+            lvDataBindingRenovationList.Items.Clear();
+            List<Model.Renovation> renovations = renovationController.GetAllRenovations();
+            foreach(Model.Renovation renovation in renovations)
+            {
+                Console.WriteLine(renovation.room.RoomId);
+                lvDataBindingRenovationList.Items.Add(renovation);
+            }
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
@@ -35,14 +49,16 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_OK(object sender, RoutedEventArgs e)
         {
-            ra = new RenovationAdd();
+            ra = new RenovationAdd(this);
             ra.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-
+            Model.Renovation renovation = (Model.Renovation)lvDataBindingRenovationList.SelectedItems[0];
+            renovationController.DeleteRenovation(renovation.RenovationId);
+            LoadAllRenovations();
         }
     }
 }

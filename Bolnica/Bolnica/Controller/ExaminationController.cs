@@ -32,9 +32,9 @@ namespace Bolnica.Controller
             examinationService.DeleteExamination(examinationId);
       }
       
-      public Boolean UpdateExamination(int examinationId, DateTime startTime, DateTime endTime)
+      public Boolean UpdateExamination(int examinationId, DateTime startTime, DateTime endTime, int roomId)
       {
-            return examinationService.UpdateExamination(examinationId, startTime, endTime);
+            return examinationService.UpdateExamination(examinationId, startTime, endTime, roomId);
       }
       
       public List<Model.Examination> GetExaminatonsForDoctor(String doctorUsername)

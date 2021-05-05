@@ -65,7 +65,7 @@ namespace Bolnica.xaml_window.Doctor
             }
             else
             {
-                MessageBox.Show("Izabrani termin se poklapa sa zakazanim", "ERROR");
+                MessageBox.Show("Izabrani termin je zauzet", "ERROR");
             }
         }
 

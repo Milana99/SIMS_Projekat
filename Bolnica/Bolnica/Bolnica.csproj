@@ -142,6 +142,24 @@
     <Compile Include="xaml_window\Doctor\DoctorHome.xaml.cs">
       <DependentUpon>DoctorHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Doctor\DrugList.xaml.cs">
+      <DependentUpon>DrugList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListForVerify.xaml.cs">
+      <DependentUpon>DrugListForVerify.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListForVerifyCancel.xaml.cs">
+      <DependentUpon>DrugListForVerifyCancel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListForVerifyOne.xaml.cs">
+      <DependentUpon>DrugListForVerifyOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListVerify.xaml.cs">
+      <DependentUpon>DrugListVerify.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListVerifyEdit.xaml.cs">
+      <DependentUpon>DrugListVerifyEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Doctor\ExaminationUpdate.xaml.cs">
       <DependentUpon>ExaminationUpdate.xaml</DependentUpon>
     </Compile>
@@ -151,8 +169,14 @@
     <Compile Include="xaml_window\Doctor\MedicalRecordDoctor.xaml.cs">
       <DependentUpon>MedicalRecordDoctor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Doctor\SpeialistExamination.xaml.cs">
+      <DependentUpon>SpeialistExamination.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Manager\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\DrugList.xaml.cs">
+      <DependentUpon>DrugList.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Manager\DynamicEquipment.xaml.cs">
       <DependentUpon>DynamicEquipment.xaml</DependentUpon>
@@ -258,6 +282,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Doctor\DrugList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListForVerify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListForVerifyCancel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListForVerifyOne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListVerify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListVerifyEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Doctor\ExaminationUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -270,7 +318,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Doctor\SpeialistExamination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Manager\CreateRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\DrugList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -52,10 +52,10 @@
         <Label Name="lbNamePatient" Grid.Row="5" Grid.Column="1" Margin="10,0,0,0">Im</Label>
         <Label  Grid.Row="6" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Prezime:</Label>
         <Label Name="lbSurnamePatient" Grid.Row="6" Grid.Column="1" Margin="10,0,0,0">Prezime:</Label>
-        <Label  Grid.Row="7" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Datum rodjenja:</Label>
-        <Label Name="lbDateOfBirthPatient" Grid.Row="7" Grid.Column="1" Margin="10,0,0,0">Datum rodjenja:</Label>
-        <Label Grid.Row="8" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Adresa stanovanja:</Label>
-        <Label Name="lbAddressPatient" Grid.Row="8" Grid.Column="1" Margin="10,0,0,0">Adresa stanovanja:</Label>
+        <Label  Grid.Row="7" Grid.Column="0" Margin="20,0,0,0" Width="Auto" FontWeight="Bold">Datum rodjenja:</Label>
+        <Label Name="lbDateOfBirthPatient" Grid.Row="7" Grid.Column="1" Width="Auto" Margin="10,0,0,0">Datum rodjenja:</Label>
+        <Label Grid.Row="8" Grid.Column="0" Margin="20,0,0,0" Width="Auto" FontWeight="Bold">Adresa stanovanja:</Label>
+        <Label Name="lbAddressPatient" Grid.Row="8" Grid.Column="1" Width="Auto" Margin="10,0,0,0">Adresa stanovanja:</Label>
         <Label Grid.Row="9" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Broj telefona:</Label>
         <Label Name="lbNumberPatient" Grid.Row="9" Grid.Column="1" Margin="10,0,0,0">Broj telefona:</Label>
         <Label Grid.Row="10" Grid.Column="0" Margin="20,0,0,0" FontWeight="Bold">Pol:</Label>
@@ -107,7 +107,7 @@
         <Button Grid.Column="0" Grid.Row="12"  Grid.ColumnSpan="2" Height="30" Width="150">Zakaži kontrolni pregled</Button>
         <Button Grid.Column="0" Grid.Row="13"  Grid.RowSpan="2" Grid.ColumnSpan="2" Width="150" Height="30">Zakaži operaciju</Button>
         <Button Grid.Column="1" Grid.Row="12"  Grid.ColumnSpan="3" Width="150" Height="30">Izveštaj o pregled</Button>
-        <Button Grid.Column="3" Grid.Row="12"  Grid.ColumnSpan="2" Width="150" Height="30">Uput za doktora specijalistu</Button>
+        <Button Grid.Column="3" Grid.Row="12"  Grid.ColumnSpan="2" Width="150" Height="30" Click="Button_Click_Specialist_Examination">Uput za doktora specijalistu</Button>
         <Button Grid.Column="3" Grid.Row="13" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="150" Height="30">Uput za bolničko lečenje</Button>
         <Button Grid.Column="4" Grid.Row="15" Width="90" Click="Button_Click_Close" Grid.RowSpan="2"  Height="30" Background="Gray" Foreground="White">Izadji</Button>
     </Grid>

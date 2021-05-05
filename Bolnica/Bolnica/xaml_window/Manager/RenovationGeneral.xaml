@@ -25,14 +25,14 @@
         </Border>
 
         <Label Grid.Row="1" HorizontalAlignment="Right" Margin="20,10,0,0" Width="100" Height="25" VerticalAlignment="Top" FontWeight="Bold">Izaberite salu:</Label>
-        <ComboBox Name="cbRoomType" HorizontalAlignment="Left" Width="150" Margin="20,10,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" />
+        <ComboBox Name="cbRooms" HorizontalAlignment="Left" Width="150" Margin="20,10,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" />
 
         <Label Grid.Row="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,20" FontWeight="Bold" >Izaberite datum početka:</Label>
-        <DatePicker Name="cbDateRenovationStart" HorizontalAlignment="Left" Width="150" Margin="20,0,0,20" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1"></DatePicker>
+        <DatePicker Name="dpDateRenovationStart" HorizontalAlignment="Left" Width="150" Margin="20,0,0,20" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1"></DatePicker>
         <Label Grid.Row="1" Grid.Column="1"  FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Grid.ColumnSpan="2" >Izaberite vreme:</Label>
         <TextBox  HorizontalAlignment="Right" Width="150" Margin="0,0,40,20" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="2" Name="tbStartTime" />
         <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,0,20" FontWeight="Bold" >Izaberite datum kraja:</Label>
-        <DatePicker Name="cbDateRenovationEnd" HorizontalAlignment="Left" Width="150" Margin="20,10,0,20" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1"></DatePicker>
+        <DatePicker Name="dpDateRenovationEnd" HorizontalAlignment="Left" Width="150" Margin="20,10,0,20" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1"></DatePicker>
         <Label Grid.Row="2" Grid.Column="1"  FontWeight="Bold" HorizontalAlignment="Center" Margin="0,5,0,20" VerticalAlignment="Top" Grid.ColumnSpan="2" >Izaberite vreme:</Label>
         <TextBox  HorizontalAlignment="Right" Width="150" Margin="0,10,40,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" Name="tbEndTime"  />
         <Label Grid.Row="2" Margin="20,10,0,20" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Bottom">Napišite opis renoviranja:</Label>

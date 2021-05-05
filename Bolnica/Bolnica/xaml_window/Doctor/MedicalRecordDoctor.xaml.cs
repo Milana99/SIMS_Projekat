@@ -113,6 +113,10 @@ namespace Bolnica.xaml_window.Doctor
             ac.Show();
         }
 
-
+        private void Button_Click_Specialist_Examination(object sender, RoutedEventArgs e)
+        {
+            var specialist_examination = new SpeialistExamination();
+            specialist_examination.Show(); 
+        }
     }
 }

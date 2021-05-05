@@ -40,9 +40,9 @@ namespace Bolnica.xaml_window.Doctor
             int exId = int.Parse(lbuID.Content.ToString());
             DateTime start = DateTime.Parse(DatePick.Text + " " + tbuStartTime.Text);
             DateTime end = DateTime.Parse(DatePick.Text + " " + tbuEndTime.Text);
+            int roomId = int.Parse(cbRoom.Text);
             
-            
-            if(DoctorHome.ExaminationControl.UpdateExamination(exId, start, end))
+            if(DoctorHome.ExaminationControl.UpdateExamination(exId, start, end, roomId))
             {
                 DoctorHome.LoadAll();
                 MessageBox.Show("Uspešno ste izmenili termin", "Uspešno!");
@@ -51,7 +51,7 @@ namespace Bolnica.xaml_window.Doctor
             }
             else
             {
-                MessageBox.Show("Izabrani termin se poklapa sa zakazanim", "ERROR");
+                MessageBox.Show("Izabrani termin je zauzet", "ERROR");
             }
 
         }

@@ -29,7 +29,7 @@
                 <GridView>
                     <GridViewColumn Header="ID renovacije" 
                                     Width="90" DisplayMemberBinding="{Binding RenovationId}"/>
-                    <GridViewColumn Header="Prostorija" DisplayMemberBinding="{Binding Room}"
+                    <GridViewColumn Header="Prostorija" DisplayMemberBinding="{Binding room.RoomId}"
                                     Width="90"/>
                     <GridViewColumn Header="Početno vreme"  DisplayMemberBinding="{Binding StartTime}" 
                                     Width="90"/>
