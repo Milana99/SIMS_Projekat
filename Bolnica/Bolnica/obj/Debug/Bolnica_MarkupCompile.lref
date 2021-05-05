@@ -18,7 +18,11 @@ FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\x
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\ExaminationUpdate.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\LoginDoctor.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\MedicalRecordDoctor.xaml;;
+FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\SpeialistExamination.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\CreateRoom.xaml;;
+FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\DrugCreate.xaml;;
+FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\DrugList.xaml;;
+FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\DrugUpdate.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\DynamicEquipment.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\DynamicEquipmentCreate.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\DynamicEquipmentDecrease.xaml;;
@@ -39,8 +43,4 @@ FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\x
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Patient\PatientHome.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Secretary\LoginSecretary.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Secretary\SecretaryHome.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\SpeialistExamination.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\DrugList.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\DrugCreate.xaml;;
-FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\DrugUpdate.xaml;;
 

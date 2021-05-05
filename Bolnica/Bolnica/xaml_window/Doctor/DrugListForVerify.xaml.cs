@@ -19,14 +19,30 @@ namespace Bolnica.xaml_window.Doctor
     /// </summary>
     public partial class DrugListForVerify : Window
     {
+        public Controller.DrugController drugController;
         public DrugListForVerify()
         {
             InitializeComponent();
+            drugController = new Controller.DrugController();
+            LoadAllDrugs();
+        }
+
+        public void LoadAllDrugs()
+        {
+            lvDataBindingDrugs.Items.Clear();
+            List<Model.Drug> drugs = drugController.GetAllDrugs();
+            foreach(Model.Drug drug in drugs)
+            {
+                if(drug.DrugType == Model.TypeOfApprovedDrug.Waiting)
+                {
+                    lvDataBindingDrugs.Items.Add(drug);
+                }
+            }
         }
 
         private void Button_Click_In(object sender, RoutedEventArgs e)
         {
-            var dlfvo = new DrugListForVerifyOne();
+            var dlfvo = new DrugListForVerifyOne(this);
             dlfvo.Show();
         }
 

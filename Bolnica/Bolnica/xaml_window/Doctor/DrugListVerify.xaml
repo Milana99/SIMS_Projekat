@@ -25,22 +25,22 @@
         <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,0,0,3" Width="350">
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="Black" >Verifikovani lekovi</Label>
         </Border>
-        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="20,10,20,10" Name="lvDataBindingAnamnesis">
+        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="20,10,20,10" Name="lvDataBindingDrugs">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding DrugId}"
                                     Width="Auto"/>
                     <GridViewColumn Header="Ime leka" DisplayMemberBinding="{Binding DrugName}"
                                     Width="Auto"/>
-                    <GridViewColumn Header="Opis leka" DisplayMemberBinding="{Binding DescriptionDrug}" 
+                    <GridViewColumn Header="Opis leka" DisplayMemberBinding="{Binding DrugDescription}" 
                                     Width="Auto"/>
-                    <GridViewColumn Header="Količina leka"  DisplayMemberBinding="{Binding QuantityDrug}"
+                    <GridViewColumn Header="Količina leka"  DisplayMemberBinding="{Binding DrugQuantity}"
                                     Width="Auto"/>
-                    <GridViewColumn Header="Gramaža leka" DisplayMemberBinding="{Binding WeightDrug}"
+                    <GridViewColumn Header="Gramaža leka" DisplayMemberBinding="{Binding DrugWeight}"
                                     Width="Auto"/>
-                    <GridViewColumn Header="Komponente leka" DisplayMemberBinding="{Binding ComponentsDrug}"
+                    <GridViewColumn Header="Komponente leka" DisplayMemberBinding="{Binding DrugComponents}"
                                     Width="Auto"/>
-                    <GridViewColumn Header="Zamenski lek" DisplayMemberBinding="{Binding Drug}"
+                    <GridViewColumn Header="Zamenski lek" DisplayMemberBinding="{Binding AlternativeDrug}"
                                     Width="Auto"/>
                 </GridView>
             </ListView.View>

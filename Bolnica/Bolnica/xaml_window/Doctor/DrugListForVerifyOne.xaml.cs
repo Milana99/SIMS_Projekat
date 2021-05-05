@@ -19,19 +19,36 @@ namespace Bolnica.xaml_window.Doctor
     /// </summary>
     public partial class DrugListForVerifyOne : Window
     {
-        public DrugListForVerifyOne()
+        public DrugListForVerify drugListForVerify;
+        public DrugListForVerifyOne(DrugListForVerify drugListForVerify)
         {
             InitializeComponent();
+            this.drugListForVerify = drugListForVerify;
+            LoadComponents();
         }
-
+        public void LoadComponents()
+        {
+            Model.Drug selectedDrug = (Model.Drug)drugListForVerify.lvDataBindingDrugs.SelectedItems[0];
+            lblDrugId.Content = selectedDrug.DrugId;
+            lblDrugName.Content = selectedDrug.DrugName;
+            lblDrugDescription.Content = selectedDrug.DrugDescription;
+            lblDrugComponents.Content = selectedDrug.DrugComponents;
+            lblDrugQuantity.Content = selectedDrug.DrugQuantity;
+            lblDrugWeight.Content = selectedDrug.DrugWeight;
+            lblDrugAlternative.Content = selectedDrug.AlternativeDrug;
+        }
         private void Button_Click_OK(object sender, RoutedEventArgs e)
         {
+            Model.Drug selectedDrug = (Model.Drug)drugListForVerify.lvDataBindingDrugs.SelectedItems[0];
+            selectedDrug.DrugType = Model.TypeOfApprovedDrug.Approved;
+            drugListForVerify.drugController.UpdateDrug(selectedDrug);
+            drugListForVerify.LoadAllDrugs();
             this.Close();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            var dlfvc = new DrugListForVerifyCancel();
+            var dlfvc = new DrugListForVerifyCancel(this);
             dlfvc.Show();
         }
     }
