@@ -38,6 +38,10 @@
                                     Width="Auto"/>
                     <GridViewColumn Header="Gramaža leka" DisplayMemberBinding="{Binding WeightDrug}"
                                     Width="Auto"/>
+                    <GridViewColumn Header="Komponente leka" DisplayMemberBinding="{Binding ComponentsDrug}"
+                                    Width="Auto"/>
+                    <GridViewColumn Header="Zamenski lek" DisplayMemberBinding="{Binding Drug}"
+                                    Width="Auto"/>
                 </GridView>
             </ListView.View>
 

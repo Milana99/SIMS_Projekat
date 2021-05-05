@@ -44,7 +44,7 @@ namespace Bolnica.xaml_window.Manager
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
             se.control.CreateStaticEquipment(int.Parse(lbIDStaticEq.Content.ToString()), tbStaticDescription.Text, int.Parse(cbRoomStatic.Text), tbName.Text);
-            se.Load();
+            se.LoadEqupiment();
             this.Close();
         }
     }

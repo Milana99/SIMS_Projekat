@@ -93,3 +93,7 @@ C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\ob
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\SpeialistExamination.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\DrugList.g.cs
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\DrugList.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\DrugCreate.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\DrugUpdate.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\DrugCreate.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\DrugUpdate.baml

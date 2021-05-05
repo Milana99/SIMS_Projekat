@@ -3,38 +3,48 @@ using System.Collections.Generic;
 
 namespace Bolnica.Controller
 {
-   public class DrugController
-   {
+    public class DrugController
+    {
         public Bolnica.Service.DrugService drugService;
 
+        public DrugController()
+        {
+            drugService = new Service.DrugService();
+        }
+
         public List<Model.Drug> GetAllDrugs()
-      {
-         // TODO: implement
-         return null;
+        {
+            return drugService.GetAllDrugs();
       }
-      
-      public Model.Drug GetOneDrug(int drugId)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public void CreateDrug(int drugId, String name, String description, int quantity, double weight)
-      {
-         // TODO: implement
-      }
-      
-      public void UpdateDrug(int drugId, String name, String description, int quiantity, double weight)
-      {
-         // TODO: implement
-      }
-      
-      public void DeleteDrug(int drugId)
-      {
-         // TODO: implement
-      }
-   
-     
-   
-   }
+
+        public Model.Drug GetOneDrug(int drugId)
+        {
+            return drugService.GetOneDrug(drugId);
+        }
+
+        public void CreateDrug(Model.Drug drug)
+        {
+            drugService.CreateDrug(drug);
+        }
+
+        public void UpdateDrug(Model.Drug drug)
+        {
+            drugService.UpdateDrug(drug);
+        }
+        public void DenyDrug(int drugId)
+        {
+            drugService.DenyDrug(drugId);
+        }
+        public void ApproveDrug(int drugId)
+        {
+            drugService.ApproveDrug(drugId);
+        }
+        public void DeleteDrug(int drugId)
+        {
+            drugService.DeleteDrug(drugId);
+        }
+
+
+
+    }
 }

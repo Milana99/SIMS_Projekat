@@ -71,11 +71,17 @@
                                     Width="Auto" DisplayMemberBinding="{Binding DrugId}"/>
                     <GridViewColumn Header="Ime leka" DisplayMemberBinding="{Binding DrugName}"
                                     Width="Auto"/>
-                    <GridViewColumn Header="Opis leka" DisplayMemberBinding="{Binding DescriptionDrug}" 
+                    <GridViewColumn Header="Opis leka" DisplayMemberBinding="{Binding DrugDescription}" 
                                     Width="Auto"/>
-                    <GridViewColumn Header="Količina leka"  DisplayMemberBinding="{Binding QuantityDrug}"
+                    <GridViewColumn Header="Količina leka"  DisplayMemberBinding="{Binding DrugQuantity}"
                                     Width="Auto"/>
-                    <GridViewColumn Header="Gramaža leka" DisplayMemberBinding="{Binding WeightDrug}"
+                    <GridViewColumn Header="Gramaža leka" DisplayMemberBinding="{Binding DrugWeight}"
+                                    Width="Auto"/>
+                    <GridViewColumn Header="Komponente leka" DisplayMemberBinding="{Binding DrugComponents}"
+                                    Width="Auto"/>
+                    <GridViewColumn Header="Zamenski lek" DisplayMemberBinding="{Binding AlternativeDrug}"
+                                    Width="Auto"/>
+                    <GridViewColumn Header="Stanje leka" DisplayMemberBinding="{Binding DrugType}"
                                     Width="Auto"/>
                 </GridView>
             </ListView.View>
@@ -98,9 +104,9 @@
         </ListView>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8" HorizontalAlignment="Center">
-            <Button  Margin="0,0,0,0"  Width="90" Height="30" >Obriši</Button>
-            <Button Width="90" Margin="30,0,0,0" Height="30" >Izmeni</Button>
-            <Button  Width="90" Height="30" Margin="30,0,0,0" >Dodaj</Button>
+            <Button  Margin="0,0,0,0"  Width="90" Height="30" Click="Button_Click_Delete" >Obriši</Button>
+            <Button Width="90" Margin="30,0,0,0" Height="30" Click="Button_Click_Update" >Izmeni</Button>
+            <Button  Width="90" Height="30" Margin="30,0,0,0" Click="Button_Click_Add" RenderTransformOrigin="0.5,0.5" >Dodaj</Button>
         </StackPanel>
     </Grid>
 </Window>

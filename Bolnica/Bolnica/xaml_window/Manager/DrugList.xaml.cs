@@ -19,9 +19,22 @@ namespace Bolnica.xaml_window.Manager
     /// </summary>
     public partial class DrugList : Window
     {
+        public Controller.DrugController drugController;
         public DrugList()
         {
             InitializeComponent();
+            drugController = new Controller.DrugController();
+            LoadAll();
+        }
+
+        public void LoadAll()
+        {
+            lvDataBinding.Items.Clear();
+            List<Model.Drug> drugs = drugController.GetAllDrugs();
+            foreach (Model.Drug drug in drugs)
+            {
+                lvDataBinding.Items.Add(drug);
+            }
         }
 
         private void Btn_Profile(object sender, RoutedEventArgs e)
@@ -50,6 +63,27 @@ namespace Bolnica.xaml_window.Manager
             var equipment_list = new ListEquipment();
             equipment_list.Show();
             this.Close();
+        }
+
+        private void Button_Click_Add(object sender, RoutedEventArgs e)
+        {
+            var drug_add = new DrugCreate(this);
+            drug_add.Show();
+            this.Hide();
+        }
+
+        private void Button_Click_Update(object sender, RoutedEventArgs e)
+        {
+            var drug_update = new DrugUpdate(this);
+            drug_update.Show();
+           
+        }
+
+        private void Button_Click_Delete(object sender, RoutedEventArgs e)
+        {
+            Model.Drug drug = (Model.Drug)lvDataBinding.SelectedItems[0];
+            drugController.DeleteDrug(drug.DrugId);
+            LoadAll();
         }
     }
 }
