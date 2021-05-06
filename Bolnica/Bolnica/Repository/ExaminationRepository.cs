@@ -31,7 +31,9 @@ namespace Bolnica.Repository
                     Console.WriteLine(words[4]);
 
                     Model.Examination exam = new Model.Examination(int.Parse(words[0]), Convert.ToDateTime(words[1]),
-                        Convert.ToDateTime(words[2]), words[3], words[4], int.Parse(words[5]));
+                        Convert.ToDateTime(words[2]), words[3], words[4], int.Parse(words[5]),
+                        (Model.ExaminationType)Enum.Parse(typeof(Model.ExaminationType),words[6]));
+                    
                     Console.WriteLine("NO");
                     examinations.Add(exam);
                     next_id = exam.ExaminationId;
@@ -63,7 +65,7 @@ namespace Bolnica.Repository
                 if (ex.deleted == false)
                 {
                     line = ex.ExaminationId.ToString() + "," + ex.StartTime.ToString() + "," + ex.EndTime.ToString() +
-                       "," + ex.doctor.User.Username + "," + ex.patient.User.Username + "," + ex.room.RoomId;
+                       "," + ex.doctor.User.Username + "," + ex.patient.User.Username + "," + ex.room.RoomId + "," + ex.ExaminationType;
                     lines.Add(line);
                 }
             }

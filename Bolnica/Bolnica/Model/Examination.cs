@@ -13,7 +13,7 @@ namespace Bolnica.Model
         public int ExaminationId { get; set; }
         public bool deleted { get; set; }
         
-        public Examination(int newExaminationId, DateTime newStartTime, DateTime newEndTime, string newDoctor, string newPatient, int newRoomId)
+        public Examination(int newExaminationId, DateTime newStartTime, DateTime newEndTime, string newDoctor, string newPatient, int newRoomId, ExaminationType type)
         {
             
             ExaminationId = newExaminationId;
@@ -24,6 +24,7 @@ namespace Bolnica.Model
             patient = new Patient(newPatient);
             room = new Room(newRoomId);
             deleted = false;
+            ExaminationType = type;
 
         }
 

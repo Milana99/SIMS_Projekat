@@ -19,13 +19,14 @@ namespace Bolnica.xaml_window.Doctor
     /// </summary>
     public partial class ExaminationUpdate : Window
     {
-        DoctorHome dh;
+        DoctorHome DoctorHome;
+        CreateExaminationInventary CreateExaminationInvetory;
         
 
-        public ExaminationUpdate(DoctorHome doh)
+        public ExaminationUpdate(DoctorHome DoctorHome)
         {
             InitializeComponent();
-            dh = doh;
+            this.DoctorHome = DoctorHome;
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
@@ -37,23 +38,28 @@ namespace Bolnica.xaml_window.Doctor
         private void Button_Click_OK(object sender, RoutedEventArgs e)
         {
             int exId = int.Parse(lbuID.Content.ToString());
-            DateTime start = DateTime.Parse(tbuStartTime.Text);
-            DateTime end = DateTime.Parse(tbuEndTime.Text);
-            Boolean b = dh.control.UpdateExamination(exId, start, end);
+            DateTime start = DateTime.Parse(DatePick.Text + " " + tbuStartTime.Text);
+            DateTime end = DateTime.Parse(DatePick.Text + " " + tbuEndTime.Text);
+            int roomId = int.Parse(cbRoom.Text);
             
-            if(b == true)
+            if(DoctorHome.ExaminationControl.UpdateExamination(exId, start, end, roomId))
             {
-                dh.LoadAll();
+                DoctorHome.LoadAll();
                 MessageBox.Show("Uspešno ste izmenili termin", "Uspešno!");
                 this.Close();
                 
             }
             else
             {
-                MessageBox.Show("Izabrani termin se poklapa sa zakazanim", "ERROR");
+                MessageBox.Show("Izabrani termin je zauzet", "ERROR");
             }
 
         }
 
+        private void Button_Click_Inventary(object sender, RoutedEventArgs e)
+        {
+            CreateExaminationInvetory = new CreateExaminationInventary(int.Parse(cbRoom.Text));
+            CreateExaminationInvetory.Show();
+        }
     }
 }

@@ -1,6 +1,4 @@
-1,05-Mar-08 14:00:00,05-Mar-08 14:30:00,Milana123,Jelena123,1
-2,05-Mar-08 14:30:00,05-Mar-08 15:00:00,Milana123,Jelena123,1
-3,05-Mar-08 15:30:00,05-Mar-08 15:31:00,Milana123,Jelena123,1
-8,23-Mar-08 16:00:01,23-Mar-08 16:20:00,Milana123,Djordje71,1
-20,23-Jun-08 16:00:01,23-Jun-08 16:00:01,Milana123,Djordje71,1
-21,24-Jun-08 16:00:01,24-Jun-08 16:00:01,Milana123,Luka99,1
+0,08-May-21 11:00:00,08-May-21 11:29:00,Milana123,Djordje71,7,Surgery
+1,08-May-21 11:30:00,08-May-21 12:00:00,Milana123,Djordje71,6,Emmergency
+2,20-May-21 14:00:00,20-May-21 14:30:00,Milana123,Luka99,1,Regular
+3,08-May-21 12:01:00,08-May-21 12:30:00,Milana123,Jelena123,8,Regular

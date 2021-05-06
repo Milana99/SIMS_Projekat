@@ -25,52 +25,72 @@
         </Grid.ColumnDefinitions>
 
 
-        <Border Grid.Row="0" Grid.ColumnSpan="6" BorderBrush="#FFF24848" BorderThickness="0,0,0,3" >
-            <StackPanel Grid.Row="0" Grid.ColumnSpan="5" Background="#FFFFF6F6">
-                <Border Width="135" Height="85" Grid.Column="0" HorizontalAlignment="Left">
+        <Border Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="6" BorderBrush="#FF565656" BorderThickness="0,0,3,0" >
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="5" Orientation="Vertical" Background="#FF717171" >
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                <Border Width="110" Height="72" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <Border.Background>
                         <ImageBrush ImageSource="Slike/User.png"/>
                     </Border.Background>
                 </Border>
+                    <StackPanel Orientation="Vertical">
+
+                        <Label Grid.Column="1" Grid.Row="0" FontSize="25"  Name="Doctor_username" Width="Auto" Foreground="White">Ime Prezime</Label>
+                        <Label Grid.Column="1" Grid.Row="0" FontSize="15"  Name="Doctor_spec" Width="Auto" Foreground="White">Specijalizacija</Label>
+                    </StackPanel>
+                    <Button Width="30" Height="30" Grid.Column="2" Grid.Row="0" Margin="0, 0, 0, 35">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Background>
+                            <ImageBrush ImageSource="Slike/edit.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+
+
+                <ListView Margin="0,40,0,0" Background="#FF717171" BorderThickness="0,0,0,0">
+                    <ListViewItem Background="#FF383838" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,2,0,2">Radni kalendar</ListViewItem>
+                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2">Lista pacijenata</ListViewItem>
+                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2" Selected="ListViewItem_Selected">Lista lekova</ListViewItem>
+                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2">Lista pacijenata</ListViewItem>
+                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2">Lista pacijenata</ListViewItem>
+                </ListView>
+                <Button Grid.Column="5" Grid.Row="0" Width="100" Height="40" Background="White" Foreground="Black" Margin="0,70,0,0" Click="Doctor_Logout" BorderBrush="#FF4D4D4D" BorderThickness="1,1,2,2">Odjavi se</Button>
+
             </StackPanel>
         </Border>
-        
-        <Label Grid.Column="1" Grid.Row="0" FontSize="30" Margin="0, 5, 0, 0" Name="Doctor_username" Foreground="#FFFF3939" >Ime Prezime</Label>
-        <Label Grid.Column="1" Grid.Row="0" FontSize="20" Margin="0, 40, 0, 0" Name="Doctor_spec">Specijalizacija</Label>
 
 
 
-        <Button Width="40" Height="40" Grid.Column="2" Grid.Row="0" Margin="0, 0, 30, 40">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </Button.Resources>
-            <Button.Background>
-                <ImageBrush ImageSource="Slike/edit.png"/>
-            </Button.Background>
-        </Button>
 
-        <Button Grid.Column="5" Grid.Row="0" Width="100" Height="40" Background="#FFE23838" Foreground="#FFF7EDED" Margin="0,0,20,0" Click="Doctor_Logout">Odjavi se</Button>
-        
-        
-        <Label FontSize="30" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Radni kalendar</Label>
-        <StackPanel Grid.Row="2" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,0,0">
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Margin="0,0,0,40" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Separator Background="#FF929292" Width="100"></Separator>
+            <Label FontSize="45" Foreground="#FF717171" Margin="10,0,10,0">Radni kalendar</Label>
+            <Separator Background="#FF929292" Width="100"></Separator>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="4" Margin="40,45,40,0">
             <ListView Name="lvDataBinding" Margin ="0, 0, 0, 0" Height="245">
                 <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="ID" Width="25" DisplayMemberBinding="{Binding ExaminationId}"></GridViewColumn>
-                        <GridViewColumn Header="Početak termina" DisplayMemberBinding="{Binding StartTime}" Width="125"></GridViewColumn>
-                        <GridViewColumn Header="Kraj termina" DisplayMemberBinding="{Binding EndTime}" Width="125"></GridViewColumn>
-                        <GridViewColumn Header="Pacijent" DisplayMemberBinding="{Binding patient.User.Username}" Width="70"/>
-                        <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding room.RoomId}" Width="30"/>
+                    <GridView >
+                        <GridViewColumn Header="ID" Width="Auto" DisplayMemberBinding="{Binding ExaminationId}"></GridViewColumn>
+                        <GridViewColumn Header="Tip" Width="Auto" DisplayMemberBinding="{Binding ExaminationType}" />
+                        <GridViewColumn Header="Početak termina" DisplayMemberBinding="{Binding StartTime}" Width="Auto"></GridViewColumn>
+                        <GridViewColumn Header="Kraj termina" DisplayMemberBinding="{Binding EndTime}" Width="Auto"></GridViewColumn>
+                        <GridViewColumn Header="Pacijent" DisplayMemberBinding="{Binding patient.User.Username}" Width="Auto"/>
+                        <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding room.RoomId}" Width="Auto"/>
+                        
                     </GridView>
                 </ListView.View>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
                             <ListViewItem>
-                            <TextBlock Text="{Binding ExaminationId}" FontWeight="Bold" />
+                                <TextBlock Text="{Binding ExaminationId}" FontWeight="Bold" />
                             </ListViewItem>
                             <TextBlock Text="{Binding StartTime}" FontWeight="Bold" />
                             
@@ -87,21 +107,17 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <Button Grid.Row="5" Grid.Column="0" Height="40" Width="90" Margin="0, 0, 0, 0" Click="Button_Click_Delete">Delete</Button>
-        <Button Grid.Row="5" Height="40" Grid.Column="0" Grid.ColumnSpan="2" Width="90" Margin="30, 0, 0, 0" Click="Button_Click_Create">Create</Button>
-        <Button Grid.Row="5" Height="40" Grid.Column="2" Width="90" Margin="0, 0, 0, 0" Click="Button_Click_Patient">Patient</Button>
-        <Button Grid.Row="5" Height="40" Grid.Column="1" Grid.ColumnSpan="2" Width="90" Margin="0, 0, 20, 0" Click="Button_Click_Update">Update</Button>
 
-        <Border Grid.Column="3" Grid.Row="1" Grid.RowSpan="5" Width="55" Margin="0,10,50,0">
-            <Border.Background>
-                <ImageBrush ImageSource="Slike/srce.png"/>
-            </Border.Background>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.RowSpan="2"  Grid.Column="2" Margin="0,40,0,40" HorizontalAlignment="Center" Grid.ColumnSpan="4">
+            <Button  Background="#FF929292" Foreground="White" Height="40"  Width="90" Margin="0, 0, 0, 0" Click="Button_Click_Delete" BorderBrush="#FF565656" BorderThickness="1,1,2,2">Obriši</Button>
+            <Button  Background="#FF929292" Foreground="White" Height="40"  Width="90" Margin="30, 0, 0, 0" Click="Button_Click_Create" BorderBrush="#FF565656" BorderThickness="1,1,2,2">Kreiraj</Button>
+            <Button  Background="#FF929292" Foreground="White" Height="40"  Width="90" Margin="30, 0, 0, 0" Click="Button_Click_Patient" BorderBrush="#FF565656" BorderThickness="1,1,2,2">Pacijent</Button>
+            <Button  Background="#FF929292" Foreground="White" Height="40"  Width="90" Margin="30, 0, 0, 0" Click="Button_Click_Update" BorderBrush="#FF565656" BorderThickness="1,1,2,2">Izmeni</Button>
 
-        </Border>
+        </StackPanel>
+            
         
-        <Label Grid.Row="1" Grid.Column="3" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Grid.ColumnSpan="3">Funkcionalnosti</Label>
-        <Button Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="2" Width="200" Height="50">Lista pacijenata</Button>
-        <Button Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="3" Width="200" Height="50">Odobravanje lekova</Button>
-        <Button Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="4" Width="200" Height="50">Zahtev za odsustvo</Button>
+        
+       
     </Grid>
 </Window>

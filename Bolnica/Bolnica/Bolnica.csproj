@@ -66,8 +66,10 @@
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PrescriptionController.cs" />
     <Compile Include="Controller\RelocationController.cs" />
+    <Compile Include="Controller\RenovationController.cs" />
     <Compile Include="Controller\RoomController.cs" />
     <Compile Include="Controller\SecretaryController.cs" />
+    <Compile Include="Controller\SpecialisticExaminationController.cs" />
     <Compile Include="Controller\StaticEquipmentController.cs" />
     <Compile Include="Controller\TherapyController.cs" />
     <Compile Include="Model\Anamnesis.cs" />
@@ -77,8 +79,11 @@
     <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\Relocation.cs" />
+    <Compile Include="Model\Renovation.cs" />
+    <Compile Include="Model\SpecialistExamination.cs" />
     <Compile Include="Model\StaticEquipment.cs" />
     <Compile Include="Model\Therapy.cs" />
+    <Compile Include="Model\TypeOfApprovedDrug.cs" />
     <Compile Include="Repository\AnamnesisRepository.cs" />
     <Compile Include="Repository\DoctorRepository.cs" />
     <Compile Include="Repository\DrugRepository.cs" />
@@ -91,8 +96,10 @@
     <Compile Include="Repository\PatientRepository.cs" />
     <Compile Include="Repository\PrescriptionRepository.cs" />
     <Compile Include="Repository\RelocationRepository.cs" />
+    <Compile Include="Repository\RenovationRepository.cs" />
     <Compile Include="Repository\RoomRepository.cs" />
     <Compile Include="Repository\SecretaryRepository.cs" />
+    <Compile Include="Repository\SpecialisticExaminationRepository.cs" />
     <Compile Include="Repository\StaticEquipmentRepository.cs" />
     <Compile Include="Repository\TherapyRepository.cs" />
     <Compile Include="Service\AnamnesisService.cs" />
@@ -106,8 +113,10 @@
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Service\PrescriptionService.cs" />
     <Compile Include="Service\RelocationService.cs" />
+    <Compile Include="Service\RenovationService.cs" />
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\SecretaryService.cs" />
+    <Compile Include="Service\SpecialisticExaminationService.cs" />
     <Compile Include="Service\StaticEquipmentService.cs" />
     <Compile Include="Service\TherapyService.cs" />
     <Compile Include="xaml_window\Doctor\AnamnesisCreate.xaml.cs">
@@ -128,8 +137,29 @@
     <Compile Include="xaml_window\Doctor\CreateExaminatio.xaml.cs">
       <DependentUpon>CreateExaminatio.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Doctor\CreateExaminationInventary.xaml.cs">
+      <DependentUpon>CreateExaminationInventary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Doctor\DoctorHome.xaml.cs">
       <DependentUpon>DoctorHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugList.xaml.cs">
+      <DependentUpon>DrugList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListForVerify.xaml.cs">
+      <DependentUpon>DrugListForVerify.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListForVerifyCancel.xaml.cs">
+      <DependentUpon>DrugListForVerifyCancel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListForVerifyOne.xaml.cs">
+      <DependentUpon>DrugListForVerifyOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListVerify.xaml.cs">
+      <DependentUpon>DrugListVerify.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugListVerifyEdit.xaml.cs">
+      <DependentUpon>DrugListVerifyEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Doctor\ExaminationUpdate.xaml.cs">
       <DependentUpon>ExaminationUpdate.xaml</DependentUpon>
@@ -140,8 +170,20 @@
     <Compile Include="xaml_window\Doctor\MedicalRecordDoctor.xaml.cs">
       <DependentUpon>MedicalRecordDoctor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Doctor\SpeialistExamination.xaml.cs">
+      <DependentUpon>SpeialistExamination.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Manager\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\DrugCreate.xaml.cs">
+      <DependentUpon>DrugCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\DrugList.xaml.cs">
+      <DependentUpon>DrugList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\DrugUpdate.xaml.cs">
+      <DependentUpon>DrugUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Manager\DynamicEquipment.xaml.cs">
       <DependentUpon>DynamicEquipment.xaml</DependentUpon>
@@ -239,7 +281,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Doctor\CreateExaminationInventary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Doctor\DoctorHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListForVerify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListForVerifyCancel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListForVerifyOne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListVerify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugListVerifyEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -255,7 +325,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Doctor\SpeialistExamination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Manager\CreateRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\DrugCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\DrugList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\DrugUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

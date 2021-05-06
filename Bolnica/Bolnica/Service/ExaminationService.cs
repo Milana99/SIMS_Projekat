@@ -5,11 +5,10 @@ using Bolnica.xaml_window.Doctor;
 
 namespace Bolnica.Service
 {
-   public class ExaminationService
-   {
-        
-        public Bolnica.Repository.ExaminationRepository examinationRepository;
+    public class ExaminationService
+    {
 
+        public Bolnica.Repository.ExaminationRepository examinationRepository;
 
 
         public ExaminationService()
@@ -20,33 +19,59 @@ namespace Bolnica.Service
         public List<Model.Examination> GetAllExaminations()
         {
             return examinationRepository.LoadExamination();
-            
-        }
-      
 
-      public Model.Examination GetOneExamination(int examinationId)
-      {
+        }
+
+
+        public Model.Examination GetOneExamination(int examinationId)
+        {
             List<Model.Examination> examinations = GetAllExaminations();
-            foreach(Model.Examination ex in examinations)
+            foreach (Model.Examination ex in examinations)
             {
-                if(ex.ExaminationId == examinationId)
+                if (ex.ExaminationId == examinationId)
                 {
                     return ex;
                 }
             }
             return null;
-      }
+        }
+        public Boolean IsRoomFree(DateTime newStartTime, DateTime newEndTime, int id, int roomId)
+        {
+            if (IsRoomFreeExaminations(newStartTime, newEndTime, id) && IsRoomFreeRenovations(newStartTime, newEndTime, roomId)){
+                return true;
+            }
+            return false;
+        }
+        public Boolean IsRoomFreeRenovations(DateTime newStartTime, DateTime newEndTime, int roomId)
+        {
+            Controller.RenovationController renovationController = new Controller.RenovationController();
+            List<Model.Renovation> renovations = renovationController.GetAllRenovations();
+            foreach (Renovation renovation in renovations)
+            {
+                //if(((ex.StartTime<=newTime1) && (ex.EndTime>newTime1)) || ((ex.StartTime<newTime2)&&(ex.EndTime>=newTime2)))
+                int start1 = DateTime.Compare(renovation.StartTime, newStartTime);
+                int start2 = DateTime.Compare(renovation.EndTime, newStartTime);
+                int end1 = DateTime.Compare(renovation.StartTime, newEndTime);
+                int end2 = DateTime.Compare(renovation.EndTime, newEndTime);
 
-      public Boolean CompareTime(DateTime newTime1, DateTime newTime2, int id)
-      {
+                
+                    if (((start1 <= 0 && start2 >= 0) || (end1 <= 0 && end2 >= 0) || (start1 >= 0 && end2 <= 0))&&(roomId==renovation.room.RoomId))
+                    {
+                        return false;
+                    }
+            }
+            return true;
+        }
+        public Boolean IsRoomFreeExaminations(DateTime newStartTime, DateTime newEndTime, int id)
+        {
             List<Model.Examination> examinations = GetAllExaminations();
             foreach (Examination ex in examinations)
             {
                 //if(((ex.StartTime<=newTime1) && (ex.EndTime>newTime1)) || ((ex.StartTime<newTime2)&&(ex.EndTime>=newTime2)))
-                int start1 = DateTime.Compare(ex.StartTime, newTime1);
-                int start2 = DateTime.Compare(ex.EndTime, newTime1);
-                int end1 = DateTime.Compare(ex.StartTime, newTime2);
-                int end2 = DateTime.Compare(ex.EndTime, newTime2);
+                int start1 = DateTime.Compare(ex.StartTime, newStartTime);
+                int start2 = DateTime.Compare(ex.EndTime, newStartTime);
+                int end1 = DateTime.Compare(ex.StartTime, newEndTime);
+                int end2 = DateTime.Compare(ex.EndTime, newEndTime);
 
                 if (id != ex.ExaminationId)
                 {
@@ -58,15 +83,13 @@ namespace Bolnica.Service
 
             }
             return true;
-      }
+        }
 
-      public Boolean CreateExamination(int examinationId, DateTime startTime, DateTime endTime, Model.ExaminationType examinationType, String doctorUsername, String patientUsername, int room)
-      {
+        public Boolean CreateExamination(Model.Examination newExamination)
+        {
             List<Model.Examination> examinations = GetAllExaminations();
-            Examination newExamination = new Examination(examinationId, startTime, endTime, doctorUsername, patientUsername, room);
-            Boolean a = CompareTime(startTime, endTime, examinationId);
-            
-            if (a == true)
+
+            if (IsRoomFree(newExamination.StartTime, newExamination.EndTime, newExamination.ExaminationId, newExamination.room.RoomId))
             {
                 examinations.Add(newExamination);
                 examinationRepository.SaveExamination(examinations);
@@ -74,34 +97,31 @@ namespace Bolnica.Service
             }
             return false;
         }
-      
-      public void DeleteExamination(int examinationId)
-      {
+
+        public void DeleteExamination(int examinationId)
+        {
             List<Model.Examination> examinations = GetAllExaminations();
-            foreach(Examination ex in examinations)
+            foreach (Examination ex in examinations)
             {
-                if(ex.ExaminationId == examinationId)
+                if (ex.ExaminationId == examinationId)
                 {
                     ex.DeleteExamination();
                     examinationRepository.SaveExamination(examinations);
                     return;
                 }
-                
+
             }
         }
-      
-      public Boolean UpdateExamination(int examinationId, DateTime startTime, DateTime endTime)
-      {
+
+        public Boolean UpdateExamination(int examinationId, DateTime startTime, DateTime endTime, int roomId)
+        {
             List<Model.Examination> examinations = GetAllExaminations();
 
             foreach (Examination ex in examinations)
             {
                 if (ex.ExaminationId == examinationId && ex.deleted == false)
                 {
-
-                    Boolean cmp = CompareTime(startTime, endTime, examinationId);
-
-                    if (cmp == true)
+                    if (IsRoomFree(startTime, endTime, examinationId, roomId))
                     {
                         ex.StartTime = startTime;
                         ex.EndTime = endTime;
@@ -115,9 +135,9 @@ namespace Bolnica.Service
             }
             return false;
         }
-      
-      public List<Model.Examination> GetExaminatonsForDoctor(String doctorUsername)
-      {
+
+        public List<Model.Examination> GetExaminatonsForDoctor(String doctorUsername)
+        {
             List<Model.Examination> examinations = GetAllExaminations();
             List<Model.Examination> newExaminations = new List<Model.Examination>();
 
@@ -130,9 +150,9 @@ namespace Bolnica.Service
             }
             return newExaminations;
         }
-      
-      public List<Model.Examination> GetExaminationForPatient(String patientUsername)
-      {
+
+        public List<Model.Examination> GetExaminationForPatient(String patientUsername)
+        {
             List<Model.Examination> examinations = GetAllExaminations();
             List<Model.Examination> newExaminations = new List<Model.Examination>();
 
@@ -145,18 +165,18 @@ namespace Bolnica.Service
             }
             return newExaminations;
         }
-      
-      public void NotifyPatientBySecretary(String patientEmail)
-      {
-         // TODO: implement
-      }
-      
-      public void NotifyDoctorBySecretary(String doctorEmail)
-      {
-         // TODO: implement
-      }
-   
- 
-   
-   }
+
+        public void NotifyPatientBySecretary(String patientEmail)
+        {
+            // TODO: implement
+        }
+
+        public void NotifyDoctorBySecretary(String doctorEmail)
+        {
+            // TODO: implement
+        }
+
+
+
+    }
 }

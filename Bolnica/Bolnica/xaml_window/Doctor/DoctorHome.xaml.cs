@@ -19,18 +19,18 @@ namespace Bolnica.xaml_window.Doctor
     /// </summary>
     public partial class DoctorHome : Window
     {
-       public MainWindow mw;
-        ExaminationUpdate eu;
-        CreateExaminatio ce;
-        MedicalRecordDoctor mrd;
+       public MainWindow MainWindow;
+        ExaminationUpdate ExaminationUpdate;
+        CreateExamination CreateExamination;
+        MedicalRecordDoctor MedicalRecordDoctor;
 
-        public Model.Doctor doc;
-        public Controller.ExaminationController control;
+        public Model.Doctor doctor;
+        public Controller.ExaminationController ExaminationControl;
         public List<Model.Examination> examinations;
         public DoctorHome()
         {
             InitializeComponent();
-            control = new Controller.ExaminationController();
+            ExaminationControl = new Controller.ExaminationController();
             LoadAll();
             
         }
@@ -39,7 +39,7 @@ namespace Bolnica.xaml_window.Doctor
         {
             lvDataBinding.Items.Clear();
 
-            examinations = control.GetAllExaminations();
+            examinations = ExaminationControl.GetAllExaminations();
 
             foreach (Model.Examination ex in examinations)
             {
@@ -50,41 +50,53 @@ namespace Bolnica.xaml_window.Doctor
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
             Model.Examination selected = (Model.Examination)lvDataBinding.SelectedItems[0];
-            control.DeleteExamination(selected.ExaminationId);
+            ExaminationControl.DeleteExamination(selected.ExaminationId);
             LoadAll();
             MessageBox.Show("Uspešno ste izbrisali termin", "Uspešno!");
         }
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
-            ce = new CreateExaminatio(this);
-            ce.Show();
+            CreateExamination = new CreateExamination(this);
+            CreateExamination.Show();
             
         }
 
         private void Button_Click_Update(object sender, RoutedEventArgs e)
         {
-            eu = new ExaminationUpdate(this);
-            eu.Show();
+            ExaminationUpdate = new ExaminationUpdate(this);
+            ExaminationUpdate.Show();
             Model.Examination selected = (Model.Examination)lvDataBinding.SelectedItems[0];
-            eu.lbuID.Content = (selected.ExaminationId.ToString());
-            eu.lbuPatient.Content = (selected.patient.User.Username);
-            eu.tbuStartTime.Text = selected.StartTime.ToString();
-            eu.tbuEndTime.Text = selected.EndTime.ToString();
+
+            ExaminationUpdate.lbuID.Content = (selected.ExaminationId.ToString());
+            ExaminationUpdate.lbuPatient.Content = (selected.patient.User.Username);
+            String[] StartDateTime = selected.StartTime.ToString().Split(' ');
+            String[] EndDateTime = selected.EndTime.ToString().Split(' ');
+            ExaminationUpdate.tbuStartTime.Text = StartDateTime[1];
+            ExaminationUpdate.tbuEndTime.Text = EndDateTime[1];
+            ExaminationUpdate.DatePick.Text = StartDateTime[0];
+            ExaminationUpdate.cbRoom.Items.Add(selected.room.RoomId);
+            ExaminationUpdate.cbRoom.SelectedItem = selected.room.RoomId;
         }
 
         private void Doctor_Logout(object sender, RoutedEventArgs e)
         {
-            mw = new MainWindow();
-            mw.Show();
+            MainWindow = new MainWindow();
+            MainWindow.Show();
             this.Close();
         }
 
         private void Button_Click_Patient(object sender, RoutedEventArgs e)
         {
-            mrd = new MedicalRecordDoctor(this);
-            mrd.Show();
+            MedicalRecordDoctor = new MedicalRecordDoctor(this);
+            MedicalRecordDoctor.Show();
         }
 
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            var dl = new DrugList();
+            dl.Show();
+            this.Close();
+        }
     }
 }

@@ -27,16 +27,16 @@
         <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="500" Margin="70,20,70,0" Name="lvDataBindingRenovationList">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID prostorije" 
-                                    Width="90" DisplayMemberBinding="{Binding RoomId}"/>
-                    <GridViewColumn Header="Opis prostorije" DisplayMemberBinding="{Binding Description}"
+                    <GridViewColumn Header="ID renovacije" 
+                                    Width="90" DisplayMemberBinding="{Binding RenovationId}"/>
+                    <GridViewColumn Header="Prostorija" DisplayMemberBinding="{Binding room.RoomId}"
                                     Width="90"/>
-                    <GridViewColumn Header="Sprat"  DisplayMemberBinding="{Binding Floor}" 
+                    <GridViewColumn Header="Početno vreme"  DisplayMemberBinding="{Binding StartTime}" 
                                     Width="90"/>
-                    <GridViewColumn Header="Kvadratura"  DisplayMemberBinding="{Binding Area}"
+                    <GridViewColumn Header="Krajnje vreme"  DisplayMemberBinding="{Binding EndTime}"
                                     Width="90"/>
-                    <GridViewColumn Header="Tip prostorije" DisplayMemberBinding="{Binding RoomType}"
-                                    Width="90"/>
+                    <GridViewColumn Header="Opis prostorije" DisplayMemberBinding="{Binding RenovationDescription}"
+                                    Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>

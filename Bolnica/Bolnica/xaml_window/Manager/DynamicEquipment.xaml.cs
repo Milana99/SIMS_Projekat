@@ -47,7 +47,11 @@ namespace Bolnica.xaml_window.Manager
                 
                 lvDataBindingDynamicEq.Items.Add(de);
             }
+            
         }
+
+        
+
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             le = new ListEquipment();
@@ -89,5 +93,39 @@ namespace Bolnica.xaml_window.Manager
             control.DeleteDynamicEquipment(selected.DynamicEquipmentId);
             Load();
         }
+
+        private void tbSearch_LostFocus(object sender, RoutedEventArgs e)
+        {
+            tbSearch.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+
+        private void tbSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbSearch.Text == "Pretraga inventara...")
+            {
+                tbSearch.Clear();
+            }
+            tbSearch.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tbSearch.Text != "Pretraga inventara...")
+            {
+                Search(tbSearch.Text);
+            }
+        }
+        private void Search(string searchedWord)
+        {
+            lvDataBindingDynamicEq.Items.Clear();
+            foreach (Model.DynamicEquipment equipment in equipments)
+            {
+                if (equipment.DynamicEquipmentName.Contains(searchedWord))
+                {
+                    lvDataBindingDynamicEq.Items.Add(equipment);
+                }
+            }
+        }
+
     }
 }

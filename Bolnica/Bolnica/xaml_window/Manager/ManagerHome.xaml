@@ -47,7 +47,7 @@
                 </LinearGradientBrush>
             </Button.Background> Profil
         </Button>
-        <Button Grid.Column="0" Grid.Row="3" FontSize="20" Height="40" >Lista lekova</Button>
+        <Button Grid.Column="0" Grid.Row="3" FontSize="20" Height="40" Click="Button_Click_Drug_list" >Lista lekova</Button>
         <Button Grid.Column="0" Grid.Row="4" FontSize="20" Height="40" Click="Btn_Room_List">
              Lista prostorija
         </Button>

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
+
 namespace Bolnica.xaml_window.Manager
 {
     /// <summary>
@@ -31,10 +33,11 @@ namespace Bolnica.xaml_window.Manager
             InitializeComponent();
             equipments = new List<Model.StaticEquipment>();
             control = new Controller.StaticEquipmentController();
-            Load();
+            LoadEqupiment();
+            LoadRooms();
         }
 
-        public void Load()
+        public void LoadEqupiment()
         {
             lvDataBindingStaticEq.Items.Clear();
 
@@ -45,6 +48,19 @@ namespace Bolnica.xaml_window.Manager
                 Console.WriteLine(ste.StaticEquipmentId);
                 lvDataBindingStaticEq.Items.Add(ste);
             }
+            
+        }
+        public void LoadRooms()
+        {
+            
+            Controller.RoomController roomController = new Controller.RoomController();
+            List<Model.Room> rooms = roomController.GetAllRooms();
+            foreach (Model.Room room in rooms)
+            {
+                cbRooms.Items.Add(room.RoomId);
+            }
+            cbRooms.Items.Add("All");
+            cbRooms.SelectedItem = "All";
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
@@ -64,7 +80,7 @@ namespace Bolnica.xaml_window.Manager
         {
             Model.StaticEquipment selected = (Model.StaticEquipment)lvDataBindingStaticEq.SelectedItems[0];
             control.DeleteStaticEquipment(selected.StaticEquipmentId);
-            Load();
+            LoadEqupiment();
         }
 
         private void Button_Click_Update(object sender, RoutedEventArgs e)
@@ -96,6 +112,76 @@ namespace Bolnica.xaml_window.Manager
             ser.lbuName.Content = selected.NameStaticEquipment;
             ser.cbuRoomStatic.Text = selected.roomStaticEquipment.RoomId.ToString();
             ser.Show();
+        }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(tbSearch.Text!= "Pretraga inventara...")
+            {
+                Search(tbSearch.Text);
+            }
+            
+        }
+        
+
+        private void Search(string searchedWord)
+        {
+            lvDataBindingStaticEq.Items.Clear();
+            foreach (Model.StaticEquipment equipment in equipments)
+            {
+                if ((equipment.NameStaticEquipment.Contains(searchedWord))||(equipment.DescriptionStaticEquipment.Contains(searchedWord)))
+                {
+                    lvDataBindingStaticEq.Items.Add(equipment);
+                }
+            }
+        }
+
+        private void tbSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(tbSearch.Text == "Pretraga inventara...")
+            {
+                tbSearch.Clear();
+            }
+            tbSearch.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void tbSearch_LostFocus(object sender, RoutedEventArgs e)
+        {
+            tbSearch.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+        private List<Model.StaticEquipment> LoadEquipmentsForFiltration()
+        {
+            List<Model.StaticEquipment> staticEquipments = new List<Model.StaticEquipment>();
+            for (int i = 0; i < lvDataBindingStaticEq.Items.Count; i++)
+            {
+                Model.StaticEquipment staticEquipment = (Model.StaticEquipment)lvDataBindingStaticEq.Items[i];
+                staticEquipments.Add(staticEquipment);
+            }
+            return staticEquipments;
+        }
+        private void FiltrateEquipments(List<Model.StaticEquipment> staticEquipments)
+        {
+            lvDataBindingStaticEq.Items.Clear();
+            foreach (Model.StaticEquipment equipment in staticEquipments)
+            {
+                if (equipment.roomStaticEquipment.RoomId == int.Parse(cbRooms.SelectedItem.ToString()))
+                {
+                    lvDataBindingStaticEq.Items.Add(equipment);
+                }
+            }
+        }
+        private void cbRooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbRooms.SelectedItem.ToString() != "All" && cbRooms.Text != "")
+            {
+                List<Model.StaticEquipment> staticEquipments = LoadEquipmentsForFiltration();
+                FiltrateEquipments(staticEquipments);
+            }
+            else
+            {
+                LoadEqupiment();
+            }
+            
         }
     }
 }

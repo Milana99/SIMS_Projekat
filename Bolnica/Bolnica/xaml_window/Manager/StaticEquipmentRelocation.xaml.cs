@@ -34,7 +34,7 @@ namespace Bolnica.xaml_window.Manager
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
             se.control.ChangeRoom(int.Parse(lbuIDStaticEq.Content.ToString()), int.Parse(cbuRoomStatic.Text));
-            se.Load();
+            se.LoadEqupiment();
             this.Close();
         }
     }
