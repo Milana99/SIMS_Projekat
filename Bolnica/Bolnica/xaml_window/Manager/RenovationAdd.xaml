@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="RenovationAdd" Height="450" Width="800">
+        Title="RenovationAdd" Height="550" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,7 +20,7 @@
 
         </Grid.RowDefinitions>
         <Button Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0" Click="Button_Click_Back">Nazad</Button>
-        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="500" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="600" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Tipovi renoviranja</Label>
         </Border>
         <Button Width="220" Height="60" Grid.Row="1" Grid.Column="1" FontSize="20" Click="Button_Click_General">Osnovno renoviranje</Button>

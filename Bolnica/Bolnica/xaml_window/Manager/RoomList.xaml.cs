@@ -95,5 +95,19 @@ namespace Bolnica.xaml_window.Manager
             rl.Show();
             this.Close();
         }
+
+        private void Button_Click_Drug_List(object sender, RoutedEventArgs e)
+        {
+            var drug_list = new DrugList();
+            drug_list.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Equipment(object sender, RoutedEventArgs e)
+        {
+            var equipment_list = new ListEquipment();
+            equipment_list.Show();
+            this.Close();
+        }
     }
 }

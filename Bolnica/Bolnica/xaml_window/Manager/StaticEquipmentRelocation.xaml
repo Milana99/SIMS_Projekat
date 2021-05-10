@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="StaticEquipmentRelocation" Height="400" Width="400">
+        Title="StaticEquipmentRelocation" Height="550" Width="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -22,24 +22,24 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="350">
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="600">
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Premeštanje inventara</Label>
         </Border>
-        <Label Grid.Row="1" Margin="20,10,0,0" FontWeight="Bold" >ID:</Label>
+        <Label Grid.Row="1" Margin="20,10,70,0" FontWeight="Bold" HorizontalAlignment="Center">ID:</Label>
         <Label Grid.Row="1" Grid.Column="1"  Name="lbuIDStaticEq" Width="150" Height="25" />
-        <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold">Naziv:</Label>
-        <Label Grid.Row="2" Grid.Column="1" Width="150" Height="25"  Name="lbuName" Margin="5"/>
-        <Label Grid.Row="3" Margin="20,10,0,0" FontWeight="Bold">Opis:</Label>
+        <Label Grid.Row="2" Margin="20,10,60,0" FontWeight="Bold" HorizontalAlignment="Center">Naziv:</Label>
+        <Label Grid.Row="2" Grid.Column="1" Width="150" Height="25"   Name="lbuName" Margin="5"/>
+        <Label Grid.Row="3" Margin="20,10,60,0" HorizontalAlignment="Center" FontWeight="Bold">Opis:</Label>
         <Label Grid.Row="3" Grid.Column="1" Width="150" Height="25"  Name="lbuStaticDescription" Margin="5"/>
-        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold">Izaberite datum:</Label>
+        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold" HorizontalAlignment="Center">Izaberite datum:</Label>
         <DatePicker Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Width="150" Name="dpRelocation" VerticalAlignment="Center">
         </DatePicker>
-        <Label Grid.Row="5" Margin="20,10,0,0" FontWeight="Bold">Izaberite sobu:</Label>
+        <Label Grid.Row="5" Margin="20,10,10,0" FontWeight="Bold" HorizontalAlignment="Center">Izaberite sobu:</Label>
         <StackPanel Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Width="150" VerticalAlignment="Center">
             <ComboBox Name="cbuRoomStatic" Grid.Row="5" Width="150" Height="25" Grid.Column="1"></ComboBox>
         </StackPanel>
 
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Cancel</Button>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="20, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">OK</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Odustani</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="20, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Kreiraj</Button>
     </Grid>
 </Window>
