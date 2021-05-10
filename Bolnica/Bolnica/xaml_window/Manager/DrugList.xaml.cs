@@ -25,6 +25,7 @@ namespace Bolnica.xaml_window.Manager
             InitializeComponent();
             drugController = new Controller.DrugController();
             LoadAll();
+            LoadTypes();
         }
 
         public void LoadAll()
@@ -35,6 +36,7 @@ namespace Bolnica.xaml_window.Manager
             {
                 lvDataBinding.Items.Add(drug);
             }
+            
         }
 
         private void Btn_Profile(object sender, RoutedEventArgs e)
@@ -84,6 +86,41 @@ namespace Bolnica.xaml_window.Manager
             Model.Drug drug = (Model.Drug)lvDataBinding.SelectedItems[0];
             drugController.DeleteDrug(drug.DrugId);
             LoadAll();
+        }
+        private void LoadTypes()
+        {
+            cbType.Items.Clear();
+            cbType.Items.Add("Approved");
+            cbType.Items.Add("NotApproved");
+            cbType.Items.Add("Waiting");
+            cbType.Items.Add("All");
+            cbType.SelectedItem = "All";
+        }
+        private void TypeFilter()
+        {
+            lvDataBinding.Items.Clear();
+            List<Model.Drug> drugs = drugController.GetAllDrugs();
+            foreach(Model.Drug drug in drugs)
+            {
+                Console.WriteLine(drug.DrugType.ToString());
+                Console.WriteLine(cbType.SelectedItem.ToString());
+                if(drug.DrugType.ToString() == cbType.SelectedItem.ToString())
+                {
+                    lvDataBinding.Items.Add(drug);
+                }
+            }
+        }
+        private void cbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            if(cbType.SelectedItem == "All")
+            {
+                LoadAll();
+            }
+            else
+            {
+                TypeFilter();
+            }
         }
     }
 }

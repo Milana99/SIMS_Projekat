@@ -25,23 +25,27 @@ namespace Bolnica.xaml_window.Doctor
         {
             InitializeComponent();
             mrd = m;
-            cbDrugAdd.Items.Add("Brufen");
-            cbDrugAdd.Items.Add("Paracetamol");
-            cbDrugAdd.Items.Add("Novi lek");
-            cbDrugAdd.Items.Add("Magicni lek");
-            cbDrugAdd.SelectedItem = "Brufen";
+            LoadDrugs();
             lbDrugName.Content = mrd.pc.prescriptionService.prescriptionRepository.next_id.ToString();
             ac = null;
+        }
+        public void LoadDrugs()
+        {
+            Controller.DrugController drugController = new Controller.DrugController();
+            List<Model.Drug> drugs = drugController.GetAllDrugs();
+            foreach(Model.Drug drug in drugs)
+            {
+                if(drug.DrugType == Model.TypeOfApprovedDrug.Approved)
+                {
+                    cbDrugAdd.Items.Add(drug.DrugName);
+                }
+            }
         }
         public AnamnesisTherapyAdd(MedicalRecordDoctor m, AnamnesisCreate a)
         {
             InitializeComponent();
             mrd = m;
-            cbDrugAdd.Items.Add("Brufen");
-            cbDrugAdd.Items.Add("Paracetamol");
-            cbDrugAdd.Items.Add("Novi lek");
-            cbDrugAdd.Items.Add("Magicni lek");
-            cbDrugAdd.SelectedItem = "Brufen";
+            LoadDrugs();
             lbDrugName.Content = mrd.pc.prescriptionService.prescriptionRepository.next_id.ToString();
             ac = a;
         }

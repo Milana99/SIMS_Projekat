@@ -98,5 +98,21 @@ namespace Bolnica.xaml_window.Doctor
             dl.Show();
             this.Close();
         }
+
+        private void dpDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            List<Model.Examination> examinations = ExaminationControl.GetAllExaminations();
+            lvDataBinding.Items.Clear();
+            foreach(Model.Examination examination in examinations)
+            {
+                string[] DateAndTime = examination.StartTime.ToString().Split(' ');
+                Console.WriteLine(DateAndTime[0]);
+                if (DateAndTime[0] == dpDate.Text.ToString())
+                {
+                    lvDataBinding.Items.Add(examination);
+                }
+            }
+        }
     }
 }

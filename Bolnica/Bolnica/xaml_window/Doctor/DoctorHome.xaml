@@ -73,6 +73,7 @@
             <Label FontSize="45" Foreground="#FF717171" Margin="10,0,10,0">Radni kalendar</Label>
             <Separator Background="#FF929292" Width="100"></Separator>
         </StackPanel>
+        <DatePicker Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Name="dpDate" Height="30" Width="150" Margin="40.333,10,94.333,44.667" SelectedDateChanged="dpDate_SelectedDateChanged"></DatePicker>
         <StackPanel Grid.Row="1" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="4" Margin="40,45,40,0">
             <ListView Name="lvDataBinding" Margin ="0, 0, 0, 0" Height="245">
                 <ListView.View>

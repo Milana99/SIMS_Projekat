@@ -30,6 +30,7 @@ namespace Bolnica.xaml_window.Doctor
         {
             Model.Drug selected = (Model.Drug)DrugListForVerifyOne.drugListForVerify.lvDataBindingDrugs.SelectedItems[0];
             selected.DrugType = Model.TypeOfApprovedDrug.NotApproved;
+            selected.DrugComment = tbComment.Text.ToString();
             DrugListForVerifyOne.drugListForVerify.drugController.UpdateDrug(selected);
             DrugListForVerifyOne.drugListForVerify.LoadAllDrugs();
             DrugListForVerifyOne.Close();

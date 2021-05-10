@@ -50,6 +50,7 @@ namespace Bolnica.Service
                     drug.DrugDescription = changedDrug.DrugDescription;
                     drug.DrugComponents = changedDrug.DrugComponents;
                     drug.AlternativeDrug = changedDrug.AlternativeDrug;
+                    drug.DrugComment = changedDrug.DrugComment;
                     drugRepository.SaveDrug(drugs);
                     return;
                 }
