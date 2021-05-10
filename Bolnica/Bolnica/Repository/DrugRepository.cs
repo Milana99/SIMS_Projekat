@@ -32,7 +32,7 @@ namespace Bolnica.Repository
                     string[] words = line.Split(',');
 
                     Model.Drug drug = new Model.Drug(int.Parse(words[0]), words[1], words[2], int.Parse(words[3]),
-                        double.Parse(words[4]), words[5], (Model.TypeOfApprovedDrug)Enum.Parse(typeof(Model.TypeOfApprovedDrug), words[6]), words[7]);
+                        double.Parse(words[4]), words[5], (Model.TypeOfApprovedDrug)Enum.Parse(typeof(Model.TypeOfApprovedDrug), words[6]), words[7], words[8]);
 
                     drugs.Add(drug);
                     next_id = drug.DrugId;
@@ -67,7 +67,7 @@ namespace Bolnica.Repository
                 {
                     line = drug.DrugId.ToString() + "," + drug.DrugName + "," + drug.DrugDescription + ","
                         + drug.DrugQuantity + "," + drug.DrugWeight.ToString() + "," + drug.DrugComponents + ","
-                        + drug.DrugType.ToString() + "," + drug.AlternativeDrug;
+                        + drug.DrugType.ToString() + "," + drug.AlternativeDrug+","+drug.DrugComment;
                     lines.Add(line);
                 }
 

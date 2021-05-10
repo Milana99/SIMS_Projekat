@@ -21,7 +21,7 @@
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Foreground="Black" Name="DrugName" >Obrazloženje</Label>
         </Border>
 
-        <RichTextBox  Margin="20,10,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></RichTextBox>
+        <TextBox  Name="tbComment" Margin="20,10,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></TextBox>
 
         <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="60" Background="#FF929292" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="0, 0, 90, 0" Foreground="White" Click="Button_Click_OK" >Pošalji</Button>
         <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Width="60" Background="#FF929292" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="0, 0, 10, 0" Foreground="White" Click="Button_Click_OK" >Izadji</Button>

@@ -48,8 +48,10 @@ namespace Bolnica.xaml_window.Manager
             tbDrugQuantity.Text = selected.DrugQuantity.ToString();
             tbDrugWeight.Text = selected.DrugWeight.ToString();
             tbDrugComponents.Text = selected.DrugComponents;
+            tbComment.Text = selected.DrugComment;
             LoadAlternatives();
             cbAlternativeDrug.SelectedItem = selected.AlternativeDrug;
+            
 
         }
 
@@ -64,7 +66,7 @@ namespace Bolnica.xaml_window.Manager
         {
             Model.Drug drug = new Model.Drug(int.Parse(lblDrugId.Content.ToString()), tbDrugName.Text,
                 tbDrugDescription.Text, int.Parse(tbDrugQuantity.Text), double.Parse(tbDrugWeight.Text),
-                tbDrugComponents.Text, Model.TypeOfApprovedDrug.Waiting, cbAlternativeDrug.SelectedItem.ToString());
+                tbDrugComponents.Text, Model.TypeOfApprovedDrug.Waiting, cbAlternativeDrug.SelectedItem.ToString(), "");
             return drug;
         }
 

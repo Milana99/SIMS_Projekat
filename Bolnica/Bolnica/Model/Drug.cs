@@ -12,8 +12,8 @@ namespace Bolnica.Model
         public String DrugComponents { get; set; }
         public TypeOfApprovedDrug DrugType { get; set; }
         public String AlternativeDrug { get; set; }
-
-        public Drug(int drugId, string drugName, string drugDescription, int drugQuantity, double drugWeight, string drugComponents, TypeOfApprovedDrug drugType, string alternativeDrug)
+        public String DrugComment { get; set; }
+        public Drug(int drugId, string drugName, string drugDescription, int drugQuantity, double drugWeight, string drugComponents, TypeOfApprovedDrug drugType, string alternativeDrug, string comment)
         {
             DrugId = drugId;
             DrugName = drugName;
@@ -23,6 +23,7 @@ namespace Bolnica.Model
             DrugComponents = drugComponents;
             DrugType = drugType;
             AlternativeDrug = alternativeDrug;
+            DrugComment = comment;
         }
         public Drug(string drugName)
         {

@@ -63,8 +63,9 @@
         <Border Grid.Row="0" BorderBrush="#FFE23838" Width="500" BorderThickness="0,0,0,3" Height="100" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Lista lekova</Label>
         </Border>
+        <ComboBox Grid.Row="2" Grid.Column="1" Height="30" Width="150" Name="cbType" SelectionChanged="cbType_SelectionChanged"></ComboBox>
 
-        <ListView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="70,0,70,0" Name="lvDataBinding">
+        <ListView Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="70,0,70,0" Name="lvDataBinding">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID leka" 

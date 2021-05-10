@@ -53,7 +53,7 @@ namespace Bolnica.xaml_window.Manager
         {
             Model.Drug drug = new Model.Drug(int.Parse(lblDrugId.Content.ToString()), tbDrugName.Text,
                 tbDrugDescription.Text, int.Parse(tbDrugQuantity.Text), double.Parse(tbDrugWeight.Text), tbDrugComponents.Text,
-                Model.TypeOfApprovedDrug.Waiting, cbAlternativeDrug.Text);
+                Model.TypeOfApprovedDrug.Waiting, cbAlternativeDrug.Text, "");
             return drug;
         }
         private void Button_Click_OK(object sender, RoutedEventArgs e)

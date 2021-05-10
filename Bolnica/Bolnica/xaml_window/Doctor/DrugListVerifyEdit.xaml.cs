@@ -61,7 +61,7 @@ namespace Bolnica.xaml_window.Doctor
         {
             Model.Drug drug = new Model.Drug(int.Parse(lbDrugId.Content.ToString()), lbDrugName.Content.ToString(),
                 tbuDrugDescription.Text, int.Parse(tbuDrugQuantity.Text), double.Parse(tbuDrugWeight.Text),
-                tbuDrugComponents.Text, Model.TypeOfApprovedDrug.Approved, cbAlternativeDrug.Text);
+                tbuDrugComponents.Text, Model.TypeOfApprovedDrug.Approved, cbAlternativeDrug.Text,"");
             return drug;
         }
 
