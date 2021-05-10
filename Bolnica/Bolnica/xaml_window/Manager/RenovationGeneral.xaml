@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="RenovationGeneral" Height="450" Width="800">
+        Title="RenovationGeneral" Height="550" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,7 +20,7 @@
 
         </Grid.RowDefinitions>
        
-        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="500" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="600" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Osnovno renoviranje</Label>
         </Border>
 
@@ -39,6 +39,6 @@
         <TextBox Grid.Row="2" Grid.Column="1" Width="150" Margin="20,0,0,20" HorizontalAlignment="Left"  VerticalAlignment="Bottom"  Name="tbDescriptionRenovation" />
 
         <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Background="#FFE23838" Foreground="White" Click="Button_Click_OK">Zakaži</Button>
-        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" Background="#FFE23838" Click="Button_Click_Cancel" Foreground="White">Otkaži</Button>
+        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" Background="#FFE23838" Click="Button_Click_Cancel" Foreground="White">Odustani</Button>
     </Grid>
 </Window>

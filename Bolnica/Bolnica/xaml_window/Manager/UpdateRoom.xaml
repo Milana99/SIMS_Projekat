@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="UpdateRoom" Height="400" Width="400">
+        Title="UpdateRoom" Height="550" Width="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -22,24 +22,24 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="350">
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="600">
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Izmena sobe</Label>
         </Border>
 
-        <Label Grid.Row="1" Margin="20,10,0,0" FontWeight="Bold"  >Room ID:</Label>
+        <Label Grid.Row="1" Margin="20,10,80,0" HorizontalAlignment="Center" FontWeight="Bold"  >ID:</Label>
         <Label Grid.Row="1" Grid.Column="1"  Width="150" Height="25" Margin="5" Name="lbuID"/>
-        <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold" >Description:</Label>
+        <Label Grid.Row="2" Margin="20,10,20,0" HorizontalAlignment="Center" FontWeight="Bold" >Izmena opisa:</Label>
         <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25"  Name="tbuDescription" />
-        <Label Grid.Row="3" Margin="20,10,0,0" FontWeight="Bold" >Area:</Label>
+        <Label Grid.Row="3" Margin="20,10,0,0" HorizontalAlignment="Center" FontWeight="Bold" >Izmena površine:</Label>
         <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="25"  Name="tbuArea" />
-        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold" >Floor</Label>
+        <Label Grid.Row="4" Margin="20,10,60,0" HorizontalAlignment="Center" FontWeight="Bold" >Sprat:</Label>
         <Label Name="lbuFloor" Width="150" Height="25" Margin="5" Grid.Row="4"  Grid.Column="1">
         </Label>
-        <Label Grid.Row="5" Margin="20,10,0,0" FontWeight="Bold" >RoomType</Label>
+        <Label Grid.Row="5" Margin="20,10,10,0" FontWeight="Bold" HorizontalAlignment="Center" >Imena tipa sobe:</Label>
         <ComboBox Name="cbRoomType" HorizontalAlignment="Center" Width="150" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="5"/>
 
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Foreground="White" Margin="100, 0, 0, 0" Click="Button_Click_Cancel">Cancel</Button>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Foreground="White" Margin="20, 0, 90, 0" Click="Button_Click_Ok">OK</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Foreground="White" Margin="100, 0, 0, 0" Click="Button_Click_Cancel">Odustani</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Foreground="White" Margin="20, 0, 90, 0" Click="Button_Click_Ok">Izmeni</Button>
 
     </Grid>
 </Window>

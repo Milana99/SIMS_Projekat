@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="StaticEquipment" Height="450" Width="800">
+        Title="StaticEquipment" Height="550" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -19,12 +19,12 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="500" BorderThickness="0,0,0,3" Height="100" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="600" BorderThickness="0,0,0,3" Height="100" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Nepotrošan inventar</Label>
         </Border>
         <Button FontSize="15" Width="90" Height="40" Click="Button_Click_Back">Nazad</Button>
         <ComboBox Grid.Column="1" Grid.Row="1" Width="60" Height="30" HorizontalAlignment="Right" Name="cbRooms" SelectionChanged="cbRooms_SelectionChanged"></ComboBox>
-        <TextBox Grid.Row="1" TextSearch.TextPath="" Grid.Column="1" Width="200" Height="30" Name="tbSearch" TextSearch.Text="SearchRenovation" TextAlignment="Left" Padding="5" Foreground="Gray" TextChanged="tbSearch_TextChanged" GotFocus="tbSearch_GotFocus" LostFocus="tbSearch_LostFocus"  >Pretraga inventara...</TextBox>
+        <TextBox Grid.Row="1" TextSearch.TextPath="" Margin="0,0,60,0" Grid.Column="1" Width="200" Height="30" Name="tbSearch" TextSearch.Text="SearchRenovation" TextAlignment="Left" Padding="5" Foreground="Gray" TextChanged="tbSearch_TextChanged" GotFocus="tbSearch_GotFocus" LostFocus="tbSearch_LostFocus"  >Pretraga inventara...</TextBox>
         <ListView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Margin="70,10,70,0" Name="lvDataBindingStaticEq">
             <ListView.View>
                 <GridView>

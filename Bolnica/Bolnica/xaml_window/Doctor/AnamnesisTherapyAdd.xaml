@@ -22,8 +22,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="350">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Dodaj lek</Label>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,0,0,3" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="Black" >Dodaj lek</Label>
         </Border>
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Name="lbDrugName">Lek</Label>
         <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold">Unesite dozu:</Label>
@@ -38,7 +38,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1">
             <ComboBox Name="cbDrugAdd" Width="150" Grid.Row="6" Grid.Column="1" Margin="0,10,0,0"></ComboBox>
         </StackPanel>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Izadji</Button>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="20, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Dodaj</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF939191" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Izadji</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF939191" Height="30" Margin="20, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Dodaj</Button>
     </Grid>
 </Window>

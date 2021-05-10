@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="DynamicEquipmentCreate" Height="400" Width="400">
+        Title="DynamicEquipmentCreate" Height="550" Width="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -22,14 +22,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="350">
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="600">
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Kreiranje inventara</Label>
         </Border>
-        <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold" >ID:</Label>
+        <Label Grid.Row="2" Margin="20,10,80,0" FontWeight="Bold" HorizontalAlignment="Center" >ID:</Label>
         <Label Grid.Row="2" Grid.Column="1"  Name="lbIDDynamicEq" Width="150" Height="25" />
-        <Label Grid.Row="3" Margin="20,10,0,0" FontWeight="Bold">Unesite naziv:</Label>
+        <Label Grid.Row="3" Margin="20,10,20,0" FontWeight="Bold" HorizontalAlignment="Center">Unesite naziv:</Label>
         <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="25"  Name="tbNameDynamicEq" Margin="5"/>
-        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold">Unesite količinu:</Label>
+        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold" HorizontalAlignment="Center">Unesite količinu:</Label>
         <TextBox Grid.Row="4" Grid.Column="1" Width="150" Height="25"  Name="tbQuantityDynamicEq" Margin="5"/>
 
 

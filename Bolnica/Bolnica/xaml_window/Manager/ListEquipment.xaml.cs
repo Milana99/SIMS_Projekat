@@ -60,5 +60,12 @@ namespace Bolnica.xaml_window.Manager
         {
 
         }
+
+        private void Button_Click_Drug_List(object sender, RoutedEventArgs e)
+        {
+            var drug_list = new DrugList();
+            drug_list.Show();
+            this.Close();
+        }
     }
 }

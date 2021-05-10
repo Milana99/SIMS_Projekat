@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="DrugCreate" Height="450" Width="800">
+        Title="DrugCreate" Height="550" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -20,7 +19,7 @@
 
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="500" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="600" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Kreiranje leka</Label>
         </Border>
 
@@ -40,8 +39,8 @@
         <Label Grid.Row="3" Margin="20,10,45,0" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top">Komponente leka:</Label>
         <TextBox Grid.Row="3" Grid.Column="1" Width="150" Margin="20,10,0,0" HorizontalAlignment="Left" Height="25"  VerticalAlignment="Top"  Name="tbDrugComponents" />
 
-        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Background="#FFE23838" Foreground="White" Click="Button_Click_OK" Grid.ColumnSpan="2" Margin="264.333,33,0,33.667">Kreiraj</Button>
-        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" Background="#FFE23838" Click="Button_Click_Cancel" Foreground="White">Otkaži</Button>
+        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Background="#FFE23838" Foreground="White" Click="Button_Click_OK" Grid.ColumnSpan="2" Margin="0,0,100,0" >Kreiraj</Button>
+        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,90,0" Background="#FFE23838" Click="Button_Click_Cancel" Foreground="White">Odustani</Button>
 
     </Grid>
 </Window>
