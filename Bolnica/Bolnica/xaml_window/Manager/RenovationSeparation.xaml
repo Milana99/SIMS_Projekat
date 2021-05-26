@@ -27,10 +27,15 @@
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Height="40" VerticalAlignment="Top" Margin="0,10,10,0">
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Height="40">
                 <Label Grid.Row="1"  Margin="20,10,100,0" Width="100" Height="25" VerticalAlignment="Top" FontWeight="Bold">Izaberite salu:</Label>
-                <ComboBox Name="cbRooms"  Width="100" Margin="20,10,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" />
+                <ComboBox Name="cbRooms"  Width="100" Margin="20,0,0,8" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0" SelectionChanged="cbRooms_SelectionChanged" />
+
             </StackPanel>
         </StackPanel>
-        
+        <Label Grid.Row ="1" Grid.Column ="1" Width ="110" Height ="25" Margin="0,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Right">Preostala povrsina:</Label>
+        <Label Grid.Row ="1" Grid.Column ="2" Width ="110" Height ="25" Margin="10,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Name="lbArea"></Label>
+        <Label Grid.Row ="1" Grid.Column ="2" Width ="110" Height ="25" Margin="50,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" >Sprat:</Label>
+        <Label Grid.Row ="1" Grid.Column ="2" Width ="110" Height ="25" Margin="10,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Name="lbFloor"></Label>
+
         <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="0,90,0,0">
             <StackPanel Orientation="Horizontal">
                 <Label Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="140,0,0,20" FontWeight="Bold" >Izaberite datum početka:</Label>
@@ -46,7 +51,7 @@
 
             </StackPanel>
         </StackPanel>
-        
+
         <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"  Height="150"  Margin="150,0,10,0" Name="lvDataBindingRooms">
             <ListView.View>
                 <GridView>
@@ -63,6 +68,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Center">
             <Button Width="100" Height="20" Margin="10,0,0,20" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" Click="Button_Click_Add_Room">Podeli</Button>
             <Button Width="100" Height="20" Margin="10,0,0,20" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top">Odbaci</Button>

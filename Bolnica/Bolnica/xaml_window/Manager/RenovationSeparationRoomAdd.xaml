@@ -69,8 +69,8 @@
         </ListView>
 
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.RowSpan="2" Margin="0,40,0,0" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="140">
-            <Button Margin="0,0,0,20">Premesti u novu sobu--></Button>
-            <Button>&lt;--Vrati u staru sobu</Button>
+            <Button Margin="0,0,0,20" Click="Button_Click">Premesti u novu sobu--></Button>
+            <Button Click="Button_Click_1">&lt;--Vrati u staru sobu</Button>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">

@@ -25,6 +25,22 @@ namespace Bolnica
         public MainWindow()
         {
             InitializeComponent();
+            DeleteRenovations();
+        }
+
+        public void DeleteRenovations()
+        {
+            Controller.BasicRenovationController renovationController = new Controller.BasicRenovationController();
+            DateTime now = DateTime.Now;
+            List<Model.BasicRenovation> renovations = renovationController.GetAllRenovations();
+            foreach(Model.Renovation renovation in renovations)
+            {
+                int comparation = DateTime.Compare(now, renovation.EndTime);
+                if(comparation > 0)
+                {
+                    renovationController.DeleteRenovation(renovation.RenovationId);
+                }
+            }
         }
 
         private void Secretary_Button(object sender, RoutedEventArgs e)

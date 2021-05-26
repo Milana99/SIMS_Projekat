@@ -4,14 +4,21 @@ using System.IO;
 
 namespace Bolnica.Repository
 {
-   public class RoomRepository
-   {
+    public class RoomRepository
+    {
         private String FileLocation { get; set; }
         public int next_roomID;
 
         public RoomRepository(String newFileLocation)
         {
             FileLocation = newFileLocation;
+        }
+
+        public int getNextId()
+        {
+            int prim=next_roomID;
+            next_roomID++;
+            return prim;
         }
         public List<Model.Room> LoadRoom()
         {
@@ -49,10 +56,10 @@ namespace Bolnica.Repository
 
             return rooms;
         }
-      
 
-      public void SaveRoom(List<Model.Room> roomList)
-      {
+
+        public void SaveRoom(List<Model.Room> roomList)
+        {
             File.Delete(FileLocation);
             String line;
             List<String> lines = new List<String>();
@@ -67,12 +74,12 @@ namespace Bolnica.Repository
             }
             File.WriteAllLines(FileLocation, lines);
         }
-      
-      public void DeleteRooms()
-      {
+
+        public void DeleteRooms()
+        {
             File.Delete(FileLocation);
         }
-   
-   
-   }
+
+
+    }
 }

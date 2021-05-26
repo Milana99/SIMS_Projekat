@@ -14,6 +14,11 @@ namespace Bolnica.Service
         {
             return roomRepository.LoadRoom();
         }
+
+        public int getNextId()
+        {
+           return roomRepository.getNextId();
+        }
       
       public Model.Room GetByIdRoom(int roomId)
       {
