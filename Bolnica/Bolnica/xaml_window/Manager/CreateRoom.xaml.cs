@@ -43,7 +43,7 @@ namespace Bolnica.xaml_window.Manager
                 int.Parse(tbFloor.Text), double.Parse(tbArea.Text),
                 (Model.RoomType)Enum.Parse(typeof(Model.RoomType), cbRoomType.Text));
             roomList.control.roomService.roomRepository.next_roomID++;
-            roomList.control.CreateRoom(room.RoomId, room.Description, room.Floor, room.Area, room.RoomType);
+            roomList.control.CreateRoom(room);
             roomList.Load();
             this.Close();
         }

@@ -21,17 +21,24 @@ namespace Bolnica.xaml_window.Manager
     {
         public RenovationList RenovationList;
         RenovationGeneral rg;
-        public Controller.RenovationController renovationController;
+        public Controller.BasicRenovationController renovationController;
         public RenovationAdd(RenovationList renovationList)
         {
             InitializeComponent();
             this.RenovationList = renovationList;
             renovationController = RenovationList.renovationController;
         }
+        public RenovationAdd()
+        {
+            InitializeComponent();
+        }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            
+            if(RenovationList == null)
+            {
+                RenovationList = new RenovationList();
+            }
             RenovationList.Show();
             this.Close();
         }
@@ -41,6 +48,20 @@ namespace Bolnica.xaml_window.Manager
             rg = new RenovationGeneral(this);
             rg.Show();
             this.Hide();
+        }
+
+        private void Button_Click_Merging(object sender, RoutedEventArgs e)
+        {
+            var renovation_merging = new RenovationMerging();
+            renovation_merging.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Division(object sender, RoutedEventArgs e)
+        {
+            var renovation_division = new RenovationSeparation();
+            renovation_division.Show();
+            this.Close();
         }
     }
 }

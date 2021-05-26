@@ -55,68 +55,88 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\AllergenController.cs" />
     <Compile Include="Controller\AnamnesisController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\DrugController.cs" />
     <Compile Include="Controller\DynamicEquipmentController.cs" />
     <Compile Include="Controller\ExaminationController.cs" />
+    <Compile Include="Controller\InstructionsForHospitalTreatmentController.cs" />
     <Compile Include="Controller\ManagerController.cs" />
     <Compile Include="Controller\MedicalRecordController.cs" />
     <Compile Include="Controller\NotificationController.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PrescriptionController.cs" />
     <Compile Include="Controller\RelocationController.cs" />
+    <Compile Include="Controller\BasicRenovationController.cs" />
     <Compile Include="Controller\RenovationController.cs" />
     <Compile Include="Controller\RoomController.cs" />
+    <Compile Include="Controller\RoomMergingController.cs" />
+    <Compile Include="Controller\RoomSeparationController.cs" />
     <Compile Include="Controller\SecretaryController.cs" />
-    <Compile Include="Controller\SpecialisticExaminationController.cs" />
+    <Compile Include="Controller\InstrucitonsForSpecialisticExaminationController.cs" />
     <Compile Include="Controller\StaticEquipmentController.cs" />
     <Compile Include="Controller\TherapyController.cs" />
+    <Compile Include="Model\Allergen.cs" />
     <Compile Include="Model\Anamnesis.cs" />
+    <Compile Include="Model\BasicRenovation.cs" />
     <Compile Include="Model\Drug.cs" />
     <Compile Include="Model\DynamicEquipment.cs" />
     <Compile Include="Model\GuestUser.cs" />
+    <Compile Include="Model\InstructionsForHospitalTreatment.cs" />
     <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\Relocation.cs" />
     <Compile Include="Model\Renovation.cs" />
-    <Compile Include="Model\SpecialistExamination.cs" />
+    <Compile Include="Model\RoomMerging.cs" />
+    <Compile Include="Model\RoomSeparation.cs" />
+    <Compile Include="Model\InstrucitonsForSpecialistExamination.cs" />
     <Compile Include="Model\StaticEquipment.cs" />
     <Compile Include="Model\Therapy.cs" />
     <Compile Include="Model\TypeOfApprovedDrug.cs" />
+    <Compile Include="Repository\AllergenRepository.cs" />
     <Compile Include="Repository\AnamnesisRepository.cs" />
     <Compile Include="Repository\DoctorRepository.cs" />
     <Compile Include="Repository\DrugRepository.cs" />
     <Compile Include="Repository\DynamicEquipmentRepository.cs" />
     <Compile Include="Repository\ExaminationRepository.cs" />
     <Compile Include="Repository\GuestUserRepository.cs" />
+    <Compile Include="Repository\InstructionsForHospitalTreatmentRepository.cs" />
     <Compile Include="Repository\ManagerRepository.cs" />
     <Compile Include="Repository\MedicalRecordRepository.cs" />
     <Compile Include="Repository\NotificationRepository.cs" />
     <Compile Include="Repository\PatientRepository.cs" />
     <Compile Include="Repository\PrescriptionRepository.cs" />
     <Compile Include="Repository\RelocationRepository.cs" />
+    <Compile Include="Repository\BasicRenovationRepository.cs" />
     <Compile Include="Repository\RenovationRepository.cs" />
+    <Compile Include="Repository\RoomMergingRepository.cs" />
     <Compile Include="Repository\RoomRepository.cs" />
+    <Compile Include="Repository\RoomSeparationRepository.cs" />
     <Compile Include="Repository\SecretaryRepository.cs" />
-    <Compile Include="Repository\SpecialisticExaminationRepository.cs" />
+    <Compile Include="Repository\InstrucitonsForSpecialisticExaminationRepository.cs" />
     <Compile Include="Repository\StaticEquipmentRepository.cs" />
     <Compile Include="Repository\TherapyRepository.cs" />
+    <Compile Include="Service\AllergenService.cs" />
     <Compile Include="Service\AnamnesisService.cs" />
     <Compile Include="Service\DoctorService.cs" />
     <Compile Include="Service\DrugService.cs" />
     <Compile Include="Service\DynamicEquipmentService.cs" />
     <Compile Include="Service\ExaminationService.cs" />
+    <Compile Include="Service\InstructionsForHospitalTreatmentService.cs" />
     <Compile Include="Service\ManagerService.cs" />
     <Compile Include="Service\MedicalRecordService.cs" />
     <Compile Include="Service\NotificationService.cs" />
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Service\PrescriptionService.cs" />
     <Compile Include="Service\RelocationService.cs" />
+    <Compile Include="Service\BasicRenovationService.cs" />
     <Compile Include="Service\RenovationService.cs" />
+    <Compile Include="Service\RoomMergingService.cs" />
+    <Compile Include="Service\RoomSeparationService.cs" />
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\SecretaryService.cs" />
-    <Compile Include="Service\SpecialisticExaminationService.cs" />
+    <Compile Include="Service\InstrucitonsForSpecialisticExaminationService.cs" />
     <Compile Include="Service\StaticEquipmentService.cs" />
     <Compile Include="Service\TherapyService.cs" />
     <Compile Include="xaml_window\Doctor\AnamnesisCreate.xaml.cs">
@@ -164,14 +184,23 @@
     <Compile Include="xaml_window\Doctor\ExaminationUpdate.xaml.cs">
       <DependentUpon>ExaminationUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Doctor\HospitalTreatmantEdit.xaml.cs">
+      <DependentUpon>HospitalTreatmantEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\HospitalTreatment.xaml.cs">
+      <DependentUpon>HospitalTreatment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\InstructionsForHospitalTreatment.xaml.cs">
+      <DependentUpon>InstructionsForHospitalTreatment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Doctor\LoginDoctor.xaml.cs">
       <DependentUpon>LoginDoctor.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Doctor\MedicalRecordDoctor.xaml.cs">
       <DependentUpon>MedicalRecordDoctor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml_window\Doctor\SpeialistExamination.xaml.cs">
-      <DependentUpon>SpeialistExamination.xaml</DependentUpon>
+    <Compile Include="xaml_window\Doctor\InstrucitonsForSpecialistExamination.xaml.cs">
+      <DependentUpon>InstrucitonsForSpecialistExamination.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Manager\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
@@ -209,11 +238,20 @@
     <Compile Include="xaml_window\Manager\RenovationAdd.xaml.cs">
       <DependentUpon>RenovationAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Manager\RenovationSeparation.xaml.cs">
+      <DependentUpon>RenovationSeparation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\RenovationSeparationRoomAdd.xaml.cs">
+      <DependentUpon>RenovationSeparationRoomAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Manager\RenovationGeneral.xaml.cs">
       <DependentUpon>RenovationGeneral.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Manager\RenovationList.xaml.cs">
       <DependentUpon>RenovationList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\RenovationMerging.xaml.cs">
+      <DependentUpon>RenovationMerging.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Manager\RoomList.xaml.cs">
       <DependentUpon>RoomList.xaml</DependentUpon>
@@ -232,6 +270,9 @@
     </Compile>
     <Compile Include="xaml_window\Manager\UpdateRoom.xaml.cs">
       <DependentUpon>UpdateRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Patient\LoginPatient.xaml.cs">
       <DependentUpon>LoginPatient.xaml</DependentUpon>
@@ -317,6 +358,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Doctor\HospitalTreatmantEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\HospitalTreatment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\InstructionsForHospitalTreatment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Doctor\LoginDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -325,7 +378,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml_window\Doctor\SpeialistExamination.xaml">
+    <Page Include="xaml_window\Doctor\InstrucitonsForSpecialistExamination.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -377,11 +430,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Manager\RenovationSeparation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\RenovationSeparationRoomAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Manager\RenovationGeneral.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml_window\Manager\RenovationList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\RenovationMerging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -406,6 +471,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml_window\Manager\UpdateRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

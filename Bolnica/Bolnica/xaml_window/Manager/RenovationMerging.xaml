@@ -1,0 +1,88 @@
+﻿<Window x:Class="Bolnica.xaml_window.Manager.RenovationMerging"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
+        mc:Ignorable="d"
+        Title="RenovationMerging" Height="550" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="600" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Spajanje sala</Label>
+        </Border>
+
+        <Label Grid.Row="1" HorizontalAlignment="Left" Margin="20,10,0,0" Width="100" Height="25" VerticalAlignment="Top" FontWeight="Bold">Izaberite salu:</Label>
+        <ComboBox Name="cbRooms" HorizontalAlignment="Right" Width="100" Margin="20,10,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" />
+        <Button Name="btMerge" Grid.Column="1" Grid.Row="1" Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Click="btMerge_Click">Dodaj za spajanje</Button>
+
+        
+        <ListView Grid.Row="1" Grid.Column="2"  Height="120"  Margin="10,0,10,0" Name="lvDataBindingRooms">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID prostorije" 
+                                    Width="90" DisplayMemberBinding="{Binding RoomId}"/>
+                    <GridViewColumn Header="Opis prostorije" DisplayMemberBinding="{Binding Description}"
+                                    Width="90"/>
+                    <GridViewColumn Header="Sprat" DisplayMemberBinding="{Binding Floor}" 
+                                    Width="90"/>
+                    <GridViewColumn Header="Kvadratura"  DisplayMemberBinding="{Binding Area}"
+                                    Width="90"/>
+                    <GridViewColumn Header="Tip prostorije" DisplayMemberBinding="{Binding RoomType}"
+                                    Width="90"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Width="100" Height="20" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" Click="Button_Click">Odbaci</Button>
+
+
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Margin="20,0,0,0" Height="150" Orientation="Vertical" Grid.ColumnSpan="2" Background="#FFFFE2DE">
+            <StackPanel Orientation="Horizontal">
+                <Label Grid.Row="1" Margin="0,10,20,10" HorizontalAlignment="Left" FontWeight="Bold"  >ID:</Label>
+                <Label Grid.Row="1" Grid.Column="0"  Width="100" HorizontalAlignment="Right" Margin="130,0,0,0" Height="25"  Name="lbuID"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Grid.Row="1" Margin="0,10,20,10" HorizontalAlignment="Left"  FontWeight="Bold" >Unesite opis:</Label>
+                <TextBox Grid.Row="1" Grid.Column="0" Width="100" Height="25" HorizontalAlignment="Right"  Margin="75,10,0,10" Name="tbuDescription" />
+                <Label Grid.Row="5" Margin="20,10,10,0" FontWeight="Bold" HorizontalAlignment="Center" >Unesite tip sobe:</Label>
+                <ComboBox Name="cbRoomType" HorizontalAlignment="Center" Width="100"  Grid.Row="5" Grid.Column="1" Margin="25,10,10,10"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Grid.Row="2" Margin="0,10,20,10" HorizontalAlignment="Left" FontWeight="Bold" >Površina:</Label>
+                <Label Grid.Row="2" Grid.Column="0" Width="100" Margin="95,10,0,0" Height="25"  Name="lbArea" />
+                <Label Grid.Row="2" Margin="20,10,20,10" HorizontalAlignment="Left"  FontWeight="Bold" >Sprat:</Label>
+                <Label Name="lbuFloor" Width="100" Height="25" Margin="80,0,0,0" Grid.Row="4"  Grid.Column="1">
+                </Label>
+            </StackPanel>
+            
+        
+         </StackPanel>
+        
+        <Label Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20" FontWeight="Bold" >Izaberite datum početka:</Label>
+        <DatePicker Name="dpDateRenovationStart" HorizontalAlignment="Right" Width="100" Margin="20,0,0,20" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0"></DatePicker>
+        <Label Grid.Row="2" Grid.Column="1"  FontWeight="Bold" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom"  >Izaberite vreme:</Label>
+        <TextBox  HorizontalAlignment="Right" Width="100" Margin="0,0,40,20" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="1" Name="tbStartTime" />
+        
+        <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,20" FontWeight="Bold" >Izaberite datum kraja:</Label>
+        <DatePicker Name="dpDateRenovationEnd" HorizontalAlignment="Right" Width="100" Margin="20,10,0,20" VerticalAlignment="Top" Grid.Row="3" Grid.Column="0"></DatePicker>
+        <Label Grid.Row="3" Grid.Column="1"  FontWeight="Bold" HorizontalAlignment="Left" Margin="20,5,0,20" VerticalAlignment="Top" >Izaberite vreme:</Label>
+        <TextBox  HorizontalAlignment="Right" Width="100" Margin="0,10,40,0" VerticalAlignment="Top" Grid.Row="3" Grid.Column="1" Name="tbEndTime"  />
+
+        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Background="#FFE23838" Foreground="White" Click="Button_Click_Ok">Zakaži</Button>
+        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" Background="#FFE23838" Click="Button_Click_Cancel" Foreground="White">Odustani</Button>
+
+    </Grid>
+</Window>

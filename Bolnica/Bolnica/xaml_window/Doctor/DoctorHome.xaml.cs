@@ -114,5 +114,17 @@ namespace Bolnica.xaml_window.Doctor
                 }
             }
         }
+
+        private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListViewItem_Selected_hospital(object sender, RoutedEventArgs e)
+        {
+            var hospital_treatment = new HospitalTreatment();
+            hospital_treatment.Show();
+            this.Close();
+        }
     }
 }

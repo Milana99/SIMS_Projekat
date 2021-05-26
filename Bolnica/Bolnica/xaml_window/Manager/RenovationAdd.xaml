@@ -24,7 +24,7 @@
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Tipovi renoviranja</Label>
         </Border>
         <Button Width="220" Height="60" Grid.Row="1" Grid.Column="1" FontSize="20" Click="Button_Click_General">Osnovno renoviranje</Button>
-        <Button Width="220" Height="60" Grid.Row="2" Grid.Column="1" FontSize="20">Spajanje sala</Button>
-        <Button Width="220" Height="60" Grid.Row="3" Grid.Column="1" FontSize="20">Deljenje sala</Button>
+        <Button Width="220" Height="60" Grid.Row="2" Grid.Column="1" FontSize="20" Click="Button_Click_Merging">Spajanje sala</Button>
+        <Button Width="220" Height="60" Grid.Row="3" Grid.Column="1" FontSize="20" Click="Button_Click_Division">Deljenje sala</Button>
     </Grid>
 </Window>

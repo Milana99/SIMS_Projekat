@@ -52,10 +52,10 @@
 
 
                 <ListView Margin="0,40,0,0" Background="#FF717171" BorderThickness="0,0,0,0">
-                    <ListViewItem Background="#FF383838" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,2,0,2">Radni kalendar</ListViewItem>
+                    <ListViewItem Background="#FF383838" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,2,0,2" Selected="ListViewItem_Selected_1">Radni kalendar</ListViewItem>
                     <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2">Lista pacijenata</ListViewItem>
                     <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2" Selected="ListViewItem_Selected">Lista lekova</ListViewItem>
-                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2">Lista pacijenata</ListViewItem>
+                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2" Selected="ListViewItem_Selected_hospital">Bolničko lečenje</ListViewItem>
                     <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2">Lista pacijenata</ListViewItem>
                 </ListView>
                 <Button Grid.Column="5" Grid.Row="0" Width="100" Height="40" Background="White" Foreground="Black" Margin="0,70,0,0" Click="Doctor_Logout" BorderBrush="#FF4D4D4D" BorderThickness="1,1,2,2">Odjavi se</Button>

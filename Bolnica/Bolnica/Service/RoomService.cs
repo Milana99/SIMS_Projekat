@@ -14,6 +14,11 @@ namespace Bolnica.Service
         {
             return roomRepository.LoadRoom();
         }
+
+        public int getNextId()
+        {
+           return roomRepository.getNextId();
+        }
       
       public Model.Room GetByIdRoom(int roomId)
       {
@@ -28,10 +33,9 @@ namespace Bolnica.Service
          return null;
       }
       
-      public void CreateRoom(int roomId, String description, int floor, double area, Model.RoomType roomType)
+      public void CreateRoom(Model.Room newRoom)
       {
             List<Model.Room> rooms = GetAllRooms();
-            Model.Room newRoom = new Model.Room(roomId, description, floor, area, roomType);
             rooms.Add(newRoom);
             roomRepository.SaveRoom(rooms);
         }
