@@ -199,8 +199,8 @@
     <Compile Include="xaml_window\Doctor\MedicalRecordDoctor.xaml.cs">
       <DependentUpon>MedicalRecordDoctor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml_window\Doctor\SpeialistExamination.xaml.cs">
-      <DependentUpon>SpeialistExamination.xaml</DependentUpon>
+    <Compile Include="xaml_window\Doctor\InstrucitonsForSpecialistExamination.xaml.cs">
+      <DependentUpon>InstrucitonsForSpecialistExamination.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Manager\CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
@@ -378,7 +378,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml_window\Doctor\SpeialistExamination.xaml">
+    <Page Include="xaml_window\Doctor\InstrucitonsForSpecialistExamination.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

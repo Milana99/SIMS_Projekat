@@ -15,9 +15,9 @@ namespace Bolnica.Repository
         {
             FileLocation = fileLocation;
         }
-        public List<InstrucitonsForSpecialistExamination> LoadSpecialisticExamination()
+        public List<InstructionsForSpecialistExamination> LoadSpecialisticExamination()
         {
-            List<Model.InstrucitonsForSpecialistExamination> specialistExaminations = new List<Model.InstrucitonsForSpecialistExamination>();
+            List<Model.InstructionsForSpecialistExamination> specialistExaminations = new List<Model.InstructionsForSpecialistExamination>();
             try
             {
                 String line;
@@ -27,7 +27,7 @@ namespace Bolnica.Repository
                 {
                     string[] words = line.Split(',');
 
-                    Model.InstrucitonsForSpecialistExamination Examination = new Model.InstrucitonsForSpecialistExamination(int.Parse(words[0]),
+                    Model.InstructionsForSpecialistExamination Examination = new Model.InstructionsForSpecialistExamination(int.Parse(words[0]),
                         words[1], words[2], words[3], words[4]);
 
                     specialistExaminations.Add(Examination);
@@ -53,13 +53,13 @@ namespace Bolnica.Repository
             return nextId;
         }
 
-        public void SaveSpecialisticExamination(List<InstrucitonsForSpecialistExamination> SpecalistExaminations)
+        public void SaveSpecialisticExamination(List<InstructionsForSpecialistExamination> SpecalistExaminations)
         {
             File.Delete(FileLocation);
             String line;
             List<String> lines = new List<String>();
 
-            foreach (Model.InstrucitonsForSpecialistExamination SpecialistExamination in SpecalistExaminations)
+            foreach (Model.InstructionsForSpecialistExamination SpecialistExamination in SpecalistExaminations)
             {
 
                 line = SpecialistExamination.SpecialistExaminationId.ToString() + "," + 

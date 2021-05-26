@@ -19,14 +19,14 @@ namespace Bolnica.Service
             return null;
         }
 
-        public List<InstrucitonsForSpecialistExamination> GetAllSpecialisticExamination()
+        public List<InstructionsForSpecialistExamination> GetAllSpecialisticExamination()
         {
             return specialisticExaminationRepository.LoadSpecialisticExamination();
         }
 
-        public void CreateSpecialisticExamination(Model.InstrucitonsForSpecialistExamination specialisticExamination)
+        public void CreateSpecialisticExamination(Model.InstructionsForSpecialistExamination specialisticExamination)
         {
-            List<InstrucitonsForSpecialistExamination> specialistExaminations = GetAllSpecialisticExamination();
+            List<InstructionsForSpecialistExamination> specialistExaminations = GetAllSpecialisticExamination();
             specialistExaminations.Add(specialisticExamination);
             specialisticExaminationRepository.SaveSpecialisticExamination(specialistExaminations);
 

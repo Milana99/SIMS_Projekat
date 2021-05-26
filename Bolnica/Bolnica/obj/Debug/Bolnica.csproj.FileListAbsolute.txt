@@ -88,8 +88,6 @@ C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\ob
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\DrugListForVerifyOne.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\DrugListVerify.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\DrugListVerifyEdit.baml
-C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\SpeialistExamination.g.cs
-C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\SpeialistExamination.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\DrugList.g.cs
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\DrugList.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\DrugCreate.g.cs
@@ -110,4 +108,6 @@ C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\ob
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\RenovationSeparation.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\RenovationSeparationRoomAdd.g.cs
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Manager\RenovationSeparationRoomAdd.baml
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\InstrucitonsForSpecialistExamination.g.cs
+C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\xaml_window\Doctor\InstrucitonsForSpecialistExamination.baml
 C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\obj\Debug\Bolnica.csprojAssemblyReference.cache

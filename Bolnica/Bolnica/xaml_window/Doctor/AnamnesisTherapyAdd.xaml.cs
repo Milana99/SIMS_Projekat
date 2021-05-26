@@ -75,5 +75,18 @@ namespace Bolnica.xaml_window.Doctor
             
             this.Close();
         }
+
+        private void cbDrugAdd_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Controller.AllergenController allergenController = new Controller.AllergenController();
+            List<Model.Allergen> PatientAllergens = allergenController.GetAllergensForPatient(mrd.lbuUsernamePatient.Content.ToString());
+            foreach(Model.Allergen allergen in PatientAllergens)
+            {
+                if(allergen.getDrug() == cbDrugAdd.SelectedItem.ToString())
+                {
+                    MessageBox.Show("Korisnik je alergican na izabrani lek");
+                }
+            }
+        }
     }
 }

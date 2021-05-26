@@ -10,36 +10,45 @@ using Bolnica.Model;
 
 namespace Bolnica.Controller
 {
-   public class AllergenController
-   {
-      public Allergen GetOneAllergen(int allergenId)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public List<Allergen> GetAllAllergen()
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public void CreateAllergen(Allergen allergen)
-      {
-         // TODO: implement
-      }
-      
-      public void DeleteAllergen(int allergenId)
-      {
-         // TODO: implement
-      }
-      
-      public void UpdateAllergen(Allergen allergen)
-      {
-         // TODO: implement
-      }
-   
-      public Bolnica.Service.AllergenService allergenService;
-   
-   }
+    public class AllergenController
+    {
+        private Service.AllergenService allergenService;
+        public AllergenController()
+        {
+            allergenService = new Service.AllergenService();
+        }
+        public Allergen GetOneAllergen(int allergenId)
+        {
+            return allergenService.GetOneAllergen(allergenId);
+        }
+
+        public List<Allergen> GetAllAllergen()
+        {
+            return allergenService.GetAllAllergen();
+        }
+
+        public void CreateAllergen(Allergen allergen)
+        {
+            allergenService.CreateAllergen(allergen);
+        }
+
+        public void DeleteAllergen(int allergenId)
+        {
+            allergenService.DeleteAllergen(allergenId);
+        }
+
+        public void UpdateAllergen(Allergen allergen)
+        {
+            allergenService.UpdateAllergen(allergen);
+        }
+        public List<Allergen> GetAllergensForPatient(String PatientUserName)
+        {
+            return allergenService.GetAllergensForPatient(PatientUserName);
+        }
+        public int getNextId()
+        {
+            return allergenService.getNextId();
+        }
+
+    }
 }

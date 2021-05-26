@@ -17,12 +17,13 @@ namespace Bolnica.Controller
             return null;
         }
 
-        public List<InstrucitonsForSpecialistExamination> GetAllSpecialisticExamination()
+        public List<Model.InstructionsForSpecialistExamination> GetAllSpecialisticExamination()
         {
-            return specialisticExaminationService.GetAllSpecialisticExamination();
+            List<Model.InstructionsForSpecialistExamination> instructions =  specialisticExaminationService.GetAllSpecialisticExamination();
+            return instructions;
         }
 
-        public void CreateSpecialisticExamination(Model.InstrucitonsForSpecialistExamination specialisticExamination)
+        public void CreateSpecialisticExamination(Model.InstructionsForSpecialistExamination specialisticExamination)
         {
             specialisticExaminationService.CreateSpecialisticExamination(specialisticExamination);
         }

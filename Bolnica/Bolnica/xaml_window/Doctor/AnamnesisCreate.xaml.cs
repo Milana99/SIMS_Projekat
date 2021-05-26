@@ -20,7 +20,7 @@ namespace Bolnica.xaml_window.Doctor
     public partial class AnamnesisCreate : Window
     {
         AnamnesisTherapyAdd ata;
-        MedicalRecordDoctor mrd;
+        public MedicalRecordDoctor mrd;
         public AnamnesisCreate(MedicalRecordDoctor m)
         {
             InitializeComponent();
