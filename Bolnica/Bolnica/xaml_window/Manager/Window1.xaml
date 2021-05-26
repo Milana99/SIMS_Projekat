@@ -1,0 +1,141 @@
+﻿<Window x:Class="Bolnica.xaml_window.Manager.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
+        mc:Ignorable="d"
+        Title="Window1" Height="550" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        
+
+        <StackPanel Grid.Row="0" Grid.RowSpan="11" Background="#FFFFF6F6">
+            
+            <Border Width="135" Height="95" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
+                <Border.Background>
+                    <ImageBrush ImageSource="Slike/User.png"/>
+                </Border.Background>
+            </Border>
+            
+            <Label Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Margin="0,0,0,20" >Radovan Radovanović</Label>
+
+            <StackPanel>
+                <Button Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,4,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF6F6">
+                    <StackPanel Orientation="Horizontal" >
+                        <Label FontSize="25" Background="red" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;"></Label>
+                        <Label Foreground="Red">Profil</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <Button Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF6F6" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label FontSize="25" Foreground="Red"  FontFamily="Segoe MDL2 Assets" Content="&#xF0E3;"></Label>
+                        <Label Foreground="Red">Lista lekova</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <Button Grid.Column="0" Grid.Row="4" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF6F6" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label FontSize="25" Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xECAA;"></Label>
+                        <Label Foreground="Red">Lista prostorija</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <Button Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF6F6"  >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label FontSize="25" Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE716;"></Label>
+                        <Label Foreground="Red">Lista doktora</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel> 
+
+            <StackPanel>
+                <Button Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF6F6"  >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label FontSize="25" Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE7B8;"></Label>
+                        <Label Foreground="Red">Lista inventara</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <Button Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF6F6"  >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label FontSize="25" Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xEA40;"></Label>
+                        <Label Foreground="Red">Zahtevi za odsustvo</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <Button Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF6F6"  >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label FontSize="25" Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xEA4A;"></Label>
+                        <Label Foreground="Red">Lista sekretara</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <Button Grid.Column="0" Margin="0,15,0,0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF6F6" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label FontSize="25" Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xF3B1;"></Label>
+                        <Label Foreground="Red">Odjavi se</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"  Background="#FFFFF6F6"></StackPanel>
+        <StackPanel Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"  Background="#FFFFF6F6"></StackPanel>
+
+
+        <Border  Grid.Column="1" Grid.Row="0" Grid.RowSpan="11" CornerRadius="20,0,0,20" Grid.ColumnSpan="2" Margin="0,30,0,30" Background="White">
+        </Border>
+
+        <Separator Background="Red" Grid.Row="1" Width="200" Margin="100,0,0,0" Grid.Column="2"></Separator>
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45">Profil</Label>
+        <Separator Background="Red" Grid.Row="1" Width="200" Margin="0,0,100,0" Grid.Column="1"></Separator>
+        <Label Grid.Row="3" Grid.Column="1" Margin="100,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">Korisničko ime:</Label>
+        <Label Grid.Row="3" Grid.Column="2" Margin="100,0,0,0" VerticalAlignment="Center"  FontSize="20">Username</Label>
+        <Label Grid.Row="4" Grid.Column="1" Margin="100,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">Ime:</Label>
+        <Label Grid.Row="4" Grid.Column="2" Margin="100,0,0,0" VerticalAlignment="Center"  FontSize="20">Ime</Label>
+        <Label Grid.Row="5" Grid.Column="1" Margin="100,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">Prezime:</Label>
+        <Label Grid.Row="5" Grid.Column="2" Margin="100,0,0,0" VerticalAlignment="Center"  FontSize="20">Prezime</Label>
+        <Label Grid.Row="6" Grid.Column="1" Margin="100,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">e-mail:</Label>
+        <Label Grid.Row="6" Grid.Column="2" Margin="100,0,0,0" VerticalAlignment="Center"  FontSize="20">e-mail</Label>
+        <Label Grid.Row="7" Grid.Column="1" Margin="100,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">Godina rodjenja:</Label>
+        <Label Grid.Row="7" Grid.Column="2" Margin="100,0,0,0" VerticalAlignment="Center" FontSize="20">Godina rodjenja</Label>
+        <Label Grid.Row="8" Grid.Column="1" Margin="100,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">Jmbg:</Label>
+        <Label Grid.Row="8" Grid.Column="2" Margin="100,0,0,0" VerticalAlignment="Center"  FontSize="20">Jmbg</Label>
+
+
+        <Button Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2" Foreground="White" Width="200" BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646"  FontSize="20" >
+            <StackPanel Orientation="Horizontal" >
+                <Label FontSize="25" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;"></Label>
+                <Label Foreground="White">Izmeni profil</Label>
+            </StackPanel>
+        </Button>
+        
+    </Grid>
+</Window>

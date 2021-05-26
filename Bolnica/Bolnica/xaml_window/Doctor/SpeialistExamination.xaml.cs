@@ -21,14 +21,14 @@ namespace Bolnica.xaml_window.Doctor
     public partial class SpeialistExamination : Window
     {
         MedicalRecordDoctor MedicalRecordDoctor;
-        public Controller.SpecialisticExaminationController SpecialisticExaminationController;
+        public Controller.InstrucitonsForSpecialisticExaminationController SpecialisticExaminationController;
         public SpeialistExamination(MedicalRecordDoctor medicalRecord)
         {
             InitializeComponent();
             MedicalRecordDoctor = medicalRecord;
             LoadSpecialist();
             lblPatientsName.Content = MedicalRecordDoctor.lbuUsernamePatient.Content;
-            SpecialisticExaminationController = new Controller.SpecialisticExaminationController();
+            SpecialisticExaminationController = new Controller.InstrucitonsForSpecialisticExaminationController();
         }
 
         
@@ -41,9 +41,9 @@ namespace Bolnica.xaml_window.Doctor
             cbSpecialist.Items.Add("Primarijus");
         }
 
-        public Model.SpecialistExamination CreateSpecialistExamination()
+        public Model.InstrucitonsForSpecialistExamination CreateSpecialistExamination()
         {
-            Model.SpecialistExamination specialistExamination = new Model.SpecialistExamination(SpecialisticExaminationController.specialisticExaminationService.specialisticExaminationRepository.getNextId(),
+            Model.InstrucitonsForSpecialistExamination specialistExamination = new Model.InstrucitonsForSpecialistExamination(SpecialisticExaminationController.specialisticExaminationService.specialisticExaminationRepository.getNextId(),
                 cbSpecialist.Text.ToString() , lblDoctorsName.Content.ToString(), lblPatientsName.Content.ToString(), tbComment.Text.ToString());
             return specialistExamination;
         }
@@ -55,7 +55,7 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Model.SpecialistExamination specialistExamination = CreateSpecialistExamination();
+            Model.InstrucitonsForSpecialistExamination specialistExamination = CreateSpecialistExamination();
             SpecialisticExaminationController.CreateSpecialisticExamination(specialistExamination);
             this.Close();
 

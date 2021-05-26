@@ -44,9 +44,9 @@ namespace Bolnica.Service
         }
         public Boolean IsRoomFreeRenovations(DateTime newStartTime, DateTime newEndTime, int roomId)
         {
-            Controller.RenovationController renovationController = new Controller.RenovationController();
-            List<Model.Renovation> renovations = renovationController.GetAllRenovations();
-            foreach (Renovation renovation in renovations)
+            Controller.BasicRenovationController renovationController = new Controller.BasicRenovationController();
+            List<Model.BasicRenovation> renovations = renovationController.GetAllRenovations();
+            foreach (BasicRenovation renovation in renovations)
             {
                 //if(((ex.StartTime<=newTime1) && (ex.EndTime>newTime1)) || ((ex.StartTime<newTime2)&&(ex.EndTime>=newTime2)))
                 int start1 = DateTime.Compare(renovation.StartTime, newStartTime);

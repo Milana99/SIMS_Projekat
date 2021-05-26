@@ -1,0 +1,97 @@
+﻿<Window x:Class="Bolnica.xaml_window.Manager.RenovationSeparationRoomAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
+        mc:Ignorable="d"
+        Title="RenovationDivisionRoomAdd" Height="550" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="600">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Dodavanje sobe</Label>
+        </Border>
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Margin="20,0,20,0" Height="150" Orientation="Vertical" Grid.ColumnSpan="2">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFF9F9" Offset="0"/>
+                    <GradientStop Color="#FFFFE2DE" Offset="0.853"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,265,0">
+                <Label Grid.Row="1" Margin="0,10,0,10" HorizontalAlignment="Left" FontWeight="Bold"  >ID:</Label>
+                <Label Grid.Row="1" Grid.Column="0"  Width="100" HorizontalAlignment="Right" Margin="155,0,0,0" Height="25"  Name="lbuID"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Grid.Row="1" Margin="0,10,20,10" HorizontalAlignment="Left"  FontWeight="Bold" >Unesite opis:</Label>
+                <TextBox Grid.Row="1" Grid.Column="0" Width="100" Height="25" HorizontalAlignment="Right"  Margin="75,10,0,10" Name="tbuDescription" />
+                <Label Grid.Row="5" Margin="20,10,10,0" FontWeight="Bold" HorizontalAlignment="Center" >Unesite tip sobe:</Label>
+                <ComboBox Name="cbRoomType" HorizontalAlignment="Center" Width="100"  Grid.Row="5" Grid.Column="1" Margin="25,10,10,10"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Grid.Row="2" Margin="0,10,20,10" HorizontalAlignment="Left" FontWeight="Bold" >Površina:</Label>
+                <TextBox Grid.Row="2" Grid.Column="0" Width="100" Margin="95,10,0,0" Height="25"  Name="tbuArea" />
+                <Label Grid.Row="2" Margin="20,10,20,10" HorizontalAlignment="Left"  FontWeight="Bold" >Sprat:</Label>
+                <Label Name="lbuFloor" Width="100" Height="25" Margin="80,0,0,0" Grid.Row="4"  Grid.Column="1">
+                </Label>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label  FontSize="20">Inventar sobe</Label>
+            <Label Name="oldRoom" FontSize="20"></Label>
+        </StackPanel>
+        <ListView Grid.Row="3" Grid.Column="0" Grid.RowSpan="2"   Margin="70,40,80,0" Name="lvDataBindingStaticEqOldRoom">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID inventara" 
+                                    Width="Auto" DisplayMemberBinding="{Binding StaticEquipmentId}"/>
+                    <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding NameStaticEquipment}"
+                                    Width="Auto"/>
+                    <GridViewColumn Header="Opis" DisplayMemberBinding="{Binding DescriptionStaticEquipment}" 
+                                    Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.RowSpan="2" Margin="0,40,0,0" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="140">
+            <Button Margin="0,0,0,20">Premesti u novu sobu--></Button>
+            <Button>&lt;--Vrati u staru sobu</Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label  FontSize="20">Inventar sobe</Label>
+            <Label Name="newRoom" FontSize="20"></Label>
+        </StackPanel>
+        <ListView Grid.Row="3" Grid.Column="1" Grid.RowSpan="2"   Margin="80,40,70,0" Name="lvDataBindingStaticEqNewRoom">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID inventara" 
+                                    Width="Auto" DisplayMemberBinding="{Binding StaticEquipmentId}"/>
+                    <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding NameStaticEquipment}"
+                                    Width="Auto"/>
+                    <GridViewColumn Header="Opis" DisplayMemberBinding="{Binding DescriptionStaticEquipment}" 
+                                    Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="0, 0, 90, 0" HorizontalAlignment="Right" Foreground="White" Click="Button_Click_Cancel">Odustani</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="0, 0, 0, 0" HorizontalAlignment="Center" Foreground="White" Click="Button_Click_Ok">Kreiraj</Button>
+
+    </Grid>
+</Window>

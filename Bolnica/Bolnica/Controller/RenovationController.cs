@@ -1,43 +1,45 @@
+/***********************************************************************
+ * Module:  RenovationService.cs
+ * Author:  pc
+ * Purpose: Definition of the Class Bolnica.Service.RenovationService
+ ***********************************************************************/
 
 using System;
 using System.Collections.Generic;
 using Bolnica.Model;
+
 namespace Bolnica.Controller
 {
    public class RenovationController
    {
-        public Service.RenovationService renovationService;
-
-        public RenovationController()
-        {
-            renovationService = new Service.RenovationService();
-        }
       public Renovation GetOneRenovation(int renovationId)
       {
-            return renovationService.GetOneRenovation(renovationId);
+         // TODO: implement
+         return null;
       }
       
       public List<Renovation> GetAllRenovations()
       {
-            return renovationService.GetAllRenovations();
+         // TODO: implement
+         return null;
       }
       
       public void CreateRenovation(Renovation renovation)
       {
-            renovationService.CreateRenovation(renovation);
+         // TODO: implement
       }
       
       public void DeleteRenovation(int renovationId)
       {
-            renovationService.DeleteRenovation(renovationId);
+         // TODO: implement
       }
       
       public void UpdateRenovation(Renovation renovation)
       {
-            renovationService.UpdateRenovation(renovation);
+         // TODO: implement
       }
    
-      
+      public Bolnica.Service.RenovationService renovationService;
    
    }
 }

@@ -6,18 +6,18 @@ using System.IO;
 
 namespace Bolnica.Repository
 {
-    public class SpecialisticExaminationRepository
+    public class InstrucitonsForSpecialisticExaminationRepository
     {
         private String FileLocation;
         public int nextId;
 
-        public SpecialisticExaminationRepository(string fileLocation)
+        public InstrucitonsForSpecialisticExaminationRepository(string fileLocation)
         {
             FileLocation = fileLocation;
         }
-        public List<SpecialistExamination> LoadSpecialisticExamination()
+        public List<InstrucitonsForSpecialistExamination> LoadSpecialisticExamination()
         {
-            List<Model.SpecialistExamination> specialistExaminations = new List<Model.SpecialistExamination>();
+            List<Model.InstrucitonsForSpecialistExamination> specialistExaminations = new List<Model.InstrucitonsForSpecialistExamination>();
             try
             {
                 String line;
@@ -27,7 +27,7 @@ namespace Bolnica.Repository
                 {
                     string[] words = line.Split(',');
 
-                    Model.SpecialistExamination Examination = new Model.SpecialistExamination(int.Parse(words[0]),
+                    Model.InstrucitonsForSpecialistExamination Examination = new Model.InstrucitonsForSpecialistExamination(int.Parse(words[0]),
                         words[1], words[2], words[3], words[4]);
 
                     specialistExaminations.Add(Examination);
@@ -53,13 +53,13 @@ namespace Bolnica.Repository
             return nextId;
         }
 
-        public void SaveSpecialisticExamination(List<SpecialistExamination> SpecalistExaminations)
+        public void SaveSpecialisticExamination(List<InstrucitonsForSpecialistExamination> SpecalistExaminations)
         {
             File.Delete(FileLocation);
             String line;
             List<String> lines = new List<String>();
 
-            foreach (Model.SpecialistExamination SpecialistExamination in SpecalistExaminations)
+            foreach (Model.InstrucitonsForSpecialistExamination SpecialistExamination in SpecalistExaminations)
             {
 
                 line = SpecialistExamination.SpecialistExaminationId.ToString() + "," + 

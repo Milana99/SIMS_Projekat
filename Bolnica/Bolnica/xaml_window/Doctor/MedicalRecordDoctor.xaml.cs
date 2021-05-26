@@ -118,5 +118,13 @@ namespace Bolnica.xaml_window.Doctor
             var specialist_examination = new SpeialistExamination(this);
             specialist_examination.Show(); 
         }
+
+        private void Button_Click_Instructions_For_Hospital_Treatment(object sender, RoutedEventArgs e)
+        {
+            var instructions_for_hospital_treatmant = new InstructionsForHospitalTreatment();
+            instructions_for_hospital_treatmant.lbPatient.Content = lbuUsernamePatient.Content;
+            instructions_for_hospital_treatmant.Show();
+           
+        }
     }
 }

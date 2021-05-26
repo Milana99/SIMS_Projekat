@@ -21,7 +21,7 @@ namespace Bolnica.xaml_window.Manager
     {
         RenovationAdd addRenovation;
         public Controller.RoomController roomController;
-        public Controller.RenovationController renovationController;
+        public Controller.BasicRenovationController renovationController;
         public RenovationGeneral(RenovationAdd renovationAdd)
         {
             InitializeComponent();
@@ -45,16 +45,16 @@ namespace Bolnica.xaml_window.Manager
             this.Close();
         }
 
-        private Model.Renovation CreateRenovation()
+        private Model.BasicRenovation CreateRenovation()
         {
-            Model.Renovation renovation = new Model.Renovation(renovationController.renovationService.renovationRepository.getNextRenovationId(),
+            Model.BasicRenovation renovation = new Model.BasicRenovation(renovationController.renovationService.renovationRepository.getNextRenovationId(),
                 int.Parse(cbRooms.Text), DateTime.Parse(dpDateRenovationStart.Text + " " + tbStartTime.Text), DateTime.Parse(dpDateRenovationEnd.Text + " " + tbEndTime.Text),
                 tbDescriptionRenovation.Text);
             return renovation;
         }
         private void Button_Click_OK(object sender, RoutedEventArgs e)
         {
-            Model.Renovation renovation = CreateRenovation();
+            Model.BasicRenovation renovation = CreateRenovation();
             if(renovationController.renovationService.IsRoomFree(renovation.StartTime, renovation.EndTime, renovation.room.RoomId))
             {
                 renovationController.CreateRenovation(renovation);
