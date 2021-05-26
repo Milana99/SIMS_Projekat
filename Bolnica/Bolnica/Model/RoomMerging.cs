@@ -14,8 +14,7 @@ namespace Bolnica.Model
       public Room[] RoomsForMerging;
 
         public Room newRoom { get; set; }
-        public List<Room> rooms;
-        
+        public List<Room> rooms;     
         public bool deleted { get; set; }
         public RoomMerging(int RenovationId, Room newRoom, List<Room> rooms, DateTime Start, DateTime End) : base(RenovationId, Start, End)
         {

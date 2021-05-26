@@ -20,9 +20,9 @@ namespace Bolnica.Controller
             return roomService.GetByIdRoom(roomId);
       }
       
-      public void CreateRoom(int roomId, String description, int floor, double area, Model.RoomType roomType)
+      public void CreateRoom(Model.Room newRoom)
       {
-            roomService.CreateRoom(roomId, description, floor, area, roomType);
+            roomService.CreateRoom(newRoom);
       }
       
       public void DeleteRoom(int roomId)

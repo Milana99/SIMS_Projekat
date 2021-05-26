@@ -26,6 +26,8 @@ namespace Bolnica.xaml_window.Manager
             roomController = new Controller.RoomController();
             loadRooms();
             loadRoomTypes();
+            lbuID.Content = roomController.roomService.roomRepository.next_roomID;
+            roomController.roomService.roomRepository.next_roomID++;
         }
 
         public void loadRoomTypes()
@@ -41,9 +43,33 @@ namespace Bolnica.xaml_window.Manager
             {
                 cbRooms.Items.Add(room.RoomId);
             }
+            
+        }
+        public void LoadEquipmentFromRoom(int roomId)
+        {
+            Controller.StaticEquipmentController equipmentController = new Controller.StaticEquipmentController();
+            equipmentController.changeRoomFromRoom(int.Parse(lbuID.Content.ToString()), roomId);
+        }
+        public void CreateRoom()
+        {
+            Model.Room room = new Model.Room(int.Parse(lbuID.Content.ToString()), tbuDescription.Text,
+                int.Parse(lbuFloor.Content.ToString()), double.Parse(lbArea.Content.ToString()), 
+                (Model.RoomType)Enum.Parse(typeof(Model.RoomType), cbRoomType.Text));
+            roomController.CreateRoom(room);
+        }
+        private void deleteAllRooms()
+        {
+            for (int i = 0; i < lvDataBindingRooms.Items.Count; i++)
+            {
+                Model.Room room = (Model.Room)lvDataBindingRooms.Items[i];
+                LoadEquipmentFromRoom(room.RoomId);
+                roomController.DeleteRoom(room.RoomId);
+            }
         }
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
+            CreateRoom();
+            deleteAllRooms();
             var renovation_add = new RenovationAdd();
             renovation_add.Show();
             this.Close();

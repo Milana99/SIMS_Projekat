@@ -35,7 +35,10 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            
+            if(RenovationList == null)
+            {
+                RenovationList = new RenovationList();
+            }
             RenovationList.Show();
             this.Close();
         }

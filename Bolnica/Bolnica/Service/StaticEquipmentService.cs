@@ -95,7 +95,19 @@ namespace Bolnica.Service
             }
             return RoomEquipments;
         }
-   
+        
+        public void changeRoomFromRoom(int newRoomId, int oldRoomId)
+        {
+            List<Model.StaticEquipment> equipments = GetAllEquipment();
+            foreach(Model.StaticEquipment equipment in equipments)
+            {
+                if(equipment.roomStaticEquipment.RoomId == oldRoomId)
+                {
+                    equipment.ChangeRoom(newRoomId);
+                }
+            }
+            staticEquipmentRepository.SaveStaticEquipment(equipments);
+        }
  
    
    }

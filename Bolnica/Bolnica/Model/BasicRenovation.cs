@@ -12,9 +12,6 @@ namespace Bolnica.Model
    {
         public Room room { get; set; }
         public String RenovationDescription { get; set; }
-
-
-
         public BasicRenovation(int RenovationId, int RoomId, DateTime Start, DateTime End, String Description):base(RenovationId,Start,End)
         {
             RenovationDescription = Description;

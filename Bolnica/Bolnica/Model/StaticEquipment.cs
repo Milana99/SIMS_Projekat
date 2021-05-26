@@ -25,6 +25,9 @@ namespace Bolnica.Model
         {
             deleted = true;
         }
-
+        public void ChangeRoom(int newRoom)
+        {
+            roomStaticEquipment = new Room(newRoom);
+        }
     }
 }

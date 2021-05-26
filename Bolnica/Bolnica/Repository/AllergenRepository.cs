@@ -41,7 +41,6 @@ namespace Bolnica.Repository
                     nextId = allergen.getAllergenId();
 
                 }
-                nextId++;
 
                 sr.Close();
             }
@@ -79,6 +78,7 @@ namespace Bolnica.Repository
         }
         public int getNextId()
         {
+            nextId++;
             return nextId;
         }
 
