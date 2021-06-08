@@ -31,10 +31,13 @@ namespace Bolnica.Controller
         {
             staticEquipmentService.DeleteStaticEquipment(staticEquipmentId);
         }
-
         public void UpdateStaticEquipment(int staticEquipmentId, String description, String name)
         {
             staticEquipmentService.UpdateStaticEquipment(staticEquipmentId, description, name);
+        }
+        public void UpdateStaticEquipment(int staticEquipmentId, String description, String name, bool free)
+        {
+            staticEquipmentService.UpdateStaticEquipment(staticEquipmentId, description, name, free);
         }
         public void ChangeRoom(int staticEquipmentId, int roomId)
         {

@@ -51,9 +51,13 @@
                 </DatePicker>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-
-                <Label Grid.Row="5" FontSize="15" Height="30" Width="150" FontWeight="Bold" HorizontalAlignment="Center">Izaberite sobu:</Label>
-                <ComboBox Name="cbuRoomStatic" Grid.Row="5" FontSize="15" Height="30" Width="150" Grid.Column="1"></ComboBox>
+                <Label Grid.Row="5" FontSize="15" Height="30" Width="150" FontWeight="Bold" HorizontalAlignment="Center">Izaberite vreme:</Label>
+                <TextBox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" FontSize="15" Height="30" Width="150" Name="tbTime"  VerticalAlignment="Center">
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                <Label FontSize="15" Height="30" Width="150" FontWeight="Bold" HorizontalAlignment="Center" Content="Izaberite sobu:"/>
+                <ComboBox x:Name="cbuRoomStatic" Grid.Row="6" FontSize="15" Height="30" Width="150" Grid.Column="1"/>
             </StackPanel>
         </StackPanel>
 

@@ -29,7 +29,7 @@ namespace Bolnica.Repository
                     string[] words = line.Split(',');
 
                     Model.StaticEquipment ste = new Model.StaticEquipment(int.Parse(words[0]), 
-                        words[1], words[2], int.Parse(words[3]));
+                        words[1], words[2], int.Parse(words[3]), bool.Parse(words[4]));
 
 
                     equipments.Add(ste);
@@ -64,7 +64,7 @@ namespace Bolnica.Repository
                 {
                     line = ste.StaticEquipmentId.ToString() + "," + ste.NameStaticEquipment + ","
                         + ste.DescriptionStaticEquipment + "," 
-                        + ste.roomStaticEquipment.RoomId.ToString();
+                        + ste.roomStaticEquipment.RoomId.ToString() +"," + ste.free.ToString();
                     
                     lines.Add(line);
                 }

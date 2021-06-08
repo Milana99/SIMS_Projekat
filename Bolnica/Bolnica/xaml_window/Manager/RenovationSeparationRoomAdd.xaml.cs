@@ -118,9 +118,20 @@ namespace Bolnica.xaml_window.Manager
                 renovationSeparation.lvDataBindingRooms.Items.Add(room);
                 ChangeArea();
                 moveStaticEquipment();
+                addRenovation();
                 renovationSeparation.Show();
+
                 this.Close();
             }
+        }
+        private void addRenovation()
+        {
+            Controller.BasicRenovationController controller = new Controller.BasicRenovationController();
+            controller.GetAllRenovations();
+            Model.BasicRenovation basicRenovation = new Model.BasicRenovation(controller.renovationService.renovationRepository.getNextRenovationId(),
+                int.Parse(lbuID.Content.ToString()), DateTime.Parse(renovationSeparation.dpDateRenovationStart.Text.ToString() + " " + renovationSeparation.tbStartTime.Text.ToString()),
+                DateTime.Parse(renovationSeparation.dpDateRenovationEnd.Text.ToString()+ " " + renovationSeparation.tbEndTime.Text.ToString()), "Create room");
+            controller.CreateRenovation(basicRenovation);
         }
         private void ChangeArea()
         {

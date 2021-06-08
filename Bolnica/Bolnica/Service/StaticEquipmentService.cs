@@ -50,14 +50,28 @@ namespace Bolnica.Service
                 }
             }
       }
-      
-      public void UpdateStaticEquipment(int staticEquipmentId, String description, String name)
+        public void UpdateStaticEquipment(int staticEquipmentId, String description, String name)
+        {
+            List<Model.StaticEquipment> equipments = GetAllEquipment();
+            foreach (Model.StaticEquipment ste in equipments)
+            {
+                if (ste.StaticEquipmentId == staticEquipmentId)
+                {
+                    ste.DescriptionStaticEquipment = description;
+                    ste.NameStaticEquipment = name;
+                    staticEquipmentRepository.SaveStaticEquipment(equipments);
+                    return;
+                }
+            }
+        }
+        public void UpdateStaticEquipment(int staticEquipmentId, String description, String name, bool free)
       {
             List<Model.StaticEquipment> equipments = GetAllEquipment();
             foreach (Model.StaticEquipment ste in equipments)
             {
                 if (ste.StaticEquipmentId == staticEquipmentId)
                 {
+                    ste.free = free;
                     ste.DescriptionStaticEquipment = description;
                     ste.NameStaticEquipment = name;
                     staticEquipmentRepository.SaveStaticEquipment(equipments);

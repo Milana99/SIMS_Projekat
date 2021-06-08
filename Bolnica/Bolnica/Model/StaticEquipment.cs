@@ -10,6 +10,8 @@ namespace Bolnica.Model
         public String DescriptionStaticEquipment { get; set; }
         public String NameStaticEquipment { get; set; }
 
+        public bool free;
+
         public Boolean deleted;
 
         public StaticEquipment(int id, String Name, String Description, int roomId)
@@ -18,6 +20,16 @@ namespace Bolnica.Model
             NameStaticEquipment = Name;
             DescriptionStaticEquipment = Description;
             roomStaticEquipment = new Room(roomId);
+            free = true;
+            deleted = false;
+        }
+        public StaticEquipment(int id, String Name, String Description, int roomId, bool free)
+        {
+            StaticEquipmentId = id;
+            NameStaticEquipment = Name;
+            DescriptionStaticEquipment = Description;
+            roomStaticEquipment = new Room(roomId);
+            this.free = free;
             deleted = false;
         }
 

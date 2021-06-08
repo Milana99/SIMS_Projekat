@@ -137,6 +137,7 @@ namespace Bolnica.xaml_window.Manager
             else
             {
                 CreateRoom();
+                createRenovation();
                 deleteAllRooms();
                 var renovation_add = new RenovationAdd();
                 renovation_add.Show();
@@ -144,6 +145,16 @@ namespace Bolnica.xaml_window.Manager
                 MessageBox.Show("Uspešno ste zakazali spajanje sala!", "Uspešno!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
+        }
+
+        private void createRenovation()
+        {
+            Controller.BasicRenovationController basicRenovationController = new Controller.BasicRenovationController();
+            basicRenovationController.GetAllRenovations();
+            Model.BasicRenovation basicRenovation = new Model.BasicRenovation(basicRenovationController.renovationService.renovationRepository.getNextRenovationId(),
+                int.Parse(lbuID.Content.ToString()), DateTime.Parse(dpDateRenovationStart.Text.ToString() + " " + tbStartTime.Text.ToString()),
+                DateTime.Parse(dpDateRenovationEnd.Text.ToString() + " " + tbEndTime.Text.ToString()), "Merging room");
+            basicRenovationController.CreateRenovation(basicRenovation);
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)

@@ -98,6 +98,12 @@ namespace Bolnica.xaml_window.Manager
         {
             if (int.Parse(lbArea.Content.ToString()) == 0)
             {
+                Controller.BasicRenovationController basicRenovationController = new Controller.BasicRenovationController();
+                basicRenovationController.GetAllRenovations();
+                Model.BasicRenovation basicRenovation = new Model.BasicRenovation(basicRenovationController.renovationService.renovationRepository.getNextRenovationId(),
+                    int.Parse(cbRooms.SelectedItem.ToString()), DateTime.Parse(dpDateRenovationStart.Text.ToString() + " " + tbStartTime.Text.ToString()),
+                    DateTime.Parse(dpDateRenovationEnd.Text.ToString() + " " + tbEndTime.Text.ToString()), "Separating room");
+                basicRenovationController.CreateRenovation(basicRenovation);
                 roomController.DeleteRoom(int.Parse(cbRooms.SelectedItem.ToString()));
             }
         }
