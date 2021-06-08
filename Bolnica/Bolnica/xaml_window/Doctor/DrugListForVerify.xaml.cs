@@ -43,7 +43,7 @@ namespace Bolnica.xaml_window.Doctor
         private void Button_Click_In(object sender, RoutedEventArgs e)
         {
             var dlfvo = new DrugListForVerifyOne(this);
-            dlfvo.Show();
+            dlfvo.ShowDialog();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)

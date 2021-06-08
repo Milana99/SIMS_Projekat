@@ -74,6 +74,7 @@ namespace Bolnica.xaml_window.Manager
         {
             sec = new StaticEquipmentCreate(this);
             sec.Show();
+            
         }
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
@@ -88,8 +89,8 @@ namespace Bolnica.xaml_window.Manager
             Model.StaticEquipment selected = (Model.StaticEquipment)lvDataBindingStaticEq.SelectedItems[0];
             seu = new StaticEquipmentUpdate(this);
             seu.lbuIDStaticEq.Content = selected.StaticEquipmentId;
-            seu.tbStaticDescription.Text = selected.DescriptionStaticEquipment;
-            seu.tbuName.Text = selected.NameStaticEquipment;
+            seu.Description = selected.DescriptionStaticEquipment;
+            seu.Namee = selected.NameStaticEquipment;
             seu.lbuRoomStatic.Content = selected.roomStaticEquipment.RoomId;
             seu.Show();
         }

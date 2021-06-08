@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
         mc:Ignorable="d"
-        Title="DoctorHome" Height="550" Width="900">
+        Title="Zdravo" Icon="Slike/heart.ico" Height="550" Width="900" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -24,56 +24,106 @@
             <ColumnDefinition Width="120"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-
         <Border Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="6" BorderBrush="#FF565656" BorderThickness="0,0,3,0" >
-            <StackPanel Grid.Row="0" Grid.ColumnSpan="5" Orientation="Vertical" Background="#FF717171" >
-                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
-                <Border Width="110" Height="72" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <Border.Background>
-                        <ImageBrush ImageSource="Slike/User.png"/>
-                    </Border.Background>
-                </Border>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="9" Direction="330" ShadowDepth="3" Opacity="1"></DropShadowEffect>
+            </Border.Effect>
+        </Border>
+
+        <Border Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="6" BorderBrush="#FF8B1616" BorderThickness="0,0,3,0" >
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="5" Orientation="Vertical" Background="#FFD44848" >
+                <StackPanel Orientation="Horizontal" Margin="10,30,0,0">
+                    <Border Width="80" Height="80" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Slike/us.png"/>
+                        </Border.Background>
+                        <Border.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="60"/>
+                            </Style>
+                        </Border.Resources>
+                    </Border>
                     <StackPanel Orientation="Vertical">
 
-                        <Label Grid.Column="1" Grid.Row="0" FontSize="25"  Name="Doctor_username" Width="Auto" Foreground="White">Ime Prezime</Label>
-                        <Label Grid.Column="1" Grid.Row="0" FontSize="15"  Name="Doctor_spec" Width="Auto" Foreground="White">Specijalizacija</Label>
+                        <Label Grid.Column="1" Grid.Row="0" FontSize="25"  Name="Doctor_username" Width="Auto" Foreground="White">Milana R.</Label>
+                        <Label Grid.Column="1" Grid.Row="0" FontSize="15"  Name="Doctor_spec" Width="Auto" Foreground="White" Margin="0,5,0,0">Neurohirurg</Label>
                     </StackPanel>
-                    <Button Width="30" Height="30" Grid.Column="2" Grid.Row="0" Margin="0, 0, 0, 35">
+                    <Button Width="30" Height="30" Grid.Column="2" Grid.Row="0" Margin="0, 0, 0, 40" FontSize="18" Foreground="White" BorderBrush="White" BorderThickness="1,1,1,1" Background="#FFD44848" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="20"/>
                             </Style>
                         </Button.Resources>
-                        <Button.Background>
-                            <ImageBrush ImageSource="Slike/edit.png"/>
-                        </Button.Background>
+
                     </Button>
                 </StackPanel>
 
 
-                <ListView Margin="0,40,0,0" Background="#FF717171" BorderThickness="0,0,0,0">
-                    <ListViewItem Background="#FF383838" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,2,0,2" Selected="ListViewItem_Selected_1">Radni kalendar</ListViewItem>
-                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2">Lista pacijenata</ListViewItem>
-                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2" Selected="ListViewItem_Selected">Lista lekova</ListViewItem>
-                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2" Selected="ListViewItem_Selected_hospital">Bolničko lečenje</ListViewItem>
-                    <ListViewItem Background="#FF717171" FontSize="20" Height="45" HorizontalContentAlignment="Center" Foreground="White" BorderBrush="#FF565656" BorderThickness="0,0,0,2">Lista pacijenata</ListViewItem>
+                <ListView Margin="0,40,0,0" Background="#FFD44848" BorderThickness="0,0,0,0">
+                    <ListViewItem Background="#FF8B1616" FontSize="20" Height="45" HorizontalContentAlignment="Left" Foreground="White" BorderBrush="#FF8B1616" BorderThickness="0,2,0,2" Selected="ListViewItem_Selected_1">
+                        <StackPanel Orientation="Horizontal" >
+                            <Label FontSize="25" Background="#FF8B1616" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xE787;" Margin="0,0,10,0"></Label>
+                            <Label Foreground="White">Radni kalendar</Label>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Background="#FFD44848" FontSize="20" Height="45" HorizontalContentAlignment="Left" Foreground="White" BorderBrush="#FF8B1616" BorderThickness="0,0,0,2">
+                        <StackPanel Orientation="Horizontal" >
+                            <Label FontSize="25" Background="#FFD44848" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xE768;" Margin="0,0,10,0"></Label>
+                            <Label Foreground="White">Demo</Label>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Background="#FFD44848" FontSize="20" Height="45" HorizontalContentAlignment="Left" Foreground="White" BorderBrush="#FF8B1616" BorderThickness="0,0,0,2" Selected="ListViewItem_Selected">
+                        <StackPanel Orientation="Horizontal" >
+                            <Label FontSize="25" Background="#FFD44848" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xE8FD;" Margin="0,0,10,0"></Label>
+                            <Label Foreground="White">Lista lekova</Label>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Background="#FFD44848" FontSize="20" Height="45" HorizontalContentAlignment="Left" Foreground="White" BorderBrush="#FF8B1616" BorderThickness="0,0,0,2" Selected="ListViewItem_Selected_hospital">
+                        <StackPanel Orientation="Horizontal" >
+                            <Label FontSize="25" Background="#FFD44848" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xE95E;" Margin="0,0,10,0"></Label>
+                            <Label Foreground="White">Bolničko lečenje</Label>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Background="#FFD44848" FontSize="20" Height="45" HorizontalContentAlignment="Left" Foreground="White" BorderBrush="#FF8B1616" BorderThickness="0,0,0,2" Selected="ListViewItem_Selected_2">
+                        <StackPanel Orientation="Horizontal" >
+                            <Label FontSize="25" Background="#FFD44848" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xF571;" Margin="0,0,10,0"></Label>
+                            <Label Foreground="White">Izveštaj o potrošnji lekova</Label>
+                        </StackPanel>
+                    </ListViewItem>
                 </ListView>
-                <Button Grid.Column="5" Grid.Row="0" Width="100" Height="40" Background="White" Foreground="Black" Margin="0,70,0,0" Click="Doctor_Logout" BorderBrush="#FF4D4D4D" BorderThickness="1,1,2,2">Odjavi se</Button>
+                <Button Grid.Column="5" Grid.Row="0" Width="120" Height="40" Background="#FFEDEDED" Foreground="Black" Margin="0,70,0,0" Click="Doctor_Logout" BorderBrush="#FF4D4D4D" BorderThickness="1,1,2,2" FontSize="15">
+                    <StackPanel Orientation="Horizontal" >
+                        <Label FontSize="25" Background="#FFEDEDED" Foreground="Black" FontFamily="Segoe MDL2 Assets" Content="&#xF3B1;" Margin="0,0,0,0"></Label>
+                        <Label Foreground="Black" FontSize="15">Odjavi se</Label>
+                    </StackPanel>
+                </Button>
 
             </StackPanel>
         </Border>
 
 
-
-
-
-
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Margin="0,0,0,40" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Separator Background="#FF929292" Width="100"></Separator>
-            <Label FontSize="45" Foreground="#FF717171" Margin="10,0,10,0">Radni kalendar</Label>
-            <Separator Background="#FF929292" Width="100"></Separator>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Margin="40,0,0,70" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Label FontSize="45" Foreground="#FF383838" Margin="0,0,0,0">Radni kalendar</Label>
+            <Border Background="#FFD44848" Width="200" Height="40" Margin="40,0,0,0">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="9" Direction="330" ShadowDepth="3" Opacity="1"></DropShadowEffect>
+                </Border.Effect>
+            </Border>
         </StackPanel>
-        <DatePicker Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Name="dpDate" Height="30" Width="150" Margin="40.333,10,94.333,44.667" SelectedDateChanged="dpDate_SelectedDateChanged"></DatePicker>
+        <Border Background="#FFD44848" Grid.Column="4" Width="30" Height="30" Margin="89,42,55.667,28" RenderTransformOrigin="0.5,0.5">
+            <Border.Effect>
+                <DropShadowEffect ></DropShadowEffect>
+            </Border.Effect>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="42.086"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <DatePicker Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Name="dpDate" Height="25" Width="150" Margin="0,0,50,30" SelectedDateChanged="dpDate_SelectedDateChanged"></DatePicker>
         <StackPanel Grid.Row="1" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="4" Margin="40,45,40,0">
             <ListView Name="lvDataBinding" Margin ="0, 0, 0, 0" Height="245">
                 <ListView.View>
@@ -84,7 +134,7 @@
                         <GridViewColumn Header="Kraj termina" DisplayMemberBinding="{Binding EndTime}" Width="Auto"></GridViewColumn>
                         <GridViewColumn Header="Pacijent" DisplayMemberBinding="{Binding patient.User.Username}" Width="Auto"/>
                         <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding room.RoomId}" Width="Auto"/>
-                        
+
                     </GridView>
                 </ListView.View>
                 <ListView.ItemTemplate>
@@ -94,15 +144,15 @@
                                 <TextBlock Text="{Binding ExaminationId}" FontWeight="Bold" />
                             </ListViewItem>
                             <TextBlock Text="{Binding StartTime}" FontWeight="Bold" />
-                            
+
                             <TextBlock Text="{Binding EndTime}" FontWeight="Bold" />
-                            
+
                             <TextBlock Text="{Binding doctor.User.Username}" FontWeight="Bold" />
-                            
+
                             <TextBlock Text="{Binding patient.User.Username}" FontWeight="Bold" />
-                            
+
                             <TextBlock Text="{Binding room}" FontWeight="Bold" />
-                           
+
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -110,15 +160,31 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.RowSpan="2"  Grid.Column="2" Margin="0,40,0,40" HorizontalAlignment="Center" Grid.ColumnSpan="4">
-            <Button  Background="#FF929292" Foreground="White" Height="40"  Width="90" Margin="0, 0, 0, 0" Click="Button_Click_Delete" BorderBrush="#FF565656" BorderThickness="1,1,2,2">Obriši</Button>
-            <Button  Background="#FF929292" Foreground="White" Height="40"  Width="90" Margin="30, 0, 0, 0" Click="Button_Click_Create" BorderBrush="#FF565656" BorderThickness="1,1,2,2">Kreiraj</Button>
-            <Button  Background="#FF929292" Foreground="White" Height="40"  Width="90" Margin="30, 0, 0, 0" Click="Button_Click_Patient" BorderBrush="#FF565656" BorderThickness="1,1,2,2">Pacijent</Button>
-            <Button  Background="#FF929292" Foreground="White" Height="40"  Width="90" Margin="30, 0, 0, 0" Click="Button_Click_Update" BorderBrush="#FF565656" BorderThickness="1,1,2,2">Izmeni</Button>
 
+            <Button  Background="#FFEDEDED" Foreground="#FF383838" Height="40"  Width="100"  Click="Button_Click_Delete" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Margin="0,0,0,0" FontSize="15" >
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="20"  FontFamily="Segoe MDL2 Assets" Content="&#xE74D;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="15" VerticalAlignment="Center">Obriši</Label>
+                </StackPanel> </Button>
+            <Button  Background="#FFEDEDED" Foreground="#FF383838" Height="40"  Width="100" Margin="36, 0, 0, 0" Click="Button_Click_Create" BorderBrush="#FF565656" BorderThickness="1,1,2,2"  FontSize="15">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="20"  FontFamily="Segoe MDL2 Assets" Content="&#xF7ED;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="15" VerticalAlignment="Center">Kreiraj</Label>
+                </StackPanel>
+            </Button>
+            <Button  Background="#FFEDEDED" Foreground="#FF383838" Height="40"  Width="100" Margin="30, 0, 0, 0" Click="Button_Click_Patient" BorderBrush="#FF565656" BorderThickness="1,1,2,2" FontSize="15">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="20"  FontFamily="Segoe MDL2 Assets" Content="&#xF0E3;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="15" VerticalAlignment="Center">Karton</Label>
+                </StackPanel>
+            </Button>
+            <Button  Background="#FFEDEDED" Foreground="#FF383838" Height="40"  Width="100" Margin="30, 0, 0, 0" Click="Button_Click_Update" BorderBrush="#FF565656" BorderThickness="1,1,2,2" FontSize="15">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="20"  FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="15" VerticalAlignment="Center">Izmeni</Label>
+                </StackPanel>
+            </Button>
         </StackPanel>
-            
-        
-        
-       
+
     </Grid>
 </Window>

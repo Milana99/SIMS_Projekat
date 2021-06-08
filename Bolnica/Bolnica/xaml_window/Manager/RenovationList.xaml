@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="RenovationList" Height="550" Width="900">
+        Title="RenovationList" Height="550" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -13,34 +13,108 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="47.333"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="10,10,0,0">Nazad</Button>
-        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="500" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Lista renovacije</Label>
+        <StackPanel Grid.Row="0" Grid.RowSpan="11" Background="#FFFFF0F0">
+
+            <Border Width="115" Height="75" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
+                <Border.Background>
+                    <ImageBrush ImageSource="Slike/User.png"/>
+                </Border.Background>
+            </Border>
+            <Label Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Margin="0,0,0,20" >Radovan Radovanović</Label>
+
+            <Button Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF0F0" Click="Button_Click_Profile" >
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25"  Foreground="Black" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;"></Label>
+                    <Label Foreground="Black">Profil</Label>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="#FFFB4646" Height="40" Click="Button_Click_Drug_List"  Background="#FFFFF0F0">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Foreground="Black"  FontFamily="Segoe MDL2 Assets" Content="&#xF0E3;"></Label>
+                    <Label Foreground="Black">Lista lekova</Label>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="4" HorizontalContentAlignment="Left" Padding="20,0,0,0" Click="Button_Click_Room_List" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF0F0" >
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Foreground="Black" FontFamily="Segoe MDL2 Assets" Content="&#xECAA;"></Label>
+                    <Label Foreground="Black">Lista prostorija</Label>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF0F0" Click="Button_Click_Report" >
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Foreground="Black" FontFamily="Segoe MDL2 Assets" Content="&#xE9F9;"></Label>
+                    <Label Foreground="Black">Izveštaj o zauzetosti sala</Label>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF0F0" Click="Button_Click_Equipment_List" >
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Foreground="Black" FontFamily="Segoe MDL2 Assets" Content="&#xE7B8;"></Label>
+                    <Label Foreground="Black">Lista inventara</Label>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFB4646" >
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Background="#FFFB4646" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xEA40;"></Label>
+                    <Label Foreground="White">Lista renovacija</Label>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF0F0" >
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Foreground="Black" FontFamily="Segoe MDL2 Assets" Content="&#xEA4A;"></Label>
+                    <Label Foreground="Black">Lista sekretara</Label>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="0" Margin="0,15,0,0" Grid.Row="5" HorizontalContentAlignment="Left" Padding="20,0,0,0" BorderThickness="0,0,0,0" FontSize="20" BorderBrush="Red" Height="40"   Background="#FFFFF0F0" Click="Logout_Manager" >
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Foreground="Black" FontFamily="Segoe MDL2 Assets" Content="&#xF3B1;"></Label>
+                    <Label Foreground="Black">Odjavi se</Label>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"  Background="#FFFFF0F0"></StackPanel>
+        <StackPanel Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"  Background="#FFFFF0F0"></StackPanel>
+
+        <Border  Grid.Column="1" Grid.Row="0" Grid.RowSpan="11" CornerRadius="20,0,0,20" Grid.ColumnSpan="2" Margin="0,30,0,30" Background="White">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="3" Direction="320" Opacity="0.3"></DropShadowEffect>
+            </Border.Effect>
         </Border>
 
-        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="500" Margin="70,20,70,0" Name="lvDataBindingRenovationList">
+        <Separator Background="#FFFB4646" Grid.Row="1" Width="150" Margin="150,0,0,0" Grid.Column="2"></Separator>
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45">Lista renovacija</Label>
+        <Separator Background="#FFFB4646" Grid.Row="1" Width="150" Margin="0,0,150,0" Grid.Column="1"></Separator>
+
+        <ListView FontSize="15" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="5" Width="500" Margin="30,0,30,0" Name="lvDataBindingRenovationList">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID renovacije" 
-                                    Width="90" DisplayMemberBinding="{Binding RenovationId}"/>
+                                    Width="Auto" DisplayMemberBinding="{Binding RenovationId}"/>
                     <GridViewColumn Header="Prostorija" DisplayMemberBinding="{Binding room.RoomId}"
-                                    Width="90"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Početno vreme"  DisplayMemberBinding="{Binding StartTime}" 
-                                    Width="90"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Krajnje vreme"  DisplayMemberBinding="{Binding EndTime}"
-                                    Width="90"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Opis prostorije" DisplayMemberBinding="{Binding RenovationDescription}"
-                                    Width="100"/>
+                                    Width="Auto"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Grid.Column="1" Width="100" Height="40" Grid.Row="3" HorizontalAlignment="Left" Background="#FFE23838" Foreground="White" Click="Button_Click_OK" >Zakaži</Button>
-        <Button Grid.Column="1" Width="100" Height="40" Grid.Row="3" HorizontalAlignment="Right" Background="#FFE23838" Foreground="White" Click="Button_Click_Cancel">Otkaži</Button>
+        <Button Margin="0,0,0,0" Grid.Column="1" Width="100" Height="40" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646"  FontSize="20" Grid.Row="8" Grid.RowSpan="2" HorizontalAlignment="Center"  Click="Button_Click_OK" >Zakaži</Button>
+        <Button Margin="0,0,0,0" Grid.Column="2" Width="100" Height="40" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646"  FontSize="20" Grid.Row="8" Grid.RowSpan="2" HorizontalAlignment="Center"  Click="Button_Click_Cancel">Otkaži</Button>
     </Grid>
 </Window>

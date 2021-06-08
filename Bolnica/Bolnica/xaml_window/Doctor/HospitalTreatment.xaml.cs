@@ -57,7 +57,7 @@ namespace Bolnica.xaml_window.Doctor
         private void Button_Click_Update(object sender, RoutedEventArgs e)
         {
             var hospital_treatment_edit = new HospitalTreatmantEdit(this);
-            hospital_treatment_edit.Show();
+            hospital_treatment_edit.ShowDialog();
          
         }
 
@@ -65,6 +65,13 @@ namespace Bolnica.xaml_window.Doctor
         {
             var main = new MainWindow();
             main.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            var drug_report = new DrugConsumptionReport();
+            drug_report.Show();
             this.Close();
         }
     }

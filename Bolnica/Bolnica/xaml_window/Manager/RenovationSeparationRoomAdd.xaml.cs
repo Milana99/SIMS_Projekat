@@ -11,18 +11,59 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Bolnica.xaml_window.Manager
 {
     
-    public partial class RenovationSeparationRoomAdd : Window
+    public partial class RenovationSeparationRoomAdd : Window, INotifyPropertyChanged
     {
-        
+        public event PropertyChangedEventHandler PropertyChanged;
         private RenovationSeparation renovationSeparation;
         private Controller.RoomController roomController;
+        private string description;
+        private int area;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                if (value != description)
+                {
+                    description = value;
+                    OnPropertyChanged("Description");
+                }
+
+            }
+        }
+        public int Area
+        {
+            get
+            {
+                return area;
+            }
+            set
+            {
+                if (value != area)
+                {
+                    area = value;
+                    OnPropertyChanged("Area");
+                }
+
+            }
+        }
         public RenovationSeparationRoomAdd(RenovationSeparation renovationSeparation, Controller.RoomController roomController)
         {
             InitializeComponent();
+            this.DataContext = this;
             this.renovationSeparation = renovationSeparation;
             this.roomController = roomController;
             lbuID.Content = roomController.getNextId();
@@ -52,7 +93,16 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-            CreateRoom();            
+            if (tbuArea.Text == "" || tbuDescription.Text=="" || cbRoomType.Text=="" )
+            {
+                MessageBox.Show("Niste popunili sva polja!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                CreateRoom();
+                MessageBox.Show("Uspešno ste dodali salu!", "Uspešno!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
         }
         private void CreateRoom()
         {

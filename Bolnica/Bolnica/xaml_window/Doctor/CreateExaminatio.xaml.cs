@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.ComponentModel;
 
 
 namespace Bolnica.xaml_window.Doctor
@@ -19,17 +19,58 @@ namespace Bolnica.xaml_window.Doctor
     /// <summary>
     /// Interaction logic for CreateExaminatio.xaml
     /// </summary>
-    public partial class CreateExamination : Window
+    public partial class CreateExamination : Window, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
         DoctorHome DoctorHome;
         Controller.RoomController RoomController;
         Controller.PatientController patientController;
         CreateExaminationInventary cei;
-        
+        private string start;
+        private string end;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+        public string Start
+        {
+            get
+            {
+                return start;
+            }
+            set
+            {
+                if (value != start)
+                {
+                    start = value;
+                    OnPropertyChanged("Start");
+                }
+
+            }
+        }
+        public string End
+        {
+            get
+            {
+                return end;
+            }
+            set
+            {
+                if (value != end)
+                {
+                    end = value;
+                    OnPropertyChanged("End");
+                }
+
+            }
+        }
+
         public CreateExamination(DoctorHome DoctorHome)
         {
             InitializeComponent();
-
+            this.DataContext = this;
             this.DoctorHome = DoctorHome;
             RoomController = new Controller.RoomController();
             patientController = new Controller.PatientController();
@@ -47,25 +88,34 @@ namespace Bolnica.xaml_window.Doctor
 
         private void btnDialogCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Zdravo", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+                this.Close();
+            return;
         }
 
         private void btnDialogOk_Click(object sender, RoutedEventArgs e)
         {
-            Model.Examination ex = new Model.Examination(DoctorHome.ExaminationControl.examinationService.examinationRepository.next_id++,
-                Convert.ToDateTime(DatePick.Text + " " + tbStartTime.Text),Convert.ToDateTime(DatePick.Text + " " + tbEndTime.Text), 
-                "Milana123", cbPatient.Text, int.Parse(cbRoom.Text), GetExaminationType());
-            DoctorHome.ExaminationControl.examinationService.examinationRepository.next_id++;
-            Boolean b = DoctorHome.ExaminationControl.CreateExamination(ex);
-            if (b == true)
+            if(tbEndTime.Text=="" || tbStartTime.Text=="" || cbPatient.Text=="" || cbPatient.Text==null || cbRoom.Text=="" || cbRoom.Text == null || DatePick.Text=="Select a date")
             {
-                DoctorHome.LoadAll();
-                MessageBox.Show("Uspešno ste zakazali termin", "Uspešno!");
-                this.Close();
+                MessageBox.Show("Niste popunili sva polja!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else
-            {
-                MessageBox.Show("Izabrani termin je zauzet", "ERROR");
+            else {
+                Model.Examination ex = new Model.Examination(DoctorHome.ExaminationControl.examinationService.examinationRepository.next_id++,
+                    Convert.ToDateTime(DatePick.Text + " " + tbStartTime.Text), Convert.ToDateTime(DatePick.Text + " " + tbEndTime.Text),
+                    "Milana123", cbPatient.Text, int.Parse(cbRoom.Text), GetExaminationType());
+                DoctorHome.ExaminationControl.examinationService.examinationRepository.next_id++;
+                Boolean b = DoctorHome.ExaminationControl.CreateExamination(ex);
+                if (b == true)
+                {
+                    DoctorHome.LoadAll();
+                    MessageBox.Show("Uspešno ste dodali resurs!", "Uspešno izvršeno!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Izabrani termin je zauzet", "Upozorenje", MessageBoxButton.OK,MessageBoxImage.Information);
+                }
             }
         }
 
@@ -119,8 +169,16 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Inventary(object sender, RoutedEventArgs e)
         {
-            cei = new CreateExaminationInventary(int.Parse(cbRoom.Text));
-            cei.Show();
+            if(cbRoom.Text == null || cbRoom.Text=="")
+            {
+                MessageBox.Show("Selektujte sobu pa pogledajte inventar!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                cei = new CreateExaminationInventary(int.Parse(cbRoom.Text));
+                cei.Show();
+            }
+            
         }
     }
 }

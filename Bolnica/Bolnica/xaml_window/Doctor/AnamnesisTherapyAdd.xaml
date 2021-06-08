@@ -4,41 +4,98 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
+        xmlns:val="clr-namespace:Bolnica.Validation"
         mc:Ignorable="d"
-        Title="AnamnesisTherapyAdd" Height="400" Width="400">
+        Title="Zdravo" Icon="Slike/heart.ico" Height="400" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition/>
+            <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,0,0,3" Width="350">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="Black" >Dodaj lek</Label>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF929292" BorderThickness="0,0,0,2" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFD44848" >Kreiranje recepta</Label>
         </Border>
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Name="lbDrugName">Lek</Label>
-        <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold">Unesite dozu:</Label>
-        <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25"  Name="tbDrugQuantity" Margin="5"/>
-        <Label Grid.Row="3" Margin="20,10,0,0" FontWeight="Bold">Unesite opis recepta:</Label>
-        <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="25"  Name="tbDescriptionPrescription" Margin="5"/>
-        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold">Unesite datum početka:</Label>
-        <TextBox Grid.Row="4" Grid.Column="1" Width="150" Height="25"  Name="tbStartDate" Margin="5"/>
-        <Label Grid.Row="5" Margin="20,10,0,0" FontWeight="Bold">Unesite datum kraja:</Label>
-        <TextBox Grid.Row="5" Grid.Column="1" Width="150" Height="25"  Name="tbEndDate" Margin="5"/>
-        <Label Grid.Row="1" Margin="20,10,0,0" FontWeight="Bold">Izaberite lek:</Label>
+        <Label Grid.Row="0" Grid.Column="0" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Name="lbDrugName">Lek</Label>
+        <Label Grid.Row="2" Margin="20,0,0,0" FontWeight="Bold" Height="30" >Unesite dozu:</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25"  Name="tbDrugQuantity" Margin="5">
+            <TextBox.Text>
+                <Binding Path="Test1" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:StringToInt ValidationStep="RawProposedValue"></val:StringToInt>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                        <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="3" Margin="20,0,0,0" FontWeight="Bold" Height="30" >Unesite opis recepta:</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="25"  Name="tbDescriptionPrescription" Margin="5">
+            <TextBox.Text>
+                <Binding Path="Test2" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:MinMaxValidationRuleString ValidationStep="ConvertedProposedValue" Min="3" Max="30"></val:MinMaxValidationRuleString>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                        <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="4" Margin="20,0,0,0" FontWeight="Bold" Height="30" >Unesite datum početka:</Label>
+        <DatePicker Grid.Row="4" Grid.Column="1" Width="150" Height="25"  Name="tbStartDate" Margin="5">
+           
+        </DatePicker>
+        <Label Grid.Row="5" Margin="20,0,0,0" FontWeight="Bold" Height="30" >Unesite datum kraja:</Label>
+        <DatePicker Grid.Row="5" Grid.Column="1" Width="150" Height="25"  Name="tbEndDate" Margin="5"/>
+        <Label Grid.Row="1" Margin="20,0,0,0" FontWeight="Bold" Height="30" >Izaberite lek:</Label>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <ComboBox Name="cbDrugAdd" Width="150" Grid.Row="6" Grid.Column="1" Margin="0,10,0,0" SelectionChanged="cbDrugAdd_SelectionChanged"></ComboBox>
+            <ComboBox Name="cbDrugAdd" Width="150" Grid.Row="6" Grid.Column="1" Height="25" Margin="5" SelectionChanged="cbDrugAdd_SelectionChanged"></ComboBox>
         </StackPanel>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF939191" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Izadji</Button>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF939191" Height="30" Margin="20, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Dodaj</Button>
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF565656" BorderThickness="0,1,0,0">
+        </Border>
+        <Button Grid.Column="1" FontSize="15" Grid.Row="7" Width="60" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2"  Height="30" Margin="90, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Izađi</Button>
+        <Button Grid.Column="1" FontSize="15" Grid.Row="7" Width="60" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2"  Height="30" Margin="0, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Potvrdi</Button>
     </Grid>
 </Window>

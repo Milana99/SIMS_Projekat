@@ -11,18 +11,60 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Bolnica.xaml_window.Manager
 {
     /// <summary>
     /// Interaction logic for RenovationDivision.xaml
     /// </summary>
-    public partial class RenovationSeparation : Window
+    public partial class RenovationSeparation : Window, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         Controller.RoomController roomController;
+        private string start;
+        private string end;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+        public string Start
+        {
+            get
+            {
+                return start;
+            }
+            set
+            {
+                if (value != start)
+                {
+                    start = value;
+                    OnPropertyChanged("Start");
+                }
+
+            }
+        }
+        public string End
+        {
+            get
+            {
+                return end;
+            }
+            set
+            {
+                if (value != end)
+                {
+                    end = value;
+                    OnPropertyChanged("End");
+                }
+
+            }
+        }
         public RenovationSeparation()
         {
             InitializeComponent();
+            this.DataContext = this;
             roomController = new Controller.RoomController();
             LoadRooms();
         }
@@ -36,10 +78,21 @@ namespace Bolnica.xaml_window.Manager
         
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-            DeleteRoom();
-            var renovation_add = new RenovationAdd();
-            renovation_add.Show();
-            this.Close();
+            if (tbEndTime.Text == "" || tbEndTime.Text == null
+             || tbStartTime.Text == "" || tbStartTime.Text == null || dpDateRenovationEnd.Text == "" || dpDateRenovationEnd.Text == null
+             || dpDateRenovationStart.Text == "" || dpDateRenovationStart.Text == null || cbRooms.Text == "" || cbRooms.Text == null
+             )
+            {
+                MessageBox.Show("Niste popunili sva polja!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                DeleteRoom();
+                var renovation_add = new RenovationAdd();
+                renovation_add.Show();
+                this.Close();
+                MessageBox.Show("Uspešno ste zakazali deljenje sala!", "Uspešno!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
         private void DeleteRoom()
         {
@@ -50,16 +103,32 @@ namespace Bolnica.xaml_window.Manager
         }
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            var renovation_add = new RenovationAdd();
-            renovation_add.Show();
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Zdravo", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+            {
+                var renovation_add = new RenovationAdd();
+                renovation_add.Show();
+                this.Close();
+            }
+            return;
         }
 
         private void Button_Click_Add_Room(object sender, RoutedEventArgs e)
         {
-            var renovation_division_add_room = new RenovationSeparationRoomAdd(this, roomController);
-            renovation_division_add_room.Show();
-            this.Hide();
+            if(cbRooms.Text=="" || cbRooms.Text==null)
+            {
+                MessageBox.Show("Nije moguće podeliti salu ako je pre toga niste selektovali!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+                
+            }
+            else
+            {
+                var renovation_division_add_room = new RenovationSeparationRoomAdd(this, roomController);
+                renovation_division_add_room.Show();
+                this.Hide();
+                
+            }
+
         }
 
         private void cbRooms_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -28,6 +28,18 @@ namespace Bolnica.Service
             }
             return null;
         }
+        public Model.Drug GetDrugByName(string Name)
+        {
+            List<Model.Drug> drugs = GetAllDrugs();
+            foreach (Model.Drug drug in drugs)
+            {
+                if (Name == drug.DrugName)
+                {
+                    return drug;
+                }
+            }
+            return null;
+        }
 
         public void CreateDrug(Model.Drug drug)
         {
@@ -56,13 +68,14 @@ namespace Bolnica.Service
                 }
             }
         }
-        public void DenyDrug(int drugId)
+        public void DenyDrug(int drugId, String comment)
         {
             List<Model.Drug> drugs = GetAllDrugs();
             foreach (Model.Drug drug in drugs)
             {
                 if (drugId == drug.DrugId)
                 {
+                    drug.DrugComment = comment;
                     drug.DrugType = Model.TypeOfApprovedDrug.NotApproved;
                     drugRepository.SaveDrug(drugs);
                     return;

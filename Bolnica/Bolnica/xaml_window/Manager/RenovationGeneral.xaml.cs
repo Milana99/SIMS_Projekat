@@ -11,20 +11,80 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Bolnica.xaml_window.Manager
 {
     /// <summary>
     /// Interaction logic for RenovationGeneral.xaml
     /// </summary>
-    public partial class RenovationGeneral : Window
+    public partial class RenovationGeneral : Window, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         RenovationAdd addRenovation;
         public Controller.RoomController roomController;
         public Controller.BasicRenovationController renovationController;
+        private string start;
+        private string end;
+        private string description;
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+        public string Start
+        {
+            get
+            {
+                return start;
+            }
+            set
+            {
+                if (value != start)
+                {
+                    start = value;
+                    OnPropertyChanged("Start");
+                }
+
+            }
+        }
+        public string End
+        {
+            get
+            {
+                return end;
+            }
+            set
+            {
+                if (value != end)
+                {
+                    end = value;
+                    OnPropertyChanged("End");
+                }
+
+            }
+        }
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                if (value != description)
+                {
+                    description = value;
+                    OnPropertyChanged("Description");
+                }
+
+            }
+        }
         public RenovationGeneral(RenovationAdd renovationAdd)
         {
             InitializeComponent();
+            this.DataContext = this;
             roomController = new Controller.RoomController();
             
             addRenovation = renovationAdd;
@@ -41,8 +101,13 @@ namespace Bolnica.xaml_window.Manager
         }
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            addRenovation.Show();
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Zdravo", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+            {
+                addRenovation.Show();
+                this.Close();
+            }
+            return;
         }
 
         private Model.BasicRenovation CreateRenovation()
@@ -54,17 +119,28 @@ namespace Bolnica.xaml_window.Manager
         }
         private void Button_Click_OK(object sender, RoutedEventArgs e)
         {
-            Model.BasicRenovation renovation = CreateRenovation();
-            if(renovationController.renovationService.IsRoomFree(renovation.StartTime, renovation.EndTime, renovation.room.RoomId))
+            if (tbDescriptionRenovation.Text == "" || tbDescriptionRenovation.Text == null || tbEndTime.Text == "" || tbEndTime.Text == null
+              || tbStartTime.Text == "" || tbStartTime.Text == null || dpDateRenovationEnd.Text == "" || dpDateRenovationEnd.Text == null
+              || dpDateRenovationStart.Text == "" || dpDateRenovationStart.Text == null || cbRooms.Text=="")
             {
-                renovationController.CreateRenovation(renovation);
-                addRenovation.Show();
-                addRenovation.RenovationList.LoadAllRenovations();
-                this.Close();
+                MessageBox.Show("Niste popunili sva polja!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
-                MessageBox.Show("Soba nije slobodna u izabranom terminu");
+
+                Model.BasicRenovation renovation = CreateRenovation();
+                if (renovationController.renovationService.IsRoomFree(renovation.StartTime, renovation.EndTime, renovation.room.RoomId))
+                {
+                    renovationController.CreateRenovation(renovation);
+                    addRenovation.Show();
+                    addRenovation.RenovationList.LoadAllRenovations();
+                    this.Close();
+                    MessageBox.Show("Uspešno ste zakazali osnovno renoviranje!", "Uspešno!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Soba nije slobodna u izabranom terminu");
+                }
             }
             
         }

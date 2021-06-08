@@ -22,6 +22,11 @@ namespace Bolnica.Controller
             return drugService.GetOneDrug(drugId);
         }
 
+        public Model.Drug GetDrugByName(string Name)
+        {
+            return drugService.GetDrugByName(Name);
+        }
+
         public void CreateDrug(Model.Drug drug)
         {
             drugService.CreateDrug(drug);
@@ -31,9 +36,9 @@ namespace Bolnica.Controller
         {
             drugService.UpdateDrug(drug);
         }
-        public void DenyDrug(int drugId)
+        public void DenyDrug(int drugId, String comment)
         {
-            drugService.DenyDrug(drugId);
+            drugService.DenyDrug(drugId, comment);
         }
         public void ApproveDrug(int drugId)
         {

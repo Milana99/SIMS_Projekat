@@ -28,14 +28,26 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Zdravo", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
+            return;
         }
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-            se.control.ChangeRoom(int.Parse(lbuIDStaticEq.Content.ToString()), int.Parse(cbuRoomStatic.Text));
-            se.LoadEqupiment();
-            this.Close();
+            if (dpRelocation.Text == "" || cbuRoomStatic.Text == "" )
+            {
+                MessageBox.Show("Niste popunili sva polja!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                se.control.ChangeRoom(int.Parse(lbuIDStaticEq.Content.ToString()), int.Parse(cbuRoomStatic.Text));
+                se.LoadEqupiment();
+                this.Close();
+            }
         }
     }
 }

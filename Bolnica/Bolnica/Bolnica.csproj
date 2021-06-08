@@ -139,6 +139,7 @@
     <Compile Include="Service\InstrucitonsForSpecialisticExaminationService.cs" />
     <Compile Include="Service\StaticEquipmentService.cs" />
     <Compile Include="Service\TherapyService.cs" />
+    <Compile Include="Validation\StringToDoubleValidationRule.cs" />
     <Compile Include="xaml_window\Doctor\AnamnesisCreate.xaml.cs">
       <DependentUpon>AnamnesisCreate.xaml</DependentUpon>
     </Compile>
@@ -163,6 +164,9 @@
     <Compile Include="xaml_window\Doctor\DoctorHome.xaml.cs">
       <DependentUpon>DoctorHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml_window\Doctor\DrugConsumptionReport.xaml.cs">
+      <DependentUpon>DrugConsumptionReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_window\Doctor\DrugList.xaml.cs">
       <DependentUpon>DrugList.xaml</DependentUpon>
     </Compile>
@@ -180,6 +184,12 @@
     </Compile>
     <Compile Include="xaml_window\Doctor\DrugListVerifyEdit.xaml.cs">
       <DependentUpon>DrugListVerifyEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugReportAddDrug.xaml.cs">
+      <DependentUpon>DrugReportAddDrug.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Doctor\DrugReportPrint.xaml.cs">
+      <DependentUpon>DrugReportPrint.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Doctor\ExaminationUpdate.xaml.cs">
       <DependentUpon>ExaminationUpdate.xaml</DependentUpon>
@@ -252,6 +262,12 @@
     </Compile>
     <Compile Include="xaml_window\Manager\RenovationMerging.xaml.cs">
       <DependentUpon>RenovationMerging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml_window\Manager\ReportPrint.xaml.cs">
+      <DependentUpon>ReportPrint.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml_window\Manager\RoomList.xaml.cs">
       <DependentUpon>RoomList.xaml</DependentUpon>
@@ -330,6 +346,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml_window\Doctor\DrugConsumptionReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml_window\Doctor\DrugList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -351,6 +371,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml_window\Doctor\DrugListVerifyEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugReportAddDrug.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Doctor\DrugReportPrint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -447,6 +475,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml_window\Manager\RenovationMerging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_window\Manager\ReportPrint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -557,12 +593,26 @@
   <ItemGroup>
     <Resource Include="Doctor.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="xaml_window\Doctor\Slike\doc.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="xaml_window\Manager\Slike\edit.png" />
     <Resource Include="xaml_window\Manager\Slike\Slika.png" />
     <Resource Include="xaml_window\Manager\Slike\srce.png" />
     <Resource Include="xaml_window\Manager\Slike\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_window\Manager\Slike\dr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_window\Doctor\Slike\heart.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_window\Doctor\Slike\us.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_window\Doctor\Slike\srce_login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

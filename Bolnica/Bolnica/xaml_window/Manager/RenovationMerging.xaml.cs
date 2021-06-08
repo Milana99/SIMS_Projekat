@@ -11,23 +11,82 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Bolnica.xaml_window.Manager
 {
     /// <summary>
     /// Interaction logic for RenovationMerging.xaml
     /// </summary>
-    public partial class RenovationMerging : Window
+    public partial class RenovationMerging : Window, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         Controller.RoomController roomController;
+        private string start;
+        private string end;
+        private string description;
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+        public string Start
+        {
+            get
+            {
+                return start;
+            }
+            set
+            {
+                if (value != start)
+                {
+                    start = value;
+                    OnPropertyChanged("Start");
+                }
+
+            }
+        }
+        public string End
+        {
+            get
+            {
+                return end;
+            }
+            set
+            {
+                if (value != end)
+                {
+                    end = value;
+                    OnPropertyChanged("End");
+                }
+
+            }
+        }
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                if (value != description)
+                {
+                    description = value;
+                    OnPropertyChanged("Description");
+                }
+
+            }
+        }
         public RenovationMerging()
         {
             InitializeComponent();
+            this.DataContext = this;
             roomController = new Controller.RoomController();
             loadRooms();
             loadRoomTypes();
-            lbuID.Content = roomController.roomService.roomRepository.next_roomID;
-            roomController.roomService.roomRepository.next_roomID++;
+            lbuID.Content = roomController.getNextId();
         }
 
         public void loadRoomTypes()
@@ -68,18 +127,35 @@ namespace Bolnica.xaml_window.Manager
         }
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-            CreateRoom();
-            deleteAllRooms();
-            var renovation_add = new RenovationAdd();
-            renovation_add.Show();
-            this.Close();
+            if (tbuDescription.Text == "" || tbuDescription.Text == null || tbEndTime.Text == "" || tbEndTime.Text == null
+             || tbStartTime.Text == "" || tbStartTime.Text == null || dpDateRenovationEnd.Text == "" || dpDateRenovationEnd.Text == null
+             || dpDateRenovationStart.Text == "" || dpDateRenovationStart.Text == null || cbRooms.Text == "" || cbRooms.Text=="" || cbRooms.Text==null 
+             || cbRoomType.Text==null || cbRoomType.Text=="")
+            {
+                MessageBox.Show("Niste popunili sva polja!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                CreateRoom();
+                deleteAllRooms();
+                var renovation_add = new RenovationAdd();
+                renovation_add.Show();
+                this.Close();
+                MessageBox.Show("Uspešno ste zakazali spajanje sala!", "Uspešno!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            var renovation_add = new RenovationAdd();
-            renovation_add.Show();
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Zdravo", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+            {
+                var renovation_add = new RenovationAdd();
+                renovation_add.Show();
+                this.Close();
+            }
+            return;
         }
 
         private void btMerge_Click(object sender, RoutedEventArgs e)

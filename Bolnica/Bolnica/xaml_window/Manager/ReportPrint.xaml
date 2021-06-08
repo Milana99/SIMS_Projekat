@@ -1,0 +1,59 @@
+﻿<Window x:Class="Bolnica.xaml_window.Manager.ReportPrint"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
+        mc:Ignorable="d"
+        Title="ReportPrint" Height="550" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="#FFFFF0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border  Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="3" Margin="200,10,200,20" Background="White" BorderBrush="Black" BorderThickness="1,1,1,1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="3" Direction="320" Opacity="0.3"></DropShadowEffect>
+            </Border.Effect>
+        </Border>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Izveštaj o zauzetosti</Label>
+        <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">sala</Label>
+
+        <ListView FontSize="15" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="5" Margin="220,40,220,150" Name="lvDataBinding">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID " 
+                                    Width="Auto" DisplayMemberBinding="{Binding RoomId}"/>
+                    <GridViewColumn Header="Tip sale" DisplayMemberBinding="{Binding RoomType}"
+                                    Width="Auto"/>
+                    <GridViewColumn Header="Sprat" DisplayMemberBinding="{Binding Floor}" 
+                                    Width="Auto"/>
+                    <GridViewColumn Header="Površina" DisplayMemberBinding="{Binding Area}" 
+                                    Width="Auto"/>
+                    <GridViewColumn Header="Zauzetost" DisplayMemberBinding="{Binding free}" 
+                                    Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Label Grid.Row="3" Grid.ColumnSpan="2" Width="150" FontSize="15" FontWeight="Bold" Height="30">Datum štampanja:</Label>
+        <Label Grid.Row="3" Grid.Column="1" Width="150" FontSize="15"  Height="30" Name="lbDate">04.09.1997.</Label>
+        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="150" FontSize="15" FontWeight="Bold" Margin="0,0,20,0" Height="30">Potpis:</Label>
+
+        <Separator Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="100" FontSize="15" Margin="50,20,0,0" FontWeight="Bold" Height="30"></Separator>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+            <Button Grid.Column="1" Grid.Row="7" Width="100" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646" FontSize="20"  Height="40" Margin="0, 0, 90, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_Ok">Potvrdi</Button>
+            <Button Grid.Column="1" Grid.Row="7" Width="100" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646" FontSize="20"  Height="40" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button_Click_Cancel">Odustani</Button>
+        </StackPanel>
+    </Grid>
+</Window>

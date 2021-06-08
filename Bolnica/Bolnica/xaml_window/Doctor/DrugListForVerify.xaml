@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
         mc:Ignorable="d"
-        Title="DrugListForVerify" Height="400" Width="400">
+        Title="Zdravo" Icon="Slike/heart.ico" Height="400" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -22,8 +22,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,0,0,3" Width="350">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="Black" >Lekovi za verifikaciju</Label>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF929292" BorderThickness="0,0,0,2" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFD44848" >Lekovi za verifikaciju</Label>
         </Border>
         <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="20,10,20,10" Name="lvDataBindingDrugs">
             <ListView.View>
@@ -46,11 +46,15 @@
             </ListView.View>
 
         </ListView>
-        <Button Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="6" Width="60"  BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="0, 0, 0, 0" Click="Button_Click_In" >Uđi u lek</Button>
+        <Button Grid.Column="0" Grid.RowSpan="2" FontSize="15" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="5" Width="120" Height="40" Background="#FFEDEDED"  BorderBrush="#FF565656" BorderThickness="1,1,2,2"  Margin="0, 30, 0, 0" Click="Button_Click_In" >
+            <StackPanel Orientation="Horizontal" >
+                <Label FontSize="25"  FontFamily="Segoe MDL2 Assets" Content="&#xE78B;" Margin="0,0,0,0"></Label>
+                <Label FontSize="15" VerticalAlignment="Center">Uđi u lek</Label>
+            </StackPanel></Button>
 
-        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF939191" BorderThickness="0,1,0,0" Width="350">
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF565656" BorderThickness="0,1,0,0" >
         </Border>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF929292" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel" >Izadji</Button>
+        <Button Grid.Column="1"  Grid.Row="7" Width="60" FontSize="15" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel" >Izađi</Button>
 
     </Grid>
 </Window>

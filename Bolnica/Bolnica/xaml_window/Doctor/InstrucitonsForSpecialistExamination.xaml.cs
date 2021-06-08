@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Bolnica.xaml_window.Doctor
 {
@@ -18,13 +19,37 @@ namespace Bolnica.xaml_window.Doctor
     /// Interaction logic for SpeialistExamination.xaml
     /// </summary>
     
-    public partial class InstructionsForSpecialistExamination : Window
+    public partial class InstructionsForSpecialistExamination : Window, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         MedicalRecordDoctor MedicalRecordDoctor;
         public Controller.InstrucitonsForSpecialisticExaminationController SpecialisticExaminationController;
+        private string spec;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+        public string Spec
+        {
+            get
+            {
+                return spec;
+            }
+            set
+            {
+                if (value != spec)
+                {
+                    spec = value;
+                    OnPropertyChanged("Spec");
+                }
+
+            }
+        }
         public InstructionsForSpecialistExamination(MedicalRecordDoctor medicalRecord)
         {
             InitializeComponent();
+            this.DataContext = this;
             MedicalRecordDoctor = medicalRecord;
             LoadSpecialist();
             lblPatientsName.Content = MedicalRecordDoctor.lbuUsernamePatient.Content;
@@ -50,15 +75,26 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Zdravo", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+                this.Close();
+            return;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Model.InstructionsForSpecialistExamination specialistExamination = CreateSpecialistExamination();
-            SpecialisticExaminationController.CreateSpecialisticExamination(specialistExamination);
-            this.Close();
+            if (tbComment.Text == "" || cbSpecialist.Text == "")
+            {
+                MessageBox.Show("Niste popunili sva polja!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                Model.InstructionsForSpecialistExamination specialistExamination = CreateSpecialistExamination();
+                SpecialisticExaminationController.CreateSpecialisticExamination(specialistExamination);
+                MessageBox.Show("Uspešno ste kreirali izveštaj!", "Uspešno izvršeno!", MessageBoxButton.OK, MessageBoxImage.Information);
 
+                this.Close();
+            }
         }
     }
 }

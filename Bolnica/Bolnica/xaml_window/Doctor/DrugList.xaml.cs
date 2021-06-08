@@ -34,19 +34,33 @@ namespace Bolnica.xaml_window.Doctor
         private void Button_Click_Drug_Verify(object sender, RoutedEventArgs e)
         {
             var dlv = new DrugListVerify();
-            dlv.Show();
+            dlv.ShowDialog();
         }
 
         private void Button_Click_Drug_For_Verify(object sender, RoutedEventArgs e)
         {
             var dlfv = new DrugListForVerify();
-            dlfv.Show();
+            dlfv.ShowDialog();
         }
 
         private void Doctor_Logout(object sender, RoutedEventArgs e)
         {
             var mw = new MainWindow();
             mw.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_Selected_Instructions_For_Hospital_Treatment(object sender, RoutedEventArgs e)
+        {
+            var instructions_for_hospital_treatment = new HospitalTreatment();
+            instructions_for_hospital_treatment.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            var drug_report = new DrugConsumptionReport();
+            drug_report.Show();
             this.Close();
         }
     }

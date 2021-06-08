@@ -4,10 +4,61 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
+         xmlns:val="clr-namespace:Bolnica.Validation"
         mc:Ignorable="d"
-        Title="LoginDoctor" Height="450" Width="800">
+        Title="Zdravo" Icon="Slike/heart.ico" Height="550" Width="900" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Width="100" Height="50" Click="Doctor_Home">Doctor</Button>
-        <Button  Width="100" Height="50" Margin="100, 250, 500, 0" Click="Back_To_Main">Nazad</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" ></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Width="390" Height="220" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Border.Background>
+                <ImageBrush ImageSource="Slike/srce_login.png"/>
+            </Border.Background>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="60"/>
+                </Style>
+            </Border.Resources>
+        </Border>
+        <Border Grid.Column="1" Background="#FFD44848" Grid.RowSpan="5" Margin="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="13" Direction="100" ShadowDepth="1" Opacity="1"></DropShadowEffect>
+            </Border.Effect>
+            <Border Margin="30" Background="White" CornerRadius="30,30,30,30">
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="45" HorizontalAlignment="Center" Margin="20">Prijava</Label>
+                    <Separator Width="300"></Separator>
+                    <Label Width="300" Margin="0,20,0,0"  FontSize="15" FontWeight="Bold">Korisničko ime:</Label>
+                    <TextBox x:Name="tbUsername" Width="300" Margin="0,10,0,0" FontSize="15" Height="30">
+                        
+                    </TextBox>
+                    <Label Width="300" Margin="0,20,0,0"  FontSize="15" FontWeight="Bold">Lozinka:</Label>
+                    <PasswordBox x:Name="tbPassword" Width="300" Margin="0,10,0,0" FontSize="15" Height="30">
+  
+                    </PasswordBox>
+                </StackPanel>
+            </Border>
+        </Border>
+        <Button Grid.Row="3" Grid.Column="1" Margin="0,40,0,0" Width="100" Height="40" FontSize="15" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Foreground="White" Click="Doctor_Home">
+            <StackPanel Orientation="Horizontal" >
+                <Label FontSize="20" Foreground="White"  FontFamily="Segoe MDL2 Assets"  Margin="0,0,0,0"></Label>
+                <Label Foreground="White"  VerticalAlignment="Center">Prijavi se</Label>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" Background="#FFEDEDED" Margin="20" VerticalAlignment="Top"  FontSize="15"  Width="100" Height="40"  Click="Back_To_Main">
+            <StackPanel Orientation="Horizontal" >
+                <Label FontSize="20"  Background="#FFEDEDED"  FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Margin="0,0,0,0"></Label>
+                <Label   VerticalAlignment="Center" Background="#FFEDEDED">Nazad</Label>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

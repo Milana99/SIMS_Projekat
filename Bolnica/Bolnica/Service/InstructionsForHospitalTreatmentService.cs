@@ -32,7 +32,7 @@ namespace Bolnica.Service
             {
                 if(instruction.getId() == updatedInstruction.getId())
                 {
-                    instruction.UpdateEndDate(updatedInstruction.getEndDate());
+                    instruction.setEndDate(updatedInstruction.getEndDate());
                     instructionsRepository.SaveInstructonForHospitalTreatment(instructions);
                     return;
                 }

@@ -11,18 +11,95 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.ComponentModel;
 namespace Bolnica.xaml_window.Doctor
 {
     /// <summary>
     /// Interaction logic for DrugListVerifyEdit.xaml
     /// </summary>
-    public partial class DrugListVerifyEdit : Window
+    public partial class DrugListVerifyEdit : Window, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         DrugListVerify drugListVerify;
+        private string drugDescription;
+        private int drugQuantity;
+        private double drugWeight;
+        private string drugComponents;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+        public string DrugDesc
+        {
+            get
+            {
+                
+                return drugDescription;
+            }
+            set
+            {
+                if (value != drugDescription)
+                {
+                    drugDescription = value;
+                    OnPropertyChanged("DrugDesc");
+                }
+
+            }
+        }
+        public int DrugQuantity
+        {
+            get
+            {
+                return drugQuantity;
+            }
+            set
+            {
+                if (value != drugQuantity)
+                {
+                    drugQuantity = value;
+                    OnPropertyChanged("DrugQuantity");
+                }
+
+            }
+        }
+        public string DrugComponents
+        {
+            get
+            {
+                return drugComponents;
+            }
+            set
+            {
+                if (value != drugComponents)
+                {
+                    drugComponents = value;
+                    OnPropertyChanged("DrugComponents");
+                }
+
+            }
+        }
+
+        public double DrugWeight
+        {
+            get
+            {
+                return drugWeight;
+            }
+            set
+            {
+                if (value != drugWeight)
+                {
+                    drugWeight = value;
+                    OnPropertyChanged("DrugWeight");
+                }
+
+            }
+        }
         public DrugListVerifyEdit(DrugListVerify drugListVerify)
         {
             InitializeComponent();
+            this.DataContext = this;
             this.drugListVerify = drugListVerify;
             LoadAllComponents();
         }
@@ -44,10 +121,10 @@ namespace Bolnica.xaml_window.Doctor
             Model.Drug selected = (Model.Drug)drugListVerify.lvDataBindingDrugs.SelectedItems[0];
             lbDrugId.Content = selected.DrugId;
             lbDrugName.Content = selected.DrugName;
-            tbuDrugComponents.Text = selected.DrugComponents;
-            tbuDrugDescription.Text = selected.DrugDescription;
-            tbuDrugQuantity.Text = selected.DrugQuantity.ToString();
-            tbuDrugWeight.Text = selected.DrugWeight.ToString();
+            drugComponents = selected.DrugComponents;
+            drugDescription = selected.DrugDescription;
+            drugQuantity = selected.DrugQuantity;
+            drugWeight = selected.DrugWeight;
             LoadAlternatives();
             cbAlternativeDrug.SelectedItem = selected.AlternativeDrug.ToString();
             
@@ -55,7 +132,10 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Zdravo", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+                this.Close();
+            return;
         }
         private Model.Drug CreateDrug()
         {
@@ -67,10 +147,19 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Model.Drug drug = CreateDrug();
-            drugListVerify.drugController.UpdateDrug(drug);
-            drugListVerify.LoadAll();
-            this.Close();
+            if(tbuDrugComponents.Text=="" || tbuDrugDescription.Text=="" || tbuDrugQuantity.Text=="" || tbuDrugWeight.Text=="")
+            {
+                MessageBox.Show("Niste popunili sva polja!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+            }
+            else
+            {
+                Model.Drug drug = CreateDrug();
+                drugListVerify.drugController.UpdateDrug(drug);
+                drugListVerify.LoadAll();
+                MessageBox.Show("Uspešno ste kreirali izveštaj!", "Uspešno izvršeno!", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+            }
         }
     }
 }

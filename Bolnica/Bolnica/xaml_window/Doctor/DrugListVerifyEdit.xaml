@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
+         xmlns:val="clr-namespace:Bolnica.Validation"
         mc:Ignorable="d"
-        Title="DrugListVerifyEdit" Height="350" Width="300">
+        Title="Zdravo" Icon="Slike/heart.ico" Height="400" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="80"/>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -16,37 +17,140 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition Height="45"/>
+            <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,0,0,3">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Foreground="Black" Name="DrugName" >Lek</Label>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF929292" BorderThickness="0,0,0,2" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFD44848" Name="DrugName" >Lek</Label>
         </Border>
 
-        <Label Grid.Row="1" FontWeight="Bold" Margin="20,0,0,0">ID:</Label>
-        <Label Grid.Row="1" Grid.Column="1" Margin="20,0,0,0" Name="lbDrugId">ID</Label>
-        <Label Grid.Row="2" FontWeight="Bold" Margin="20,0,0,0">Ime leka:</Label>
-        <Label Grid.Row="2" Grid.Column="1" Margin="20,0,5,0" Height="25" Name="lbDrugName">Ime</Label>
-        <Label Grid.Row="3" FontWeight="Bold" Margin="20,0,0,0">Opis leka:</Label>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="20,5,5,0" Name="tbuDrugDescription">Opis</TextBox>
-        <Label Grid.Row="4" FontWeight="Bold" Margin="20,0,0,0">Količina leka:</Label>
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="20,5,5,0" Name="tbuDrugQuantity">Količina</TextBox>
-        <Label Grid.Row="5" FontWeight="Bold" Margin="20,0,0,0">Gramaža leka:</Label>
-        <TextBox Grid.Row="5" Grid.Column="1" Margin="20,5,5,0" Name="tbuDrugWeight">Gramaža</TextBox>
-        <Label Grid.Row="6" FontWeight="Bold" Margin="20,0,0,0">Zamenski lek:</Label>
-        <ComboBox Grid.Row="6" Grid.Column="1" Margin="20,5,5,0" Name="cbAlternativeDrug"></ComboBox>
-        <Label Grid.Row="7" FontWeight="Bold" Margin="20,0,0,0">Komponente leka:</Label>
-        <TextBox Grid.Row="7" Grid.Column="1" Margin="20,5,5,0" Name="tbuDrugComponents">Gramaža</TextBox>
+        <Label Grid.Row="1" FontWeight="Bold" VerticalAlignment="Center" Height="30" Margin="20,0,0,0">ID:</Label>
+        <Label Grid.Row="1" Grid.Column="1" Width="150" Height="30" Margin="0,0,0,0" Name="lbDrugId">ID</Label>
+        <Label Grid.Row="2" FontWeight="Bold" VerticalAlignment="Center" Height="30" Margin="20,0,0,0">Ime leka:</Label>
+        <Label Grid.Row="2" Grid.Column="1" Margin="0,0,0,0" Width="150" Height="30" Name="lbDrugName">Ime</Label>
+        <Label Grid.Row="3" FontWeight="Bold" VerticalAlignment="Center" Height="30" Margin="20,0,0,0">Opis leka:</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Width="150"  Height="25" VerticalContentAlignment="Center" Margin="0,0,0,0" Name="tbuDrugDescription">
+            <TextBox.Text>
+                <Binding Path="DrugDesc" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:MinMaxValidationRuleString ValidationStep="ConvertedProposedValue" Min="3" Max="30"></val:MinMaxValidationRuleString>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                        <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="4" FontWeight="Bold" VerticalAlignment="Center" Height="30" Margin="20,0,0,0">Količina leka:</Label>
+        <TextBox Grid.Row="4" Grid.Column="1" Width="150" Height="25" VerticalContentAlignment="Center" Margin="0,0,0,0" Name="tbuDrugQuantity">
+            <TextBox.Text>
+                <Binding Path="DrugQuantity" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:StringToInt ValidationStep="RawProposedValue"></val:StringToInt>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                        <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="5" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0,0,0">Gramaža leka:</Label>
+        <TextBox Grid.Row="5" Grid.Column="1" Width="150" Height="25" VerticalContentAlignment="Center" Margin="0,0,0,0" Name="tbuDrugWeight">
+            <TextBox.Text>
+                <Binding Path="DrugWeight" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:StringToDoubleValidationRule ValidationStep="RawProposedValue" ></val:StringToDoubleValidationRule>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                        <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="6" FontWeight="Bold" VerticalAlignment="Center" Height="30" Margin="20,0,0,0">Zamenski lek:</Label>
+        <ComboBox Grid.Row="6" Grid.Column="1" Width="150" Height="25" Margin="0,0,0,0" Name="cbAlternativeDrug"></ComboBox>
+        <Label Grid.Row="7" FontWeight="Bold" VerticalAlignment="Center" Height="30" Margin="20,0,0,0">Komponente leka:</Label>
+        <TextBox Grid.Row="7" Grid.Column="1" Width="150" Height="25" VerticalContentAlignment="Center" Margin="0,0,0,0" Name="tbuDrugComponents">
+            <TextBox.Text>
+                <Binding Path="DrugComponents" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:MinMaxValidationRuleString ValidationStep="ConvertedProposedValue" Min="3" Max="100"></val:MinMaxValidationRuleString>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                        <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
 
-        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,1,0,0" Width="350">
+        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF565656" BorderThickness="0,1,0,0" >
         </Border>
-        <StackPanel  Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Grid.Row="8" Margin="0,0,5,0" HorizontalAlignment="Right">
-            <Button  HorizontalAlignment="Right" Grid.Row="6" Width="60"  BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="0, 0, 20, 0" Click="Button_Click" >Sačuvaj</Button>
-            <Button  Grid.Row="7" Width="60" BorderBrush="#FF565656" HorizontalAlignment="Right" BorderThickness="1,1,2,2" Height="30" Margin="0, 0, 0, 0" Click="Button_Click_Cancel" >Izađi</Button>
-        </StackPanel>
+        <Button FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="8" Width="60"  Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Foreground="White" Height="30" Margin="0, 0, 113, 0" Click="Button_Click" >Potvrdi</Button>
+        <Button FontSize="15" Grid.Column="1" Grid.Row="8" Width="60" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2" HorizontalAlignment="Right" Foreground="White" Height="30" Margin="0, 0, 23, 0" Click="Button_Click_Cancel" >Izađi</Button>
+        
     </Grid>
 </Window>

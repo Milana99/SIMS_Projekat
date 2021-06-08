@@ -5,25 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
         mc:Ignorable="d"
-        Title="DrugListForVerifyCancel" Height="200" Width="300">
+         xmlns:val="clr-namespace:Bolnica.Validation"
+        Title="Zdravo" Icon="Slike/heart.ico" Height="200" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition>
+            <RowDefinition >
             </RowDefinition>
             <RowDefinition/>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,0,0,3">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Foreground="Black" Name="DrugName" >Obrazloženje</Label>
+        <Border Grid.Row="0" Grid.Column="0" Width="250" Grid.ColumnSpan="2" BorderBrush="#FF929292" BorderThickness="0,0,0,2">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFD44848" Name="DrugName" >Obrazloženje</Label>
         </Border>
 
-        <TextBox  Name="tbComment" Margin="20,10,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></TextBox>
-
-        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="60" Background="#FF929292" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="0, 0, 90, 0" Foreground="White" Click="Button_Click_OK" >Pošalji</Button>
-        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Width="60" Background="#FF929292" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="0, 0, 10, 0" Foreground="White" Click="Button_Click_OK" >Izadji</Button>
+        <TextBox  Name="tbComment" Margin="20,10,20,10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBox.Text>
+                <Binding Path="Message" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:MinMaxValidationRuleString ValidationStep="ConvertedProposedValue" Min="3" Max="30"></val:MinMaxValidationRuleString>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                        <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF565656" BorderThickness="0,1,0,0" >
+        </Border>
+        <Button Grid.Column="0" FontSize="15" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="60" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="0, 0, 100, 0" Foreground="White" Click="Button_Click_OK" >Potvrdi</Button>
+        <Button Grid.Column="1" FontSize="15" Grid.Row="2" HorizontalAlignment="Right" Width="60" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="0, 0, 20, 0" Foreground="White" Click="Button_Click_OK" >Izađi</Button>
     </Grid>
 </Window>

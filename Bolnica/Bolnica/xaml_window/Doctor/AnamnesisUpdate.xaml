@@ -4,56 +4,144 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
+        xmlns:val="clr-namespace:Bolnica.Validation"
         mc:Ignorable="d"
-        Title="AnamnesisUpdate" Height="400" Width="400">
+        Title="Zdravo" Icon="Slike/heart.ico" Height="400" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition/>
+            <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,0,0,3" Width="350">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="Black" >Ažuriranje izveštaja</Label>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF929292" BorderThickness="0,0,0,2" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFD44848" >Izmena izveštaja</Label>
         </Border>
-        <Label Grid.Row="1" Margin="20,10,0,0" FontWeight="Bold">Vrsta pregleda:</Label>
-        <TextBox Grid.Row="1" Grid.Column="1" Width="150" Height="25"  Name="tbTypeAnamnesis" Margin="5"/>
-        <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold">Pacijent se žali na:</Label>
-        <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25"  Name="tbDescriptionAnamnesis" Margin="5"/>
-        <Label Grid.Row="3" Margin="20,10,0,0" FontWeight="Bold">Zaključak i mišljenje:</Label>
-        <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="25"  Name="tbOpinionForAnamnesis" Margin="5"/>
-        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold">Terapija</Label>
-        <Button Grid.Row="4" Grid.Column="1" Width="100" Height="30" Margin="50,0,0,0" Click="Button_Click_Therapy">Dodaj terapiju</Button>
+        <Label Grid.Row="1" Margin="20,0,0,0" Height="30" FontWeight="Bold">Vrsta pregleda:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Width="150" Height="25"  Name="tbTypeAnamnesis" Margin="5">
+            <TextBox.Text>
+                <Binding Path="TypeOfAnamnesis" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:MinMaxValidationRuleString ValidationStep="ConvertedProposedValue" Min="3" Max="30"></val:MinMaxValidationRuleString>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                        <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="2" Margin="20,0,0,0" Height="30"  FontWeight="Bold">Pacijent se žali na:</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25"  Name="tbDescriptionAnamnesis" Margin="5">
+            <TextBox.Text>
+                <Binding Path="DescriptionAnamnesis" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                            <val:MinMaxValidationRuleString ValidationStep="ConvertedProposedValue" Min="3" Max="30"></val:MinMaxValidationRuleString>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                            <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+        <Label Grid.Row="3" Margin="20,0,0,0" Height="30"  FontWeight="Bold">Zaključak i mišljenje:</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="25"  Name="tbOpinionForAnamnesis" Margin="5">
+            <TextBox.Text>
+                <Binding Path="OpinionForAnamnesis" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:MinMaxValidationRuleString ValidationStep="ConvertedProposedValue" Min="3" Max="30"></val:MinMaxValidationRuleString>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                        <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="4" Margin="20,0,0,0" Height="30"  FontWeight="Bold">Dodaj recept:</Label>
+        <Button Grid.Row="4" Grid.Column="1" Width="30" Height="30" Background="#FF3C9B3C" HorizontalAlignment="Right" Margin="0,0,22,0" Click="Button_Click_Therapy">
+            <StackPanel Orientation="Horizontal" >
+                <Label FontSize="15"  Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xF8AA;" Margin="0,0,0,0"></Label>
+            </StackPanel>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
-
-        <ListView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="20,0,20,0" Name="lvDataBindingAnamnesis">
+        <ListView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="22,0,23,10" Name="lvDataBindingAnamnesis">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ime leka"  DisplayMemberBinding="{Binding drug.DrugName}"
-                                    Width="60"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Opis recepta" DisplayMemberBinding="{Binding DescriptionPrescription}"
-                                    Width="80"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Doza" DisplayMemberBinding="{Binding QuantityPrescription}" 
-                                    Width="40"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Datum početka"  DisplayMemberBinding="{Binding StartDatePrescription}"
-                                    Width="90"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Datum kraja" DisplayMemberBinding="{Binding EndDatePrescription}"
-                                    Width="70"/>
+                                    Width="Auto"/>
                 </GridView>
             </ListView.View>
 
         </ListView>
-
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF939191"  Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Izadji</Button>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF939191" Height="30"  Margin="20, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Ažuriraj</Button>
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF565656" BorderThickness="0,1,0,0">
+        </Border>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFD44848" FontSize="15" BorderBrush="#FF565656" BorderThickness="1,1,2,2"  Height="30" Margin="90, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Izađi</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFD44848" FontSize="15" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30"  Margin="0, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Potvrdi</Button>
     </Grid>
 </Window>

@@ -5,47 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
         mc:Ignorable="d"
-        Title="AnamnesisTherapy" Height="400" Width="400">
+        Title="Zdravo" Icon="Slike/heart.ico" Height="400" Width="400">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition/>
+            <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF939191" BorderThickness="0,0,0,3" Width="350">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="Black" >Terapija</Label>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF929292" BorderThickness="0,0,0,2" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFD44848" >Terapija</Label>
         </Border>
-        <ListView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Margin="20,0,20,10" Name="lvDataBindingAnamnesis">
+        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="20,10,22,10" Name="lvDataBindingAnamnesis">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ime leka"  DisplayMemberBinding="{Binding drug.DrugName}"
-                                    Width="60"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Opis recepta" DisplayMemberBinding="{Binding DescriptionPrescription}"
-                                    Width="80"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Doza" DisplayMemberBinding="{Binding QuantityPrescription}" 
-                                    Width="40"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Datum početka"  DisplayMemberBinding="{Binding StartDatePrescription}"
-                                    Width="90"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Datum kraja" DisplayMemberBinding="{Binding EndDatePrescription}"
-                                    Width="70"/>
+                                    Width="Auto"/>
                 </GridView>
             </ListView.View>
 
         </ListView>
 
-        <Button Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Width="90" Height="30" Click="Button_Click_Add">Dodaj lek</Button>
+        <Button Grid.Column="0" Grid.Row="5" Grid.RowSpan="2" BorderBrush="#FF565656" BorderThickness="1,1,2,2" FontSize="15" Margin="0,30,0,0" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="130" Height="40" Click="Button_Click_Add" Background="#FF3C9B3C" Foreground="White">
+            <StackPanel Orientation="Horizontal" >
+                <Label FontSize="15" Background="#FF3C9B3C" VerticalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xF8AA;" Margin="0,0,0,0"></Label>
+                <Label Foreground="White">Dodaj recept</Label>
+            </StackPanel>
+        </Button>
 
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF939191" Height="30" Margin="100, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Izadji</Button>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FF939191" Height="30" Margin="20, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Kreiraj</Button>
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF565656" BorderThickness="0,1,0,0" >
+        </Border>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" FontSize="15"  Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="40" Margin="90, 0, 0, 0" Foreground="White" Click="Button_Click_Cancel">Izadji</Button>
+        <Button Grid.Column="1" Grid.Row="7" Width="60" FontSize="15" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="40" Margin="20, 0, 90, 0" Foreground="White" Click="Button_Click_Ok">Kreiraj</Button>
     </Grid>
 </Window>
