@@ -13,7 +13,7 @@ namespace Bolnica.Service
         }
         public List<Model.StaticEquipment> GetAllEquipment()
         {
-            return staticEquipmentRepository.LoadStaticEquipment();
+            return staticEquipmentRepository.Load();
         }
       
       public Model.StaticEquipment GetOneStaticEquipment(int staticEquipmentId)
@@ -34,7 +34,7 @@ namespace Bolnica.Service
             List<Model.StaticEquipment> equipments = GetAllEquipment();
             Model.StaticEquipment ste = new Model.StaticEquipment(staticEquipmentId, name, description, roomId);
             equipments.Add(ste);
-            staticEquipmentRepository.SaveStaticEquipment(equipments);
+            staticEquipmentRepository.Save(equipments);
       }
       
       public void DeleteStaticEquipment(int staticEquipmentId)
@@ -45,7 +45,7 @@ namespace Bolnica.Service
                 if (ste.StaticEquipmentId == staticEquipmentId)
                 {
                     ste.Delete();
-                    staticEquipmentRepository.SaveStaticEquipment(equipments);
+                    staticEquipmentRepository.Save(equipments);
                     return;
                 }
             }
@@ -59,7 +59,7 @@ namespace Bolnica.Service
                 {
                     ste.DescriptionStaticEquipment = description;
                     ste.NameStaticEquipment = name;
-                    staticEquipmentRepository.SaveStaticEquipment(equipments);
+                    staticEquipmentRepository.Save(equipments);
                     return;
                 }
             }
@@ -74,7 +74,7 @@ namespace Bolnica.Service
                     ste.free = free;
                     ste.DescriptionStaticEquipment = description;
                     ste.NameStaticEquipment = name;
-                    staticEquipmentRepository.SaveStaticEquipment(equipments);
+                    staticEquipmentRepository.Save(equipments);
                     return;
                 }
             }
@@ -88,7 +88,7 @@ namespace Bolnica.Service
                 if(ste.StaticEquipmentId == staticEquipmentId)
                 {
                     ste.roomStaticEquipment.RoomId = roomId;
-                    staticEquipmentRepository.SaveStaticEquipment(equipments);
+                    staticEquipmentRepository.Save(equipments);
                     return;
                 }
             }
@@ -120,7 +120,7 @@ namespace Bolnica.Service
                     equipment.ChangeRoom(newRoomId);
                 }
             }
-            staticEquipmentRepository.SaveStaticEquipment(equipments);
+            staticEquipmentRepository.Save(equipments);
         }
  
    

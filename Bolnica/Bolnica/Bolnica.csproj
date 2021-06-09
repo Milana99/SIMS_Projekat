@@ -110,6 +110,7 @@
     <Compile Include="Repository\RelocationRepository.cs" />
     <Compile Include="Repository\BasicRenovationRepository.cs" />
     <Compile Include="Repository\RenovationRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\RoomMergingRepository.cs" />
     <Compile Include="Repository\RoomRepository.cs" />
     <Compile Include="Repository\RoomSeparationRepository.cs" />

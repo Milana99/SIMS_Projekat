@@ -27,14 +27,14 @@ namespace Bolnica.Service
 
         public List<BasicRenovation> GetAll()
         {
-            return renovationRepository.LoadRenovation();
+            return renovationRepository.Load();
         }
 
         public void Create(BasicRenovation renovation)
         {
             List<Model.BasicRenovation> renovations = GetAll();
             renovations.Add(renovation);
-            renovationRepository.SaveRenovation(renovations);
+            renovationRepository.Save(renovations);
         }
 
         public void Delete(int renovationId)
@@ -45,7 +45,7 @@ namespace Bolnica.Service
                 if(renovation.RenovationId == renovationId)
                 {
                     renovation.deleted = true;
-                    renovationRepository.SaveRenovation(renovations);
+                    renovationRepository.Save(renovations);
                     return;
                 }
             }
@@ -61,7 +61,7 @@ namespace Bolnica.Service
                     renovation.RenovationDescription = updatedRenovation.RenovationDescription;
                     renovation.StartTime = updatedRenovation.StartTime;
                     renovation.EndTime = updatedRenovation.EndTime;
-                    renovationRepository.SaveRenovation(renovations);
+                    renovationRepository.Save(renovations);
                     return;
                 }
             }

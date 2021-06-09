@@ -4,75 +4,29 @@ using System.IO;
 namespace Bolnica.Repository
 
 {
-   public class AnamnesisRepository
+   public class AnamnesisRepository : Repository<Model.Anamnesis>
    {
-        private String FileLocation;
         public int next_id;
-        public AnamnesisRepository(String fileLocation)
+        public AnamnesisRepository(String fileLocation): base(fileLocation){}
+
+        public override Model.Anamnesis addOne(string[] words)
         {
-            FileLocation = fileLocation;
+            Model.Anamnesis anamnesis = new Model.Anamnesis(words[0], int.Parse(words[1]), words[2], words[3], words[4]);
+            next_id = anamnesis.AnamnesisId;
+            next_id++;
+            return anamnesis;
         }
-        public List<Model.Anamnesis> LoadAnamnesis()
-      {
-            List<Model.Anamnesis> anamneses = new List<Model.Anamnesis>();
 
-            try
+        public override String getOne(Model.Anamnesis anamnesis)
+        {
+            if (anamnesis.deleted == false)
             {
-                String line;
-                StreamReader sr = new StreamReader(FileLocation);
+                String line = anamnesis.patient.User.Username + "," + anamnesis.AnamnesisId + "," + anamnesis.TypeAnamnesis + "," + anamnesis.DescriptionAnamnesis + "," + anamnesis.OpinionForAnamnesis;
 
-                while ((line = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine(line);
-                    string[] words = line.Split(',');
-
-
-                    Model.Anamnesis an = new Model.Anamnesis(words[0], int.Parse(words[1]), words[2], words[3], words[4]);
-
-                    anamneses.Add(an);
-
-                    next_id = an.AnamnesisId;
-
-                }
-                next_id++;
-
-                sr.Close();
+                return line;
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: " + e.Message);
-            }
-            finally
-            {
-                Console.WriteLine("Executing finally block.");
-            }
-
-            return anamneses;
+            return null;
         }
-      
-      public void SaveAnamnesis(List<Model.Anamnesis> anamnesisList)
-      {
-            File.Delete(FileLocation);
-            String line;
-            List<String> lines = new List<String>();
-
-            foreach (Model.Anamnesis an in anamnesisList)
-            {
-                if (an.deleted == false)
-                {
-                    line = an.patient.User.Username + "," + an.AnamnesisId + "," + an.TypeAnamnesis + "," + an.DescriptionAnamnesis + "," + an.OpinionForAnamnesis;
-                    lines.Add(line);
-                }
-            }
-            File.WriteAllLines(FileLocation, lines);
-        }
-      
-      public void DeleteAnamnesiss()
-      {
-            File.Delete(FileLocation);
-      }
-   
-
-   
+        
    }
 }
