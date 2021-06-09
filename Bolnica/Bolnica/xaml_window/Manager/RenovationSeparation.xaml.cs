@@ -70,12 +70,12 @@ namespace Bolnica.xaml_window.Manager
         }
         public void LoadRooms()
         {
-            foreach(Model.Room room in roomController.GetAllRooms())
+            foreach (Model.Room room in roomController.GetAllRooms())
             {
                 cbRooms.Items.Add(room.RoomId);
             }
         }
-        
+
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
             if (tbEndTime.Text == "" || tbEndTime.Text == null
@@ -121,18 +121,18 @@ namespace Bolnica.xaml_window.Manager
 
         private void Button_Click_Add_Room(object sender, RoutedEventArgs e)
         {
-            if(cbRooms.Text=="" || cbRooms.Text==null)
+            if (cbRooms.Text == "" || cbRooms.Text == null)
             {
                 MessageBox.Show("Nije moguće podeliti salu ako je pre toga niste selektovali!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
-                
+
             }
             else
             {
                 var renovation_division_add_room = new RenovationSeparationRoomAdd(this, roomController);
                 renovation_division_add_room.Show();
                 this.Hide();
-                
+
             }
 
         }
@@ -146,6 +146,7 @@ namespace Bolnica.xaml_window.Manager
             Model.Room room = roomController.GetByIdRoom(int.Parse(cbRooms.SelectedItem.ToString()));
             lbArea.Content = room.Area;
             lbFloor.Content = room.Floor;
+
         }
     }
 }

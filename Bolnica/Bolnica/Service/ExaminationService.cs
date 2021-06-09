@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using System;
 using Bolnica.Model;
 using Bolnica.xaml_window.Doctor;
+using Bolnica.ServiceInterface;
 
 namespace Bolnica.Service
 {
-    public class ExaminationService
+    public class ExaminationService : IIsRoomFree
     {
-
         public Bolnica.Repository.ExaminationRepository examinationRepository;
 
 
@@ -16,16 +16,16 @@ namespace Bolnica.Service
             examinationRepository = new Repository.ExaminationRepository(@"C:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Doktor.txt");
         }
 
-        public List<Model.Examination> GetAllExaminations()
+        public List<Model.Examination> GetAll()
         {
             return examinationRepository.LoadExamination();
 
         }
 
 
-        public Model.Examination GetOneExamination(int examinationId)
+        public Model.Examination GetOne(int examinationId)
         {
-            List<Model.Examination> examinations = GetAllExaminations();
+            List<Model.Examination> examinations = GetAll();
             foreach (Model.Examination ex in examinations)
             {
                 if (ex.ExaminationId == examinationId)
@@ -35,14 +35,14 @@ namespace Bolnica.Service
             }
             return null;
         }
-        public Boolean IsRoomFree(DateTime newStartTime, DateTime newEndTime, int id, int roomId)
+        public bool IsRoomFree(DateTime newStartTime, DateTime newEndTime, int id, int roomId)
         {
             if (IsRoomFreeExaminations(newStartTime, newEndTime, id) && IsRoomFreeRenovations(newStartTime, newEndTime, roomId)){
                 return true;
             }
             return false;
         }
-        public Boolean IsRoomFreeRenovations(DateTime newStartTime, DateTime newEndTime, int roomId)
+        public bool IsRoomFreeRenovations(DateTime newStartTime, DateTime newEndTime, int roomId)
         {
             Controller.BasicRenovationController renovationController = new Controller.BasicRenovationController();
             List<Model.BasicRenovation> renovations = renovationController.GetAllRenovations();
@@ -62,9 +62,9 @@ namespace Bolnica.Service
             }
             return true;
         }
-        public Boolean IsRoomFreeExaminations(DateTime newStartTime, DateTime newEndTime, int id)
+        public bool IsRoomFreeExaminations(DateTime newStartTime, DateTime newEndTime, int id)
         {
-            List<Model.Examination> examinations = GetAllExaminations();
+            List<Model.Examination> examinations = GetAll();
             foreach (Examination ex in examinations)
             {
                 //if(((ex.StartTime<=newTime1) && (ex.EndTime>newTime1)) || ((ex.StartTime<newTime2)&&(ex.EndTime>=newTime2)))
@@ -85,9 +85,9 @@ namespace Bolnica.Service
             return true;
         }
 
-        public Boolean CreateExamination(Model.Examination newExamination)
+        public bool Create(Model.Examination newExamination)
         {
-            List<Model.Examination> examinations = GetAllExaminations();
+            List<Model.Examination> examinations = GetAll();
 
             if (IsRoomFree(newExamination.StartTime, newExamination.EndTime, newExamination.ExaminationId, newExamination.room.RoomId))
             {
@@ -98,9 +98,9 @@ namespace Bolnica.Service
             return false;
         }
 
-        public void DeleteExamination(int examinationId)
+        public void Delete(int examinationId)
         {
-            List<Model.Examination> examinations = GetAllExaminations();
+            List<Model.Examination> examinations = GetAll();
             foreach (Examination ex in examinations)
             {
                 if (ex.ExaminationId == examinationId)
@@ -113,9 +113,9 @@ namespace Bolnica.Service
             }
         }
 
-        public Boolean UpdateExamination(int examinationId, DateTime startTime, DateTime endTime, int roomId)
+        public bool Update(int examinationId, DateTime startTime, DateTime endTime, int roomId)
         {
-            List<Model.Examination> examinations = GetAllExaminations();
+            List<Model.Examination> examinations = GetAll();
 
             foreach (Examination ex in examinations)
             {
@@ -138,7 +138,7 @@ namespace Bolnica.Service
 
         public List<Model.Examination> GetExaminatonsForDoctor(String doctorUsername)
         {
-            List<Model.Examination> examinations = GetAllExaminations();
+            List<Model.Examination> examinations = GetAll();
             List<Model.Examination> newExaminations = new List<Model.Examination>();
 
             foreach (Model.Examination ex in examinations)
@@ -153,7 +153,7 @@ namespace Bolnica.Service
 
         public List<Model.Examination> GetExaminationForPatient(String patientUsername)
         {
-            List<Model.Examination> examinations = GetAllExaminations();
+            List<Model.Examination> examinations = GetAll();
             List<Model.Examination> newExaminations = new List<Model.Examination>();
 
             foreach (Model.Examination ex in examinations)

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Bolnica.ServiceInterface;
 
 namespace Bolnica.Service
 {
-    public class DrugService
+    public class DrugService : IUsingRepo<Model.Drug>
     {
         public Bolnica.Repository.DrugRepository drugRepository;
 
@@ -11,14 +12,14 @@ namespace Bolnica.Service
         {
             drugRepository = new Repository.DrugRepository(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Drug.txt");
         }
-        public List<Model.Drug> GetAllDrugs()
+        public List<Model.Drug> GetAll()
         {
             return drugRepository.LoadDrug();
         }
 
-        public Model.Drug GetOneDrug(int drugId)
+        public Model.Drug GetOne(int drugId)
         {
-            List<Model.Drug> drugs = GetAllDrugs();
+            List<Model.Drug> drugs = GetAll();
             foreach (Model.Drug drug in drugs)
             {
                 if (drugId == drug.DrugId)
@@ -30,7 +31,7 @@ namespace Bolnica.Service
         }
         public Model.Drug GetDrugByName(string Name)
         {
-            List<Model.Drug> drugs = GetAllDrugs();
+            List<Model.Drug> drugs = GetAll();
             foreach (Model.Drug drug in drugs)
             {
                 if (Name == drug.DrugName)
@@ -41,16 +42,16 @@ namespace Bolnica.Service
             return null;
         }
 
-        public void CreateDrug(Model.Drug drug)
+        public void Create(Model.Drug drug)
         {
-            List<Model.Drug> drugs = GetAllDrugs();
+            List<Model.Drug> drugs = GetAll();
             drugs.Add(drug);
             drugRepository.SaveDrug(drugs);
         }
 
-        public void UpdateDrug(Model.Drug changedDrug)
+        public void Update(Model.Drug changedDrug)
         {
-            List<Model.Drug> drugs = GetAllDrugs();
+            List<Model.Drug> drugs = GetAll();
             foreach (Model.Drug drug in drugs)
             {
                 if (drug.DrugId == changedDrug.DrugId)
@@ -70,7 +71,7 @@ namespace Bolnica.Service
         }
         public void DenyDrug(int drugId, String comment)
         {
-            List<Model.Drug> drugs = GetAllDrugs();
+            List<Model.Drug> drugs = GetAll();
             foreach (Model.Drug drug in drugs)
             {
                 if (drugId == drug.DrugId)
@@ -84,7 +85,7 @@ namespace Bolnica.Service
         }
         public void ApproveDrug(int drugId)
         {
-            List<Model.Drug> drugs = GetAllDrugs();
+            List<Model.Drug> drugs = GetAll();
             foreach (Model.Drug drug in drugs)
             {
                 if (drugId == drug.DrugId)
@@ -95,9 +96,9 @@ namespace Bolnica.Service
                 }
             }
         }
-        public void DeleteDrug(int drugId)
+        public void Delete(int drugId)
         {
-            List<Model.Drug> drugs = GetAllDrugs();
+            List<Model.Drug> drugs = GetAll();
             foreach (Model.Drug drug in drugs)
             {
                 if (drugId == drug.DrugId)

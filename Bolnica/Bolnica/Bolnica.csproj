@@ -117,6 +117,8 @@
     <Compile Include="Repository\InstrucitonsForSpecialisticExaminationRepository.cs" />
     <Compile Include="Repository\StaticEquipmentRepository.cs" />
     <Compile Include="Repository\TherapyRepository.cs" />
+    <Compile Include="ServiceInterface\IIsRoomFree.cs" />
+    <Compile Include="ServiceInterface\IUsingRepo.cs" />
     <Compile Include="Service\AllergenService.cs" />
     <Compile Include="Service\AnamnesisService.cs" />
     <Compile Include="Service\DoctorService.cs" />
@@ -614,5 +616,6 @@
   <ItemGroup>
     <Resource Include="xaml_window\Doctor\Slike\srce_login.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
