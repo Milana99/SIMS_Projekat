@@ -4,78 +4,33 @@ using System.IO;
 
 namespace Bolnica.Repository
 {
-   public class StaticEquipmentRepository
+   public class StaticEquipmentRepository : Repository<Model.StaticEquipment>
    {
 
-        private String FileLocation;
         public int next_id;
 
-        public StaticEquipmentRepository(String fileLocation)
+        public StaticEquipmentRepository(String fileLocation) : base(fileLocation) { }
+
+        public override Model.StaticEquipment addOne(string[] words)
         {
-            FileLocation = fileLocation;
+            Model.StaticEquipment ste = new Model.StaticEquipment(int.Parse(words[0]),
+                        words[1], words[2], int.Parse(words[3]), bool.Parse(words[4]));
+            next_id = ste.StaticEquipmentId;
+            next_id++;
+            return ste;
         }
-        public List<Model.StaticEquipment> LoadStaticEquipment()
+
+        public override String getOne(Model.StaticEquipment staticEquipment)
         {
-            List<Model.StaticEquipment> equipments = new List<Model.StaticEquipment>();
-
-            try
+            if (staticEquipment.deleted == false)
             {
-                String line;
-                StreamReader sr = new StreamReader(FileLocation);
-
-                while ((line = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine(line);
-                    string[] words = line.Split(',');
-
-                    Model.StaticEquipment ste = new Model.StaticEquipment(int.Parse(words[0]), 
-                        words[1], words[2], int.Parse(words[3]));
-
-
-                    equipments.Add(ste);
-                    next_id = ste.StaticEquipmentId;
-
-                }
-                next_id++;
-
-                sr.Close();
+                String line = staticEquipment.StaticEquipmentId.ToString() + "," + staticEquipment.NameStaticEquipment + ","
+                        + staticEquipment.DescriptionStaticEquipment + ","
+                        + staticEquipment.roomStaticEquipment.RoomId.ToString() + "," + staticEquipment.free.ToString();
+                return line;
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: " + e.Message);
-            }
-            finally
-            {
-                Console.WriteLine("Executing finally block.");
-            }
-
-            return equipments;
+            return null;
         }
-      
-      public void SaveStaticEquipment(List<Model.StaticEquipment> staticEquipmentList)
-      {
-            File.Delete(FileLocation);
-            String line;
-            List<String> lines = new List<String>();
-
-            foreach (Model.StaticEquipment ste in staticEquipmentList)
-            {
-                if (ste.deleted == false)
-                {
-                    line = ste.StaticEquipmentId.ToString() + "," + ste.NameStaticEquipment + ","
-                        + ste.DescriptionStaticEquipment + "," 
-                        + ste.roomStaticEquipment.RoomId.ToString();
-                    
-                    lines.Add(line);
-                }
-            }
-            File.WriteAllLines(FileLocation, lines);
-        }
-      
-      public void DeleteStaticEquipments()
-      {
-            File.Delete(FileLocation);
-      }
    
    }
 }

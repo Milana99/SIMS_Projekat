@@ -4,58 +4,112 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
+        xmlns:val="clr-namespace:Bolnica.Validation"
         mc:Ignorable="d"
-        Title="RenovationDivisionRoomAdd" Height="550" Width="900">
-    <Grid>
+        Title="RenovationDivisionRoomAdd" Height="550" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="#FFFFF0F0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,3" Width="600">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFE84B4B" >Dodavanje sobe</Label>
+        <Border  Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" CornerRadius="20,20,20,20" Grid.ColumnSpan="3" Margin="100,0,100,20" Background="White">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="3" Direction="320" Opacity="0.3"></DropShadowEffect>
+            </Border.Effect>
         </Border>
-        <StackPanel Grid.Row="1" Grid.RowSpan="2" Margin="20,0,20,0" Height="150" Orientation="Vertical" Grid.ColumnSpan="2">
-            <StackPanel.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFFF9F9" Offset="0"/>
-                    <GradientStop Color="#FFFFE2DE" Offset="0.853"/>
-                </LinearGradientBrush>
-            </StackPanel.Background>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,265,0">
-                <Label Grid.Row="1" Margin="0,10,0,10" HorizontalAlignment="Left" FontWeight="Bold"  >ID:</Label>
-                <Label Grid.Row="1" Grid.Column="0"  Width="100" HorizontalAlignment="Right" Margin="155,0,0,0" Height="25"  Name="lbuID"/>
+
+        <Separator Background="#FFFB4646" Grid.Row="0" Width="190" Margin="200,0,0,0" Grid.Column="1" Grid.ColumnSpan="2"></Separator>
+        <Label Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="3"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45">Dodavanje sale</Label>
+        <Separator Background="#FFFB4646" Grid.Row="0" Width="190" Margin="0,0,200,0" Grid.Column="0" Grid.ColumnSpan="2"></Separator>
+
+        <Border Grid.Row="2" Background="#FFFFE0E0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Height="280" BorderThickness="4,4,4,4" Width="650" Margin="0,0,0,35" ></Border>
+
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Margin="0,0,0,0" Height="150" Orientation="Vertical" VerticalAlignment="Top" Grid.ColumnSpan="3">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,300,10">
+                <Label Grid.Row="1" FontSize="15" Height="30" Width="150" HorizontalAlignment="Left" FontWeight="Bold"  >ID:</Label>
+                <Label Grid.Row="1" Grid.Column="0" FontSize="15"   Width="150" HorizontalAlignment="Right" Margin="0,0,0,0" Height="30"  Name="lbuID"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Grid.Row="1" Margin="0,10,20,10" HorizontalAlignment="Left"  FontWeight="Bold" >Unesite opis:</Label>
-                <TextBox Grid.Row="1" Grid.Column="0" Width="100" Height="25" HorizontalAlignment="Right"  Margin="75,10,0,10" Name="tbuDescription" />
-                <Label Grid.Row="5" Margin="20,10,10,0" FontWeight="Bold" HorizontalAlignment="Center" >Unesite tip sobe:</Label>
-                <ComboBox Name="cbRoomType" HorizontalAlignment="Center" Width="100"  Grid.Row="5" Grid.Column="1" Margin="25,10,10,10"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,15">
+                <Label Grid.Row="1" Margin="0,0,0,0" Width="150" FontSize="15"  HorizontalAlignment="Left"  FontWeight="Bold" >Unesite opis:</Label>
+                <TextBox Grid.Row="1" Grid.Column="0" FontSize="15"  Width="150" Height="30" HorizontalAlignment="Right"   Name="tbuDescription" >
+                    <TextBox.Text>
+                        <Binding Path="Description" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                                <val:MinMaxValidationRuleString ValidationStep="ConvertedProposedValue" Min="3" Max="100"></val:MinMaxValidationRuleString>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                                <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                            </Grid>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <Label Grid.Row="5"  FontSize="15" Width="150" FontWeight="Bold" HorizontalAlignment="Center" >Unesite tip sobe:</Label>
+                <ComboBox Name="cbRoomType" FontSize="15"  HorizontalAlignment="Center" Width="150"  Grid.Row="5" Grid.Column="1" />
 
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Grid.Row="2" Margin="0,10,20,10" HorizontalAlignment="Left" FontWeight="Bold" >Površina:</Label>
-                <TextBox Grid.Row="2" Grid.Column="0" Width="100" Margin="95,10,0,0" Height="25"  Name="tbuArea" />
-                <Label Grid.Row="2" Margin="20,10,20,10" HorizontalAlignment="Left"  FontWeight="Bold" >Sprat:</Label>
-                <Label Name="lbuFloor" Width="100" Height="25" Margin="80,0,0,0" Grid.Row="4"  Grid.Column="1">
+                <Label Grid.Row="2" FontSize="15" Width="150" Height="30" HorizontalAlignment="Left" FontWeight="Bold" >Površina:</Label>
+                <TextBox Grid.Row="2" FontSize="15"  Grid.Column="0" Width="150" Height="30"   Name="tbuArea" >
+                    <TextBox.Text>
+                        <Binding Path="Area" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                                <val:StringToInt ValidationStep="RawProposedValue" ></val:StringToInt>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                                <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                            </Grid>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <Label Grid.Row="2" FontSize="15" Width="150" Height="30"   HorizontalAlignment="Left"  FontWeight="Bold" >Sprat:</Label>
+                <Label Name="lbuFloor" FontSize="15"  Width="150" Height="30" Grid.Row="4"  Grid.Column="1">
                 </Label>
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Label  FontSize="20">Inventar sobe</Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,60,0" VerticalAlignment="Top">
+            <Label  FontSize="20">Inventar stare sale</Label>
             <Label Name="oldRoom" FontSize="20"></Label>
         </StackPanel>
-        <ListView Grid.Row="3" Grid.Column="0" Grid.RowSpan="2"   Margin="70,40,80,0" Name="lvDataBindingStaticEqOldRoom">
+        <ListView Grid.Row="2" FontSize="15" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="250" Height="150"  Margin="0,0,60,0" Name="lvDataBindingStaticEqOldRoom">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID inventara" 
@@ -68,16 +122,26 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.RowSpan="2" Margin="0,40,0,0" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="140">
-            <Button Margin="0,0,0,20" Click="Button_Click">Premesti u novu sobu--></Button>
-            <Button Click="Button_Click_1">&lt;--Vrati u staru sobu</Button>
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.RowSpan="2" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="1" Width="140">
+            <Button Margin="0,0,0,20" Click="Button_Click" Height="40" Width="50">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25"   FontFamily="Segoe MDL2 Assets" Content="&#xEBE7;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="20"  VerticalAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+            <Button Click="Button_Click_1" Height="40" Width="50">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25"   FontFamily="Segoe MDL2 Assets" Content="&#xEC52;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="20"  VerticalAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Label  FontSize="20">Inventar sobe</Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="60,0,0,0" VerticalAlignment="Top">
+            <Label  FontSize="20">Inventar nove sale</Label>
             <Label Name="newRoom" FontSize="20"></Label>
         </StackPanel>
-        <ListView Grid.Row="3" Grid.Column="1" Grid.RowSpan="2"   Margin="80,40,70,0" Name="lvDataBindingStaticEqNewRoom">
+        <ListView Grid.Row="2" FontSize="15" Grid.Column="1" Grid.RowSpan="2"  Grid.ColumnSpan="2" Height="150" Width="250" Margin="60,0,0,0"  Name="lvDataBindingStaticEqNewRoom">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID inventara" 
@@ -90,8 +154,10 @@
             </ListView.View>
         </ListView>
 
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="0, 0, 90, 0" HorizontalAlignment="Right" Foreground="White" Click="Button_Click_Cancel">Odustani</Button>
-        <Button Grid.Column="1" Grid.Row="7" Width="60" Background="#FFE83E3E" Height="30" Margin="0, 0, 0, 0" HorizontalAlignment="Center" Foreground="White" Click="Button_Click_Ok">Kreiraj</Button>
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+            <Button Grid.Column="1" Grid.Row="7" Width="100" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646" FontSize="20"  Height="40" Margin="0, 0, 90, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_Ok">Potvrdi</Button>
+            <Button Grid.Column="1" Grid.Row="7" Width="100" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646" FontSize="20"  Height="40" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button_Click_Cancel">Odustani</Button>
+        </StackPanel>
 
     </Grid>
 </Window>

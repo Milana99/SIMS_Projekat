@@ -58,13 +58,29 @@ namespace Bolnica.xaml_window.Manager
 
         private void Logout_Manager(object sender, RoutedEventArgs e)
         {
-
+            var main = new MainWindow();
+            main.Show();
+            this.Close();
         }
 
         private void Button_Click_Drug_List(object sender, RoutedEventArgs e)
         {
             var drug_list = new DrugList();
             drug_list.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Renovation(object sender, RoutedEventArgs e)
+        {
+            var renovation_list = new RenovationList();
+            renovation_list.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Report(object sender, RoutedEventArgs e)
+        {
+            var report = new Report();
+            report.Show();
             this.Close();
         }
     }

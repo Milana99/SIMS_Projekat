@@ -43,13 +43,14 @@ namespace Bolnica.xaml_window.Doctor
             selectedDrug.DrugType = Model.TypeOfApprovedDrug.Approved;
             drugListForVerify.drugController.UpdateDrug(selectedDrug);
             drugListForVerify.LoadAllDrugs();
+            MessageBox.Show("Uspešno ste potvrdili lek!", "Uspešno izvršeno!", MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
             var dlfvc = new DrugListForVerifyCancel(this);
-            dlfvc.Show();
+            dlfvc.ShowDialog();
         }
     }
 }

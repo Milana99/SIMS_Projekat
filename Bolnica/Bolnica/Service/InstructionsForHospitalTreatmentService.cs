@@ -12,17 +12,17 @@ namespace Bolnica.Service
 
     public class InstructionsForHospitalTreatmentService
     {
-        private Repository.InstructionsForHospitalTreatmentRepository instructionsRepository;
+        private Repository.IRepo<Model.InstructionsForHospitalTreatment> instructionsRepository;
         
-        public InstructionsForHospitalTreatmentService()
+        public InstructionsForHospitalTreatmentService(Repository.IRepo<Model.InstructionsForHospitalTreatment> repo)
         {
-            instructionsRepository = new Repository.InstructionsForHospitalTreatmentRepository(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Instructions.txt");
+            instructionsRepository = repo;
         }
         public void CreateInstructionsForHospitalTreatment(Model.InstructionsForHospitalTreatment instruction)
         {
             List<Model.InstructionsForHospitalTreatment> instructions = GetAllInstructionsForHospitalTreatment();
             instructions.Add(instruction);
-            instructionsRepository.SaveInstructonForHospitalTreatment(instructions);
+            instructionsRepository.Save(instructions);
         }
 
         public void UpdateInstructionsForHospitalTreatment(Model.InstructionsForHospitalTreatment updatedInstruction)
@@ -32,8 +32,8 @@ namespace Bolnica.Service
             {
                 if(instruction.getId() == updatedInstruction.getId())
                 {
-                    instruction.UpdateEndDate(updatedInstruction.getEndDate());
-                    instructionsRepository.SaveInstructonForHospitalTreatment(instructions);
+                    instruction.setEndDate(updatedInstruction.getEndDate());
+                    instructionsRepository.Save(instructions);
                     return;
                 }
             }
@@ -47,7 +47,7 @@ namespace Bolnica.Service
                 if(instruction.getId() == instructionsForHospitalTreatmentId)
                 {
                     instruction.deleteInstruction();
-                    instructionsRepository.SaveInstructonForHospitalTreatment(instructions);
+                    instructionsRepository.Save(instructions);
                     return;
                 }
             }
@@ -56,7 +56,7 @@ namespace Bolnica.Service
 
         public List<Model.InstructionsForHospitalTreatment> GetAllInstructionsForHospitalTreatment()
         {
-            List<Model.InstructionsForHospitalTreatment> instructions = instructionsRepository.LoadInstructonForHospitalTreatment();
+            List<Model.InstructionsForHospitalTreatment> instructions = instructionsRepository.Load();
             return instructions;
         }
 

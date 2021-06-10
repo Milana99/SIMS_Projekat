@@ -4,8 +4,8 @@ using System.IO;
 
 namespace Bolnica.Repository
 {
-   public class DynamicEquipmentRepository
-   {
+    public class DynamicEquipmentRepository : IRepo<Model.DynamicEquipment>
+    {
 
         private String FileLocation;
         public int next_id;
@@ -15,8 +15,8 @@ namespace Bolnica.Repository
             FileLocation = fileLocation;
         }
 
-        public List<Model.DynamicEquipment> LoadDynamicEquipment()
-      {
+        public List<Model.DynamicEquipment> Load()
+        {
             List<Model.DynamicEquipment> equipments = new List<Model.DynamicEquipment>();
 
             try
@@ -51,18 +51,18 @@ namespace Bolnica.Repository
 
             return equipments;
         }
-      
-      public void SaveDynamicEquipment(List<Model.DynamicEquipment> dynamicEquipmentList)
-      {
+
+        public void Save(List<Model.DynamicEquipment> dynamicEquipmentList)
+        {
             File.Delete(FileLocation);
             String line;
             List<String> lines = new List<String>();
 
-            foreach(Model.DynamicEquipment de in dynamicEquipmentList)
+            foreach (Model.DynamicEquipment de in dynamicEquipmentList)
             {
                 if (de.deleted == false)
                 {
-                    line = de.DynamicEquipmentId.ToString() + "," 
+                    line = de.DynamicEquipmentId.ToString() + ","
                         + de.DynamicEquipmentQuantity.ToString() + "," + de.DynamicEquipmentName;
 
                     lines.Add(line);
@@ -70,13 +70,21 @@ namespace Bolnica.Repository
             }
             File.WriteAllLines(FileLocation, lines);
         }
-      
-      public void DeleteDynamicEquipments()
-      {
+
+        public int getNextId()
+        {
+            int s = next_id;
+            next_id++;
+            return s;
+        }
+
+        public void Delete()
+        {
             File.Delete(FileLocation);
-      }
-   
-     
-   
-   }
+        }
+
+        
+
+
+    }
 }

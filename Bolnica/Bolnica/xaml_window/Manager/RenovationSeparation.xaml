@@ -4,77 +4,140 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
+        xmlns:val="clr-namespace:Bolnica.Validation"
         mc:Ignorable="d"
-        Title="RenovationSeparation" Height="550" Width="900">
-    <Grid>
+        Title="RenovationSeparation" Height="550" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None" >
+    <Grid Background="#FFFFF0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
 
-        </Grid.RowDefinitions>
-
-        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="600" BorderThickness="0,0,0,3" Height="100" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Deljenje sala</Label>
+        <Border  Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" CornerRadius="20,20,20,20" Grid.ColumnSpan="3" Margin="100,0,100,20" Background="White">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="3" Direction="320" Opacity="0.3"></DropShadowEffect>
+            </Border.Effect>
         </Border>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Height="40" VerticalAlignment="Top" Margin="0,10,10,0">
-            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Height="40">
-                <Label Grid.Row="1"  Margin="20,10,100,0" Width="100" Height="25" VerticalAlignment="Top" FontWeight="Bold">Izaberite salu:</Label>
-                <ComboBox Name="cbRooms"  Width="100" Margin="20,0,0,8" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0" SelectionChanged="cbRooms_SelectionChanged" />
+        <Separator Background="#FFFB4646" Grid.Row="0" Width="195" Margin="200,0,0,0" Grid.Column="1" Grid.ColumnSpan="2"></Separator>
+        <Label Grid.Row="0" Grid.Column="1"   HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45">Deljenje sale</Label>
+        <Separator Background="#FFFB4646" Grid.Row="0" Width="195" Margin="0,0,200,0" Grid.Column="0" Grid.ColumnSpan="2"></Separator>
 
+        <Border Grid.Row="1" Background="#FFFFE0E0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Height="280" BorderThickness="4,4,4,4" Width="350" Margin="20,0,0,35" ></Border>
+        
+        <Label Grid.Row ="1" FontWeight="Bold" FontSize="15" Grid.Column ="1" Width ="150" Height ="30" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" >Preostala povrsina:</Label>
+        <Label Grid.Row ="1"  FontSize="15" Grid.Column ="2" Width ="50" Height ="30" Margin="10,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Name="lbArea"></Label>
+        <Label Grid.Row ="1" FontWeight="Bold" FontSize="15" Grid.Column ="2" Width ="50" Height ="30" Margin="0,25,80,0" VerticalAlignment="Top" HorizontalAlignment="Center" >Sprat:</Label>
+        <Label Grid.Row ="1" FontSize="15" Grid.Column ="2" Width ="50" Height ="30" Margin="30,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Name="lbFloor"></Label>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="120,10,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,15,0,0" >
+                <Label Grid.Row="1" FontSize="15" Margin="0,0,0,0" Width="150" Height="30"  FontWeight="Bold">Izaberite salu:</Label>
+                <ComboBox Name="cbRooms" FontSize="15" Width="120" Height="30" Margin="20,0,0,0"  Grid.Row="1" Grid.Column="0" SelectionChanged="cbRooms_SelectionChanged" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                <Label Grid.Row="2" FontSize="15" Width="150" Height="30"  Margin="0,0,0,0" FontWeight="Bold" >Datum početka:</Label>
+                <DatePicker Name="dpDateRenovationStart" FontSize="15" Width="120" Height="30" Margin="20,0,0,0" Grid.Row="2" Grid.Column="0"></DatePicker>
+                    </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                <Label Grid.Row="2" FontSize="15" Grid.Column="1" Width="150" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,0,0,0" >Vreme početka:</Label>
+                <TextBox   Width="120" FontSize="15" Margin="20,0,0,0" Height="30"  Grid.Row="2" Grid.Column="1" Name="tbStartTime" >
+                    <TextBox.Text>
+                        <Binding Path="Start" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                                <val:StringToDateTime ValidationStep="ConvertedProposedValue" ></val:StringToDateTime>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                                <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                            </Grid>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                <Label Margin="0,0,0,0" FontSize="15" Height="30" Width="150" FontWeight="Bold" >Datum kraja:</Label>
+                <DatePicker FontSize="15" Name="dpDateRenovationEnd" Height="30" Width="120" Margin="20,0,0,0" ></DatePicker>
+                 </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                <Label  FontWeight="Bold" FontSize="15"  Margin="0,0,0,0" Width="150" Height="30" >Vreme kraja:</Label>
+                <TextBox  Width="120" FontSize="15" Margin="20,0,0,0"  Height="30" Name="tbEndTime"  >
+                    <TextBox.Text>
+                        <Binding Path="End" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                                <val:StringToDateTime ValidationStep="ConvertedProposedValue" ></val:StringToDateTime>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                                <Label FontSize="15" Grid.Row="0" Grid.Column="1"  Foreground="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE946;" ></Label>
+                            </Grid>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
             </StackPanel>
         </StackPanel>
-        <Label Grid.Row ="1" Grid.Column ="1" Width ="110" Height ="25" Margin="0,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Right">Preostala povrsina:</Label>
-        <Label Grid.Row ="1" Grid.Column ="2" Width ="110" Height ="25" Margin="10,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Name="lbArea"></Label>
-        <Label Grid.Row ="1" Grid.Column ="2" Width ="110" Height ="25" Margin="50,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" >Sprat:</Label>
-        <Label Grid.Row ="1" Grid.Column ="2" Width ="110" Height ="25" Margin="10,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Name="lbFloor"></Label>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="0,90,0,0">
-            <StackPanel Orientation="Horizontal">
-                <Label Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="140,0,0,20" FontWeight="Bold" >Izaberite datum početka:</Label>
-                <DatePicker Name="dpDateRenovationStart" HorizontalAlignment="Right" Width="100" Margin="70,0,0,20" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0"></DatePicker>
-                <Label Grid.Row="2" Grid.Column="1"  FontWeight="Bold" HorizontalAlignment="Left" Margin="20,5,0,20" VerticalAlignment="Bottom"  >Izaberite vreme:</Label>
-                <TextBox  HorizontalAlignment="Right" Width="100" Margin="20,10,40,20"  Grid.Row="2" Grid.Column="1" Name="tbStartTime" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,10,0,20" FontWeight="Bold" >Izaberite datum kraja:</Label>
-                <DatePicker Name="dpDateRenovationEnd" HorizontalAlignment="Right" Width="100" Margin="85,10,0,20" VerticalAlignment="Top" Grid.Row="3" Grid.Column="0"></DatePicker>
-                <Label Grid.Row="3" Grid.Column="1"  FontWeight="Bold" HorizontalAlignment="Left" Margin="20,5,0,20" VerticalAlignment="Top" >Izaberite vreme:</Label>
-                <TextBox  HorizontalAlignment="Right" Width="100" Margin="20,10,40,0" VerticalAlignment="Top" Grid.Row="3" Grid.Column="1" Name="tbEndTime"  />
-
-            </StackPanel>
-        </StackPanel>
-
-        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"  Height="150"  Margin="150,0,10,0" Name="lvDataBindingRooms">
+        <ListView FontSize="15" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3"  Height="165" Width="320"  Margin="30,0,10,43" Name="lvDataBindingRooms">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID prostorije" 
-                                    Width="90" DisplayMemberBinding="{Binding RoomId}"/>
+                    <GridViewColumn Header="ID" 
+                                    Width="Auto" DisplayMemberBinding="{Binding RoomId}"/>
                     <GridViewColumn Header="Opis prostorije" DisplayMemberBinding="{Binding Description}"
-                                    Width="90"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Sprat" DisplayMemberBinding="{Binding Floor}" 
-                                    Width="90"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Kvadratura"  DisplayMemberBinding="{Binding Area}"
-                                    Width="90"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Tip prostorije" DisplayMemberBinding="{Binding RoomType}"
-                                    Width="90"/>
+                                    Width="Auto"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Center">
-            <Button Width="100" Height="20" Margin="10,0,0,20" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" Click="Button_Click_Add_Room">Podeli</Button>
-            <Button Width="100" Height="20" Margin="10,0,0,20" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top">Odbaci</Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Height="60" Width="330" Margin="10,0,0,120">
+            <Button Width="120" Height="40" Margin="10,0,50,0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Click="Button_Click_Add_Room" FontSize="20">Podeli salu</Button>
+            <Button Width="120" Height="40" Margin="30,0,0,0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="20">Odbaci salu</Button>
         </StackPanel>
-        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Background="#FFE23838" Foreground="White" Click="Button_Click_Ok">Zakaži</Button>
-        <Button Width="100" Height="40" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" Background="#FFE23838" Click="Button_Click_Cancel" Foreground="White">Odustani</Button>
 
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+            <Button Grid.Column="1" Grid.Row="7" Width="100" Height="40" Foreground="White" Margin="0, 0, 90, 0" BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646" FontSize="20" VerticalAlignment="Top" Click="Button_Click_Ok">Potvrdi</Button>
+            <Button Grid.Column="1" Grid.Row="7" Width="100"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646" FontSize="20" Height="40" Foreground="White" Margin="0, 0, 0, 0" VerticalAlignment="Top"  Click="Button_Click_Cancel" >Odustani</Button>
+        </StackPanel>
     </Grid>
 </Window>

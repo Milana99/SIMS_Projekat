@@ -14,26 +14,31 @@ namespace Bolnica.Controller
 
         public List<Model.Drug> GetAllDrugs()
         {
-            return drugService.GetAllDrugs();
+            return drugService.GetAll();
       }
 
         public Model.Drug GetOneDrug(int drugId)
         {
-            return drugService.GetOneDrug(drugId);
+            return drugService.GetOne(drugId);
+        }
+
+        public Model.Drug GetDrugByName(string Name)
+        {
+            return drugService.GetDrugByName(Name);
         }
 
         public void CreateDrug(Model.Drug drug)
         {
-            drugService.CreateDrug(drug);
+            drugService.Create(drug);
         }
 
         public void UpdateDrug(Model.Drug drug)
         {
-            drugService.UpdateDrug(drug);
+            drugService.Update(drug);
         }
-        public void DenyDrug(int drugId)
+        public void DenyDrug(int drugId, String comment)
         {
-            drugService.DenyDrug(drugId);
+            drugService.DenyDrug(drugId, comment);
         }
         public void ApproveDrug(int drugId)
         {
@@ -41,7 +46,7 @@ namespace Bolnica.Controller
         }
         public void DeleteDrug(int drugId)
         {
-            drugService.DeleteDrug(drugId);
+            drugService.Delete(drugId);
         }
 
 

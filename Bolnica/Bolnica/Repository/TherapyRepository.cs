@@ -4,16 +4,16 @@ using System.IO;
 
 namespace Bolnica.Repository
 {
-   public class TherapyRepository
-   {
+    public class TherapyRepository : IRepo<Model.Therapy>
+    {
         private String FileLocation;
         public int next_id;
         public TherapyRepository(String fileLocation)
         {
             FileLocation = fileLocation;
         }
-        public List<Model.Therapy> LoadTherapy()
-      {
+        public List<Model.Therapy> Load()
+        {
             List<Model.Therapy> therapies = new List<Model.Therapy>();
 
             try
@@ -49,9 +49,9 @@ namespace Bolnica.Repository
 
             return therapies;
         }
-      
-      public void SaveTherapy(List<Model.Therapy> thearpyList)
-      {
+
+        public void Save(List<Model.Therapy> thearpyList)
+        {
             File.Delete(FileLocation);
             String line;
             List<String> lines = new List<String>();
@@ -66,12 +66,18 @@ namespace Bolnica.Repository
             }
             File.WriteAllLines(FileLocation, lines);
         }
-      
-      public void DeleteTherapies()
-      {
+
+        public int getNextId()
+        {
+            int s = next_id;
+            next_id++;
+            return s;
+        }
+        public void Delete()
+        {
             File.Delete(FileLocation);
-       }
-   
-   
-   }
+        }
+
+
+    }
 }

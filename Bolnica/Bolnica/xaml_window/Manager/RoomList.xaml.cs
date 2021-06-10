@@ -73,6 +73,7 @@ namespace Bolnica.xaml_window.Manager
             ur.tbuArea.Text = selected.Area.ToString();
             ur.tbuDescription.Text = selected.Description;
             ur.cbRoomType.Text = selected.RoomType.ToString();
+            this.Close();
 
         }
 
@@ -87,6 +88,7 @@ namespace Bolnica.xaml_window.Manager
         {
             cr = new CreateRoom(this);
             cr.Show();
+            this.Close();
         }
 
         private void Button_Click_Renovation(object sender, RoutedEventArgs e)
@@ -107,6 +109,13 @@ namespace Bolnica.xaml_window.Manager
         {
             var equipment_list = new ListEquipment();
             equipment_list.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Report(object sender, RoutedEventArgs e)
+        {
+            var report = new Report();
+            report.Show();
             this.Close();
         }
     }

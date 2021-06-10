@@ -78,7 +78,7 @@ namespace Bolnica.xaml_window.Manager
         {
             var drug_update = new DrugUpdate(this);
             drug_update.Show();
-           
+            this.Close();
         }
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
@@ -93,13 +93,14 @@ namespace Bolnica.xaml_window.Manager
             cbType.Items.Add("Approved");
             cbType.Items.Add("NotApproved");
             cbType.Items.Add("Waiting");
-            cbType.Items.Add("All");
-            cbType.SelectedItem = "All";
+            cbType.Items.Add("Svi");
+            cbType.SelectedItem = "Svi";
         }
         private void TypeFilter()
         {
             lvDataBinding.Items.Clear();
             List<Model.Drug> drugs = drugController.GetAllDrugs();
+            
             foreach(Model.Drug drug in drugs)
             {
                 Console.WriteLine(drug.DrugType.ToString());
@@ -113,7 +114,7 @@ namespace Bolnica.xaml_window.Manager
         private void cbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
-            if(cbType.SelectedItem == "All")
+            if(cbType.SelectedItem == "Svi")
             {
                 LoadAll();
             }
@@ -121,6 +122,20 @@ namespace Bolnica.xaml_window.Manager
             {
                 TypeFilter();
             }
+        }
+
+        private void Button_Click_renovation(object sender, RoutedEventArgs e)
+        {
+            var renovation_list = new RenovationList();
+            renovation_list.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Report(object sender, RoutedEventArgs e)
+        {
+            var report = new Report();
+            report.Show();
+            this.Close();
         }
     }
 }

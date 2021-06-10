@@ -5,9 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="LoginManager" Height="450" Width="800">
-    <Grid>
-        <Button Width="100" Height="50" Click="Manager_Home">Manager</Button>
-        <Button  Width="100" Height="50" Margin="100, 250, 500, 0" Click="Back_To_Main">Nazad</Button>
+        Title="LoginManager" Height="550" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="#FFFFF0F0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.Column="0" Grid.ColumnSpan="3" Width="450" CornerRadius="0,0,30,30" Height="450" Background="#FFFB4646" Grid.RowSpan="4" Margin="0,0,0,0" VerticalAlignment="Top">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="13" Direction="100" ShadowDepth="1" Opacity="1"></DropShadowEffect>
+            </Border.Effect>
+            <Border Margin="30" Background="White" CornerRadius="30,30,30,30">
+            <StackPanel Orientation="Vertical">
+                    <Label FontSize="45" HorizontalAlignment="Center" Margin="20">Prijava</Label>
+                <Separator Width="300"></Separator>
+                <Label Width="300" Margin="0,20,0,0"  FontSize="20" FontWeight="Bold">Korisničko ime:</Label>
+                <TextBox x:Name="tbUsername" Width="300" Margin="0,10,0,0" FontSize="20" Height="30"></TextBox>
+                <Label Width="300" Margin="0,20,0,0"  FontSize="20" FontWeight="Bold">Lozinka:</Label>
+                <PasswordBox x:Name="tbPassword" PasswordChar="*" Width="300" Margin="0,10,0,0" FontSize="20" Height="30"></PasswordBox>
+                    <TextBlock x:Name="TestText" Foreground="Red" Opacity="0.6" Margin="0,0,0,0" FontSize="10"  Height="20"  VerticalAlignment="Top" Width="300" />
+
+                </StackPanel>
+        </Border>
+        </Border>
+        <Button Width="120" Height="40" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646" FontSize="20" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Margin="0,10,0,0" Click="Manager_Home">Prijavi se</Button>
+        <Button  Grid.Row="0" HorizontalAlignment="Left" Background="#FFEDEDED" Margin="20" VerticalAlignment="Top"  FontSize="15"  Width="100" Height="40"   Click="Back_To_Main">
+            <StackPanel Orientation="Horizontal" >
+                <Label FontSize="20"  Background="#FFEDEDED"  FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Margin="0,0,0,0"></Label>
+                <Label   VerticalAlignment="Center" Background="#FFEDEDED">Nazad</Label>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

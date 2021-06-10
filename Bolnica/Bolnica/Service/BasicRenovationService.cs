@@ -1,19 +1,20 @@
 using System.Collections.Generic;
 using System;
 using Bolnica.Model;
+using Bolnica.ServiceInterface;
 
 namespace Bolnica.Service
 {
-    public class BasicRenovationService
+    public class BasicRenovationService : IUsingRepo<Model.BasicRenovation>, IIsRoomFree
     {
         public Repository.BasicRenovationRepository renovationRepository;
         public BasicRenovationService()
         {
             renovationRepository = new Repository.BasicRenovationRepository(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Renovation.txt");
         }
-        public BasicRenovation GetOneRenovation(int renovationId)
+        public BasicRenovation GetOne(int renovationId)
         {
-            List<Model.BasicRenovation> renovations = GetAllRenovations();
+            List<Model.BasicRenovation> renovations = GetAll();
             foreach(Model.BasicRenovation renovation in renovations)
             {
                 if(renovation.RenovationId == renovationId)
@@ -24,35 +25,35 @@ namespace Bolnica.Service
             return null;
         }
 
-        public List<BasicRenovation> GetAllRenovations()
+        public List<BasicRenovation> GetAll()
         {
-            return renovationRepository.LoadRenovation();
+            return renovationRepository.Load();
         }
 
-        public void CreateRenovation(BasicRenovation renovation)
+        public void Create(BasicRenovation renovation)
         {
-            List<Model.BasicRenovation> renovations = GetAllRenovations();
+            List<Model.BasicRenovation> renovations = GetAll();
             renovations.Add(renovation);
-            renovationRepository.SaveRenovation(renovations);
+            renovationRepository.Save(renovations);
         }
 
-        public void DeleteRenovation(int renovationId)
+        public void Delete(int renovationId)
         {
-            List<Model.BasicRenovation> renovations = GetAllRenovations();
+            List<Model.BasicRenovation> renovations = GetAll();
             foreach(Model.BasicRenovation renovation in renovations)
             {
                 if(renovation.RenovationId == renovationId)
                 {
                     renovation.deleted = true;
-                    renovationRepository.SaveRenovation(renovations);
+                    renovationRepository.Save(renovations);
                     return;
                 }
             }
         }
 
-        public void UpdateRenovation(BasicRenovation updatedRenovation)
+        public void Update(BasicRenovation updatedRenovation)
         {
-            List<Model.BasicRenovation> renovations = GetAllRenovations();
+            List<Model.BasicRenovation> renovations = GetAll();
             foreach (Model.BasicRenovation renovation in renovations)
             {
                 if(renovation.RenovationId == updatedRenovation.RenovationId)
@@ -60,7 +61,7 @@ namespace Bolnica.Service
                     renovation.RenovationDescription = updatedRenovation.RenovationDescription;
                     renovation.StartTime = updatedRenovation.StartTime;
                     renovation.EndTime = updatedRenovation.EndTime;
-                    renovationRepository.SaveRenovation(renovations);
+                    renovationRepository.Save(renovations);
                     return;
                 }
             }
@@ -68,16 +69,16 @@ namespace Bolnica.Service
 
         public bool IsRoomFree(DateTime newStartTime, DateTime newEndTime, int RoomId)
         {
-            if(isRoomFreeExaminations(newStartTime, newEndTime, RoomId) && isRoomFreeRenovations(newStartTime, newEndTime, RoomId))
+            if(IsRoomFreeExaminations(newStartTime, newEndTime, RoomId) && IsRoomFreeRenovations(newStartTime, newEndTime, RoomId))
             {
                 return true;
             }
             return false;
         }
 
-        public bool isRoomFreeRenovations(DateTime newStartTime, DateTime newEndTime, int RoomId)
+        public bool IsRoomFreeRenovations(DateTime newStartTime, DateTime newEndTime, int RoomId)
         {
-            List<Model.BasicRenovation> renovations = GetAllRenovations();
+            List<Model.BasicRenovation> renovations = GetAll();
             foreach (BasicRenovation renovation in renovations)
             {
                 int start1 = DateTime.Compare(renovation.StartTime, newStartTime);
@@ -93,7 +94,7 @@ namespace Bolnica.Service
             return true;
         }
 
-        public bool isRoomFreeExaminations(DateTime newStartTime, DateTime newEndTime, int RoomId)
+        public bool IsRoomFreeExaminations(DateTime newStartTime, DateTime newEndTime, int RoomId)
         {
             Controller.ExaminationController examinationController = new Controller.ExaminationController();
             List<Model.Examination> examinations = examinationController.GetAllExaminations();

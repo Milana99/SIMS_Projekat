@@ -9,7 +9,8 @@ namespace Bolnica.Controller
 
         public DynamicEquipmentController()
         {
-            dynamicEquipmentService = new Service.DynamicEquipmentService();
+            Repository.DynamicEquipmentRepository dynamicEquipmentRepository = new Repository.DynamicEquipmentRepository(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Dynamic.txt");
+            dynamicEquipmentService = new Service.DynamicEquipmentService(dynamicEquipmentRepository);
         }
 
         public List<Model.DynamicEquipment> GetAllDynamicEquipments()

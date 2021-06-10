@@ -45,8 +45,8 @@ namespace Bolnica
 
         private void Secretary_Button(object sender, RoutedEventArgs e)
         {
-            loginSecretary = new xaml_window.Secretary.LoginSecretary();
-            loginSecretary.Show();
+            var window1 = new Bolnica.xaml_window.Manager.Window1();
+            window1.Show();
             this.Close();
         }
 

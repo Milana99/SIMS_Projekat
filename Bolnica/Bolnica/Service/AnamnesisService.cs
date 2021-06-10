@@ -15,7 +15,7 @@ namespace Bolnica.Service
       public List<Model.Anamnesis> GetAllAnamnesis()
       {
 
-            return anamnesisRepository.LoadAnamnesis();
+            return anamnesisRepository.Load();
       }
       
       public Model.Anamnesis GetOneAnamnesis(int anamnesisId)
@@ -44,7 +44,7 @@ namespace Bolnica.Service
             List<Model.Anamnesis> anamneses = GetAllAnamnesis();
             Model.Anamnesis an = new Model.Anamnesis(patientUserName, AnamnesisId, Type, Description, Opinion);
             anamneses.Add(an);
-            anamnesisRepository.SaveAnamnesis(anamneses);
+            anamnesisRepository.Save(anamneses);
       }
       
       public void UpdateAnamnesis(int anamnesisId, String Type, String Description, String Opinion)
@@ -57,7 +57,7 @@ namespace Bolnica.Service
                     an.TypeAnamnesis = Type;
                     an.DescriptionAnamnesis = Description;
                     an.OpinionForAnamnesis = Opinion;
-                    anamnesisRepository.SaveAnamnesis(anamneses);
+                    anamnesisRepository.Save(anamneses);
                     return;
                 }
             }
@@ -71,7 +71,7 @@ namespace Bolnica.Service
                 if(an.AnamnesisId == anamnesisId)
                 {
                     an.deleted = true;
-                    anamnesisRepository.SaveAnamnesis(anamneses);
+                    anamnesisRepository.Save(anamneses);
                     return;
                 }
             }

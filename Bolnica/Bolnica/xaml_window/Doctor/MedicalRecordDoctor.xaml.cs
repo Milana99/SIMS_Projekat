@@ -82,7 +82,7 @@ namespace Bolnica.xaml_window.Doctor
             ao.lbOpinionForAnamnesis.Content = selected.OpinionForAnamnesis;
             ao.lbTypeAnamnesis.Content = selected.TypeAnamnesis;
             
-            ao.Show();
+            ao.ShowDialog();
         }
         public void full_uodate()
         {
@@ -95,35 +95,36 @@ namespace Bolnica.xaml_window.Doctor
                 au.lvDataBindingAnamnesis.Items.Add(pr);
                 Console.WriteLine(pr.PrescriptionId);
             }
-            au.tbDescriptionAnamnesis.Text = selected.DescriptionAnamnesis;
-            au.tbOpinionForAnamnesis.Text = selected.OpinionForAnamnesis;
-            au.tbTypeAnamnesis.Text = selected.TypeAnamnesis;
+            
+            au.descriptionAnamnesis = selected.DescriptionAnamnesis;
+            au.opinionForAnamnesis = selected.OpinionForAnamnesis;
+            au.typeOfAnamnesis = selected.TypeAnamnesis;
         }
         private void Button_Click_Update_Anamnesis(object sender, RoutedEventArgs e)
         {
             au = new AnamnesisUpdate(this);
             full_uodate();
-            au.Show();
+            au.ShowDialog();
         }
 
         private void Button_Click_Create_Anamnesis(object sender, RoutedEventArgs e)
         {
             ac = new AnamnesisCreate(this);
 
-            ac.Show();
+            ac.ShowDialog();
         }
 
         private void Button_Click_Specialist_Examination(object sender, RoutedEventArgs e)
         {
             var specialist_examination = new InstructionsForSpecialistExamination(this);
-            specialist_examination.Show(); 
+            specialist_examination.ShowDialog(); 
         }
 
         private void Button_Click_Instructions_For_Hospital_Treatment(object sender, RoutedEventArgs e)
         {
             var instructions_for_hospital_treatmant = new InstructionsForHospitalTreatment();
             instructions_for_hospital_treatmant.lbPatient.Content = lbuUsernamePatient.Content;
-            instructions_for_hospital_treatmant.Show();
+            instructions_for_hospital_treatmant.ShowDialog();
            
         }
     }

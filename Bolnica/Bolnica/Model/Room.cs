@@ -14,6 +14,8 @@ namespace Bolnica.Model
         public RoomType RoomType { get; set; }
         public bool deleted { get; set; }
 
+        public string free { get; set; }
+
         public Room(int newRoomId, String newDescription, int newFloor, double newArea, RoomType newRoomType)
         {
             RoomId = newRoomId;

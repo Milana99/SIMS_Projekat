@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Doctor"
+         xmlns:val="clr-namespace:Bolnica.Validation"
         mc:Ignorable="d"
-        Title="Zdravo" Height="500" Width="400">
+        Title="Zdravo" Icon="Slike/heart.ico" Height="450" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"></ColumnDefinition>
@@ -13,7 +14,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -23,39 +24,87 @@
             <RowDefinition Height="0"/>
             <RowDefinition Height="55" />
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF939191" BorderThickness="0,0,0,3" Width="350">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="Black"  >Zakazivanje pregleda</Label>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF929292" BorderThickness="0,0,0,2" Width="350">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" Foreground="#FFD44848"  >Zakazivanje pregleda</Label>
         </Border>
-        <Label Grid.Row="1" Margin="20,10,0,0" FontWeight="Bold">ID:</Label>
-        <Label Grid.Row="1" Grid.Column="1" Width="150" Height="25"  Name="lbcID" />
-        <Label Grid.Row="2" Margin="20,10,0,0" FontWeight="Bold">Unesite datum:</Label>
-        <DatePicker Name="DatePick" HorizontalAlignment="Center" Grid.ColumnSpan="2" Width="150" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="2"/>
-        <Label Grid.Row="3" Margin="20,10,0,0" FontWeight="Bold">Unesite vreme:</Label>
-        <Label Grid.Row="3" Margin="40,10,0,0" Grid.Column="1" HorizontalAlignment="Left" FontWeight="Bold">Od:</Label>
-        <TextBox Grid.Row="3" Grid.Column="1" Height="25" Width="50" HorizontalAlignment="Right"  Name="tbStartTime" Margin="0,0,0,0"/>
-        <Label Grid.Row="3" Grid.Column="2" Margin="0,10,0,0" FontWeight="Bold">Do:</Label>
-        <TextBox Grid.Row="3" Grid.Column="2" Height="25" Width="50" Margin="5,0,20,0"  Name="tbEndTime" />
-        <Label Grid.Row="4" Margin="20,10,0,0" FontWeight="Bold">Izaberite pacijenta:</Label>
-        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-            <ComboBox Name="cbPatient" Width="150" Grid.Row="4" Grid.Column="1" Margin="0,10,0,0"></ComboBox>
-        </StackPanel>
-        <Label Grid.Row="5" Margin="20,10,0,0" FontWeight="Bold">Izaberite tip termina:</Label>
+        <Label Grid.Row="1" Margin="20,0,0,0" FontWeight="Bold" Height="30">ID:</Label>
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="150" Height="25"  Name="lbcID" />
+        <Label Grid.Row="2" Margin="20,0,0,0" FontWeight="Bold" Height="30">Unesite datum:</Label>
+        <DatePicker Name="DatePick" HorizontalAlignment="Center" Grid.ColumnSpan="2" Width="150" Height="25" Grid.Column="1"  Grid.Row="2"/>
+        <Label Grid.Row="3" Margin="20,0,0,0" FontWeight="Bold" Height="30">Unesite vreme:</Label>
+        <Label Grid.Row="3" Margin="45,0,0,0" Grid.Column="1" Height="30" HorizontalAlignment="Left" FontWeight="Bold" >Od:</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Height="25" Width="48" HorizontalAlignment="Right"  Name="tbStartTime" Margin="0,0,0,0">
+            <TextBox.Text>
+                <Binding Path="Start" UpdateSourceTrigger="PropertyChanged" StringFormat=' HH:mm:ss '>
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                        <val:StringToDateTime ValidationStep="ConvertedProposedValue"></val:StringToDateTime>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0" ></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                     </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="3" Grid.Column="2" Margin="0,0,0,0" Height="30" FontWeight="Bold">Do:</Label>
+        <TextBox Grid.Row="3" Grid.Column="2" Height="25" Width="48" Margin="0,0,20,0"  Name="tbEndTime">
+            <TextBox.Text>
+                <Binding Path="End" UpdateSourceTrigger="PropertyChanged" StringFormat=' HH:mm:ss '>
+                    <Binding.ValidationRules>
+                        <val:CheckSpace ValidationStep="RawProposedValue"></val:CheckSpace>
+                     </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="0" Grid.Column="0"></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="8" Text ="{Binding [0].ErrorContent}"  Foreground="Red" ></TextBlock>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="4" Margin="20,0,0,0" Height="30" FontWeight="Bold">Izaberite pacijenta:</Label>
+        <ComboBox Name="cbPatient" Width="150" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Height="25" ></ComboBox>
+        <Label Grid.Row="5" Margin="20,0,0,0" Height="30" FontWeight="Bold">Izaberite tip termina:</Label>
         <StackPanel Grid.Row="5" Grid.Column="1" Margin="0,0,0,0" Grid.ColumnSpan="2" Width="150">
             <RadioButton Name="rbExamination" HorizontalAlignment="Left"  Content="Pregled"  Height="20" Checked="RadioButton_Checked_1"/>
             <RadioButton Name="rbOperation" HorizontalAlignment="Left" Content="Operacija"  Height="20" Checked="RadioButton_Checked"/>
             <RadioButton Name="rbEmargncyOperation" HorizontalAlignment="Left" Content="Hitna operacija"  Height="20" Checked="RadioButton_Checked"/>
         </StackPanel>
-        <Label Grid.Row="6" Margin="20,10,0,0" FontWeight="Bold">Izaberite sobu:</Label>
-        <Button Grid.Column="1" Grid.Row="6" Height="20" Width="60" Margin="90,0,0,0" Grid.ColumnSpan="2" Click="Button_Click_Inventary">Inventar</Button>
         
-            <ComboBox Name="cbRoom" Width="60" Grid.Row="6" Height="20" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,90,0" SelectionChanged="cbRoom_SelectionChanged"></ComboBox>
+        <Label Grid.Row="6" Margin="20,0,0,0" Height="30" FontWeight="Bold">Izaberite sobu:</Label>
+        <Button Grid.Column="1" Grid.Row="6" Height="25" Width="80" Margin="70,0,0,0" Grid.ColumnSpan="2" Click="Button_Click_Inventary" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Background="#FFEDEDED">Inventar sobe</Button>
+        
+            <ComboBox Name="cbRoom" Width="60" Grid.Row="6" Height="25" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,90,0" SelectionChanged="cbRoom_SelectionChanged"></ComboBox>
 
 
-        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF939191" BorderThickness="0,1,0,0" Width="350">
+        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#FF565656" BorderThickness="0,1,0,0">
         </Border>
-        
-        <Button Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" Width="60" Background="Gray" Height="30" Margin="140, 5, 0, 0" Click="btnDialogCancel_Click" Foreground="White">Izađi</Button>
-        <Button Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" Width="60" Background="Gray"  Height="30" Margin="20, 5, 60, 0" Click="btnDialogOk_Click" Foreground="Snow">Potvrdi</Button>
+
+        <Button Grid.Column="1" FontSize="15" Grid.Row="8" Grid.ColumnSpan="2" Width="60" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2" Height="30" Margin="90, 0, 0, 0" Click="btnDialogCancel_Click" Foreground="White">Izađi</Button>
+        <Button Grid.Column="1" FontSize="15" Grid.Row="8" Grid.ColumnSpan="2" Width="60" Background="#FFD44848" BorderBrush="#FF565656" BorderThickness="1,1,2,2"  Height="30" Margin="0, 0, 90, 0" Click="btnDialogOk_Click" Foreground="Snow">Potvrdi</Button>
         
 
     </Grid>

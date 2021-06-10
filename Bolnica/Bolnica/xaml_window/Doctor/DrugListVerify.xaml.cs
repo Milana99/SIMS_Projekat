@@ -45,7 +45,7 @@ namespace Bolnica.xaml_window.Doctor
         private void Button_Click_Update(object sender, RoutedEventArgs e)
         {
             var dlvu = new DrugListVerifyEdit(this);
-            dlvu.Show();
+            dlvu.ShowDialog();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)

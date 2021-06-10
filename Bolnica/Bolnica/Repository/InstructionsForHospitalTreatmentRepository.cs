@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 namespace Bolnica.Repository
 {
-    public class InstructionsForHospitalTreatmentRepository
+    public class InstructionsForHospitalTreatmentRepository : IRepo<Model.InstructionsForHospitalTreatment>
     {
 
         private String FileLocation;
@@ -20,7 +20,7 @@ namespace Bolnica.Repository
             FileLocation = fileLocation;
             nextId = 0;
         }
-        public List<Model.InstructionsForHospitalTreatment> LoadInstructonForHospitalTreatment()
+        public List<Model.InstructionsForHospitalTreatment> Load()
         {
             List<Model.InstructionsForHospitalTreatment> instructions = new List<Model.InstructionsForHospitalTreatment>();
 
@@ -59,7 +59,7 @@ namespace Bolnica.Repository
             return instructions;
         }
 
-        public void SaveInstructonForHospitalTreatment(List<Model.InstructionsForHospitalTreatment> instructions)
+        public void Save(List<Model.InstructionsForHospitalTreatment> instructions)
         {
             File.Delete(FileLocation);
             String line;
@@ -77,7 +77,7 @@ namespace Bolnica.Repository
             File.WriteAllLines(FileLocation, lines);
         }
 
-        public void DeleteInstructonForHospitalTreatment()
+        public void Delete()
         {
             File.Delete(FileLocation);
         }

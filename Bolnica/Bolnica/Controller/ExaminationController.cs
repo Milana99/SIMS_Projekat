@@ -14,27 +14,27 @@ namespace Bolnica.Controller
         }
         public List<Model.Examination> GetAllExaminations()
       {
-            return examinationService.GetAllExaminations();
+            return examinationService.GetAll();
       }
       
       public Model.Examination GetOneExamination(int examinationId)
       {
-            return examinationService.GetOneExamination(examinationId);
+            return examinationService.GetOne(examinationId);
       }
       
       public Boolean CreateExamination(Model.Examination NewExamination)
       {
-            return examinationService.CreateExamination(NewExamination);
+            return examinationService.Create(NewExamination);
       }
       
       public void DeleteExamination(int examinationId)
       {
-            examinationService.DeleteExamination(examinationId);
+            examinationService.Delete(examinationId);
       }
       
       public Boolean UpdateExamination(int examinationId, DateTime startTime, DateTime endTime, int roomId)
       {
-            return examinationService.UpdateExamination(examinationId, startTime, endTime, roomId);
+            return examinationService.Update(examinationId, startTime, endTime, roomId);
       }
       
       public List<Model.Examination> GetExaminatonsForDoctor(String doctorUsername)

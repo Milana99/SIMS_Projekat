@@ -9,12 +9,15 @@ FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\x
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\CreateExaminatio.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\CreateExaminationInventary.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DoctorHome.xaml;;
+FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DrugConsumptionReport.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DrugList.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DrugListForVerify.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DrugListForVerifyCancel.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DrugListForVerifyOne.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DrugListVerify.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DrugListVerifyEdit.xaml;;
+FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DrugReportAddDrug.xaml;;
+FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\DrugReportPrint.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\ExaminationUpdate.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\HospitalTreatmantEdit.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Doctor\HospitalTreatment.xaml;;
@@ -39,6 +42,8 @@ FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\x
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\RenovationGeneral.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\RenovationList.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\RenovationMerging.xaml;;
+FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\Report.xaml;;
+FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\ReportPrint.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\RoomList.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\StaticEquipment.xaml;;
 FC:\Users\pc\OneDrive\Radna površina\GitBolnica\SIMS_Projekat\Bolnica\Bolnica\xaml_window\Manager\StaticEquipmentCreate.xaml;;

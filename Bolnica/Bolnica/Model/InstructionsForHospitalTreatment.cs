@@ -58,7 +58,7 @@ namespace Bolnica.Model
         {
             return EndDate;
         }
-        public void UpdateEndDate(DateTime newEndDate)
+        public void setEndDate(DateTime newEndDate)
         {
             EndDate = newEndDate;
         }

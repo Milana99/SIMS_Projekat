@@ -60,5 +60,47 @@ namespace Bolnica.xaml_window.Manager
             renovationController.DeleteRenovation(renovation.RenovationId);
             LoadAllRenovations();
         }
+
+        private void Button_Click_Profile(object sender, RoutedEventArgs e)
+        {
+            var maanager_home = new ManagerHome();
+            maanager_home.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Drug_List(object sender, RoutedEventArgs e)
+        {
+            var drug_list = new DrugList();
+            drug_list.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Room_List(object sender, RoutedEventArgs e)
+        {
+            var room_list = new RoomList();
+            room_list.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Equipment_List(object sender, RoutedEventArgs e)
+        {
+            var equipment_list = new ListEquipment();
+            equipment_list.Show();
+            this.Close();
+        }
+
+        private void Logout_Manager(object sender, RoutedEventArgs e)
+        {
+            var main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Report(object sender, RoutedEventArgs e)
+        {
+            var report = new Report();
+            report.Show();
+            this.Close();
+        }
     }
 }

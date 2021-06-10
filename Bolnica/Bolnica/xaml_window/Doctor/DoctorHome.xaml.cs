@@ -49,16 +49,31 @@ namespace Bolnica.xaml_window.Doctor
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
-            Model.Examination selected = (Model.Examination)lvDataBinding.SelectedItems[0];
-            ExaminationControl.DeleteExamination(selected.ExaminationId);
-            LoadAll();
-            MessageBox.Show("Uspešno ste izbrisali termin", "Uspešno!");
+            if (lvDataBinding.SelectedIndex > -1)
+            {
+
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da izbrišete termin?", "Zdravo", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+            {
+                Model.Examination selected = (Model.Examination)lvDataBinding.SelectedItems[0];
+                ExaminationControl.DeleteExamination(selected.ExaminationId);
+                LoadAll();
+                MessageBox.Show("Uspešno ste izbrisali termin", "Uspešno!");
+            }
+
+            }
+            else
+            {
+                MessageBox.Show("Niste selektovali željeni termin!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            return;
         }
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
+            
             CreateExamination = new CreateExamination(this);
-            CreateExamination.Show();
+            CreateExamination.ShowDialog();
             
         }
 
@@ -89,7 +104,7 @@ namespace Bolnica.xaml_window.Doctor
         private void Button_Click_Patient(object sender, RoutedEventArgs e)
         {
             MedicalRecordDoctor = new MedicalRecordDoctor(this);
-            MedicalRecordDoctor.Show();
+            MedicalRecordDoctor.ShowDialog();
         }
 
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
@@ -124,6 +139,13 @@ namespace Bolnica.xaml_window.Doctor
         {
             var hospital_treatment = new HospitalTreatment();
             hospital_treatment.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_Selected_2(object sender, RoutedEventArgs e)
+        {
+            var drug_report = new DrugConsumptionReport();
+            drug_report.Show();
             this.Close();
         }
     }

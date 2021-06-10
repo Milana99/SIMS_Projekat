@@ -37,8 +37,17 @@ namespace Bolnica.xaml_window.Doctor
         }
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-            AddInstructionForHospitalTreatment();
-            this.Close();
+            Controller.StaticEquipmentController staticEquipmentController = new Controller.StaticEquipmentController();
+            if (dtStart.Text=="" || dtStart.Text==null||dtEnd.Text==""||dtEnd.Text==null)
+            {
+                MessageBox.Show("Niste popunili sva polja!", "Upozorenje!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else {
+                MessageBox.Show("Uspešno ste kreirali uput za bolničko lečenja!", "Uspešno izvršeno!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                AddInstructionForHospitalTreatment();
+                this.Close();
+            }
         }
         private void AddInstructionForHospitalTreatment()
         {
@@ -48,25 +57,36 @@ namespace Bolnica.xaml_window.Doctor
                 lbPatient.Content.ToString(), int.Parse(cbRoom.SelectedItem.ToString()),
                 int.Parse(cbBed.SelectedItem.ToString()), DateTime.Parse(dtStart.Text), DateTime.Parse(dtEnd.Text));
             instructionsController.CreateInstructionsForHospitalTreatment(instructionsTreatment);
+            ReserveBed();
         }
-
+        private void ReserveBed()
+        {
+            Controller.StaticEquipmentController staticEquipmentController = new Controller.StaticEquipmentController();
+            Model.StaticEquipment staticEquipment = staticEquipmentController.GetOneStaticEquipment(int.Parse(cbBed.SelectedItem.ToString()));
+            staticEquipment.free = false;
+            staticEquipmentController.UpdateStaticEquipment(staticEquipment.StaticEquipmentId, staticEquipment.DescriptionStaticEquipment,
+                staticEquipment.NameStaticEquipment, staticEquipment.free);
+        }
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Zdravo", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+                this.Close();
+            return;
         }
 
         private void cbRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            AddBeds();
+            LoadBeds();
         }
-        private void AddBeds()
+        private void LoadBeds()
         {
             Controller.StaticEquipmentController staticEquipmentController = new Controller.StaticEquipmentController();
             List<Model.StaticEquipment> staticEquipments = staticEquipmentController.GetAllStaticEquipmentForRoom(int.Parse(cbRoom.SelectedItem.ToString()));
-
+            cbBed.Items.Clear();
             foreach (Model.StaticEquipment staticEquipment in staticEquipments)
             {
-                if (staticEquipment.NameStaticEquipment == "Krevet")
+                if (staticEquipment.NameStaticEquipment == "Krevet" && staticEquipment.free)
                 {
                     cbBed.Items.Add(staticEquipment.StaticEquipmentId);
                 }

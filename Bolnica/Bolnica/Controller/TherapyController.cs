@@ -10,7 +10,9 @@ namespace Bolnica.Controller
 
         public TherapyController()
         {
-            therapyService = new Service.TherapyService();
+            Repository.TherapyRepository therapyRepository = new Repository.TherapyRepository(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Anamnesis.txt");
+
+            therapyService = new Service.TherapyService(therapyRepository);
         }
         public List<Model.Therapy> GetAllTherapy()
       {

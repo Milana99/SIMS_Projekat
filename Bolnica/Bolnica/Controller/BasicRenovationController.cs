@@ -14,27 +14,27 @@ namespace Bolnica.Controller
         }
       public BasicRenovation GetOneRenovation(int renovationId)
       {
-            return renovationService.GetOneRenovation(renovationId);
+            return renovationService.GetOne(renovationId);
       }
       
       public List<BasicRenovation> GetAllRenovations()
       {
-            return renovationService.GetAllRenovations();
+            return renovationService.GetAll();
       }
       
       public void CreateRenovation(BasicRenovation renovation)
       {
-            renovationService.CreateRenovation(renovation);
+            renovationService.Create(renovation);
       }
       
       public void DeleteRenovation(int renovationId)
       {
-            renovationService.DeleteRenovation(renovationId);
+            renovationService.Delete(renovationId);
       }
       
       public void UpdateRenovation(BasicRenovation renovation)
       {
-            renovationService.UpdateRenovation(renovation);
+            renovationService.Update(renovation);
       }
    
       

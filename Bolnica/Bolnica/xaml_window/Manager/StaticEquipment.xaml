@@ -5,35 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.xaml_window.Manager"
         mc:Ignorable="d"
-        Title="StaticEquipment" Height="550" Width="900">
-    <Grid>
+        Title="StaticEquipment" Height="550" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="#FFFFF0F0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="50"/>
             <RowDefinition />
-            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" BorderBrush="#FFE23838" Width="600" BorderThickness="0,0,0,3" Height="100" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Nepotrošan inventar</Label>
+        <Border  Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" CornerRadius="20,20,20,20" Grid.ColumnSpan="3" Margin="100,0,100,20" Background="White">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="3" Direction="320" Opacity="0.3"></DropShadowEffect>
+            </Border.Effect>
         </Border>
-        <Button FontSize="15" Width="90" Height="40" Click="Button_Click_Back">Nazad</Button>
-        <ComboBox Grid.Column="1" Grid.Row="1" Width="60" Height="30" HorizontalAlignment="Right" Name="cbRooms" SelectionChanged="cbRooms_SelectionChanged"></ComboBox>
-        <TextBox Grid.Row="1" TextSearch.TextPath="" Margin="0,0,60,0" Grid.Column="1" Width="200" Height="30" Name="tbSearch" TextSearch.Text="SearchRenovation" TextAlignment="Left" Padding="5" Foreground="Gray" TextChanged="tbSearch_TextChanged" GotFocus="tbSearch_GotFocus" LostFocus="tbSearch_LostFocus"  >Pretraga inventara...</TextBox>
-        <ListView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Margin="70,10,70,0" Name="lvDataBindingStaticEq">
-            <ListView.View>
+
+        <Separator Background="#FFFB4646" Grid.Row="0" Width="120" Margin="270,0,0,0" Grid.Column="1" Grid.ColumnSpan="2"></Separator>
+        <Label Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="3"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45">Nepotrošan inventar</Label>
+        <Separator Background="#FFFB4646" Grid.Row="0" Width="120" Margin="0,0,270,0" Grid.Column="0" Grid.ColumnSpan="2"></Separator>
+
+        <Button Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" FontSize="20" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646" Margin="0,0,0,0" Click="Button_Click_Back">
+            <StackPanel Orientation="Horizontal" >
+                <Label FontSize="20" VerticalAlignment="Center" Foreground="White" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;"></Label>
+                <Label Foreground="White">Nazad</Label>
+            </StackPanel>
+        </Button>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="120,0,0,0" VerticalAlignment="Top">
+            
+            <TextBox  TextSearch.TextPath="" FontSize="15"  Grid.Column="1" Width="200" Height="35" Name="tbSearch" TextSearch.Text="SearchRenovation" TextAlignment="Left" Padding="5" Foreground="Gray" TextChanged="tbSearch_TextChanged" GotFocus="tbSearch_GotFocus" LostFocus="tbSearch_LostFocus"  >Pretraga inventara...</TextBox>
+            <Label Margin="20,0,0,0" Width="150" Height="30" FontSize="15">Filtriraj po salama:</Label>
+            <ComboBox  Width="60" Height="35"  Name="cbRooms" SelectionChanged="cbRooms_SelectionChanged" Margin="10,0,0,0"></ComboBox>
+        </StackPanel>
+        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2"  Margin="120,50,120,0" Name="lvDataBindingStaticEq">
+            <ListView.View >
                 <GridView>
                     <GridViewColumn Header="ID inventara" 
-                                    Width="100" DisplayMemberBinding="{Binding StaticEquipmentId}"/>
+                                    Width="Auto" DisplayMemberBinding="{Binding StaticEquipmentId}"/>
                     <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding NameStaticEquipment}"
-                                    Width="100"/>
+                                    Width="Auto"/>
                     <GridViewColumn Header="Opis" DisplayMemberBinding="{Binding DescriptionStaticEquipment}" 
-                                    Width="140"/>
+                                    Width="Auto"/>
 
                     <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding roomStaticEquipment.RoomId}" 
                                     Width="100"/>
@@ -41,9 +58,31 @@
             </ListView.View>
         </ListView>
 
-        <Button Grid.Column="1" Grid.Row="3" Width="100" Height="40" Margin="0,0,70,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Create">Kreiraj</Button>
-        <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Width="100" Height="40" Margin="0,0,140,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Delete">Obriši</Button>
-        <Button Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="3" Width="100" Height="40" Margin="140,0,0,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Update">Izmeni</Button>
-        <Button Grid.Column="2" Grid.Row="3" Width="100" Height="40" Margin="70,0,0,0" Background="#FFE23838" Foreground="#FFF7EDED" Click="Button_Click_Relocation">Premesti</Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="52,0,0,0">
+            <Button Margin="0,0,58,0"  Width="120" Height="40" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646"  FontSize="20" Click="Button_Click_Create">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Foreground="White"  FontFamily="Segoe MDL2 Assets" Content="&#xE710;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="20" Foreground="White" VerticalAlignment="Center">Kreiraj</Label>
+                </StackPanel>
+            </Button>
+            <Button Margin="0,0,55,0"  Width="120" Height="40" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646"  FontSize="20" Click="Button_Click_Delete">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Foreground="White"  FontFamily="Segoe MDL2 Assets" Content="&#xE74D;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="20" Foreground="White" VerticalAlignment="Center">Obriši</Label>
+                </StackPanel>
+            </Button>
+            <Button Margin="0,0,58,0"  Width="120" Height="40" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646"  FontSize="20" Click="Button_Click_Update">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="25" Foreground="White"  FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="20" Foreground="White" VerticalAlignment="Center">Izmeni</Label>
+                </StackPanel>
+            </Button>
+            <Button Margin="0,0,55,0"  Width="120" Height="40" Foreground="White"  BorderBrush="#FFAE2727" BorderThickness="1,1,3,3" Background="#FFFB4646"  FontSize="20" Click="Button_Click_Relocation">
+                <StackPanel Orientation="Horizontal" >
+                    <Label FontSize="22" Foreground="White"  FontFamily="Segoe MDL2 Assets" Content="&#xE8DE;" Margin="0,0,0,0"></Label>
+                    <Label FontSize="20" Foreground="White" VerticalAlignment="Center">Premesti</Label>
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
