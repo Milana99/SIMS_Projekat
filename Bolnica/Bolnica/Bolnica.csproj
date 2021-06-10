@@ -102,6 +102,7 @@
     <Compile Include="Repository\ExaminationRepository.cs" />
     <Compile Include="Repository\GuestUserRepository.cs" />
     <Compile Include="Repository\InstructionsForHospitalTreatmentRepository.cs" />
+    <Compile Include="Repository\IRepo.cs" />
     <Compile Include="Repository\ManagerRepository.cs" />
     <Compile Include="Repository\MedicalRecordRepository.cs" />
     <Compile Include="Repository\NotificationRepository.cs" />

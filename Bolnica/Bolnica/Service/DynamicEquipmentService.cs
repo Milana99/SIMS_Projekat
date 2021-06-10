@@ -6,15 +6,15 @@ namespace Bolnica.Service
    public class DynamicEquipmentService
    {
 
-        public Bolnica.Repository.DynamicEquipmentRepository dynamicEquipmentRepository;
+        public Bolnica.Repository.IRepo<Model.DynamicEquipment> dynamicEquipmentRepository;
 
-        public DynamicEquipmentService()
+        public DynamicEquipmentService(Repository.IRepo<Model.DynamicEquipment> repo)
         {
-            dynamicEquipmentRepository = new Repository.DynamicEquipmentRepository(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Dynamic.txt");
+            dynamicEquipmentRepository = repo;
         }
         public List<Model.DynamicEquipment> GetAllDynamicEquipments()
       {
-            return dynamicEquipmentRepository.LoadDynamicEquipment();
+            return dynamicEquipmentRepository.Load();
       }
       
       public Model.DynamicEquipment GetOneDynamicEquipment(int dinamicEquipmentId)
@@ -36,7 +36,7 @@ namespace Bolnica.Service
             Model.DynamicEquipment newEquipment = new Model.DynamicEquipment(dynamicEquipmentId, 
                 quantity, name);
             equipments.Add(newEquipment);
-            dynamicEquipmentRepository.SaveDynamicEquipment(equipments);
+            dynamicEquipmentRepository.Save(equipments);
 
       }
       
@@ -49,7 +49,7 @@ namespace Bolnica.Service
                 {
                     de.DynamicEquipmentQuantity = quantity;
                     de.DynamicEquipmentName = name;
-                    dynamicEquipmentRepository.SaveDynamicEquipment(equipments);
+                    dynamicEquipmentRepository.Save(equipments);
                     return;
                 }
             }
@@ -64,7 +64,7 @@ namespace Bolnica.Service
                 if (de.DynamicEquipmentId == dynamicEquipmentId)
                 {
                     de.Delete();
-                    dynamicEquipmentRepository.SaveDynamicEquipment(equipments);
+                    dynamicEquipmentRepository.Save(equipments);
                 }
             }
         }

@@ -15,7 +15,8 @@ namespace Bolnica.Controller
         private Service.InstructionsForHospitalTreatmentService instructionsService;
         public InstructionsForHospitalTreatmentController()
         {
-            instructionsService = new Service.InstructionsForHospitalTreatmentService();
+            Repository.InstructionsForHospitalTreatmentRepository r = new Repository.InstructionsForHospitalTreatmentRepository(@"C:\Users\pc\OneDrive\Radna površina\Radovan\Upravnik\Instructions.txt");
+            instructionsService = new Service.InstructionsForHospitalTreatmentService(r);
         }
         public void CreateInstructionsForHospitalTreatment(Model.InstructionsForHospitalTreatment instructionsForHospitalTreatment)
         {

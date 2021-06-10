@@ -68,7 +68,7 @@ namespace Bolnica.xaml_window.Manager
             InitializeComponent();
             this.DataContext = this;
             de = d;
-            lbIDDynamicEq.Content = de.control.dynamicEquipmentService.dynamicEquipmentRepository.next_id.ToString();
+            lbIDDynamicEq.Content = de.control.dynamicEquipmentService.dynamicEquipmentRepository.getNextId();
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
